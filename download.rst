@@ -19,7 +19,7 @@ Source Packages
 * [2007/12/10] `pgRouting-1.01.tgz <http://download.osgeo.org/pgrouting/source/pgRouting-1.01.tgz>`_ 
 * [2007/10/04] `pgRouting-1.0.tgz <http://download.osgeo.org/pgrouting/source/pgRouting-1.0.tgz>`_ 
 
-Previous versions: http://download.osgeo.org/pgrouting/source/
+You can find previous versions in http://download.osgeo.org/pgrouting/source/
 
 Linux Packages
 --------------
@@ -41,9 +41,11 @@ Windows Binaries
 * [2008/07/11] `pgRouting-1.02_pg-8.3.3.zip <http://www.davidgis.fr/download/pgRouting-1.02_pg-8.3.3.zip>`_ (Thanks  David!)
 * [2007/10/15] `pgRouting-1.0_win32.zip <http://files.postlbs.org/pgrouting/binaries/pgRouting-1.0_win32.zip>`_
 
-Previous versions: http://download.osgeo.org/pgrouting/binaries/
+You can find previous versions in http://download.osgeo.org/pgrouting/binaries/
 
-If you can provide additional Windows binaries, please contact us, so we can add them to the list.
+.. note::
+
+	If you can provide additional Windows binaries, please contact us, so we can add them to the list.
 
 Code Repository
 ---------------
