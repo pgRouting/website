@@ -1,20 +1,49 @@
-.. pgRouting Project documentation master file, created by
-   sphinx-quickstart on Thu Nov  4 20:22:04 2010.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+:Author: Daniel Kastl
+:License: Creative Commons
 
-Welcome to pgRouting Project's documentation!
-=============================================
+.. _home:
 
-Contents:
+Welcome to pgRouting Project
+============================
+
+pgRouting extends the `PostGIS <postgis_overview.html>`_/`PostgreSQL <http://www.postgresql.org>`_ geospatial database to provide geospatial routing functionality.
+
+Advantages of the database routing approach are:
+
+* Data and attributes can be modified by many clients, like `Quantum GIS <qgis_overview.html>`_ and `uDig <udig_overview.html>`_ through JDBC, ODBC, or directly using Pl/pgSQL. The clients can either be PCs or mobile devices.
+* Data changes can be reflected instantaneously through the routing engine. There is no need for precalculation.
+* The "cost" parameter can be dynamically calculated through SQL and its value can come from multiple fields or tables.
+
+Core Features
+-------------
+
+pgRouting provides functions for:
+
+* Shortest Path Dikstra: routing algorithm without heuristics
+* Shortest Path A-Star: routing for large datasets (with heuristics)
+* Shortest Path Shooting-Star: routing with turn restrictions (with heuristics)
+* Traveling Salesperson Problem (TSP)
+* Driving Distance calculation (Isolines)
+
+pgRouting is Open Source
+------------------------
+
+pgRouting is available under the GPLv2 license and is supported by a growing
+community of individuals, businesses and organizations.
 
 .. toctree::
-   :maxdepth: 2
+	:hidden:
 
-Indices and tables
-==================
+	documentation
+	download
+	support
+	development
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+..
+	Indices and tables
+	==================
+
+	* :ref:`genindex`
+	* :ref:`modindex`
+	* :ref:`search`
 
