@@ -1,6 +1,3 @@
-:Authors: 
-	Daniel Kastl <daniel@georepublic.de>
-
 ===========================
  README - pgRouting Website
 ===========================
@@ -45,4 +42,6 @@ Note
 The pgRouting website is currently hosted on Georepublic server. 
 Contact administrators via email: project@pgrouting.org
 
+:Authors: 
+	Daniel Kastl <daniel@georepublic.de>
 
