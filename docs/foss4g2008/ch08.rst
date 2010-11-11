@@ -1,0 +1,127 @@
+:Author: Daniel Kastl
+:License: Creative Commons
+
+.. _foss4g2008-ch08:
+
+================================================================
+ pgRouting with A-Star algorithm
+================================================================
+
+A-Star algorithm is another well-known routing algorithm. It adds geographical 
+information to source and target of each network link. This enables the shortest 
+path search to prefer links which are closer to the target of the search.
+
+Prepare routing table for A-Star
+--------------------------------
+
+For A-Star you need to prepare your network table and add latitute/longitude 
+columns (x1, y1 and x2, y2) and calculate their values.
+
+.. code-block:: sql
+
+	ALTER TABLE ways ADD COLUMN x1 double precision;
+	ALTER TABLE ways ADD COLUMN y1 double precision;
+	ALTER TABLE ways ADD COLUMN x2 double precision;
+	ALTER TABLE ways ADD COLUMN y2 double precision;
+
+
+.. code-block:: sql
+
+	UPDATE ways SET x1 = x(startpoint(the_geom));
+	UPDATE ways SET y1 = y(startpoint(the_geom));
+	UPDATE ways SET x2 = x(endpoint(the_geom));
+	UPDATE ways SET y2 = y(endpoint(the_geom));
+
+
+.. note:: 
+
+	"endpoint()" function fails for some versions of PostgreSQL (ie. 8.2.5, 8.1.9). 
+	A workaround for that problem is using the "PointN()" function instead:
+
+	.. code-block:: sql
+
+		UPDATE ways SET x1 = x(PointN(the_geom, 1));
+		UPDATE ways SET y1 = y(PointN(the_geom, 1));
+		UPDATE ways SET x2 = x(PointN(the_geom, NumPoints(the_geom)));
+		UPDATE ways SET y2 = y(PointN(the_geom, NumPoints(the_geom)));
+
+
+Shortest Path A-Star core function
+----------------------------------
+
+Shortest Path A-Star function is very similar to the Dijkstra function, though 
+it prefers links that are close to the target of the search. The heuristics of 
+this search are predefined, so you need to recompile pgRouting if you want to 
+make changes to the heuristic function itself.
+
+.. code-block:: sql
+
+	shortest_path_astar( sql text, 
+			   source_id integer, 
+			   target_id integer, 
+			   directed boolean, 
+			   has_reverse_cost boolean ) 
+
+
+**Note:**
+
+* Source and target IDs are vertex IDs.
+* Undirected graphs ("directed false") ignores "has_reverse_cost" setting
+
+Example of A-Star core function
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: sql
+
+	SELECT * FROM shortest_path_astar('
+			SELECT gid as id, 
+				 source::integer, 
+				 target::integer, 
+				 length::double precision as cost, 
+				 x1, y1, x2, y2
+				FROM ways', 
+			10, 20, false, false); 
+
+
+.. code-block:: sql
+
+	vertex_id | edge_id |        cost         
+	-----------+---------+---------------------
+		    10 |     293 |  0.0059596293824534
+		     9 |    4632 |  0.0846731039249787
+		  3974 |    4633 |  0.0765635090514303
+		   ... |     ... |  ...
+		    20 |      -1 |                   0
+	(63 rows)
+
+
+Wrapper function WITH bounding box
+----------------------------------
+
+Wrapper functions extend the core functions with transformations, bounding box 
+limitations, etc.. 
+
+.. code-block:: sql
+
+	SELECT gid, AsText(the_geom) AS the_geom 
+		FROM astar_sp_delta('ways', 10, 20, 0.1);
+
+
+.. code-block:: sql
+
+	  gid   |                              the_geom      
+	--------+---------------------------------------------------------------
+		293 | MULTILINESTRING((18.4074149 -33.9443308,18.4074019 -33.9443833))
+	   4632 | MULTILINESTRING((18.4074149 -33.9443308,18.4077388 -33.9436183))
+	   4633 | MULTILINESTRING((18.4077388 -33.9436183,18.4080293 -33.9429733))
+		... | ...
+		762 | MULTILINESTRING((18.4241422 -33.9179275,18.4237423 -33.9182966))
+		761 | MULTILINESTRING((18.4243523 -33.9177154,18.4241422 -33.9179275))
+	(62 rows)
+
+
+**Note:**
+ 
+* There is currently no wrapper function for A-Star without bounding box, since bounding boxes are very useful to increase performance. If you don't need a bounding box Dijkstra will be enough anyway.
+* The projection of OSM data is "degree", so we set a bounding box containing start and end vertex plus a 0.1 degree buffer for example.
+
