@@ -10,8 +10,8 @@
 Presenters
 ----------
 
-* Claude Philipona (`Camptocamp SA <http://www.camptocamp.com>`_)
 * Daniel Kastl (`Georepublic UG <http://georepublic.de>`_ and `Georepublic Japan <http://georepublic.co.jp>`_)
+* Frédéric Junod (`Camptocamp SA <http://www.camptocamp.com>`_)
 
 Resources
 ---------
