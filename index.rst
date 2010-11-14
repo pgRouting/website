@@ -6,6 +6,12 @@
 pgRouting Project
 =================
 
+.. image:: _themes/pgrouting/static/img/pgrouting.png
+	:scale: 100%
+	:alt: pgRouting Project
+	:align: right
+
+
 pgRouting extends the `PostGIS <postgis_overview.html>`_/`PostgreSQL <http://www.postgresql.org>`_ geospatial database to provide geospatial routing functionality.
 
 Advantages of the database routing approach are:
@@ -47,11 +53,4 @@ community of individuals, businesses and organizations.
 	support
 	development
 
-..
-	Indices and tables
-	==================
-
-	* :ref:`genindex`
-	* :ref:`modindex`
-	* :ref:`search`
 

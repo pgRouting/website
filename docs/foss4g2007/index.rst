@@ -36,4 +36,4 @@ Workshop Downloads
 ------------------
 
 * `foss4g_w12.tar.gz <http://download.osgeo.org/pgrouting/foss4g2007/W-12/foss4g_w12.tar.gz>`_
-* `20071004_tutorial.zip <http://download.osgeo.org/pgrouting/tutorial/20071004_tutorial.zip>`_
+* `20071004_tutorial.zip <http://download.osgeo.org/pgrouting/foss4g2007/20071004_tutorial.zip>`_

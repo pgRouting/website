@@ -24,6 +24,18 @@ There are two mailing lists for pgRouting hosted on
 For development and PSC related topics, please write to the developer mailing list.
 
 
+Issue Tracker
+--------------
+
+Each repository has its own issue tracker provided by GitHub:
+
+* **pgRouting**: https://github.com/pgRouting/pgrouting/issues
+* **Website**: https://github.com/pgRouting/website/issues
+
+Please, use these issue trackers for bug reports, feature requests or similar 
+issues.
+	
+
 Git Repository
 --------------
 
@@ -44,6 +56,12 @@ To checkout the latest `pgRouting Library <https://github.com/pgRouting/pgroutin
 
 	git clone git@github.com:pgRouting/pgrouting.git
 
+.. note::
+
+	If 	you want to contribute to the pgRoutng project, add features or make 
+	corrections, feel free to fork the repository and submit pull requests so
+	we can test and apply your changes. 
+
 
 * **pgRouting Website**
 
@@ -52,19 +70,16 @@ To checkout the latest `pgRouting Website <https://github.com/pgRouting/pgroutin
 .. code-block:: bash
 
 	git clone git@github.com:pgRouting/website.git
-
-
-Issue Tracker
---------------
-
-Each repository has its own issue tracker provided by GitHub:
-
-* **pgRouting**: https://github.com/pgRouting/pgrouting/issues
-* **Website**: https://github.com/pgRouting/website/issues
-
-Please, use these issue trackers for bug reports, feature requests or similar 
-issues.
 	
+
+.. note::
+
+	The pgRouting website is built with `Sphinx <http://sphinx.pocoo.org>`_. 	
+	If 	you want to make changes to the website, contribute content or make 
+	corrections, feel free to fork the repository and submit pull requests. Or 
+	send an email to project@pgrouting.org and we will give you commit rights
+	to the repository.
+
 
 Request for Comments (RFC)
 --------------------------

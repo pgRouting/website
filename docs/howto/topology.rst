@@ -121,7 +121,7 @@ The output will be like this;
 	N,S,E,W,T,B: 35.672010, 35.671649, 139.755285, 139.755014, 0.000000, 0.000000
 
  
-A perl program like `table_topo.pl <http://download.osgeo.org/pgrouting/tools/table_topo.pl>`_ 
+A perl program like :download:`table_topo.pl <download/table_topo.pl>` 
 can be used to convert GRASS output into SQL files that will create node and 
 line tables containing the topological information. These tables can then be 
 linked into the PostGIS network table to create the source-target node 
