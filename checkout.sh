@@ -26,11 +26,13 @@
 #       - Update to the latest changes of the website repository 
 #       - Build documentation with Sphinx
 #
-# NOTE: This script was written to run on Ubuntu server. It requires an existing
+# NOTE: This script was written to run on Ubuntu server. 
+#		It requires an existing
 #		clone of pgRouting website repository
 
 # Running:
 # =======
+# This script can run as cron job for example
 # ./checkout.sh
 
 REPDIR="/opt/pgrouting/website/"
@@ -42,6 +44,6 @@ cd $REPDIR
 git pull origin
 
 # Create HTML
-make -b html -Q -c $WEBDIR
+sphinx-build -b html -Q $REPDIR $WEBDIR
 
 
