@@ -78,7 +78,8 @@ To checkout the latest `pgRouting Website <https://github.com/pgRouting/pgroutin
 	If 	you want to make changes to the website, contribute content or make 
 	corrections, feel free to fork the repository and submit pull requests. Or 
 	send an email to project@pgrouting.org and we will give you commit rights
-	to the repository.
+	to the repository. It is planned to automatically rebuild the website after
+	commits to the repository.
 
 
 Request for Comments (RFC)
