@@ -41,7 +41,7 @@ WEBDIR="/var/www/pgrouting/"
 cd $REPDIR
 
 # Update to latest version
-git pull origin
+git pull -q origin
 
 # Create HTML
 sphinx-build -b html -Q $REPDIR $WEBDIR
