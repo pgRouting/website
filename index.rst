@@ -28,7 +28,7 @@ pgRouting Project
 	:align: right
 
 
-pgRouting extends the `PostGIS <postgis_overview.html>`_/`PostgreSQL <http://www.postgresql.org>`_ geospatial database to provide geospatial routing functionality.
+pgRouting extends the `PostGIS <http://www.postgis.org>`_ / `PostgreSQL <http://www.postgresql.org>`_ geospatial database to provide geospatial routing functionality.
 
 Advantages of the database routing approach are:
 
