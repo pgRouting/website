@@ -54,6 +54,22 @@ Check out the latest source code from pgRouting Git repository hosted at `Github
 
 .. code-block:: bash
 
-	git clone git@github.com:pgRouting/pgrouting.git
+	git clone git://github.com/pgRouting/pgrouting.git pgrouting
+	
+
+.. note::
+
+	If you plan to submit patches or changes, make a fork of the repository:
+	
+	Make sure you've got a github account and that you're logged in. Go to: 
+	https://github.com/pgRouting/pgrouting,  click the "fork" button Now you 
+	should have your own version of the repository. Use the same commands as 
+	above, but you'll substitute your username like this:
+	
+	.. code-block:: bash
+
+		git clone git://github.com/<username>/pgrouting.git pgrouting
+		
+		
 
 

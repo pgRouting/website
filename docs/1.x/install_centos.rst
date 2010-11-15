@@ -119,7 +119,7 @@ Compile pgRouting
 
 .. code-block:: bash
 
-	git clone git@github.com:pgRouting/pgrouting.git pgrouting
+	git clone git://github.com/pgRouting/pgrouting.git pgrouting
 	cd pgrouting/
 	sudo [cmake_dir]/bin/cmake .
 	sudo make install

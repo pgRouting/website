@@ -63,7 +63,7 @@ Compile pgRouting core (with TSP and DD flag on)
 
 .. code-block:: bash
 
-	git clone git@github.com:pgRouting/pgrouting.git pgrouting
+	git clone git://github.com/pgRouting/pgrouting.git pgrouting
 
 	cd pgrouting/
 	cmake -DWITH_TSP=ON -DWITH_DD=ON .

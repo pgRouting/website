@@ -48,40 +48,64 @@ pgRouting repositories are public, but write access is limited. Send an email to
 project@pgrouting.org if you want to make changes to the website our if you want 
 to contribute to the project.
 
-* **pgRouting Library**
+If you're new to Git, find more information here:
+
+* http://progit.org/book/
+* http://www.kernel.org/pub/software/scm/git/docs/
+* http://gitref.org/
+* http://help.github.com/
+
+
+pgRouting Library
+^^^^^^^^^^^^^^^^^
 
 To checkout the latest `pgRouting Library <https://github.com/pgRouting/pgrouting>`_ code base:
 
 .. code-block:: bash
 
-	git clone git@github.com:pgRouting/pgrouting.git
+	git clone git://github.com/pgRouting/pgrouting.git pgrouting
+	
 
-.. note::
+If you plan to submit patches or changes, make a **fork** of the repository:
 
-	If 	you want to contribute to the pgRoutng project, add features or make 
-	corrections, feel free to fork the repository and submit pull requests so
-	we can test and apply your changes. 
+#. Make sure you've got a GitHub account and that you're logged in. 
+#. Go to: https://github.com/pgRouting/pgrouting,  click the "fork" button. Now you should have your own version of the repository. 
+#. Use the same commands as above, but you'll substitute your username like this:
 
+.. code-block:: bash
 
-* **pgRouting Website**
+	git clone git://github.com/<username>/pgrouting.git pgrouting
+	
+	
+pgRouting Website
+^^^^^^^^^^^^^^^^^
 
 To checkout the latest `pgRouting Website <https://github.com/pgRouting/pgrouting>`_ code base:
 
 .. code-block:: bash
-
-	git clone git@github.com:pgRouting/website.git
+ 
+	git clone git://github.com/pgRouting/website.git website
 	
 
-.. note::
-
-	The pgRouting website is built with `Sphinx <http://sphinx.pocoo.org>`_. 	
-	If 	you want to make changes to the website, contribute content or make 
-	corrections, feel free to fork the repository and submit pull requests. Or 
-	send an email to project@pgrouting.org and we will give you commit rights
-	to the repository. It is planned to automatically rebuild the website after
-	commits to the repository.
+The pgRouting website is built with `Sphinx <http://sphinx.pocoo.org>`_. 	
+If 	you want to make changes to the website, contribute content or make 
+corrections, feel free to fork the repository and submit pull requests. Or 
+send an email to project@pgrouting.org and we will give you commit rights
+to the repository. 
 
 
+How to contribute
+-----------------
+
+Find out more about how to contribute:
+
+.. toctree::
+	:maxdepth: 1
+
+	docs/howto/contribute
+	contributor
+
+	
 Request for Comments (RFC)
 --------------------------
 
@@ -105,8 +129,5 @@ Current members of the the Project Steering Committe are:
 * Venkatesh Raghavan
 
 For Project Steering Committe guideline see :doc:`RFC 01 <rfc/rfc-01>`.
-
-
-   
 
  
