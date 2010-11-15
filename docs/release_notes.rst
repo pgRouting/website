@@ -10,8 +10,7 @@
 Changes for release  1.05
 --------------------------
 
-* TBD ...
-* TBD ...
+* Bugfixes
                      
 
 Changes for release  1.03
