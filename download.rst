@@ -21,6 +21,12 @@ Source Packages
 
 You can find previous versions in http://download.osgeo.org/pgrouting/source/
 
+.. toctree::
+	:maxdepth: 1
+
+	docs/release_notes
+
+
 Linux Packages
 --------------
 
