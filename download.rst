@@ -37,6 +37,7 @@ Mac OS X Binaries
 -----------------
 
 * http://www.kyngchaos.com/software/postgres
+* http://pgrouting.darwinports.com/
 
 Windows Binaries
 ----------------
