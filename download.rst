@@ -64,7 +64,7 @@ Check out the latest source code from pgRouting Git repository hosted at `Github
 	git clone git://github.com/pgRouting/pgrouting.git pgrouting
 	
 
-.. note::
+.. tip::
 
 	If you plan to submit patches or changes, make a fork of the repository:
 	

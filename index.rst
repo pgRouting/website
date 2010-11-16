@@ -3,7 +3,7 @@
 
 .. _home:
 
-.. note::
+.. important::
 
 	**pgRouting got a new website!**
 	

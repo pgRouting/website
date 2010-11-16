@@ -103,6 +103,7 @@ Find out more about how to contribute:
 	:maxdepth: 1
 
 	docs/howto/contribute
+	donate
 	contributor
 
 	
