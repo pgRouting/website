@@ -122,11 +122,11 @@ Penalties have following meanings:
 
 * w1: driving time violation
 * w2: car capacity violation
-* w3: excess passenger ride time
+* w3: excess passenger ride time violation
 * w4: passanger waiting time violation
-* w5: route duration
+* w5: route duration violation
 * w6: time window violation
-* w7: passanger ride time violation
+* w7: passenger ride time violation
 * w8: route time violation
 
 Output:
