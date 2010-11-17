@@ -16,7 +16,7 @@ Install
 
 - Checkout source code from Git repository
 
-	git clone git@github.com:pgRouting/website.git
+	git clone git://github.com/pgRouting/website.git website
 
 
 - Build website in HTML 
@@ -29,17 +29,10 @@ Install
 	scp -r _build/html/* <user>@<hostname>:/path/to/webroot
 
 
-ToDo
-----
-
-- PDF/Latex build for documentation
-- Script to automatically update the website on the webserver with every commit
-
-
 Note
 ----
 
-The pgRouting website is currently hosted on Georepublic server. 
+The pgRouting website is currently hosted on Georepublic server.
 Contact administrators via email: project@pgrouting.org
 
 :Authors: 
