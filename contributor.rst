@@ -16,6 +16,7 @@ Library
 * Mario Basa
 * Sylvain Pasche
 * Akio Takubo
+* Daniel Kastl
 
 Documention
 -----------
