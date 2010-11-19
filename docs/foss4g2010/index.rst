@@ -16,7 +16,9 @@ Presenters
 Resources
 ---------
 
-You can find the workshop materials in:
+* **Workshop site:** http://workshop.pgrouting.org
+
+You can find workshop materials in:
 
 * OSGeo LiveDVD 4.0: http://live.osgeo.org/
 * OSGeo download server: http://download.osgeo.org/pgrouting/foss4g2010/
