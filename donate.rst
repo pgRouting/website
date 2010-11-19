@@ -41,8 +41,8 @@ You can let us know what you would like to have your donation be used for.
 Otherwise donations will for example support:
 
 * Server and hosting costs (currently Georepublic is hosting the project website)
-* Posters and brochures for conferences and events
-* Materials and handouts for free workshops
+* Posters and brochures for conferences and events, Materials and handouts for workshops
+* Scholarship for students, who applied for Google Summer of Code with a great pgRouting proposal, but were unable to receive one of the rare Google stipends
 
 If the amount of donations is sufficient, they could also allow the 
 implementation of new features (see :doc:`RFC's <rfc/index>`), improvement of 
