@@ -3,9 +3,9 @@
 
 .. _rfc-02:
 
-=================================================
-RFC 02: Migrate pgRouting to OSGeo Infrastructure
-=================================================
+================================================================================
+RFC 02: [done] Migrate pgRouting to OSGeo Infrastructure
+================================================================================
 
 .. list-table::
    :widths: 15 85
@@ -17,7 +17,7 @@ RFC 02: Migrate pgRouting to OSGeo Infrastructure
    * - Contact:
      - daniel at georepublic.de
    * - Last Edited:
-     - 2010/11/10
+     - 2010/11/20
    * - Status: 
      - Adopted (2010/04/18)
 

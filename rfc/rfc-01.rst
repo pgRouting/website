@@ -3,9 +3,9 @@
 
 .. _rfc-01:
 
-=================================================
-RFC 01: Technical Steering Committee Guidelines
-=================================================
+================================================================================
+RFC 01: [done] Technical Steering Committee Guidelines
+================================================================================
 
 .. list-table::
    :widths: 15 85
@@ -17,7 +17,7 @@ RFC 01: Technical Steering Committee Guidelines
    * - Contact:
      - daniel at georepublic.de
    * - Last Edited:
-     - 2010/11/10
+     - 2010/11/20
    * - Status: 
      - Adopted (2010/04/18)
 
