@@ -15,3 +15,12 @@ A pgRouting RFC describes a major change in the technological underpinnings of p
 	rfc-01
 	rfc-02
 
+Template:
+---------
+
+.. toctree::
+	:maxdepth: 1
+
+	rfc-XX
+
+
