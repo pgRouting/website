@@ -12,8 +12,8 @@ A pgRouting RFC describes a major change in the technological underpinnings of p
 .. toctree::
 	:maxdepth: 1
 
-	rfc-01
 	rfc-02
+	rfc-01
 
 Template:
 ---------

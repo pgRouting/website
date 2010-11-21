@@ -114,6 +114,11 @@ pgRouting :doc:`RFC's <rfc/index>` describes a major change in the technological
 underpinnings of pgRouting, major additions to functionality, or changes in the 
 direction of the project.
 
+.. toctree::
+	:hidden: 
+	
+	rfc/index
+
 
 .. _development-psc:
 
