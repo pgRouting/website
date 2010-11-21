@@ -34,8 +34,12 @@
 			<br/>Support pgRouting with some donation! <a href="{{ pathto('donate') }}">Read more</a> about how your donation will help the project.
 		</form>				
     </p>
-    <h2>News</h2>
-    <p>...</p>
+    <h2>Links</h2>
+    <ul style="list-style: square; margin-left: 20px;">
+    	<li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
+    	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
+    	<li><a href="http://www.postgis.org/">PostGIS</a></li>
+    </ul>
     <!-- Callout -->
     <a href="http://www.osgeo.org">
     <img src="{{ pathto('_static/img/OSGeo_logo.png', 1)}}" 
@@ -48,12 +52,6 @@
         <div class="sphinxsidebarwrapper">
             <h2>Download</h2>
             <p>Current release: <a href="{{ pathto('download') }}">{{ release }}</a></p>
-            <!--h1>pgRouting News</h1>
-            <script charset="ISO-8859-1" src="http://landmark-project.com/feed2js/feed2js.php?src=http%3A%2F%2Fpgrouting.blogspot.com%2Ffeeds%2Fposts%2Fdefault%3Falt%3Drss&num=3&desc=75"></script>
-            <span><a href="http://pgrouting.blogspot.com" title="pgRouting Blog">more ...</a></span-->
-            <!--h1>License</h1>
-            <p style="font-size: 90%; margin-top:2px;">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 License</a>.</p>
-            <p style="margin:0;"><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a></p-->
    			{{ callout_sidebar() }}
         </div>
     </div>
