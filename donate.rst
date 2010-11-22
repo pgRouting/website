@@ -37,15 +37,17 @@ some donation through PayPal:
 What your donation will be used for?
 ------------------------------------
 
-You can let us know what you would like to have your donation be used for. 
-Otherwise donations will for example support:
+You can tell us what you would like to have your donation be used for, or you can 
+even sponsor some particular feature! 
+
+Otherwise your donation will support for example:
 
 * Server and hosting expenses (currently Georepublic is hosting the project website)
 * Posters and brochures for conferences and events, Materials and handouts for workshops
 * Scholarship for students, who applied for Google Summer of Code with a great pgRouting proposal, but were unable to receive one of the rare Google stipends
 * Improvement of existing functions and implementation of new features
 
-If the amount of donations is sufficient, they could also allow the 
+If the amount of donations is sufficient, they will further support the 
 implementation of new features (see :doc:`RFC's <rfc/index>`), improvement of 
 documentation and tutorials, etc..
 
