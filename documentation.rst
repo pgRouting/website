@@ -40,6 +40,7 @@ pgRouting Gallery
 	:maxdepth: 1
 
 	gallery
+	OSGeo LiveDVD <http://live.osgeo.org>
 
 
 .. note::
