@@ -7,9 +7,7 @@
  Page not found
 ======================
 
-.. warning::
-
-	Sorry, but the page you were looking for can't be found.
+	**Sorry, but the page you were looking for can't be found.**
 
 
 Try the :ref:`search box <search>` to find the page you were looking for or go
