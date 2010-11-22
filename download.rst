@@ -31,7 +31,9 @@ Linux Packages
 --------------
 
 * DEB packages: https://launchpad.net/~georepublic/+archive/pgrouting
-* RPM packages: http://wiki.osgeo.org/wiki/Enterprise_Linux_GIS
+* RPM packages: 
+	* http://wiki.osgeo.org/wiki/Enterprise_Linux_GIS
+	* http://fedoraproject.org/wiki/GIS (https://admin.fedoraproject.org/pkgdb/acls/name/pgRouting)
 
 Mac OS X Binaries
 -----------------
@@ -53,6 +55,16 @@ You can find previous versions in http://download.osgeo.org/pgrouting/binaries/
 .. note::
 
 	If you can provide additional Windows binaries, please contact us, so we can add them to the list.
+
+Live DVD
+--------
+
+pgRouting library and workshop are available on OSGeo LiveDVD: http://live.osgeo.org
+
+OSGeo-Live is a self-contained bootable DVD, USB thumb drive or Virtual Machine 
+based on Xubuntu, that allows you to try a wide variety of open source 
+geospatial software without installing anything.
+
 
 Code Repository
 ---------------
