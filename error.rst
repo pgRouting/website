@@ -7,9 +7,13 @@
  Page not found
 ======================
 
-Sorry, but the page you were looking for can't be found.
+.. warning::
 
-You can go to the :doc:`pgRouting Homepage <index>`.
+	Sorry, but the page you were looking for can't be found.
+
+
+Try the :ref:`search box <search>` to find the page you were looking for or go
+to the :doc:`pgRouting Home <index>`.
 
 .. important::
 
@@ -27,4 +31,13 @@ You can go to the :doc:`pgRouting Homepage <index>`.
 	to participate in the project and make development faster and better!
 	
 
+.. raw:: html
+
+	<script type="text/javascript">
+		// Hack to redirect to standard error page 
+		var errorPage = "http://www.pgrouting.org/error.html"
+		if(window.location.href != errorPage){
+			window.location.href = errorPage;
+		}
+	</script>
 
