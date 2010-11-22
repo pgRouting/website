@@ -46,4 +46,6 @@ git pull -q origin
 # Create HTML
 sphinx-build -b html -Q $REPDIR $WEBDIR
 
+# Copy robots.txt
+cp $REPDIR"robots.txt $WEBDIR
 
