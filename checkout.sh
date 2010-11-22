@@ -46,6 +46,7 @@ git pull -q origin
 # Create HTML
 sphinx-build -b html -Q $REPDIR $WEBDIR
 
-# Copy robots.txt
+# Copy robots.txt and Google WTK verification
 cp $REPDIR"robots.txt" $WEBDIR
+cp $REPDIR"googlec45579aabecbde29.html" $WEBDIR
 
