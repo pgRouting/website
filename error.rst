@@ -9,9 +9,11 @@
 
 	**Sorry, but the page you were looking for can't be found.**
 
+To find the page you were looking for you might want to ...
 
-Try the :ref:`search box <search>` to find the page you were looking for or go
-to the :doc:`pgRouting Home <index>`.
+* :ref:`search this website <search>`
+* go to the `cached previous website <http://download.osgeo.org/pgrouting/forum/>`_
+* start with :doc:`pgRouting Home <index>`
 
 .. important::
 

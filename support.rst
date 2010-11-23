@@ -37,7 +37,7 @@ http://gis.stackexchange.com/questions/tagged/pgrouting or subscribe to the
 
 	Due to increasing problem with spam we decided to stop the previous discussion 
 	forum when moving to the new project website. You can find a cached copy of the 
-	old forum at http://download.osgeo.org/pgrouting/
+	old forum at http://download.osgeo.org/pgrouting/forum/
 
 Commercial Support
 ------------------
