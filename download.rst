@@ -13,11 +13,11 @@ If you want to install the current development version, check out the source fro
 Source Packages
 ---------------
 
-* [2010/11/22] `pgRouting-1.05.tgz <http://download.osgeo.org/pgrouting/source/pgRouting-1.05.tgz>`_
-* [2008/09/04] `pgRouting-1.03.tgz <http://download.osgeo.org/pgrouting/source/pgRouting-1.03.tgz>`_  
-* [2008/04/11] `pgRouting-1.02.tgz <http://download.osgeo.org/pgrouting/source/pgRouting-1.02.tgz>`_  
-* [2007/12/10] `pgRouting-1.01.tgz <http://download.osgeo.org/pgrouting/source/pgRouting-1.01.tgz>`_ 
-* [2007/10/04] `pgRouting-1.0.tgz <http://download.osgeo.org/pgrouting/source/pgRouting-1.0.tgz>`_ 
+* [2010/11/22] `pgrouting-1.05.tar.gz <http://download.osgeo.org/pgrouting/source/pgrouting-1.05.tar.gz>`_
+* [2008/09/04] `pgrouting-1.03.tar.gz <http://download.osgeo.org/pgrouting/source/pgrouting-1.03.tar.gz>`_  
+* [2008/04/11] `pgrouting-1.02.tar.gz <http://download.osgeo.org/pgrouting/source/pgrouting-1.02.tar.gz>`_  
+* [2007/12/10] `pgrouting-1.01.tar.gz <http://download.osgeo.org/pgrouting/source/pgrouting-1.01.tar.gz>`_ 
+* [2007/10/04] `pgrouting-1.0.tar.gz <http://download.osgeo.org/pgrouting/source/pgrouting-1.0.tar.gz>`_ 
 
 You can find previous versions in http://download.osgeo.org/pgrouting/source/
 
