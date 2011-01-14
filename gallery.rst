@@ -24,6 +24,7 @@ pgRouting Demos
 * http://wrs.postlbs.org/foss4g/
 * http://www.djayux.net/routingj/
 * http://websi.openvrp.com (Georepublic routing demo)
+* http://routing.geosdi.org (geoSDI routing demo)
 
 .. note::
 
