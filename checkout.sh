@@ -36,12 +36,13 @@
 # ./checkout.sh
 
 REPDIR="/opt/Github/pgrouting/website/"
-WEBDIR="/var/www/pgrouting/"
+WEBDIR="/var/www/pgrouting-www/"
 
 cd $REPDIR
 
 # Update to latest version
-git pull -q origin
+#git pull -q origin
+git fetch -q origin
 
 # Create HTML
 sphinx-build -b html -Q $REPDIR $WEBDIR
