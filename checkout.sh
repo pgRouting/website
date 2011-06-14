@@ -35,7 +35,7 @@
 # This script can run as cron job for example
 # ./checkout.sh
 
-REPDIR="/opt/pgrouting/website/"
+REPDIR="/opt/Github/pgrouting/website/"
 WEBDIR="/var/www/pgrouting/"
 
 cd $REPDIR
