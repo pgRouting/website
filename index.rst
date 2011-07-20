@@ -47,7 +47,7 @@ Core Features
 
 pgRouting provides functions for:
 
-* Shortest Path Dikstra: routing algorithm without heuristics
+* Shortest Path Dijkstra: routing algorithm without heuristics
 * Shortest Path A-Star: routing for large datasets (with heuristics)
 * Shortest Path Shooting-Star: routing with turn restrictions (with heuristics)
 * Traveling Salesperson Problem (TSP)
