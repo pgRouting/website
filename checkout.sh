@@ -35,13 +35,13 @@
 # This script can run as cron job for example
 # ./checkout.sh
 
-REPDIR="/opt/pgrouting/website/"
-WEBDIR="/var/www/pgrouting/"
+REPDIR="/opt/Github/pgrouting/website/"
+WEBDIR="/var/www/pgrouting-www/"
 
 cd $REPDIR
 
 # Update to latest version
-git pull -q origin
+git pull -q
 
 # Create HTML
 sphinx-build -b html -Q $REPDIR $WEBDIR
