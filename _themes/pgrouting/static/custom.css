@@ -250,3 +250,12 @@ p.credit {
 .footer a {
 	color: #FFFFFF !important;
 }
+
+select.paypal_currency {
+	position: relative;
+	bottom: 7px;
+}
+
+.align-right {
+	float: right;
+}
