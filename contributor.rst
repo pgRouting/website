@@ -7,43 +7,47 @@
  List of Contributors
 ======================
 
-Thanks to everyone who contributed to pgRouting project over the last years!
+Thanks to everyone who contributed to pgRouting project over the past years!
 
 Library
 -------
 
-* Anton Patrushev 
-* Mario Basa
-* Sylvain Pasche
 * Akio Takubo
+* Anton Patrushev 
 * Christian Gonzalez
 * Daniel Kastl
+* Jay Mahadeokar
+* Kishore Kumar
+* Mario Basa
+* Sylvain Pasche
 
 Documention
 -----------
 
-* Daniel Kastl
+* Akio Takubo
 * Anton Patrushev
-* Mario Basa
-* Kai Behncke
-* Frederic Junod
-* Stephen Woodbridge
+* Daniel Kastl
+* David Techer
 * Ema Miyawaki
 * Florian Thurkow
-* David Techer
+* Frederic Junod
 * Gerald Fenoy
-* Akio Takubo
+* Jay Mahadeokar
+* Kai Behncke
+* Kishore Kumar
 * Ko Nagase
+* Mario Basa
+* Stephen Woodbridge
 
 Binaries/Packages
 -----------------
 
+* Akio Takubo
+* Daniel Kastl
 * David Techer
+* Frederic Junod
 * Ko Nagase
 * Martin Wiesenhaan
-* Daniel Kastl
-* Akio Takubo
-
 
 .. note::
 
