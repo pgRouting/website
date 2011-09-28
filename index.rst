@@ -3,8 +3,7 @@
 
 .. _home:
 
-.. important::
-
+.. 
 	**pgRouting got a new website!**
 	
 	It has been a long way but finally we made it: pgRouting got a new website!
