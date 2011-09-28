@@ -15,6 +15,7 @@ pgRouting Examples
 * http://www.er.org.br (pgRouting generated routes over Google Maps)
 * http://www.fcmq.qc.ca/cartes/en (Snowmobile trails, Quebec)
 * http://www.naturparkscout.de (tourism routes, Germany)
+* http://plan.epfl.ch (Campus routing also over different floors, Switzerland)
 
 
 pgRouting Demos
