@@ -16,6 +16,7 @@ pgRouting Examples
 * http://www.fcmq.qc.ca/cartes/en (Snowmobile trails, Quebec)
 * http://www.naturparkscout.de (tourism routes, Germany)
 * http://plan.epfl.ch (Campus routing also over different floors, Switzerland)
+* http://geoportal.rekod.ru (GeoPortal, Russia)
 
 
 pgRouting Demos
