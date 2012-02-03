@@ -14,11 +14,13 @@ Library
 
 * Akio Takubo
 * Anton Patrushev 
+* Ashraf Hossain
 * Christian Gonzalez
 * Daniel Kastl
 * Jay Mahadeokar
 * Kishore Kumar
 * Mario Basa
+* Stephen Woodbridge
 * Sylvain Pasche
 
 Documention
