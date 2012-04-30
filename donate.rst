@@ -44,7 +44,7 @@ some donation through PayPal:
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
 		</form>			
 	</div>
-		
+	
 	
 What your donation will be used for?
 ------------------------------------
@@ -67,10 +67,21 @@ documentation and tutorials, etc..
 .. note::
 
 	For the beginning (to keep it simple) we're using a private PayPal account
-	registered by `Georepublic UG <htt://georepublic.de>`_ (Germany). In case 
+	registered by `Georepublic UG <http://georepublic.de>`_ (Germany). In case 
 	the amount of donations will increase by a signifacant amount we might 
 	consider to setup some non-profit organisation. Georepublic will report
 	donations to the pgRouting PSC.
 	
-	
+
+Donations received in 2012
+--------------------------
+
+The following people or organizations have made donations or supplied finacial development support to the pgRouting project and have specifically requested that their names appear here:	
+
+* Julie Kinnear from `Toronto MLS listings <http://juliekinnear.com>`_
+* Elli Davis from `Toronto real estate <http://ellidavis.com>`_
+* Sebastian Albrecht from `Vancouver Real Estate <http://yourvancouverrealestate.ca>`_
+* Chantall Marr from `Life Insurance Canada <http://lsminsurance.ca>`_
+
+Many thanks to the listed and non-listed supporters have provided support or made donations. Names listed here are by specific request. If you have made a donation or provided financial support and wish to appear in this list, please send an email to project at pgrouting dot org.
 	
