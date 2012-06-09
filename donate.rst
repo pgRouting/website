@@ -1,11 +1,11 @@
 :Author: Daniel Kastl
 :License: Creative Commons
 
-.. _donation:
+.. _sponsorship:
 
-======================
- Make a Donation
-======================
+==========================
+ Sponsorship and Donation
+==========================
 
 Maybe you have used pgRouting for your research project or for some commercial
 application or something else. Then we hope that the library and the information
@@ -13,14 +13,55 @@ on the pgRouting website helped you to get your work done. Or maybe you're
 planning to use pgRouting for your next project.
 
 pgRouting is an Open Source project and so the users and the community are the
-most valuable and most important factor. We appreciate every `feedback, 
-question, bug report, patches and contributions <development>`_.
+most valuable and most important factor. pgRouting development is carried 
+out largely by a group of volunteers, that in time have built up a large, 
+valuable and useful code base, free to use and improve for everybody. We 
+appreciate every `feedback, question, bug report, patches and contributions 
+<development>`_.
 
-But sometimes financial support makes life easier! And the easiest way to 
-collect some funding is probably through donations. 
-So if you feel you want to support the pgRouting not only through community 
-activity, but also provide some financial support, then feel free to make
-some donation through PayPal:
+We would like to extend our activities and improve the quality of pgRouting. 
+Your financial contribution will support the maintenance, improvement, and 
+promotion of pgRouting. Sponsorship is not a way for individuals to control the 
+development of the project, but rather a way of ensuring the longevity and 
+overall health of the project.
+
+
+How can you support the pgRouting Development
+---------------------------------------------
+
+There are two kinds of financial contributions, we accept:
+
+* **sponsorships**: a sponsorship is an annual commitment of funds to the project.
+* **donation**: a donation is a once off financial contribution to the project.
+
+
+Sponsorship
+^^^^^^^^^^^
+
+Sponsors can sponsor pgRouting for any amount of money of at least 150 EUR / 
+200 USD. Sponsorships last one year, after which they may be continued with a 
+new payment, or allowed to lapse. At or above the following levels a sponsor 
+will be designated as being one of the following class:
+
+* 1.500+ EUR / 2.000+ USD: Platinum Sponsor
+* 750+ EUR / 1.000+ USD: Gold Sponsor
+* 450+ EUR / 600+ USD: Silver Sponsor
+* 150+ EUR / 200+ USD: Bronze Sponsor
+
+.. raw:: html
+
+  <p>Organizations or individuals interested in sponsoring the pgRouting project
+  should contact 
+  <script type="text/javascript"> 
+	  document.write('<a href="mailto:' + new Array("project","pgrouting.org").join("@") + '">project at pgrouting dot org</a>'); 
+  </script>
+  with questions, or to make arrangements.</p>
+
+
+Donation
+^^^^^^^^
+
+Donations can be of any amount through PayPal. 
 
 .. raw:: html
 
@@ -45,23 +86,42 @@ some donation through PayPal:
 		</form>			
 	</div>
 	
+Even a small donation can make a big difference and help to reach important 
+project goals!
+
 	
-What your donation will be used for?
-------------------------------------
+What is your benefit sponsoring the pgRouting Development
+---------------------------------------------------------
 
-You can tell us what you would like to have your donation be used for, or you can 
-even sponsor some particular feature! 
+Sponsoring the pgRouting project provides the following benefits:
 
-Otherwise your donation will support for example:
+* Ensures the sustainability and health of the pgRouting project.
+* All sponsors will be listed on the project sponsor page, ordered by contribution class (Platinum, Gold, Silver, Bronze) with a link back to the sponsor.
 
-* Server and hosting expenses (currently Georepublic is hosting the project website)
-* Posters and brochures for conferences and events, Materials and handouts for workshops
-* Scholarship for students, who applied for Google Summer of Code with a great pgRouting proposal, but were unable to receive one of the rare Google stipends
-* Improvement of existing functions and implementation of new features
+  * Platinum Sponsors will have their logo placed in the sidebar of pgrouting.org
+  * Gold Sponsors will be listed on the sponsors page with a large logo (60k pixel, e.g. 300x200px)
+  * Silver sponsors will be listed on the sponsors page with a medium size logo (30k pixel, e.g. 200x150px)
+  * Bronze sponsors will be listed on the sponsors page with a small size logo (6k ixel, e.g. 100x60px)
+  
+* Sponsors will be listed in the pgRouting workshop handouts
+* Sponsors will be allowed to use a special version of the pgRouting logo on their web site, which shows they are a sponsor of the pgRouting project
+* Donors will be listed on the sponsors page upon request, but do not receive the additional benefits listed above for sponsors
 
-If the amount of donations is sufficient, they will further support the 
-implementation of new features (see :doc:`RFC's <rfc/index>`), improvement of 
-documentation and tutorials, etc..
+
+How do we use financial support
+-------------------------------
+
+The sponsorship funds will be spent to directly improve the code base of the 
+project, to fund tasks that generally receive less attention from developers, 
+and to fund work on peripheral project tasks so that core contributors can focus 
+efforts on pgRouting improvements. 
+
+As an example, we would like to fund the following project activities:
+
+* fund developers to work on specific aspects of pgRouting including implementing new features and fixing bugs
+* improvement of documentation, workshop materials and tutorials
+* scholarship for students, who applied for Google Summer of Code with a great pgRouting proposal, but were unable to receive one of the limited Google stipends
+* implementation of a particular feature (if sponsorship is sufficient)
 
 
 .. note::
