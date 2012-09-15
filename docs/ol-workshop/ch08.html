@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Explanation of the php-code step 1 &mdash; Open Source Routing Library</title>
+    
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.05',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="top" title="Open Source Routing Library" href="../../index.html" />
+    <link rel="up" title="Workshop OpenLayers, pgRouting and OSM-data" href="index.html" />
+    <link rel="next" title="Function for Filling the gaps (green markers to the vertices)" href="ch09.html" />
+    <link rel="prev" title="Explanation of the OpenLayers-Code step 2" href="ch07.html" />
+    
+
+  </head>
+  <body>
+    <div class="header">
+        <div class="wrap">
+            <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
+            <ul id="top-nav">
+                <li class="first"><a href="../../index.html">Home</a></li>
+                <li><a href="../../documentation.html">Documentation</a></li>
+                <li><a href="../../download.html">Download</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../development.html">Development</a></li>
+            </ul>
+
+            <div id="searchbox">
+                <form class="search" action="../../search.html" method="get">
+                    <input id="searchbox-query" type="text" name="q" size="25" value="Search &hellip;" tabindex="3" onblur="if(this.value=='') this.value='Search &hellip;';" onfocus="if(this.value=='Search &hellip;') this.value='';" />
+                    <input id="searchbox-submit" type="image" value="Search" src="../../_static/img/search_icon_green.png" />
+                    <input type="hidden" name="check_keywords" value="yes" />
+                    <input type="hidden" name="area" value="default" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    	
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="../../index.html">Home</a> &raquo;</li>
+          <li><a href="../../documentation.html" >Documentation</a> &raquo;</li>
+          <li><a href="../tutorials.html" >Workshops &amp; Tutorials</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Workshop OpenLayers, pgRouting and OSM-data</a> &raquo;</li>
+        <li><a href="#">Explanation of the php-code step 1</a></li>
+      </ul>
+    </div>
+    
+
+    	
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ch07.html"
+                        title="previous chapter">Explanation of the OpenLayers-Code step 2</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ch09.html"
+                        title="next chapter">Function for Filling the gaps (green markers to the vertices)</a></p>
+    
+    <h2>Make a Donation</h2>
+    <p>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_donations">
+			<!--input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG"-->
+			<input type="hidden" name="business" value="donate@pgrouting.org">
+			<input type="hidden" name="notify_url" value="http://www.pgrouting.org">
+			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
+			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
+			<select name="currency_code" class="paypal_currency">
+				<option value="EUR" title="€" selected="">EUR</option>
+				<option value="AUD" title="$">AUD</option>
+				<option value="GBP" title="£">GBP</option>
+				<option value="JPY" title="¥">JPY</option>
+				<option value="CAD" title="$">CAD</option>
+				<option value="CHF" title="">CHF</option>
+				<option value="USD" title="$">USD</option>
+			</select>
+			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+		</form>				
+    </p>
+    <h2>Links</h2>
+    <ul style="list-style: square; margin-left: 20px;">
+    	<li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
+    	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
+    	<li><a href="http://www.postgis.org/">PostGIS</a></li>
+    </ul>
+    
+    <!-- Callout -->
+    <a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2012">
+    <img src="../../_static/img/gsoc_2012.png" 
+    	alt="Google Summer of Code 2011" title="Google Summer of Code 2012" style="width:210px;"/>
+    </a>
+    
+    <!--a href="http://2012.foss4g.org">
+    <img src="../../_static/img/foss4g_2012.jpg" 
+    	alt="FOSS4G 2011, Denver" title="FOSS4G 2012, Beijing" style="width:210px;"/>
+    </a-->
+    
+    <a href="http://www.osgeo.org">
+    <img src="../../_static/img/OSGeo_logo.png" 
+    	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
+    </a>
+
+        </div>
+      </div>
+    
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="explanation-of-the-php-code-step-1">
+<span id="ol-workshop-ch08"></span><h1>Explanation of the php-code step 1<a class="headerlink" href="#explanation-of-the-php-code-step-1" title="Permalink to this headline">¶</a></h1>
+<p>First of all a database-connection is set</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+  <span class="c1">// Database connection settings</span>
+  <span class="nb">define</span><span class="p">(</span><span class="s2">&quot;PG_DB&quot;</span>  <span class="p">,</span> <span class="s2">&quot;routing&quot;</span><span class="p">);</span>
+  <span class="nb">define</span><span class="p">(</span><span class="s2">&quot;PG_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">);</span>
+  <span class="nb">define</span><span class="p">(</span><span class="s2">&quot;PG_USER&quot;</span><span class="p">,</span> <span class="s2">&quot;postgres&quot;</span><span class="p">);</span>
+  <span class="nb">define</span><span class="p">(</span><span class="s2">&quot;PG_PORT&quot;</span><span class="p">,</span> <span class="s2">&quot;5432&quot;</span><span class="p">);</span>
+  <span class="nb">define</span><span class="p">(</span><span class="s2">&quot;TABLE&quot;</span><span class="p">,</span>   <span class="s2">&quot;ways&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Attention:
+If you use a database-connection with password of course you need to define a password:</p>
+<p>define(&#8220;PG_PASS&#8221;, &#8220;whatyouwant&#8221;);</p>
+<dl class="docutils">
+<dt>The $con-string then will look like:</dt>
+<dd>$con = pg_connect(&#8220;dbname=&#8221;.PG_DB.&#8221; host=&#8221;.PG_HOST.&#8221; password=&#8221;.PG_PASS.&#8221; user=&#8221;.PG_USER);</dd>
+</dl>
+<p>At the next step, the start- and endpoint are set.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">$counter = $pathlength = 0;</span>
+<span class="x">// Retrieve start point</span>
+<span class="x">$start = split(&#39; &#39;,$_REQUEST[&#39;startpoint&#39;]);</span>
+
+<span class="x">$startPoint = array($start[0], $start[1]);</span>
+
+
+<span class="x">// Retrieve end point</span>
+<span class="x">$end = split(&#39; &#39;,$_REQUEST[&#39;finalpoint&#39;]);</span>
+
+<span class="x">$endPoint = array($end[0], $end[1]);</span>
+</pre></div>
+</div>
+<p>At the next step the nearest edge from the_geom ist searched, for each point
+(start end end) a kind of bounding box (here: 200 meters) is used within that
+it`s looked for the_geom. Because of ORDER BY dist LIMIT 1 the nearest one will
+be taken.</p>
+<p>That screenshot visualises the bounding-box:</p>
+<a class="reference internal image-reference" href="../../_images/routingfrage_1.png"><img alt="../../_images/routingfrage_1.png" class="align-center" src="../../_images/routingfrage_1.png" style="width: 832.0px; height: 665.6px;" /></a>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">// Find the nearest edge</span>
+<span class="x">$startEdge = findNearestEdge($startPoint);</span>
+
+
+<span class="x">$endEdge   = findNearestEdge($endPoint);</span>
+
+<span class="x">// FUNCTION findNearestEdge</span>
+<span class="x">function findNearestEdge($lonlat) {</span>
+
+<span class="x">// Connect to database</span>
+<span class="x">$con = pg_connect(&quot;dbname=&quot;.PG_DB.&quot; host=&quot;.PG_HOST.&quot; user=&quot;.PG_USER);</span>
+
+<span class="x">$sql = &quot;SELECT gid, source, target, the_geom,</span>
+<span class="x">                 distance(the_geom, GeometryFromText(</span>
+<span class="x">                  &#39;POINT(&quot;.$lonlat[0].&quot; &quot;.$lonlat[1].&quot;)&#39;, 900913)) AS dist</span>
+<span class="x">            FROM &quot;.TABLE.&quot;</span>
+<span class="x">            WHERE the_geom &amp;&amp; setsrid(</span>
+<span class="x">                  &#39;BOX3D(&quot;.($lonlat[0]-200).&quot;</span>
+<span class="x">                         &quot;.($lonlat[1]-200).&quot;,</span>
+<span class="x">                         &quot;.($lonlat[0]+200).&quot;</span>
+<span class="x">                         &quot;.($lonlat[1]+200).&quot;)&#39;::box3d, 900913)</span>
+<span class="x">            ORDER BY dist LIMIT 1&quot;;</span>
+
+<span class="x">$query = pg_query($con,$sql);</span>
+
+<span class="x">$edge[&#39;gid&#39;]      = pg_fetch_result($query, 0, 0);</span>
+<span class="x">$edge[&#39;source&#39;]   = pg_fetch_result($query, 0, 1);</span>
+<span class="x">$edge[&#39;target&#39;]   = pg_fetch_result($query, 0, 2);</span>
+<span class="x">$edge[&#39;the_geom&#39;] = pg_fetch_result($query, 0, 3);</span>
+
+<span class="x">// Close database connection</span>
+<span class="x">pg_close($con);</span>
+
+<span class="x">return $edge;</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+<p>After that, the routing-algorithm is taken.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">// Select the routing algorithm</span>
+<span class="x">switch($_REQUEST[&#39;method&#39;]) {</span>
+
+<span class="x">case &#39;SPD&#39; : // Shortest Path Dijkstra</span>
+<span class="x">  $sql = &quot;SELECT rt.gid, AsText(rt.the_geom) AS wkt,</span>
+<span class="x">                   length(rt.the_geom) AS length, &quot;.TABLE.&quot;.id</span>
+<span class="x">                FROM &quot;.TABLE.&quot;,</span>
+<span class="x">                    (SELECT gid, the_geom</span>
+<span class="x">                        FROM dijkstra_sp_delta(</span>
+<span class="x">                            &#39;&quot;.TABLE.&quot;&#39;,</span>
+<span class="x">                            &quot;.$startEdge[&#39;source&#39;].&quot;,</span>
+<span class="x">                            &quot;.$endEdge[&#39;target&#39;].&quot;,</span>
+<span class="x">                            3000)</span>
+<span class="x">                     ) as rt</span>
+<span class="x">                WHERE &quot;.TABLE.&quot;.gid=rt.gid;&quot;;</span>
+
+<span class="x">  break;</span>
+
+<span class="x">case &#39;SPA&#39; : // Shortest Path A*</span>
+
+<span class="x">  $sql = &quot;SELECT rt.gid, AsText(rt.the_geom) AS wkt,</span>
+<span class="x">                     length(rt.the_geom) AS length, &quot;.TABLE.&quot;.id</span>
+<span class="x">                  FROM &quot;.TABLE.&quot;,</span>
+<span class="x">                      (SELECT gid, the_geom</span>
+<span class="x">                          FROM astar_sp_delta(</span>
+<span class="x">                              &#39;&quot;.TABLE.&quot;&#39;,</span>
+<span class="x">                              &quot;.$startEdge[&#39;source&#39;].&quot;,</span>
+<span class="x">                              &quot;.$endEdge[&#39;target&#39;].&quot;,</span>
+<span class="x">                              3000)</span>
+<span class="x">                       ) as rt</span>
+<span class="x">                  WHERE &quot;.TABLE.&quot;.gid=rt.gid;&quot;;</span>
+<span class="x">  break;</span>
+
+<span class="x">case &#39;SPS&#39; : // Shortest Path Shooting*</span>
+
+<span class="x">  $sql = &quot;SELECT rt.gid, AsText(rt.the_geom) AS wkt,</span>
+<span class="x">                     length(rt.the_geom) AS length, &quot;.TABLE.&quot;.id</span>
+<span class="x">                  FROM &quot;.TABLE.&quot;,</span>
+<span class="x">                      (SELECT gid, the_geom</span>
+<span class="x">                          FROM shootingstar_sp(</span>
+<span class="x">                              &#39;&quot;.TABLE.&quot;&#39;,</span>
+<span class="x">                              &quot;.$startEdge[&#39;gid&#39;].&quot;,</span>
+<span class="x">                              &quot;.$endEdge[&#39;gid&#39;].&quot;,</span>
+<span class="x">                              3000, &#39;length&#39;, false, false)</span>
+<span class="x">                       ) as rt</span>
+<span class="x">                  WHERE &quot;.TABLE.&quot;.gid=rt.gid;&quot;;</span>
+<span class="x">  break;</span>
+
+<span class="x">} // close switch</span>
+
+
+<span class="x">//  echo $sql;</span>
+<span class="x">// Database connection and query</span>
+<span class="x">$dbcon = pg_connect(&quot;dbname=&quot;.PG_DB.&quot; host=&quot;.PG_HOST.&quot; user=&quot;.PG_USER);</span>
+
+<span class="x">$query = pg_query($dbcon,$sql);</span>
+
+<span class="x">// Return route as XML</span>
+<span class="x">$xml  = &#39;</span><span class="cp">&lt;?</span><span class="nx">xml</span> <span class="nx">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nx">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span> <span class="nx">standalone</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span> <span class="cp">?&gt;</span><span class="x">&#39;.&quot;\n&quot;;</span>
+<span class="x">$xml .= &quot;&lt;route&gt;\n&quot;;</span>
+
+<span class="x">// Add edges to XML file</span>
+<span class="x">while($edge=pg_fetch_assoc($query)) {</span>
+
+<span class="x">$pathlength += $edge[&#39;length&#39;];</span>
+
+<span class="x">$xml .= &quot;\t&lt;edge id=&#39;&quot;.++$counter.&quot;&#39;&gt;\n&quot;;</span>
+<span class="x">$xml .= &quot;\t\t&lt;id&gt;&quot;.$edge[&#39;id&#39;].&quot;&lt;/id&gt;\n&quot;;</span>
+<span class="x">$xml .= &quot;\t\t&lt;wkt&gt;&quot;.$edge[&#39;wkt&#39;].&quot;&lt;/wkt&gt;\n&quot;;</span>
+<span class="x">$xml .= &quot;\t\t&lt;length&gt;&quot;.round(($pathlength/1000),3).&quot;&lt;/length&gt;\n&quot;;</span>
+<span class="x">$xml .= &quot;\t&lt;/edge&gt;\n&quot;;</span>
+<span class="x">}</span>
+
+<span class="x">$xml .= &quot;&lt;/route&gt;\n&quot;;</span>
+
+<span class="x">// Close database connection</span>
+<span class="x">pg_close($dbcon);</span>
+
+<span class="x">// Return routing result</span>
+<span class="x">header(&#39;Content-type: text/xml&#39;,true);</span>
+<span class="x">echo $xml;</span>
+
+<span class="x">?&gt;</span>
+</pre></div>
+</div>
+<p><strong>An Example</strong></p>
+<p>Imagine the startPoint is:
+900323.3927317789   6852401.794747721
+and the endpoint is 900912.1967151827  6852354.021605052</p>
+<p>The result of the first SQL-Requests for the StartPoint will be the geom with the 7289 and the source-value 486, target-value: 43
+For the endPoint: Gid:8298, Source: 4490, Target: 449</p>
+<p>Then The SQL-Command tor e.g. Shortest Path Dijkstra starts. The result in this case is:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="n">gid</span>                           <span class="n">wkt</span>                                                                                                            <span class="k">length</span>             <span class="n">id</span>
+<span class="c1">----        ----------------------------------------------------------------------------------------------------------------------         ---------------- -------</span>
+<span class="mi">738</span>         <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">900623</span><span class="p">.</span><span class="mi">048836333</span> <span class="mi">6852579</span><span class="p">.</span><span class="mi">25744262</span><span class="p">,</span><span class="mi">900636</span><span class="p">.</span><span class="mi">485098872</span> <span class="mi">6852566</span><span class="p">.</span><span class="mi">95487873</span><span class="p">,</span><span class="mi">900770</span><span class="p">.</span><span class="mi">11301562</span> <span class="mi">6852342</span><span class="p">.</span><span class="mi">72756191</span><span class="p">))</span>        <span class="mi">279</span><span class="p">.</span><span class="mi">243241240336</span>     <span class="mi">738</span>
+<span class="mi">8298</span>        <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">900883</span><span class="p">.</span><span class="mi">369465553</span> <span class="mi">6852397</span><span class="p">.</span><span class="mi">46895301</span><span class="p">,</span><span class="mi">900923</span><span class="p">.</span><span class="mi">778440711</span> <span class="mi">6852337</span><span class="p">.</span><span class="mi">886752</span><span class="p">,</span><span class="mi">900926</span><span class="p">.</span><span class="mi">539164082</span> <span class="mi">685231</span> <span class="n">etc</span><span class="p">......)</span>              <span class="mi">102</span><span class="p">.</span><span class="mi">503920838894</span> <span class="mi">8298</span>
+<span class="mi">8277</span>          <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">900822</span><span class="p">.</span><span class="mi">032426126</span> <span class="mi">6852374</span><span class="p">.</span><span class="mi">6842597</span><span class="p">,</span><span class="mi">900796</span><span class="p">.</span><span class="mi">061588924</span> <span class="mi">6852358</span><span class="p">.</span><span class="mi">70589498</span><span class="p">,</span><span class="mi">900770</span><span class="p">.</span><span class="mi">11301562</span> <span class="mi">6852342</span><span class="p">.</span><span class="mi">72756191</span><span class="p">))</span>       <span class="mi">60</span><span class="p">.</span><span class="mi">9660221463712</span>      <span class="mi">8277</span>
+<span class="mi">8281</span>          <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">900883</span><span class="p">.</span><span class="mi">369465553</span> <span class="mi">6852397</span><span class="p">.</span><span class="mi">46895301</span><span class="p">,</span><span class="mi">900852</span><span class="p">.</span><span class="mi">68981389</span> <span class="mi">6852386</span><span class="p">.</span><span class="mi">0765983</span><span class="p">,</span><span class="mi">900822</span><span class="p">.</span><span class="mi">032426126</span> <span class="mi">6852374</span><span class="p">.</span><span class="mi">6842597</span><span class="p">))</span>         <span class="mi">65</span><span class="p">.</span><span class="mi">4322146538341</span>     <span class="mi">8281</span>
+</pre></div>
+</div>
+<p>The succesfull routing-screenshot looks like:</p>
+<a class="reference internal image-reference" href="../../_images/routing_works.png"><img alt="../../_images/routing_works.png" class="align-center" src="../../_images/routing_works.png" style="width: 810.0px; height: 462.0px;" /></a>
+<p><strong>The routing works!!!</strong></p>
+<p>... but as you see the visualized route doesn`t go till the green markers ...</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+            <li class="right" style="margin-right: 10px">
+              <a href="ch09.html" title="Function for Filling the gaps (green markers to the vertices)"
+                 accesskey="N">next</a></li>
+            <li class="right" >
+              <a href="ch07.html" title="Explanation of the OpenLayers-Code step 2"
+                 accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Home</a> &raquo;</li>
+          <li><a href="../../documentation.html" >Documentation</a> &raquo;</li>
+          <li><a href="../tutorials.html" >Workshops &amp; Tutorials</a> &raquo;</li>
+          <li><a href="index.html" >Workshop OpenLayers, pgRouting and OSM-data</a> &raquo;</li>
+        <li><a href="#">Explanation of the php-code step 1</a></li>
+      </ul>
+    </div>
+
+	<div class="footer">
+      	&copy; Copyright, pgRouting Community<br/>
+      	pgRouting website is hosted by <a href="http://georepublic.de">Georepublic</a> |       	
+      	<script type="text/javascript"> 
+      		document.write('<a href="mailto:' + new Array("project","pgrouting.org").join("@") + '">Contact administrators</a>'); 
+      	</script>
+    </div>
+    
+	<!-- Piwik -->
+	<script type="text/javascript">
+	var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.georepublic.net/" : "http://stats.georepublic.net/");
+	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+	</script><script type="text/javascript">
+	try {
+	var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
+	piwikTracker.trackPageView();
+	piwikTracker.enableLinkTracking();
+	} catch( err ) {}
+	</script><noscript><p><img src="http://stats.georepublic.net/piwik.php?idsite=3" style="border:0" alt="" /></p></noscript>
+	<!-- End Piwik Tag -->
+
+  </body>
+</html>

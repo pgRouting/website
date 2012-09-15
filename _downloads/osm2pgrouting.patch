@@ -1,0 +1,3012 @@
+Nur in ../osm2pgrouting_append/src: .cproject.
+diff -crB src/Export2DB.cpp ../osm2pgrouting_append/src/Export2DB.cpp
+*** src/Export2DB.cpp	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/Export2DB.cpp	2009-10-20 09:16:45.000000000 +0200
+***************
+*** 65,75 ****
+  
+  }
+  
+  void Export2DB::createTables()
+  {
+  	PGresult *result = PQexec(mycon, "CREATE TABLE nodes (ID integer PRIMARY KEY,  lon decimal(11,8), lat decimal(11,8), numOfUse smallint);");
+  	std::cout << "Nodes table created" << std::endl;
+! 	result = PQexec(mycon, "CREATE TABLE ways (gid integer, class_id integer, length double precision, name char(200), x1 double precision, y1 double precision, x2 double precision,y2 double precision, reverse_cost double precision,rule text, to_cost double precision, PRIMARY KEY(gid)); SELECT AddGeometryColumn('ways','the_geom',4326,'MULTILINESTRING',2);");
+  	std::cout << "Ways table created" << std::endl;
+  	result = PQexec(mycon, "CREATE TABLE types (id integer, name char(200));");
+  	std::cout << "Types table created" << std::endl;
+--- 65,88 ----
+  
+  }
+  
++ void Export2DB::deleteDublicates()
++ {
++ 	std::cout << "Deleting dublicate ways" << std::endl;
++ 
++ 	PGresult *result = PQexec(mycon, "DELETE FROM ways WHERE gid IN (SELECT b.gid FROM ways a, ways b WHERE a.gid > b.gid AND a.x1 = b.x1 AND a.y1 = b.y1 AND a.the_geom ~= b.the_geom);");
++ 
++ 
++ 	//std::cout << "Adding primary key" << std::endl;
++ 
++ 	//result = PQexec(mycon, "alter table ways_final add primary key (gid);");
++ 
++ }
++ 
+  void Export2DB::createTables()
+  {
+  	PGresult *result = PQexec(mycon, "CREATE TABLE nodes (ID integer PRIMARY KEY,  lon decimal(11,8), lat decimal(11,8), numOfUse smallint);");
+  	std::cout << "Nodes table created" << std::endl;
+! 	result = PQexec(mycon, "CREATE TABLE ways (gid integer, origId integer, filename char(200), class_id integer, length double precision, name char(200), x1 double precision, y1 double precision, x2 double precision,y2 double precision, reverse_cost double precision,rule text, to_cost double precision, PRIMARY KEY(gid)); SELECT AddGeometryColumn('ways','the_geom',4326,'MULTILINESTRING',2);");
+  	std::cout << "Ways table created" << std::endl;
+  	result = PQexec(mycon, "CREATE TABLE types (id integer, name char(200));");
+  	std::cout << "Types table created" << std::endl;
+***************
+*** 105,116 ****
+  
+  void Export2DB::exportWay(Way* way)
+  {
+! 	std::string query = "INSERT into ways(gid, class_id, length, x1, y1, x2, y2, the_geom, reverse_cost";
+  	if(!way->name.empty())
+  		query+=", name";
+  	query+=") values(";
+  	
+! 	query+=boost::lexical_cast<std::string>(way->id) + ", (SELECT id FROM classes WHERE name ='" + boost::lexical_cast<std::string>(way->clss) + "')," + boost::lexical_cast<std::string>(way->length) + "," 
+  		 + boost::lexical_cast<std::string>(way->m_NodeRefs.front()->lon) + ","+ boost::lexical_cast<std::string>(way->m_NodeRefs.front()->lat) + ","
+  		 + boost::lexical_cast<std::string>(way->m_NodeRefs.back()->lon)  + ","+ boost::lexical_cast<std::string>(way->m_NodeRefs.back()->lat) + ",";
+  	query+="GeometryFromText('" + way->geom +"', 4326)";
+--- 118,129 ----
+  
+  void Export2DB::exportWay(Way* way)
+  {
+! 	std::string query = "INSERT into ways(gid,origId,filename, class_id, length, x1, y1, x2, y2, the_geom, reverse_cost";
+  	if(!way->name.empty())
+  		query+=", name";
+  	query+=") values(";
+  	
+! 	query+=boost::lexical_cast<std::string>(way->id)+","+ boost::lexical_cast<std::string>(way->origId)+",'"+boost::lexical_cast<std::string>(way->filename) + "', (SELECT id FROM classes WHERE name ='" + boost::lexical_cast<std::string>(way->clss) + "')," + boost::lexical_cast<std::string>(way->length) + ","
+  		 + boost::lexical_cast<std::string>(way->m_NodeRefs.front()->lon) + ","+ boost::lexical_cast<std::string>(way->m_NodeRefs.front()->lat) + ","
+  		 + boost::lexical_cast<std::string>(way->m_NodeRefs.back()->lon)  + ","+ boost::lexical_cast<std::string>(way->m_NodeRefs.back()->lat) + ",";
+  	query+="GeometryFromText('" + way->geom +"', 4326)";
+***************
+*** 129,134 ****
+--- 142,153 ----
+  	query+=");";
+  		//std::cout << query <<std::endl;
+  	PGresult *result = PQexec(mycon, query.c_str());
++ 
++ 	/*if (PQresultStatus(result) != PGRES_TUPLES_OK) {
++ 			std::cout <<PQerrorMessage(mycon) << std::endl;
++ 		    PQclear(result);
++ 
++ 		}*/
+  }
+  
+  void Export2DB::exportType(Type* type)
+***************
+*** 149,159 ****
+  
+  void Export2DB::createTopology()
+  {
+  	PGresult *result = PQexec(mycon,"ALTER TABLE ways ADD COLUMN source integer;");
+  	result = PQexec(mycon,"ALTER TABLE ways ADD COLUMN target integer;");
+  	result = PQexec(mycon,"CREATE INDEX source_idx ON ways(source);");
+  	result = PQexec(mycon,"CREATE INDEX target_idx ON ways(target);");
+!         result = PQexec(mycon,"CREATE INDEX geom_idx ON ways USING GIST(the_geom GIST_GEOMETRY_OPS);");
+  	result = PQexec(mycon,"SELECT assign_vertex_id('ways', 0.00001, 'the_geom', 'gid');");
+  	
+  }
+--- 168,191 ----
+  
+  void Export2DB::createTopology()
+  {
++ 	std::cout << "Creating Topology" << std::endl;
+  	PGresult *result = PQexec(mycon,"ALTER TABLE ways ADD COLUMN source integer;");
+  	result = PQexec(mycon,"ALTER TABLE ways ADD COLUMN target integer;");
+  	result = PQexec(mycon,"CREATE INDEX source_idx ON ways(source);");
+  	result = PQexec(mycon,"CREATE INDEX target_idx ON ways(target);");
+!     result = PQexec(mycon,"CREATE INDEX geom_idx ON ways USING GIST(the_geom GIST_GEOMETRY_OPS);");
+  	result = PQexec(mycon,"SELECT assign_vertex_id('ways', 0.00001, 'the_geom', 'gid');");
+  	
+  }
++ 
++ long long Export2DB::getLastWayId()
++ {
++ 	std::string query = "SELECT MAX(gid) as lastid FROM ways ;";
++ 	PGresult *result = PQexec(mycon, query.c_str());
++ 
++ 
++ 
++ 	int cnt_f = PQfnumber(result, "lastid");
++ 	char *cnt_ptr = PQgetvalue(result, 0, cnt_f);
++ 	return atoll(cnt_ptr);
++ }
+diff -crB src/Export2DB.h ../osm2pgrouting_append/src/Export2DB.h
+*** src/Export2DB.h	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/Export2DB.h	2009-09-25 12:11:34.000000000 +0200
+***************
+*** 64,70 ****
+  
+   	void exportType(Type* type);
+   	void exportClass(Type* type, Class* clss);
+! 
+  
+   	/** 
+   	 * creates the topology
+--- 64,70 ----
+  
+   	void exportType(Type* type);
+   	void exportClass(Type* type, Class* clss);
+!  	void deleteDublicates();
+  
+   	/** 
+   	 * creates the topology
+***************
+*** 79,84 ****
+--- 79,85 ----
+   	void createTopology();
+   	//! Be careful! It deletes the created tables!
+   	void dropTables();
++  	long long getLastWayId();
+   	
+  private:
+  PGconn *mycon;
+diff -crB src/Node.cpp ../osm2pgrouting_append/src/Node.cpp
+*** src/Node.cpp	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/Node.cpp	2009-09-17 09:35:17.000000000 +0200
+***************
+*** 1,40 ****
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #include "stdafx.h"
+! #include "Node.h"
+! 
+! namespace osm
+! {
+! 
+! Node::Node( long long id, double lat, double lon )
+! :
+! 	id(id),
+! 	lat(lat),
+! 	lon(lon)
+! {
+! 	this->numsOfUse=0;
+! }
+! 
+! Node::~Node()
+! {
+! }
+! 
+! } // end namespace osm
+--- 1,40 ----
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #include "stdafx.h"
+! #include "Node.h"
+! 
+! namespace osm
+! {
+! 
+! Node::Node( long long id, double lat, double lon )
+! :
+! 	id(id),
+! 	lat(lat),
+! 	lon(lon)
+! {
+! 	this->numsOfUse=0;
+! }
+! 
+! Node::~Node()
+! {
+! }
+! 
+! } // end namespace osm
+diff -crB src/Node.h ../osm2pgrouting_append/src/Node.h
+*** src/Node.h	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/Node.h	2009-09-17 09:35:17.000000000 +0200
+***************
+*** 1,62 ****
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #ifndef NODE_H
+! #define NODE_H
+! 
+! namespace osm
+! {
+! 
+! /**
+! \code
+!   <node id="122603925" 
+! 		lat="53.0780875" 
+! 		lon="8.1351704" 
+! 		user="artus70" visible="true" timestamp="2007-11-18T22:18:59+00:00"/>
+! \endcode
+! */
+! class Node
+! {
+! public:
+! 	//! ID of the node
+! 	long long id;
+! 	//! latitude coordinate
+! 	double lat;
+! 	//! longitude coordinate
+! 	double lon;
+! 	/**
+! 	 *	counts the rate, how much this node is used in different ways
+! 	 */
+! 	ushort numsOfUse;
+! public:
+! 	/**
+! 	 *	Construktor
+! 	 * 	@param id ID of the node
+! 	 *	@param lat latitude
+! 	 *	@param lon longitude
+! 	 */
+! 	Node( long long id=-1, double lat=0, double lon=0 );
+! 	//! Destructor
+! 	virtual ~Node();
+! };
+! 
+! 
+! } // end namespace osm
+! #endif
+--- 1,62 ----
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #ifndef NODE_H
+! #define NODE_H
+! 
+! namespace osm
+! {
+! 
+! /**
+! \code
+!   <node id="122603925" 
+! 		lat="53.0780875" 
+! 		lon="8.1351704" 
+! 		user="artus70" visible="true" timestamp="2007-11-18T22:18:59+00:00"/>
+! \endcode
+! */
+! class Node
+! {
+! public:
+! 	//! ID of the node
+! 	long long id;
+! 	//! latitude coordinate
+! 	double lat;
+! 	//! longitude coordinate
+! 	double lon;
+! 	/**
+! 	 *	counts the rate, how much this node is used in different ways
+! 	 */
+! 	ushort numsOfUse;
+! public:
+! 	/**
+! 	 *	Construktor
+! 	 * 	@param id ID of the node
+! 	 *	@param lat latitude
+! 	 *	@param lon longitude
+! 	 */
+! 	Node( long long id=-1, double lat=0, double lon=0 );
+! 	//! Destructor
+! 	virtual ~Node();
+! };
+! 
+! 
+! } // end namespace osm
+! #endif
+diff -crB src/osm2pgrouting.cpp ../osm2pgrouting_append/src/osm2pgrouting.cpp
+*** src/osm2pgrouting.cpp	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/osm2pgrouting.cpp	2009-10-20 09:16:58.000000000 +0200
+***************
+*** 1,136 ****
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+!  
+! #include "stdafx.h"
+! #include "Configuration.h"
+! #include "ConfigurationParserCallback.h"
+! #include "OSMDocument.h"
+! #include "OSMDocumentParserCallback.h"
+! #include "Way.h"
+! #include "Node.h"
+! #include "Export2DB.h"
+! 
+! using namespace osm;
+! using namespace xml;
+! using namespace std;
+! 
+! void _error()
+! {
+! 				cout << "following params are required: " << endl;
+! 				cout << "-file <file>  -- name of your osm xml file" << endl;
+! 				cout << "-conf <conf>  -- name of your configuration xml file" << endl;
+! 				cout << "-dbname <dbname> -- name of your database" << endl;
+! 				cout << "-user <user> -- name of the user, which have write access to the database" << endl;
+! 				cout << "optional:" << endl;
+! 				cout << "-host <host>  -- host of your postgresql database (default: 127.0.0.1)" << endl;
+! 				cout << "-port <port> -- port of your database (default: 5432)" << endl;
+! 				cout << "-passwd <passwd> --  password for database access" << endl;
+! 				cout << "-clean -- drop peviously created tables" << endl;
+! 					
+! }
+! 
+! int main(int argc, char* argv[])
+! {
+! 	std::string file;
+! 	std::string cFile;
+! 	std::string host="127.0.0.1";
+! 	std::string user;
+! 	std::string port="5432";
+! 	std::string dbname;
+! 	std::string passwd;
+  	bool clean = false;
+! 	if(argc >=7 && argc <=13)
+! 	{
+! 		int i=1;
+! 		while( i<argc)
+! 		{
+! 			if(strcmp(argv[i],"-file")==0)
+! 			{	
+! 				i++;
+! 				file = argv[i];
+! 			}
+! 
+! 			else if(strcmp(argv[i],"-conf")==0)
+! 			{	
+! 				i++;
+! 				cFile = argv[i];
+! 			}
+! 				
+! 			else if(strcmp(argv[i],"-host")==0)
+! 			{
+! 				i++;
+! 				host = argv[i];
+! 			}
+! 			else if(strcmp(argv[i],"-dbname")==0)
+! 			{
+! 				i++;
+! 				dbname = argv[i];
+! 			}
+! 			else if(strcmp(argv[i],"-user")==0)
+! 			{
+! 				i++;
+! 				user = argv[i];
+! 			}
+! 			else if(strcmp(argv[i],"-port")==0)
+! 			{
+! 				i++;
+! 				port = argv[i];
+! 			}
+! 			else if(strcmp(argv[i],"-passwd")==0)
+! 			{
+! 				i++;
+! 				passwd = argv[i];
+! 			}
+! 			else if(strcmp(argv[i],"-clean")==0)
+! 			{
+  				clean = true;
+! 			}
+! 			else
+! 			{
+! 				cout << "unknown paramer: " << argv[i] << endl;
+! 				_error();
+! 				return 1;
+! 			}
+! 			
+! 			i++;
+! 		}
+! 		
+! 	}
+! 	else
+! 	{
+! 		_error();
+! 		return 1;
+! 	}
+! 	
+! 	if(file.empty() || cFile.empty() || dbname.empty() || user.empty())
+! 	{
+! 		_error();
+! 		return 1;
+! 	}
+! 	
+! 	Export2DB test(host, user, dbname, port, passwd);
+! 	if(test.connect()==1)
+! 		return 1;
+! 
+  
+! 	XMLParser parser;
+  	
+  	cout << "Trying to load config file " << cFile.c_str() << endl;
+  
+--- 1,149 ----
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+!  
+! #include "stdafx.h"
+! #include "Configuration.h"
+! #include "ConfigurationParserCallback.h"
+! #include "OSMDocument.h"
+! #include "OSMDocumentParserCallback.h"
+! #include "Way.h"
+! #include "Node.h"
+! #include "Export2DB.h"
+! 
+! 
+! 
+! using namespace osm;
+! using namespace xml;
+! using namespace std;
+! 
+! void _error()
+! {
+! 				cout << "following params are required: " << endl;
+! 				cout << "-file <file>  -- name of your osm xml file" << endl;
+! 				cout << "-conf <conf>  -- name of your configuration xml file" << endl;
+! 				cout << "-dbname <dbname> -- name of your database" << endl;
+! 				cout << "-user <user> -- name of the user, which have write access to the database" << endl;
+! 				cout << "optional:" << endl;
+! 				cout << "-host <host>  -- host of your postgresql database (default: 127.0.0.1)" << endl;
+! 				cout << "-port <port> -- port of your database (default: 5432)" << endl;
+! 				cout << "-passwd <passwd> --  password for database access" << endl;
+! 				cout << "-clean -- drop peviously created tables" << endl;
+! 					
+! }
+! 
+! int main(int argc, char* argv[])
+! {
+! 	std::string file;
+! 	std::string cFile;
+! 	std::string host="127.0.0.1";
+! 	std::string user;
+! 	std::string port="5432";
+! 	std::string dbname;
+! 	std::string passwd;
+  	bool clean = false;
+! 	bool append = false;
+! 	bool finalize=false;
+! 	if(argc >=7 && argc <=13)
+! 	{
+! 		int i=1;
+! 		while( i<argc)
+! 		{
+! 			if(strcmp(argv[i],"-file")==0)
+! 			{	
+! 				i++;
+! 				file = argv[i];
+! 			}
+! 
+! 			else if(strcmp(argv[i],"-conf")==0)
+! 			{	
+! 				i++;
+! 				cFile = argv[i];
+! 			}
+! 				
+! 			else if(strcmp(argv[i],"-host")==0)
+! 			{
+! 				i++;
+! 				host = argv[i];
+! 			}
+! 			else if(strcmp(argv[i],"-dbname")==0)
+! 			{
+! 				i++;
+! 				dbname = argv[i];
+! 			}
+! 			else if(strcmp(argv[i],"-user")==0)
+! 			{
+! 				i++;
+! 				user = argv[i];
+! 			}
+! 			else if(strcmp(argv[i],"-port")==0)
+! 			{
+! 				i++;
+! 				port = argv[i];
+! 			}
+! 			else if(strcmp(argv[i],"-passwd")==0)
+! 			{
+! 				i++;
+! 				passwd = argv[i];
+! 			}
+! 			else if(strcmp(argv[i],"-clean")==0)
+! 			{
+  				clean = true;
+! 			}
+! 			else if(strcmp(argv[i],"-append")==0)
+! 			{
+! 				append = true;
+! 			}
+  
+! 			else if(strcmp(argv[i],"-finalize")==0)
+! 						{
+! 				finalize = true;
+! 						}
+! 			else
+! 			{
+! 				cout << "unknown paramer: " << argv[i] << endl;
+! 				_error();
+! 				return 1;
+! 			}
+! 			
+! 			i++;
+! 		}
+! 		
+! 	}
+! 	else
+! 	{
+! 		_error();
+! 		return 1;
+! 	}
+! 	
+! 	if(file.empty() || cFile.empty() || dbname.empty() || user.empty())
+! 	{
+! 		_error();
+! 		return 1;
+! 	}
+! 	
+! 	Export2DB test(host, user, dbname, port, passwd);
+! 	if(test.connect()==1)
+! 		return 1;
+! 
+! 
+! 	XMLParser parser;
+  	
+  	cout << "Trying to load config file " << cFile.c_str() << endl;
+  
+***************
+*** 144,256 ****
+  
+  	cout << "Trying to load data" << endl;
+  
+! 	OSMDocument* document = new OSMDocument( *config );
+!         OSMDocumentParserCallback callback( *document );
+! 
+  	cout << "Trying to parse data" << endl;
+  
+! 	ret = parser.Parse( callback, file.c_str() );
+! 	if( ret!=0 ) return 1;
+  	
+  	cout << "Split ways" << endl;
+! 
+! 	document->SplitWays();
+! 	//############# Export2DB
+! 	{
+! 
+  		if( clean )
+  		{
+  			test.dropTables();
+  		}
+  		
+! 		test.createTables();
+  		
+! 		std::map<std::string, Type*>& types= config->m_Types;
+! 		std::map<std::string, Type*>::iterator tIt(types.begin());
+! 		std::map<std::string, Type*>::iterator tLast(types.end());
+  		
+! 		while(tIt!=tLast)
+  		{
+- 			Type* type = (*tIt++).second;
+- 			test.exportType(type);
+  
+! 			std::map<std::string, Class*>& classes= type->m_Classes;
+! 			std::map<std::string, Class*>::iterator cIt(classes.begin());
+! 			std::map<std::string, Class*>::iterator cLast(classes.end());
+  
+! 			while(cIt!=cLast)
+  			{
+! 				Class* clss = (*cIt++).second;
+! 				test.exportClass(type, clss);
+  			}
+! 		}
+! 		
+  
+- 		std::map<long long, Node*>& nodes= document->m_Nodes;
+- 		std::map<long long, Node*>::iterator it(nodes.begin());
+- 		std::map<long long, Node*>::iterator last(nodes.end());
+- 		
+- 		while(it!=last)
+- 		{
+- 			Node* node = (*it++).second;
+- 			test.exportNode(node->id,node->lon, node->lat, node->numsOfUse);
+- 		}
+- 		
+- 		std::vector<Way*>& ways= document->m_SplittedWays;
+- 		std::vector<Way*>::iterator it_way( ways.begin() );
+- 		std::vector<Way*>::iterator last_way( ways.end() );	
+- 		while( it_way!=last_way )
+- 		{
+- 			Way* pWay = *it_way++;
+- 			test.exportWay(pWay);
+- 		}
+- 		cout << "create topology" << endl;
+- 		test.createTopology();
+- 	}	
+- 	
+- 	//#############
+- 	
+- 	/*
+- 	std::vector<Way*>& ways= document.m_Ways;
+- 	std::vector<Way*>::iterator it( ways.begin() );
+- 	std::vector<Way*>::iterator last( ways.end() );
+- 	while( it!=last )
+- 	{
+- 		Way* pWay = *it;
+- 		
+- 		if( !pWay->name.empty() )
+- 		{
+- 			if( pWay->m_NodeRefs.empty() )
+- 			{
+- 				std::cout << pWay->name.c_str() << endl;
+- 			}
+- 			else
+- 			{
+- 				Node* n0 = pWay->m_NodeRefs.front();
+- 				Node* n1 = pWay->m_NodeRefs.back();
+- 				//if(n1->numsOfUse==1)
+- 				//cout << "way-id: " << pWay->id << " name: " << pWay->name <<endl; 
+- 				//std::cout << n0->lon << " "  << n0->lat << " " << n1->lon << " " << n1->lat << " " << pWay->name.c_str() << " highway: " << pWay->highway.c_str() << " Start numberOfUse: " << n0->numsOfUse << " End numberOfUse: " << n1->numsOfUse  << " ID: " << n1->id <<  endl;
+- 			}
+- 		}
+- 		if( pWay->id == 20215432 ) // Pfaenderweg
+- 		{
+- 			cout << pWay->name << endl;
+- 			int a=4;
+- 		}
+- 		++it;
+- 	}
+- 	*/
+- 	
+- 	cout << "#########################" << endl;
+- 	
+- 	cout << "size of streets: " << document->m_Ways.size() <<	endl;
+- 	cout << "size of splitted ways : " << document->m_SplittedWays.size() <<	endl;
+- 
+- 	cout << "finished" << endl;
+- 
+- 	//string n;
+- 	//getline( cin, n );
+- 	return 0;
+- }
+- 
+--- 157,292 ----
+  
+  	cout << "Trying to load data" << endl;
+  
+! 	OSMDocument* document = new OSMDocument( *config );
+!         OSMDocumentParserCallback callback( *document );
+! 
+  	cout << "Trying to parse data" << endl;
+  
+! 	ret = parser.Parse( callback, file.c_str() );
+! 	if( ret!=0 ) return 1;
+  	
+  	cout << "Split ways" << endl;
+! 
+! 	if( append ) {
+! 
+! 		document->setStartIdForSplittedWays(test.getLastWayId());
+! 	}
+! 
+! 
+! 	document->setFileName(file.c_str());
+! 
+! 	document->SplitWays();
+! 	//############# Export2DB
+! 	{
+! 
+  		if( clean )
+  		{
+  			test.dropTables();
+  		}
++ 		if( !append )
++ 		{
++ 			test.createTables(); // TODO field for TimeStamp
++ 			document->setStartIdForSplittedWays(0);
++ 			std::map<std::string, Type*>& types= config->m_Types;
++ 			std::map<std::string, Type*>::iterator tIt(types.begin());
++ 			std::map<std::string, Type*>::iterator tLast(types.end());
++ 
++ 			while(tIt!=tLast)
++ 			{
++ 				Type* type = (*tIt++).second;
++ 				test.exportType(type);
++ 
++ 				std::map<std::string, Class*>& classes= type->m_Classes;
++ 				std::map<std::string, Class*>::iterator cIt(classes.begin());
++ 				std::map<std::string, Class*>::iterator cLast(classes.end());
++ 
++ 				while(cIt!=cLast)
++ 				{
++ 					Class* clss = (*cIt++).second;
++ 					test.exportClass(type, clss);
++ 				}
++ 			}
++ 		}
+  		
+! 
+! 		cout << "Inserting nodes" << endl;
+! 
+! 		std::map<long long, Node*>& nodes= document->m_Nodes;
+! 		std::map<long long, Node*>::iterator it(nodes.begin());
+! 		std::map<long long, Node*>::iterator last(nodes.end());
+  		
+! 		while(it!=last)
+! 		{
+! 			Node* node = (*it++).second;
+! 			test.exportNode(node->id,node->lon, node->lat, node->numsOfUse);
+! 		}
+  		
+! 		std::vector<Way*>& ways= document->m_SplittedWays;
+! 		std::vector<Way*>::iterator it_way( ways.begin() );
+! 		std::vector<Way*>::iterator last_way( ways.end() );	
+! 		cout << "Inserting ways" << endl;
+! 		while( it_way!=last_way )
+! 		{
+! 			Way* pWay = *it_way++;
+! 			test.exportWay(pWay);
+! 		}
+! 
+! 		if (finalize)
+  		{
+  
+! 		test.deleteDublicates();
+! 		test.createTopology();
+! 
+! 
+  
+! 
+! 
+! 		}
+! 	}	
+! 	
+! 	//#############
+! 	
+! 	/*
+! 	std::vector<Way*>& ways= document.m_Ways;
+! 	std::vector<Way*>::iterator it( ways.begin() );
+! 	std::vector<Way*>::iterator last( ways.end() );
+! 	while( it!=last )
+! 	{
+! 		Way* pWay = *it;
+! 		
+! 		if( !pWay->name.empty() )
+! 		{
+! 			if( pWay->m_NodeRefs.empty() )
+  			{
+! 				std::cout << pWay->name.c_str() << endl;
+  			}
+! 			else
+! 			{
+! 				Node* n0 = pWay->m_NodeRefs.front();
+! 				Node* n1 = pWay->m_NodeRefs.back();
+! 				//if(n1->numsOfUse==1)
+! 				//cout << "way-id: " << pWay->id << " name: " << pWay->name <<endl; 
+! 				//std::cout << n0->lon << " "  << n0->lat << " " << n1->lon << " " << n1->lat << " " << pWay->name.c_str() << " highway: " << pWay->highway.c_str() << " Start numberOfUse: " << n0->numsOfUse << " End numberOfUse: " << n1->numsOfUse  << " ID: " << n1->id <<  endl;
+! 			}
+! 		}
+! 		if( pWay->id == 20215432 ) // Pfaenderweg
+! 		{
+! 			cout << pWay->name << endl;
+! 			int a=4;
+! 		}
+! 		++it;
+! 	}
+! 	*/
+! 	
+! 	cout << "#########################" << endl;
+! 	
+! 	//cout << "size of streets: " << document->m_Ways.size() <<	endl;
+! 	//cout << "size of splitted ways : " << document->m_SplittedWays.size() <<	endl;
+! 
+! 	cout << "finished" << endl;
+! 
+! 	//string n;
+! 	//getline( cin, n );
+! 	return 0;
+! }
+  
+diff -crB src/OSMDocument.cpp ../osm2pgrouting_append/src/OSMDocument.cpp
+*** src/OSMDocument.cpp	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/OSMDocument.cpp	2009-09-17 16:46:04.000000000 +0200
+***************
+*** 1,149 ****
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #include "stdafx.h"
+! #include "OSMDocument.h"
+! #include "Configuration.h"
+! #include "Node.h"
+! #include "Way.h"
+! #include "math_functions.h"
+! 
+! 
+! namespace osm
+! {
+! 
+  OSMDocument::OSMDocument( Configuration& config ) : m_rConfig( config )
+  {
+! }
+! 
+! OSMDocument::~OSMDocument()
+! {
+! 	ez_mapdelete( m_Nodes );
+! 	ez_vectordelete( m_Ways );		
+! 	ez_vectordelete( m_SplittedWays );
+! }
+! void OSMDocument::AddNode( Node* n )
+! {
+! 	m_Nodes[n->id] = n;
+! }
+! 
+! void OSMDocument::AddWay( Way* w )
+! {
+! 	m_Ways.push_back( w );
+! }
+! 
+! Node* OSMDocument::FindNode( long long nodeRefId ) 
+! const
+! {
+! 	std::map<long long, Node*>::const_iterator  it = m_Nodes.find( nodeRefId );
+! 	return (it!=m_Nodes.end() ) ? it->second : 0;
+! }
+! 
+! void OSMDocument::SplitWays()
+! {
+! 	
+! 	std::vector<Way*>::const_iterator it(m_Ways.begin());
+! 	std::vector<Way*>::const_iterator last(m_Ways.end());
+! 
+! 	//splitted ways get a new ID
+! 	long long id=0;
+! 
+! 	while(it!=last)
+! 	{
+! 		Way* currentWay = *it++;
+! 		
+! 		std::vector<Node*>::const_iterator it_node( currentWay->m_NodeRefs.begin());	
+! 		std::vector<Node*>::const_iterator last_node( currentWay->m_NodeRefs.end());
+! 		
+! 		Node* backNode = currentWay->m_NodeRefs.back();
+! 
+! 
+! 
+! 		while(it_node!=last_node)
+! 		{
+! 			
+! 			Node* node = *it_node++;
+! 			Node* secondNode=0;
+! 			Node* lastNode=0;
+! 			
+! 			Way* splitted_way = new Way( ++id, currentWay->visible );
+! 			splitted_way->name=currentWay->name;
+! 			splitted_way->type=currentWay->type;
+! 			splitted_way->clss=currentWay->clss;
+! 			splitted_way->oneway=currentWay->oneway;
+! 
+! 	//GeometryFromText('MULTILINESTRING(('||x1||' '||y1||','||x2||' '||y2||'))',4326);
+! 			
+! 			splitted_way->geom="MULTILINESTRING(("+ boost::lexical_cast<std::string>(node->lon) + " " + boost::lexical_cast<std::string>(node->lat) +",";
+! 			
+! 			splitted_way->AddNodeRef(node);
+! 			
+! 			bool found=false;
+! 			
+! 			if(it_node!=last_node)
+! 			{
+! 				while(it_node!=last_node && !found)
+! 				{
+! 					splitted_way->AddNodeRef(*it_node);
+! 					if((*it_node)->numsOfUse>1)
+! 					{
+! 						found=true;
+! 						secondNode = *it_node;
+! 						splitted_way->AddNodeRef(secondNode);
+! 						double length = getLength(node,secondNode);
+! 						if(length<0)
+! 							length*=-1;
+! 						splitted_way->length+=length;
+! 						splitted_way->geom+= boost::lexical_cast<std::string>(secondNode->lon) + " " + boost::lexical_cast<std::string>(secondNode->lat) + "))";
+! 						
+! 					}
+! 					else if(backNode==(*it_node))
+! 					{
+! 						lastNode=*it_node++;
+! 						splitted_way->AddNodeRef(lastNode);
+! 						double length = getLength(node,lastNode);
+! 						if(length<0)
+! 							length*=-1;
+! 						splitted_way->length+=length;
+! 						splitted_way->geom+= boost::lexical_cast<std::string>(lastNode->lon) + " " + boost::lexical_cast<std::string>(lastNode->lat) + "))";
+! 					}
+! 					else
+! 					{
+! 						splitted_way->geom+= boost::lexical_cast<std::string>((*it_node)->lon) + " " + boost::lexical_cast<std::string>((*it_node)->lat) + ",";
+! 						*it_node++;
+! 					}
+! 				}
+! 			}
+! 				
+! 			if(splitted_way->m_NodeRefs.front()!=splitted_way->m_NodeRefs.back())
+! 				m_SplittedWays.push_back(splitted_way);
+! 			else
+! 			{
+! 				delete splitted_way;
+! 				splitted_way=0;
+! 			}
+! 				
+! 		}
+! 
+! 	}
+! 
+! } // end SplitWays
+! 
+! } // end namespace osm
+--- 1,151 ----
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #include "stdafx.h"
+! #include "OSMDocument.h"
+! #include "Configuration.h"
+! #include "Node.h"
+! #include "Way.h"
+! #include "math_functions.h"
+! 
+! 
+! namespace osm
+! {
+! 
+  OSMDocument::OSMDocument( Configuration& config ) : m_rConfig( config )
+  {
+! }
+! 
+! OSMDocument::~OSMDocument()
+! {
+! 	ez_mapdelete( m_Nodes );
+! 	ez_vectordelete( m_Ways );		
+! 	ez_vectordelete( m_SplittedWays );
+! }
+! void OSMDocument::AddNode( Node* n )
+! {
+! 	m_Nodes[n->id] = n;
+! }
+! 
+! void OSMDocument::AddWay( Way* w )
+! {
+! 	m_Ways.push_back( w );
+! }
+! 
+! Node* OSMDocument::FindNode( long long nodeRefId ) 
+! const
+! {
+! 	std::map<long long, Node*>::const_iterator  it = m_Nodes.find( nodeRefId );
+! 	return (it!=m_Nodes.end() ) ? it->second : 0;
+! }
+! 
+! void OSMDocument::SplitWays()
+! {
+! 	
+! 	std::vector<Way*>::const_iterator it(m_Ways.begin());
+! 	std::vector<Way*>::const_iterator last(m_Ways.end());
+! 
+! 	//splitted ways get a new ID
+! 	long long id = m_id;
+! 	const char* filename=m_time;
+! 	while(it!=last)
+! 	{
+! 		Way* currentWay = *it++;
+! 		
+! 		std::vector<Node*>::const_iterator it_node( currentWay->m_NodeRefs.begin());	
+! 		std::vector<Node*>::const_iterator last_node( currentWay->m_NodeRefs.end());
+! 		
+! 		Node* backNode = currentWay->m_NodeRefs.back();
+! 
+! 
+! 
+! 		while(it_node!=last_node)
+! 		{
+! 			
+! 			Node* node = *it_node++;
+! 			Node* secondNode=0;
+! 			Node* lastNode=0;
+! 			
+! 			Way* splitted_way = new Way( ++id, currentWay->visible );
+! 			splitted_way->filename=filename;
+! 			splitted_way->origId=currentWay->id;
+! 			splitted_way->name=currentWay->name;
+! 			splitted_way->type=currentWay->type;
+! 			splitted_way->clss=currentWay->clss;
+! 			splitted_way->oneway=currentWay->oneway;
+! 
+! 	//GeometryFromText('MULTILINESTRING(('||x1||' '||y1||','||x2||' '||y2||'))',4326);
+! 			
+! 			splitted_way->geom="MULTILINESTRING(("+ boost::lexical_cast<std::string>(node->lon) + " " + boost::lexical_cast<std::string>(node->lat) +",";
+! 			
+! 			splitted_way->AddNodeRef(node);
+! 			
+! 			bool found=false;
+! 			
+! 			if(it_node!=last_node)
+! 			{
+! 				while(it_node!=last_node && !found)
+! 				{
+! 					splitted_way->AddNodeRef(*it_node);
+! 					if((*it_node)->numsOfUse>1)
+! 					{
+! 						found=true;
+! 						secondNode = *it_node;
+! 						splitted_way->AddNodeRef(secondNode);
+! 						double length = getLength(node,secondNode);
+! 						if(length<0)
+! 							length*=-1;
+! 						splitted_way->length+=length;
+! 						splitted_way->geom+= boost::lexical_cast<std::string>(secondNode->lon) + " " + boost::lexical_cast<std::string>(secondNode->lat) + "))";
+! 						
+! 					}
+! 					else if(backNode==(*it_node))
+! 					{
+! 						lastNode=*it_node++;
+! 						splitted_way->AddNodeRef(lastNode);
+! 						double length = getLength(node,lastNode);
+! 						if(length<0)
+! 							length*=-1;
+! 						splitted_way->length+=length;
+! 						splitted_way->geom+= boost::lexical_cast<std::string>(lastNode->lon) + " " + boost::lexical_cast<std::string>(lastNode->lat) + "))";
+! 					}
+! 					else
+! 					{
+! 						splitted_way->geom+= boost::lexical_cast<std::string>((*it_node)->lon) + " " + boost::lexical_cast<std::string>((*it_node)->lat) + ",";
+! 						*it_node++;
+! 					}
+! 				}
+! 			}
+! 				
+! 			if(splitted_way->m_NodeRefs.front()!=splitted_way->m_NodeRefs.back())
+! 				m_SplittedWays.push_back(splitted_way);
+! 			else
+! 			{
+! 				delete splitted_way;
+! 				splitted_way=0;
+! 			}
+! 				
+! 		}
+! 
+! 	}
+! 
+! } // end SplitWays
+! 
+! } // end namespace osm
+diff -crB src/OSMDocument.h ../osm2pgrouting_append/src/OSMDocument.h
+*** src/OSMDocument.h	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/OSMDocument.h	2009-09-17 15:59:51.000000000 +0200
+***************
+*** 1,65 ****
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #ifndef OSMDOCUMENT_H
+! #define OSMDOCUMENT_H
+  
+  #include "Configuration.h"
+! 
+! namespace osm
+! {
+! 
+! 
+! class Node;
+! class Way;
+! 
+! /**
+! 	An osm-document.
+! */
+! class OSMDocument
+! {
+! public:
+! 	//! Map, which saves the parsed nodes
+! 	std::map<long long, Node*> m_Nodes;
+! 	//! parsed ways
+! 	std::vector<Way*> m_Ways;
+! 	//! splitted ways
+! 	std::vector<Way*> m_SplittedWays;
+  	Configuration& m_rConfig;
+! public:
+! 
+! 	//! Constructor
+! 	OSMDocument( Configuration& config);
+! 	//! Destructor
+! 	virtual ~OSMDocument();
+! 	//! add node to the map
+! 	void AddNode( Node* n );
+! 	//! add way to the map
+! 	void AddWay( Way* w );
+! 	//! find node by using an ID
+! 	Node* FindNode( long long nodeRefId ) const;
+! 	//! split the ways
+! 	void SplitWays();
+! 	//Node* getNode( long long nodeRefId );
+! };
+! 
+! 
+! } // end namespace osm
+! #endif
+--- 1,70 ----
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #ifndef OSMDOCUMENT_H
+! #define OSMDOCUMENT_H
+  
+  #include "Configuration.h"
+! 
+! namespace osm
+! {
+! 
+! 
+! class Node;
+! class Way;
+! 
+! /**
+! 	An osm-document.
+! */
+! class OSMDocument
+! {
+! public:
+! 	//! Map, which saves the parsed nodes
+! 	std::map<long long, Node*> m_Nodes;
+! 	//! parsed ways
+! 	std::vector<Way*> m_Ways;
+! 	//! splitted ways
+! 	std::vector<Way*> m_SplittedWays;
+  	Configuration& m_rConfig;
+! 	long long m_id;
+! 	const char* m_time;
+! public:
+! 
+! 	//! Constructor
+! 	OSMDocument( Configuration& config);
+! 	//! Destructor
+! 	virtual ~OSMDocument();
+! 	//! add node to the map
+! 	void AddNode( Node* n );
+! 	//! add way to the map
+! 	void AddWay( Way* w );
+! 	//! find node by using an ID
+! 	Node* FindNode( long long nodeRefId ) const;
+! 	//! split the ways
+! 	void SplitWays();
+! 	//Node* getNode( long long nodeRefId );
+! 	void setStartIdForSplittedWays(long long id) { m_id = id; }
+! 	void setFileName(const char* name){m_time=name;}
+! 
+! };
+! 
+! 
+! } // end namespace osm
+! #endif
+diff -crB src/OSMDocumentParserCallback.cpp ../osm2pgrouting_append/src/OSMDocumentParserCallback.cpp
+*** src/OSMDocumentParserCallback.cpp	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/OSMDocumentParserCallback.cpp	2009-09-23 15:28:21.000000000 +0200
+***************
+*** 1,190 ****
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #include "stdafx.h"
+! #include "OSMDocumentParserCallback.h"
+! #include "OSMDocument.h"
+! #include "Way.h"
+! #include "Node.h"
+! 
+! // define here, which streetstype you want to parse
+! // for applying this filter, compile with "DISTRICT" as flag (g++ -DRESTRICT)
+! //#define _FILTER if(m_pActWay->highway == "motorway" || m_pActWay->highway == "primary" || m_pActWay->highway == "secondary")
+! 
+! namespace osm
+! {
+! 	
+! 	
+! /**
+! 	Parser callback for OSMDocument files
+! */
+! void OSMDocumentParserCallback::StartElement( const char *name, const char** atts )
+! {
+! 	if( strcmp(name,"nd") == 0 )
+! 	{
+! 		if( m_pActWay && atts != NULL )
+! 		{
+! 			const char* name = *atts++;
+! 			const char* value = *atts++;
+! 			if( strcmp(name,"ref")==0 )
+! 			{
+! 				long long nodeRefId = atol( value );
+                                  m_pActWay->AddNodeRef( m_rDocument.FindNode( nodeRefId ) );
+                                    Node * node = m_rDocument.FindNode( nodeRefId );
+                                    if(node != 0 ){
+                                      node->numsOfUse+=1;
+                                    }else {
+!                                     std::cout << "Reference nd=" << nodeRefId << " has no corresponding Node Entry (Maybe Node entry after Reference?)" << std::endl;
+                                    }
+! 			}
+! 		}
+! 	}
+! 	else if( strcmp(name,"node") == 0 )
+! 	{
+! 		if (atts != NULL)
+! 		{
+! 			long long id=-1;
+! 			double lat=-1;
+! 			double lon=-1;
+! 			const char** attribut = (const char**)atts;
+! 			while( *attribut != NULL )
+! 			{
+! 				const char* name = *attribut++;
+! 				const char* value = *attribut++;
+! 				if( strcmp( name, "id" ) == 0 )
+! 				{
+! 					id = atol( value);
+! 				}
+! 				else if( strcmp( name, "lat" ) == 0 )
+! 				{
+! 					lat = atof( value );
+! 				}
+! 				else if( strcmp( name, "lon" ) == 0 )
+! 				{
+! 					lon = atof( value );
+! 				}
+! 			}
+! 			if( id>0 ) m_rDocument.AddNode( new Node( id, lat, lon ) );
+! 		}
+! 	}
+! 	else if( strcmp(name,"tag") == 0 )
+! 	{
+! 		// <tag k="name" v="Pfänderweg"/>
+! 		if (atts != NULL)
+! 		{
+! 			std::string k;
+! 			std::string v;
+! 			const char** attribut = (const char**)atts;
+! 			while( *attribut != NULL )
+! 			{
+! 				const char* name = *attribut++;
+! 				const char* value = *attribut++;
+! 				if( strcmp( name, "k" ) == 0 )
+! 				{
+! 					k = value;
+! 				}
+! 				else if( strcmp( name, "v" ) == 0 )
+! 				{
+! 					v = value;
+! 				}
+! 			}
+! 			if( !k.empty() )
+! 			{
+! 				if( m_pActWay && k.compare("name")==0 )
+! 				{
+! 					m_pActWay->name = v;
+! 				}
+! 				else if( m_pActWay && k.compare("oneway")==0 )
+! 				{
+  					m_pActWay->oneway = true;					
+  					std::cout<<"Edge "<<m_pActWay->id<<" is oneway"<<std::endl;
+  
+  				}				
+! 				//else if( m_pActWay && k.compare("highway")==0 )
+! 				else if( m_pActWay && m_rDocument.m_rConfig.m_Types.count(k) )
+! 				{
+! 					m_pActWay->type = k;
+! 					m_pActWay->clss = v;
+! 				}
+! 			}
+! 		}
+! 	}
+! 	else if( strcmp(name,"way") == 0 )
+! 	{
+! 		if (atts != NULL)
+! 		{
+! 			long long id=-1;
+! 			bool visibility = false;
+! 			const char** attribut = (const char**)atts;
+! 			while( *attribut != NULL )
+! 			{
+! 				const char* name = *attribut++;
+! 				const char* value = *attribut++;
+! 				if( strcmp( name, "id" ) == 0 )
+! 				{
+! 					id = atol( value);
+! 				}
+! 				else if( strcmp( name, "visible" ) == 0 )
+! 				{
+! 					visibility = strcmp(value,"true")==0;
+! 				}
+! 			}
+! 			if( id>0 )
+! 			{
+! 				m_pActWay = new Way( id, visibility );
+! 				
+! 			}
+! 		}
+! 	}
+! 	else if( strcmp(name,"osm") == 0 )
+! 	{
+! 	}
+! }
+! 
+! 
+! 
+! void OSMDocumentParserCallback::EndElement( const char* name )
+! {
+! 	if( strcmp(name,"way") == 0 )
+! 	{
+! 		//#ifdef RESTRICT
+! 		//_FILTER
+  		
+  		if( m_rDocument.m_rConfig.m_Types.count(m_pActWay->type) && m_rDocument.m_rConfig.m_Types[m_pActWay->type]->m_Classes.count(m_pActWay->clss) )
+! 		{
+! 		//#endif
+! 		std::cout<<"We need a way of type "<<m_pActWay->type<<" and class "<< m_pActWay->clss<<std::endl;
+! 		
+! 			m_rDocument.AddWay( m_pActWay );
+! 
+! 		//#ifdef RESTRICT
+! 		}
+! 		else
+! 		{
+! 		std::cout<<"We DON'T need a way of type "<<m_pActWay->type<<" and class "<< m_pActWay->clss<<std::endl;
+! 			delete m_pActWay;
+! 		}
+! 		//#endif
+! 		
+! 		m_pActWay = 0;
+! 	}
+! }
+! 
+! }; // end namespace osm
+--- 1,199 ----
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #include "stdafx.h"
+! #include "OSMDocumentParserCallback.h"
+! #include "OSMDocument.h"
+! #include "Way.h"
+! #include "Node.h"
+! 
+! // define here, which streetstype you want to parse
+! // for applying this filter, compile with "DISTRICT" as flag (g++ -DRESTRICT)
+! //#define _FILTER if(m_pActWay->highway == "motorway" || m_pActWay->highway == "primary" || m_pActWay->highway == "secondary")
+! 
+! namespace osm
+! {
+! 	
+! 	
+! /**
+! 	Parser callback for OSMDocument files
+! */
+! void OSMDocumentParserCallback::StartElement( const char *name, const char** atts )
+! {
+! 	if( strcmp(name,"nd") == 0 )
+! 	{
+! 		if( m_pActWay && atts != NULL )
+! 		{
+! 			const char* name = *atts++;
+! 			const char* value = *atts++;
+! 			if( strcmp(name,"ref")==0 )
+! 			{
+! 				long long nodeRefId = atol( value );
+                                  m_pActWay->AddNodeRef( m_rDocument.FindNode( nodeRefId ) );
+                                    Node * node = m_rDocument.FindNode( nodeRefId );
+                                    if(node != 0 ){
+                                      node->numsOfUse+=1;
+                                    }else {
+!                                 	  del=true;
+!                                     //std::cout << "Reference nd=" << nodeRefId << " has no corresponding Node Entry (Maybe Node entry after Reference?)" << std::endl;
+                                    }
+! 			}
+! 		}
+! 	}
+! 	else if( strcmp(name,"node") == 0 )
+! 	{
+! 		if (atts != NULL)
+! 		{
+! 			long long id=-1;
+! 			double lat=-1;
+! 			double lon=-1;
+! 			const char** attribut = (const char**)atts;
+! 			while( *attribut != NULL )
+! 			{
+! 				const char* name = *attribut++;
+! 				const char* value = *attribut++;
+! 				if( strcmp( name, "id" ) == 0 )
+! 				{
+! 					id = atol( value);
+! 				}
+! 				else if( strcmp( name, "lat" ) == 0 )
+! 				{
+! 					lat = atof( value );
+! 				}
+! 				else if( strcmp( name, "lon" ) == 0 )
+! 				{
+! 					lon = atof( value );
+! 				}
+! 			}
+! 			if( id>0 ) m_rDocument.AddNode( new Node( id, lat, lon ) );
+! 		}
+! 	}
+! 	else if( strcmp(name,"tag") == 0 )
+! 	{
+! 		// <tag k="name" v="Pfänderweg"/>
+! 		if (atts != NULL)
+! 		{
+! 			std::string k;
+! 			std::string v;
+! 			const char** attribut = (const char**)atts;
+! 			while( *attribut != NULL )
+! 			{
+! 				const char* name = *attribut++;
+! 				const char* value = *attribut++;
+! 				if( strcmp( name, "k" ) == 0 )
+! 				{
+! 					k = value;
+! 				}
+! 				else if( strcmp( name, "v" ) == 0 )
+! 				{
+! 					v = value;
+! 				}
+! 			}
+! 			if( !k.empty() )
+! 			{
+! 				if( m_pActWay && k.compare("name")==0 )
+! 				{
+! 					m_pActWay->name = v;
+! 				}
+! 				else if( m_pActWay && k.compare("oneway")==0 )
+! 				{
+  					m_pActWay->oneway = true;					
+  					std::cout<<"Edge "<<m_pActWay->id<<" is oneway"<<std::endl;
+  
+  				}				
+! 				//else if( m_pActWay && k.compare("highway")==0 )
+! 				else if( m_pActWay && m_rDocument.m_rConfig.m_Types.count(k) )
+! 				{
+! 					m_pActWay->type = k;
+! 					m_pActWay->clss = v;
+! 				}
+! 			}
+! 		}
+! 	}
+! 	else if( strcmp(name,"way") == 0 )
+! 	{
+! 		if (atts != NULL)
+! 		{
+! 			long long id=-1;
+! 			bool visibility = false;
+! 			const char** attribut = (const char**)atts;
+! 			while( *attribut != NULL )
+! 			{
+! 				const char* name = *attribut++;
+! 				const char* value = *attribut++;
+! 				if( strcmp( name, "id" ) == 0 )
+! 				{
+! 					id = atol( value);
+! 				}
+! 				else if( strcmp( name, "visible" ) == 0 )
+! 				{
+! 					visibility = strcmp(value,"true")==0;
+! 				}
+! 			}
+! 			if( id>0 )
+! 			{
+! 				m_pActWay = new Way( id, visibility );
+! 				del=false;
+! 				
+! 			}
+! 		}
+! 	}
+! 	else if( strcmp(name,"osm") == 0 )
+! 	{
+! 	}
+! }
+! 
+! 
+! 
+! void OSMDocumentParserCallback::EndElement( const char* name )
+! {
+! 	if( strcmp(name,"way") == 0 )
+! 	{
+! 		//#ifdef RESTRICT
+! 		//_FILTER
+  		
+  		if( m_rDocument.m_rConfig.m_Types.count(m_pActWay->type) && m_rDocument.m_rConfig.m_Types[m_pActWay->type]->m_Classes.count(m_pActWay->clss) )
+! 		{
+! 		//#endif
+! 		//std::cout<<"We need a way of type "<<m_pActWay->type<<" and class "<< m_pActWay->clss<<std::endl;
+! 			if (del==false)
+! 			{
+! 			m_rDocument.AddWay( m_pActWay );
+! 			}
+! 			else
+! 			{
+! 				delete m_pActWay;
+! 				std::cout<<"deleted incomplete way"<<std::endl;
+! 			}
+! 
+! 		//#ifdef RESTRICT
+! 		}
+! 		else
+! 		{
+! 		//std::cout<<"We DON'T need a way of type "<<m_pActWay->type<<" and class "<< m_pActWay->clss<<std::endl;
+! 			delete m_pActWay;
+! 		}
+! 		//#endif
+! 		
+! 		m_pActWay = 0;
+! 	}
+! }
+! 
+! }; // end namespace osm
+diff -crB src/OSMDocumentParserCallback.h ../osm2pgrouting_append/src/OSMDocumentParserCallback.h
+*** src/OSMDocumentParserCallback.h	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/OSMDocumentParserCallback.h	2009-09-22 08:23:51.000000000 +0200
+***************
+*** 1,75 ****
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #ifndef OSMDOCUMENTPARSERCALLBACK_H
+! #define OSMDOCUMENTPARSERCALLBACK_H
+! 
+  #include <string.h>
+! #include "XMLParser.h"
+! 
+! namespace osm
+! {
+! 
+! class OSMDocument;
+! class Way;
+! 
+! /**
+! 	Parser callback for OSMDocument files
+! */
+! class OSMDocumentParserCallback : public xml::XMLParserCallback
+! {	
+! 	//! reference to a OSMDocument object
+! 	OSMDocument& m_rDocument;
+! 	//! current way, which will be parsed
+! 	Way* m_pActWay;
+! 
+! 	virtual void StartElement( const char *name, const char** atts );
+! 
+! 	virtual void EndElement( const char* name );
+! 
+! 	virtual void SetContent( const char* ch, int len)
+! 	{
+! 	}
+! 
+! 	virtual void ProcessingInstruction( const char* target, const char* data )
+! 	{
+! 	}
+! 
+! 	virtual void CDataBlockInternal(const char *value, int len)
+! 	{
+! 	}
+! 
+! 
+! public:
+! 	/**
+! 	 *	Constructor
+! 	 */
+! 	OSMDocumentParserCallback( OSMDocument& doc )
+! 	:
+! 		m_rDocument( doc ),
+! 		m_pActWay( 0 )
+! 	{
+! 	}
+! 
+! }; // class OSMDocumentParserCallback
+! 
+! }; // end namespace osm
+! 
+! #endif
+--- 1,76 ----
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #ifndef OSMDOCUMENTPARSERCALLBACK_H
+! #define OSMDOCUMENTPARSERCALLBACK_H
+! 
+  #include <string.h>
+! #include "XMLParser.h"
+! 
+! namespace osm
+! {
+! 
+! class OSMDocument;
+! class Way;
+! 
+! /**
+! 	Parser callback for OSMDocument files
+! */
+! class OSMDocumentParserCallback : public xml::XMLParserCallback
+! {	
+! 	//! reference to a OSMDocument object
+! 	OSMDocument& m_rDocument;
+! 	//! current way, which will be parsed
+! 	Way* m_pActWay;
+! 	bool del;
+! 
+! 	virtual void StartElement( const char *name, const char** atts );
+! 
+! 	virtual void EndElement( const char* name );
+! 
+! 	virtual void SetContent( const char* ch, int len)
+! 	{
+! 	}
+! 
+! 	virtual void ProcessingInstruction( const char* target, const char* data )
+! 	{
+! 	}
+! 
+! 	virtual void CDataBlockInternal(const char *value, int len)
+! 	{
+! 	}
+! 
+! 
+! public:
+! 	/**
+! 	 *	Constructor
+! 	 */
+! 	OSMDocumentParserCallback( OSMDocument& doc )
+! 	:
+! 		m_rDocument( doc ),
+! 		m_pActWay( 0 )
+! 	{
+! 	}
+! 
+! }; // class OSMDocumentParserCallback
+! 
+! }; // end namespace osm
+! 
+! #endif
+Nur in ../osm2pgrouting_append/src: .project.
+diff -crB src/.svn/entries ../osm2pgrouting_append/src/.svn/entries
+*** src/.svn/entries	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/.svn/entries	2009-09-17 11:51:41.000000000 +0200
+***************
+*** 1,7 ****
+  9
+  
+  dir
+! 352
+  http://pgrouting.postlbs.org/svn/pgrouting/tools/osm2pgrouting/trunk/src
+  http://pgrouting.postlbs.org/svn/pgrouting
+  
+--- 1,7 ----
+  9
+  
+  dir
+! 336
+  http://pgrouting.postlbs.org/svn/pgrouting/tools/osm2pgrouting/trunk/src
+  http://pgrouting.postlbs.org/svn/pgrouting
+  
+***************
+*** 32,38 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  70888a05d92b5f2a923782acd056be6d
+  2008-09-02T03:44:58.739412Z
+  212
+--- 32,38 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  70888a05d92b5f2a923782acd056be6d
+  2008-09-02T03:44:58.739412Z
+  212
+***************
+*** 66,72 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  9d23f5e705fcd54ff55094dd62a95a89
+  2008-09-01T08:13:20.101320Z
+  210
+--- 66,72 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  9d23f5e705fcd54ff55094dd62a95a89
+  2008-09-01T08:13:20.101320Z
+  210
+***************
+*** 100,106 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  65389bdd9ba5645f2f9c7f28c0ecaae6
+  2008-07-30T02:41:46.437110Z
+  198
+--- 100,106 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  65389bdd9ba5645f2f9c7f28c0ecaae6
+  2008-07-30T02:41:46.437110Z
+  198
+***************
+*** 134,140 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  4976c24da450fa39d5497457ad38bf12
+  2008-07-30T02:41:46.437110Z
+  198
+--- 134,140 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  4976c24da450fa39d5497457ad38bf12
+  2008-07-30T02:41:46.437110Z
+  198
+***************
+*** 168,174 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  8f7eda672fed1b062f2cc9990b920455
+  2008-07-30T02:41:46.437110Z
+  198
+--- 168,174 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  8f7eda672fed1b062f2cc9990b920455
+  2008-07-30T02:41:46.437110Z
+  198
+***************
+*** 202,208 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  364960da6df2935120dfec24b4bc7515
+  2008-09-01T08:13:20.101320Z
+  210
+--- 202,208 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  364960da6df2935120dfec24b4bc7515
+  2008-09-01T08:13:20.101320Z
+  210
+***************
+*** 236,242 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  b802f71f2c82268e423a427c034395e9
+  2009-03-02T00:58:55.597860Z
+  267
+--- 236,242 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  b802f71f2c82268e423a427c034395e9
+  2009-03-02T00:58:55.597860Z
+  267
+***************
+*** 270,276 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  45b1bb4c145ff2b0baf13b47d57d9c44
+  2008-07-30T02:41:46.437110Z
+  198
+--- 270,276 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  45b1bb4c145ff2b0baf13b47d57d9c44
+  2008-07-30T02:41:46.437110Z
+  198
+***************
+*** 304,310 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  5a2b7252301b072f0e130b35c8ed804b
+  2008-09-02T05:54:09.745085Z
+  217
+--- 304,310 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  5a2b7252301b072f0e130b35c8ed804b
+  2008-09-02T05:54:09.745085Z
+  217
+***************
+*** 338,344 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  30de9c22d7aaf87b15c2f098755e2060
+  2008-07-30T02:41:46.437110Z
+  198
+--- 338,344 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  30de9c22d7aaf87b15c2f098755e2060
+  2008-07-30T02:41:46.437110Z
+  198
+***************
+*** 372,378 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  9d4063f57af1fd9de4f4f94d8795deda
+  2008-07-30T02:41:46.437110Z
+  198
+--- 372,378 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  9d4063f57af1fd9de4f4f94d8795deda
+  2008-07-30T02:41:46.437110Z
+  198
+***************
+*** 406,412 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  652858174bc72ae0c410a5b7b42f1af4
+  2008-07-30T02:41:46.437110Z
+  198
+--- 406,412 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  652858174bc72ae0c410a5b7b42f1af4
+  2008-07-30T02:41:46.437110Z
+  198
+***************
+*** 440,446 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  3d8cae99467120c52777da1f8958c33e
+  2008-07-30T02:41:46.437110Z
+  198
+--- 440,446 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  3d8cae99467120c52777da1f8958c33e
+  2008-07-30T02:41:46.437110Z
+  198
+***************
+*** 474,480 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  5abe928d83516a1c6acc7de7d6409da6
+  2008-09-02T03:44:58.739412Z
+  212
+--- 474,480 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  5abe928d83516a1c6acc7de7d6409da6
+  2008-09-02T03:44:58.739412Z
+  212
+***************
+*** 508,514 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  964c992925c438c8f794f5a36fbc4b4a
+  2008-07-14T10:59:07.542369Z
+  189
+--- 508,514 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  964c992925c438c8f794f5a36fbc4b4a
+  2008-07-14T10:59:07.542369Z
+  189
+***************
+*** 542,548 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  9346ff568e9949e5f6700c98011bb03c
+  2008-07-30T02:41:46.437110Z
+  198
+--- 542,548 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  9346ff568e9949e5f6700c98011bb03c
+  2008-07-30T02:41:46.437110Z
+  198
+***************
+*** 576,582 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  571f9f09bf5590a2eb538a067e34427f
+  2008-07-14T10:59:07.542369Z
+  189
+--- 576,582 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  571f9f09bf5590a2eb538a067e34427f
+  2008-07-14T10:59:07.542369Z
+  189
+***************
+*** 610,616 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  ec9b5804471b44de9d1cb55c6cf3c690
+  2008-07-14T10:59:07.542369Z
+  189
+--- 610,616 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  ec9b5804471b44de9d1cb55c6cf3c690
+  2008-07-14T10:59:07.542369Z
+  189
+***************
+*** 644,650 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  52262e89d946e2b02ac347588c6545a2
+  2008-07-30T02:41:46.437110Z
+  198
+--- 644,650 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  52262e89d946e2b02ac347588c6545a2
+  2008-07-30T02:41:46.437110Z
+  198
+***************
+*** 678,684 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  eb75cd0697278734485059d9949a6ae9
+  2008-07-14T10:59:07.542369Z
+  189
+--- 678,684 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  eb75cd0697278734485059d9949a6ae9
+  2008-07-14T10:59:07.542369Z
+  189
+***************
+*** 712,718 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  87ff651797e251a89b42a3789c913311
+  2009-06-04T02:37:15.925005Z
+  334
+--- 712,718 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  87ff651797e251a89b42a3789c913311
+  2009-06-04T02:37:15.925005Z
+  334
+***************
+*** 746,752 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  0e78396c470446cc35ad9ff12b867067
+  2008-07-14T10:59:07.542369Z
+  189
+--- 746,752 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  0e78396c470446cc35ad9ff12b867067
+  2008-07-14T10:59:07.542369Z
+  189
+***************
+*** 780,786 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  ce54fdec1691719a5a5f158773d2ba87
+  2009-03-02T00:58:55.597860Z
+  267
+--- 780,786 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  ce54fdec1691719a5a5f158773d2ba87
+  2009-03-02T00:58:55.597860Z
+  267
+***************
+*** 814,820 ****
+  
+  
+  
+! 2009-10-20T08:16:44.000000Z
+  0e51fb8296622700da39c2d031ace8c5
+  2008-09-01T08:13:20.101320Z
+  210
+--- 814,820 ----
+  
+  
+  
+! 2009-09-02T06:04:26.000000Z
+  0e51fb8296622700da39c2d031ace8c5
+  2008-09-01T08:13:20.101320Z
+  210
+diff -crB src/Way.cpp ../osm2pgrouting_append/src/Way.cpp
+*** src/Way.cpp	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/Way.cpp	2009-09-17 16:42:43.000000000 +0200
+***************
+*** 1,48 ****
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #include "stdafx.h"
+! #include "Way.h"
+! 
+! 
+! namespace osm
+! {
+! 
+! Way::Way( long long id, bool visible )
+! :
+! 	id(id),
+! 	visible(visible),
+  	length(0),
+! 	oneway(false)
+! {
+! }
+! 
+! Way::~Way()
+! {
+! }
+! 
+! void Way::AddNodeRef( Node* pNode )
+! {
+! 	if( pNode ) m_NodeRefs.push_back(pNode);
+! }
+! 
+! 
+! } // end namespace osm
+! 
+--- 1,49 ----
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #include "stdafx.h"
+! #include "Way.h"
+! 
+! 
+! namespace osm
+! {
+! 
+! Way::Way( long long id, bool visible )
+! :
+! 	id(id),
+! 	visible(visible),
+  	length(0),
+! 	oneway(false),
+! 	origId(-1)
+! {
+! }
+! 
+! Way::~Way()
+! {
+! }
+! 
+! void Way::AddNodeRef( Node* pNode )
+! {
+! 	if( pNode ) m_NodeRefs.push_back(pNode);
+! }
+! 
+! 
+! } // end namespace osm
+! 
+diff -crB src/Way.h ../osm2pgrouting_append/src/Way.h
+*** src/Way.h	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/Way.h	2009-09-17 16:46:05.000000000 +0200
+***************
+*** 1,62 ****
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! #ifndef WAY_H
+! #define WAY_H
+! 
+! namespace osm
+! {
+! 
+! 	class Node;
+! 
+! /**
+! \code
+!  <way id="20215432" visible="true" timestamp="2008-01-09T22:35:16+00:00" user="Pferdo">
+!     <nd ref="213794929"/>
+!     <nd ref="213795470"/>
+!     <nd ref="213795483"/>
+!     <nd ref="213795493"/>
+!     <nd ref="213795506"/>
+!     <nd ref="213795517"/>
+!     <nd ref="213795527"/>
+!     <nd ref="213795541"/>
+!     <nd ref="213795552"/>
+!     <nd ref="213795561"/>
+!     <nd ref="213795571"/>
+!     <tag k="name" v="Pfänderweg"/>
+!     <tag k="created_by" v="JOSM"/>
+!     <tag k="highway" v="residential"/>
+!   </way>
+! \endcode
+! */
+! class Way
+! {
+! public:
+! 	//! Do not delete nodes in this container!
+! 	std::vector<Node*> m_NodeRefs;
+! 	//! ID of the way
+! 	long long id;
+! 	bool visible;
+! 	//! name of the street
+! 	std::string name;
+! 	//! type of the street, for example "motorway"
+! 	//std::string highway;
+  	
+  	std::string type;
+  	std::string clss;
+--- 1,62 ----
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! #ifndef WAY_H
+! #define WAY_H
+! 
+! namespace osm
+! {
+! 
+! 	class Node;
+! 
+! /**
+! \code
+!  <way id="20215432" visible="true" timestamp="2008-01-09T22:35:16+00:00" user="Pferdo">
+!     <nd ref="213794929"/>
+!     <nd ref="213795470"/>
+!     <nd ref="213795483"/>
+!     <nd ref="213795493"/>
+!     <nd ref="213795506"/>
+!     <nd ref="213795517"/>
+!     <nd ref="213795527"/>
+!     <nd ref="213795541"/>
+!     <nd ref="213795552"/>
+!     <nd ref="213795561"/>
+!     <nd ref="213795571"/>
+!     <tag k="name" v="Pfänderweg"/>
+!     <tag k="created_by" v="JOSM"/>
+!     <tag k="highway" v="residential"/>
+!   </way>
+! \endcode
+! */
+! class Way
+! {
+! public:
+! 	//! Do not delete nodes in this container!
+! 	std::vector<Node*> m_NodeRefs;
+! 	//! ID of the way
+! 	long long id;
+! 	bool visible;
+! 	//! name of the street
+! 	std::string name;
+! 	//! type of the street, for example "motorway"
+! 	//std::string highway;
+  	
+  	std::string type;
+  	std::string clss;
+***************
+*** 64,91 ****
+  	//long long type;
+  	//long long clss;
+  	
+! 	//! geometry of the street
+! 	std::string geom;
+! 	//! length of the street
+! 
+! 	double length;
+! 	bool oneway;
+! 
+! public:
+! 	/** 
+! 	 *	Constructor
+! 	 *	@param id ID of the way
+! 	 */
+! 	Way( long long id, bool visible );
+! 	//! Destructor
+! 	~Way();
+! 	/**
+! 	 *	saves the nodes of the way  
+! 	 *	@param pNode node
+! 	 */
+! 	void AddNodeRef( Node* pNode );
+! };
+! 
+! 
+! } // end namespace osm
+! #endif
+--- 64,94 ----
+  	//long long type;
+  	//long long clss;
+  	
+! 	//! geometry of the street
+! 	std::string geom;
+! 	//! length of the street
+! 
+! 	double length;
+! 	bool oneway;
+! 
+! 	std::string filename;
+! 	long long origId;
+! 
+! public:
+! 	/** 
+! 	 *	Constructor
+! 	 *	@param id ID of the way
+! 	 */
+! 	Way( long long id, bool visible );
+! 	//! Destructor
+! 	~Way();
+! 	/**
+! 	 *	saves the nodes of the way  
+! 	 *	@param pNode node
+! 	 */
+! 	void AddNodeRef( Node* pNode );
+! };
+! 
+! 
+! } // end namespace osm
+! #endif
+diff -crB src/XMLParser.cpp ../osm2pgrouting_append/src/XMLParser.cpp
+*** src/XMLParser.cpp	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/XMLParser.cpp	2009-09-17 09:35:17.000000000 +0200
+***************
+*** 1,88 ****
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #include "stdafx.h"
+! #include "XMLParser.h"
+! 
+! 
+! namespace xml
+! {
+! 
+! //------------------------------------- global Expat Callbacks:
+! 
+! static void startElement(void *userData, const char *name, const char **atts)
+! {
+! 	XMLParserCallback* pCallback = (XMLParserCallback*) userData;
+! 	if( pCallback ) pCallback->StartElement( name, atts );
+! }
+! 
+! static void endElement(void *userData, const char *name)
+! {
+! 	XMLParserCallback* pCallback = (XMLParserCallback*) userData;
+! 	if( pCallback ) pCallback->EndElement( name );
+! }
+! 
+! 
+! 
+! 
+! int XMLParser::Parse( XMLParserCallback& rCallback, const char* chFileName )
+! {
+!   int ret = 1; // File not found
+! 
+!   FILE* fp = fopen(chFileName,"rb");
+!   if( fp )
+!   {
+!     XML_Parser parser = XML_ParserCreate(NULL);
+! 
+!     XML_SetUserData( parser, (void*)&rCallback );
+! 
+!     // register Callbacks for start- and end-element events of the parser:
+!     XML_SetElementHandler(parser, startElement, endElement);
+! 
+!     int done;
+!     do // loop over whole file content
+!     {
+!       char buf[BUFSIZ];
+!       size_t len = fread(buf, 1, sizeof(buf), fp);	// read chunk of data
+!       done = len < sizeof(buf);	// end of file reached if buffer not completely filled
+!       if (!XML_Parse(parser, buf, (int)len, done))
+!   	{
+!   	  // a parse error occured:
+!         fprintf(stderr,
+!   	      "%s at line %d\n",
+!   	      XML_ErrorString(XML_GetErrorCode(parser)),
+!   	      XML_GetCurrentLineNumber(parser));
+!   	       fclose(fp);
+!         ret = 2;	// quit, return = 2 indicating parsing error
+!         done = 1;
+!       }
+!     } while (!done);
+! 
+!     XML_ParserFree(parser);
+!     fclose(fp);
+!     ret = 0;
+!   }
+!   return ret; // return = 0 indicating success
+! }
+! 
+! 
+! 
+! } // end namespace xml
+! //! \endcond
+--- 1,88 ----
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #include "stdafx.h"
+! #include "XMLParser.h"
+! 
+! 
+! namespace xml
+! {
+! 
+! //------------------------------------- global Expat Callbacks:
+! 
+! static void startElement(void *userData, const char *name, const char **atts)
+! {
+! 	XMLParserCallback* pCallback = (XMLParserCallback*) userData;
+! 	if( pCallback ) pCallback->StartElement( name, atts );
+! }
+! 
+! static void endElement(void *userData, const char *name)
+! {
+! 	XMLParserCallback* pCallback = (XMLParserCallback*) userData;
+! 	if( pCallback ) pCallback->EndElement( name );
+! }
+! 
+! 
+! 
+! 
+! int XMLParser::Parse( XMLParserCallback& rCallback, const char* chFileName )
+! {
+!   int ret = 1; // File not found
+! 
+!   FILE* fp = fopen(chFileName,"rb");
+!   if( fp )
+!   {
+!     XML_Parser parser = XML_ParserCreate(NULL);
+! 
+!     XML_SetUserData( parser, (void*)&rCallback );
+! 
+!     // register Callbacks for start- and end-element events of the parser:
+!     XML_SetElementHandler(parser, startElement, endElement);
+! 
+!     int done;
+!     do // loop over whole file content
+!     {
+!       char buf[BUFSIZ];
+!       size_t len = fread(buf, 1, sizeof(buf), fp);	// read chunk of data
+!       done = len < sizeof(buf);	// end of file reached if buffer not completely filled
+!       if (!XML_Parse(parser, buf, (int)len, done))
+!   	{
+!   	  // a parse error occured:
+!         fprintf(stderr,
+!   	      "%s at line %d\n",
+!   	      XML_ErrorString(XML_GetErrorCode(parser)),
+!   	      XML_GetCurrentLineNumber(parser));
+!   	       fclose(fp);
+!         ret = 2;	// quit, return = 2 indicating parsing error
+!         done = 1;
+!       }
+!     } while (!done);
+! 
+!     XML_ParserFree(parser);
+!     fclose(fp);
+!     ret = 0;
+!   }
+!   return ret; // return = 0 indicating success
+! }
+! 
+! 
+! 
+! } // end namespace xml
+! //! \endcond
+diff -crB src/XMLParser.h ../osm2pgrouting_append/src/XMLParser.h
+*** src/XMLParser.h	2009-10-20 10:16:44.000000000 +0200
+--- ../osm2pgrouting_append/src/XMLParser.h	2009-09-17 09:35:17.000000000 +0200
+***************
+*** 1,95 ****
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #ifndef XMLPARSERT_H
+! #define XMLPARSERT_H
+! 
+! #include <expat.h>
+! 
+! 
+! namespace xml
+! {
+! 
+! /**
+!     Callback to be used with XMLParser 
+!  */
+! class XMLParserCallback
+! {
+! public:
+! 
+!   //! Constructor_
+!   XMLParserCallback(){}
+!   //! Destructor
+!   virtual ~XMLParserCallback(){}
+! 
+!   /**
+!     Implement to construct an element with the given name,
+!     call back for parser event "start element"
+!     
+!     \param name  [IN]  element name
+!     \param atts  [IN]  the attributes
+!    */  
+! 	virtual void StartElement( const char *name, const char** atts )=0;
+! 
+!   /**
+!     Implement to process parser event "end element"
+!     */
+! 	virtual void EndElement( const char *elementName )=0;
+! 
+! 
+! };
+! 
+! /**
+!   XML-Parser based on expat library by 
+!   James Clark http://www.jclark.com/xml/expat.html.
+!   
+!   Fast, event driven, non-validating parser
+!   
+!   Dependencies:
+!   - link with xmlparse.lib
+!   - uses xmlparse.dll
+! */
+! class XMLParser
+! {
+! 
+! public:
+!   //! Constructor
+! 	XMLParser(){}
+! 	//! Destructor
+! 	virtual ~XMLParser(){}
+! 
+!   /**
+!     Parse a file from the file system-
+!     
+!     \param rCallback [IN] the parser callback
+!     \param chFileName [IN] name of the file to be parsed  
+!     
+!     \return 0: everything ok, 1: file not found, 2: parsing error
+!    */  
+! 	int Parse( XMLParserCallback& rCallback, const char* chFileName );
+! 
+! private:
+! 	//! the expat parser object / imported from â€žexpat.hâ€œ
+! 	XML_Parser			m_ParserCtxt;
+! 
+! };
+! 
+! } // end namespace xml
+! #endif
+--- 1,95 ----
+! /***************************************************************************
+!  *   Copyright (C) 2008 by Daniel Wendt   								   *
+!  *   gentoo.murray@gmail.com   											   *
+!  *                                                                         *
+!  *   This program is free software; you can redistribute it and/or modify  *
+!  *   it under the terms of the GNU General Public License as published by  *
+!  *   the Free Software Foundation; either version 2 of the License, or     *
+!  *   (at your option) any later version.                                   *
+!  *                                                                         *
+!  *   This program is distributed in the hope that it will be useful,       *
+!  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+!  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+!  *   GNU General Public License for more details.                          *
+!  *                                                                         *
+!  *   You should have received a copy of the GNU General Public License     *
+!  *   along with this program; if not, write to the                         *
+!  *   Free Software Foundation, Inc.,                                       *
+!  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+!  ***************************************************************************/
+! 
+! #ifndef XMLPARSERT_H
+! #define XMLPARSERT_H
+! 
+! #include <expat.h>
+! 
+! 
+! namespace xml
+! {
+! 
+! /**
+!     Callback to be used with XMLParser 
+!  */
+! class XMLParserCallback
+! {
+! public:
+! 
+!   //! Constructor_
+!   XMLParserCallback(){}
+!   //! Destructor
+!   virtual ~XMLParserCallback(){}
+! 
+!   /**
+!     Implement to construct an element with the given name,
+!     call back for parser event "start element"
+!     
+!     \param name  [IN]  element name
+!     \param atts  [IN]  the attributes
+!    */  
+! 	virtual void StartElement( const char *name, const char** atts )=0;
+! 
+!   /**
+!     Implement to process parser event "end element"
+!     */
+! 	virtual void EndElement( const char *elementName )=0;
+! 
+! 
+! };
+! 
+! /**
+!   XML-Parser based on expat library by 
+!   James Clark http://www.jclark.com/xml/expat.html.
+!   
+!   Fast, event driven, non-validating parser
+!   
+!   Dependencies:
+!   - link with xmlparse.lib
+!   - uses xmlparse.dll
+! */
+! class XMLParser
+! {
+! 
+! public:
+!   //! Constructor
+! 	XMLParser(){}
+! 	//! Destructor
+! 	virtual ~XMLParser(){}
+! 
+!   /**
+!     Parse a file from the file system-
+!     
+!     \param rCallback [IN] the parser callback
+!     \param chFileName [IN] name of the file to be parsed  
+!     
+!     \return 0: everything ok, 1: file not found, 2: parsing error
+!    */  
+! 	int Parse( XMLParserCallback& rCallback, const char* chFileName );
+! 
+! private:
+! 	//! the expat parser object / imported from â€žexpat.hâ€œ
+! 	XML_Parser			m_ParserCtxt;
+! 
+! };
+! 
+! } // end namespace xml
+! #endif

@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>pgRouting Project &mdash; Open Source Routing Library</title>
+    <title>pgRouting Gallery &mdash; Open Source Routing Library</title>
     
     <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,19 +26,19 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Open Source Routing Library" href="#" />
-    <link rel="next" title="Documentation" href="documentation.html" />
-    
-    <!-- Incude extra JS files -->
+    <link rel="top" title="Open Source Routing Library" href="index.html" />
+    <link rel="up" title="Documentation" href="documentation.html" />
+    <link rel="next" title="Download" href="download.html" />
+    <link rel="prev" title="osm2pgrouting - Import OSM data into pgRouting Database" href="docs/tools/osm2pgrouting.html" />
     
 
   </head>
   <body>
     <div class="header">
         <div class="wrap">
-            <h1 id="logo"><a href="#">pgRouting</a></h1>
+            <h1 id="logo"><a href="index.html">pgRouting</a></h1>
             <ul id="top-nav">
-                <li class="first"><a href="#">Home</a></li>
+                <li class="first"><a href="index.html">Home</a></li>
                 <li><a href="documentation.html">Documentation</a></li>
                 <li><a href="download.html">Download</a></li>
                 <li><a href="support.html">Support</a></li>
@@ -56,13 +56,36 @@
         </div>
     </div>
 
+    	
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html">Home</a> &raquo;</li>
+          <li><a href="documentation.html" accesskey="U">Documentation</a> &raquo;</li>
+        <li><a href="#">pgRouting Gallery</a></li>
+      </ul>
+    </div>
+    
 
     	
-    <div class="sphinxsidebar">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h2>Download</h2>
-            <p>Current release: <a href="download.html">1.05</a></p>
-   			
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pgRouting Gallery</a><ul>
+<li><a class="reference internal" href="#pgrouting-examples">pgRouting Examples</a></li>
+<li><a class="reference internal" href="#pgrouting-demos">pgRouting Demos</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="docs/tools/osm2pgrouting.html"
+                        title="previous chapter">osm2pgrouting - Import OSM data into pgRouting Database</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="download.html"
+                        title="next chapter">Download</a></p>
+    
     <h2>Make a Donation</h2>
     <p>
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -107,8 +130,9 @@
     <img src="_static/img/OSGeo_logo.png" 
     	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
     </a>
+
         </div>
-    </div>
+      </div>
     
 
 
@@ -117,33 +141,34 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="home"></span><div class="section" id="pgrouting-project">
-<h1>pgRouting Project<a class="headerlink" href="#pgrouting-project" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="_images/pgrouting.png"><img alt="pgRouting Project" class="align-right" src="_images/pgrouting.png" style="width: 130.0px; height: 126.0px;" /></a>
-<p>pgRouting extends the <a class="reference external" href="http://www.postgis.org">PostGIS</a> / <a class="reference external" href="http://www.postgresql.org">PostgreSQL</a> geospatial database to provide geospatial routing functionality.</p>
-<p>Advantages of the database routing approach are:</p>
+  <div class="section" id="pgrouting-gallery">
+<span id="gallery"></span><h1>pgRouting Gallery<a class="headerlink" href="#pgrouting-gallery" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pgrouting-examples">
+<h2>pgRouting Examples<a class="headerlink" href="#pgrouting-examples" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Data and attributes can be modified by many clients, like <a class="reference external" href="qgis_overview.html">Quantum GIS</a> and <a class="reference external" href="udig_overview.html">uDig</a> through JDBC, ODBC, or directly using Pl/pgSQL. The clients can either be PCs or mobile devices.</li>
-<li>Data changes can be reflected instantaneously through the routing engine. There is no need for precalculation.</li>
-<li>The &#8220;cost&#8221; parameter can be dynamically calculated through SQL and its value can come from multiple fields or tables.</li>
+<li><a class="reference external" href="http://www.ridethecity.com">http://www.ridethecity.com</a> (a website that helps you find the safest bike route between any two points in New York City)</li>
+<li><a class="reference external" href="http://www.sushi-kiwami.com/map">http://www.sushi-kiwami.com/map</a> (This site routes you from the highway exit to the closest Sushi restaurant in Niigata)</li>
+<li><a class="reference external" href="http://www.er.org.br">http://www.er.org.br</a> (pgRouting generated routes over Google Maps)</li>
+<li><a class="reference external" href="http://www.fcmq.qc.ca/cartes/en">http://www.fcmq.qc.ca/cartes/en</a> (Snowmobile trails, Quebec)</li>
+<li><a class="reference external" href="http://www.naturparkscout.de">http://www.naturparkscout.de</a> (tourism routes, Germany)</li>
+<li><a class="reference external" href="http://plan.epfl.ch">http://plan.epfl.ch</a> (Campus routing also over different floors, Switzerland)</li>
+<li><a class="reference external" href="http://geoportal.rekod.ru">http://geoportal.rekod.ru</a> (GeoPortal, Russia)</li>
+<li><a class="reference external" href="http://orbis.stanford.edu">http://orbis.stanford.edu</a> (Routing in the Roman Empire)</li>
 </ul>
-<div class="section" id="core-features">
-<h2>Core Features<a class="headerlink" href="#core-features" title="Permalink to this headline">¶</a></h2>
-<p>pgRouting provides functions for:</p>
-<ul class="simple">
-<li>Shortest Path Dijkstra: routing algorithm without heuristics</li>
-<li>Shortest Path A-Star: routing for large datasets (with heuristics)</li>
-<li>Shortest Path Shooting-Star: routing with turn restrictions (with heuristics)</li>
-<li>Traveling Salesperson Problem (TSP)</li>
-<li>Driving Distance calculation (Isolines)</li>
-</ul>
-<p>Learn more about using pgRouting in your application by reading the <a class="reference internal" href="documentation.html"><em>documentation</em></a>.</p>
 </div>
-<div class="section" id="pgrouting-is-open-source">
-<h2>pgRouting is Open Source<a class="headerlink" href="#pgrouting-is-open-source" title="Permalink to this headline">¶</a></h2>
-<p>pgRouting is available under the GPLv2 license and is supported by a growing
-community of individuals, businesses and organizations.</p>
-<div class="toctree-wrapper compound">
+<div class="section" id="pgrouting-demos">
+<h2>pgRouting Demos<a class="headerlink" href="#pgrouting-demos" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.osm-routing.de">http://www.osm-routing.de</a></li>
+<li><a class="reference external" href="http://wrs.postlbs.org/foss4g/">http://wrs.postlbs.org/foss4g/</a></li>
+<li><a class="reference external" href="http://www.djayux.net/routingj/">http://www.djayux.net/routingj/</a></li>
+<li><a class="reference external" href="http://websi.openvrp.com">http://websi.openvrp.com</a> (Georepublic routing demo)</li>
+<li><a class="reference external" href="http://routing.geosdi.org">http://routing.geosdi.org</a> (geoSDI routing demo)</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you know another pgRouting example or demo website, send an email
+to <a class="reference external" href="mailto:project&#37;&#52;&#48;pgrouting&#46;org">project<span>&#64;</span>pgrouting<span>&#46;</span>org</a> and we will add it to the list.</p>
 </div>
 </div>
 </div>
@@ -153,6 +178,20 @@ community of individuals, businesses and organizations.</p>
         </div>
       </div>
       <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+            <li class="right" style="margin-right: 10px">
+              <a href="download.html" title="Download"
+                 accesskey="N">next</a></li>
+            <li class="right" >
+              <a href="docs/tools/osm2pgrouting.html" title="osm2pgrouting - Import OSM data into pgRouting Database"
+                 accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Home</a> &raquo;</li>
+          <li><a href="documentation.html" >Documentation</a> &raquo;</li>
+        <li><a href="#">pgRouting Gallery</a></li>
+      </ul>
     </div>
 
 	<div class="footer">

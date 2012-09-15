@@ -1,0 +1,56 @@
+:Author: Daniel Kastl
+:License: Creative Commons
+
+.. _foss4g2008-ch01:
+
+================================================================
+ Introduction
+================================================================
+
+FOSS4G routing with pgRouting tools and OpenStreetMap road data
+
+Abstract
+--------
+
+pgRouting adds routing functionality to PostGIS. This introductory workshop 
+will show you how. It gives a practical example of how to use pgRouting with 
+OpenStreetMap road network data. It explains the steps to prepare the network 
+data, make routing queries, assign costs to the network links and modify your 
+results through wrapper functions.
+
+Description
+-----------
+
+Navigation for road networks requires complex routing algorithms that support 
+turn restrictions and even time-dependent attributes. pgRouting is an extendible 
+open-source library that provides a variety of tools for shortest path search. 
+The library in its current version is an extension of PostgreSQL and PostGIS. 
+It's predecessor "pgDijkstra" was written by Sylvain Pasche from Camptocamp. 
+It was then extended by Orkney (Japan) and renamed to pgRouting.
+
+An introduction will give an overview of the project history, development team, 
+infrastructure, productive environments and scope of use. The workshop will 
+explain about shortest path search with pgRouting in real road networks and how 
+the data structure is important to get faster routing results. Also you will 
+learn about difficulties and limitations of implementing pgRouting functionality 
+in GIS applications.
+
+To give a practical example of how to perform shortest-path searches with 
+pgRouting, the workshop makes use of OpenStreetMap road network data. The 
+OpenStreetMap community creates their own road data that is freely available 
+for a rapidly growing number of areas. We will use OpenStreetMap data of 
+Capetown for this workshop. You will learn how to convert the data into the 
+required format and how to calibrate the data with "cost" attributes. 
+Furthermore we will explain the difference of the three main routing algorithms 
+"Dijkstra", "A-Star" and "Shooting-Star".
+
+By the end of the workshop you will have a good understanding of how to use 
+pgRouting and how to get your network data prepared. While similar to the last 
+years workshop "Web-based Routing: An Introduction to pgRouting with 
+OpenLayers", this year's pgRouting workshop will – in regard to the students 
+feedback – focus on pgRouting itself and network data issues. OpenLayers map 
+client will still be used to display the route on a map.
+
+Due to time limitation installation of pgRouting is not part of this workshop. 
+An installation with pgRouting will be provided for you as well as the 
+OpenStreetMap sample data for Capetown.
