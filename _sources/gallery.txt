@@ -18,6 +18,7 @@ pgRouting Examples
 * http://plan.epfl.ch (Campus routing also over different floors, Switzerland)
 * http://geoportal.rekod.ru (GeoPortal, Russia)
 * http://orbis.stanford.edu (Routing in the Roman Empire)
+* http://BikeDistrict.org (Bike routing service for the city of Milan)
 
 
 pgRouting Demos
