@@ -217,7 +217,7 @@ or end of the selected edge.</p>
 <span class="s2">                             &quot;</span><span class="o">.</span><span class="p">(</span><span class="nv">$lonlat</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;)&#39;::box3d, 54004)</span>
 <span class="s2">                ORDER BY dist LIMIT 1&quot;</span><span class="p">;</span>
 
-        <span class="nv">$query</span> <span class="o">=</span> <span class="nb">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql</span><span class="p">);</span>
+        <span class="nv">$query</span> <span class="o">=</span> <span class="nx">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql</span><span class="p">);</span>
 
         <span class="nv">$edge</span><span class="p">[</span><span class="s1">&#39;gid&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="nb">pg_fetch_result</span><span class="p">(</span><span class="nv">$query</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
         <span class="nv">$edge</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="nb">pg_fetch_result</span><span class="p">(</span><span class="nv">$query</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
@@ -313,7 +313,7 @@ or end of the selected edge.</p>
   <span class="nv">$dbcon</span> <span class="o">=</span> <span class="nb">pg_connect</span><span class="p">(</span><span class="s2">&quot;dbname=&quot;</span><span class="o">.</span><span class="nx">PG_DB</span><span class="o">.</span><span class="s2">&quot; host=&quot;</span><span class="o">.</span><span class="nx">PG_HOST</span><span class="o">.</span><span class="s2">&quot; user=&quot;</span><span class="o">.</span><span class="nx">PG_USER</span><span class="p">);</span>
 
   <span class="c1">// Perform database query</span>
-  <span class="nv">$query</span> <span class="o">=</span> <span class="nb">pg_query</span><span class="p">(</span><span class="nv">$dbcon</span><span class="p">,</span><span class="nv">$sql</span><span class="p">);</span>
+  <span class="nv">$query</span> <span class="o">=</span> <span class="nx">pg_query</span><span class="p">(</span><span class="nv">$dbcon</span><span class="p">,</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </div>
@@ -336,7 +336,7 @@ This makes the XML output short and simple:</p>
         <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&lt;edge id=&#39;&quot;</span><span class="o">.++</span><span class="nv">$counter</span><span class="o">.</span><span class="s2">&quot;&#39;&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
         <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;id&gt;&quot;</span><span class="o">.</span><span class="nv">$edge</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;/id&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
         <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;wkt&gt;&quot;</span><span class="o">.</span><span class="nv">$edge</span><span class="p">[</span><span class="s1">&#39;wkt&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;/wkt&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-        <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;length&gt;&quot;</span><span class="o">.</span><span class="nb">round</span><span class="p">((</span><span class="nv">$pathlength</span><span class="o">/</span><span class="mi">1000</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;/length&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+        <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;length&gt;&quot;</span><span class="o">.</span><span class="nx">round</span><span class="p">((</span><span class="nv">$pathlength</span><span class="o">/</span><span class="mi">1000</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;/length&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
         <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&lt;/edge&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
   <span class="p">}</span>
 
@@ -346,7 +346,7 @@ This makes the XML output short and simple:</p>
   <span class="nb">pg_close</span><span class="p">(</span><span class="nv">$dbcon</span><span class="p">);</span>
 
   <span class="c1">// Return routing result</span>
-  <span class="nb">header</span><span class="p">(</span><span class="s1">&#39;Content-type: text/xml&#39;</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
+  <span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Content-type: text/xml&#39;</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
   <span class="k">echo</span> <span class="nv">$xml</span><span class="p">;</span>
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>

@@ -211,7 +211,7 @@
 
 
 
-            <span class="nv">$query</span> <span class="o">=</span> <span class="nb">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql</span><span class="p">);</span>
+            <span class="nv">$query</span> <span class="o">=</span> <span class="nx">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql</span><span class="p">);</span>
 
             <span class="nv">$edge</span><span class="p">[</span><span class="s1">&#39;gid&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="nb">pg_fetch_result</span><span class="p">(</span><span class="nv">$query</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
             <span class="nv">$edge</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="nb">pg_fetch_result</span><span class="p">(</span><span class="nv">$query</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
@@ -240,8 +240,8 @@
    <span class="nv">$con</span> <span class="o">=</span> <span class="nb">pg_connect</span><span class="p">(</span><span class="s2">&quot;dbname=&quot;</span><span class="o">.</span><span class="nx">PG_DB</span><span class="o">.</span><span class="s2">&quot; host=&quot;</span><span class="o">.</span><span class="nx">PG_HOST</span><span class="o">.</span><span class="s2">&quot; user=&quot;</span><span class="o">.</span><span class="nx">PG_USER</span><span class="p">);</span>
 
 
-<span class="nv">$query2</span> <span class="o">=</span> <span class="nb">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql2</span><span class="p">);</span>
-<span class="nv">$query3</span> <span class="o">=</span> <span class="nb">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql3</span><span class="p">);</span>
+<span class="nv">$query2</span> <span class="o">=</span> <span class="nx">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql2</span><span class="p">);</span>
+<span class="nv">$query3</span> <span class="o">=</span> <span class="nx">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql3</span><span class="p">);</span>
 
 <span class="nv">$point_on_line_anfang</span><span class="o">=</span> <span class="nb">pg_fetch_result</span><span class="p">(</span><span class="nv">$query2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 <span class="nv">$point_on_line_ende</span><span class="o">=</span> <span class="nb">pg_fetch_result</span><span class="p">(</span><span class="nv">$query3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
@@ -309,7 +309,7 @@
 
 
 
-<span class="nv">$geometrie_results</span><span class="o">=</span><span class="nb">pg_query</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+<span class="nv">$geometrie_results</span><span class="o">=</span><span class="nx">pg_query</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="nv">$anzahl_geometrien</span><span class="o">=</span><span class="nb">pg_num_rows</span><span class="p">(</span><span class="nv">$geometrie_results</span><span class="p">);</span>
 
 
@@ -321,7 +321,7 @@
 
 
 
-<span class="nv">$treffer_nebengeometrie_anfang</span><span class="o">=</span><span class="nb">pg_query</span><span class="p">(</span><span class="s2">&quot;SELECT b.gid,astext(b.the_geom) from (select the_geom from ways where</span>
+<span class="nv">$treffer_nebengeometrie_anfang</span><span class="o">=</span><span class="nx">pg_query</span><span class="p">(</span><span class="s2">&quot;SELECT b.gid,astext(b.the_geom) from (select the_geom from ways where</span>
 <span class="s2"> gid=&quot;</span><span class="o">.</span><span class="nv">$startEdge</span><span class="p">[</span><span class="s1">&#39;gid&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;)a, (select gid,the_geom from ways WHERE gid=&quot;</span><span class="o">.</span><span class="nv">$ergebnis_geometrie_gid</span><span class="p">[</span><span class="nv">$x</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;) b</span>
 <span class="s2"> WHERE touches (a.the_geom,b.the_geom)&quot;</span><span class="p">);</span>
 
@@ -345,7 +345,7 @@
 
 
 
-<span class="nv">$treffer_nebengeometrie_ende</span><span class="o">=</span><span class="nb">pg_query</span><span class="p">(</span><span class="s2">&quot;SELECT d.gid,astext(d.the_geom) from (select the_geom from ways where</span>
+<span class="nv">$treffer_nebengeometrie_ende</span><span class="o">=</span><span class="nx">pg_query</span><span class="p">(</span><span class="s2">&quot;SELECT d.gid,astext(d.the_geom) from (select the_geom from ways where</span>
 <span class="s2"> gid=&quot;</span><span class="o">.</span><span class="nv">$endEdge</span><span class="p">[</span><span class="s1">&#39;gid&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;)c, (select gid,the_geom from ways WHERE gid=&quot;</span><span class="o">.</span><span class="nv">$ergebnis_geometrie_gid</span><span class="p">[</span><span class="nv">$x</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;) d</span>
 <span class="s2"> WHERE touches (c.the_geom,d.the_geom)&quot;</span><span class="p">);</span>
 <span class="nv">$ergebnis_nebengeometrie_ende_gid</span><span class="o">=@</span><span class="nx">pg_result</span><span class="p">(</span><span class="nv">$treffer_nebengeometrie_ende</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nx">gid</span><span class="p">);</span>
@@ -369,19 +369,19 @@
 
 
 
-          <span class="nv">$query</span> <span class="o">=</span> <span class="nb">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql</span><span class="p">);</span>
+          <span class="nv">$query</span> <span class="o">=</span> <span class="nx">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql</span><span class="p">);</span>
 
 
 
 <span class="c1">//Geometrie-Anfang</span>
 <span class="nv">$sql3</span><span class="o">=</span><span class="s2">&quot;SELECT astext(give_we_wkt(&quot;</span><span class="o">.</span><span class="nv">$startEdge</span><span class="p">[</span><span class="s1">&#39;gid&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="nv">$ergebnis_nebengeometrie_anfang_gid</span><span class="o">.</span><span class="s2">&quot;,&#39;&quot;</span><span class="o">.</span>
 <span class="nv">$point_on_line_anfang</span><span class="o">.</span><span class="s2">&quot;&#39;))&quot;</span><span class="p">;</span>
-<span class="nv">$query3</span> <span class="o">=</span> <span class="nb">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql3</span><span class="p">);</span>
+<span class="nv">$query3</span> <span class="o">=</span> <span class="nx">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql3</span><span class="p">);</span>
 <span class="nv">$gesuchtes_wkt_anfang</span><span class="o">=</span> <span class="nb">pg_fetch_result</span><span class="p">(</span><span class="nv">$query3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
 
 <span class="nv">$sql4</span><span class="o">=</span><span class="s2">&quot;SELECT length(&#39;&quot;</span><span class="o">.</span><span class="nv">$gesuchtes_wkt_anfang</span><span class="o">.</span><span class="s2">&quot;&#39;)&quot;</span><span class="p">;</span>
-<span class="nv">$query4</span> <span class="o">=</span> <span class="nb">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql4</span><span class="p">);</span>
+<span class="nv">$query4</span> <span class="o">=</span> <span class="nx">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql4</span><span class="p">);</span>
 <span class="nv">$laenge_anfang</span><span class="o">=</span> <span class="nb">pg_fetch_result</span><span class="p">(</span><span class="nv">$query4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
 <span class="c1">//----------------------------------------</span>
@@ -390,12 +390,12 @@
 <span class="c1">//Geometrie-Ende</span>
 <span class="nv">$sql5</span><span class="o">=</span><span class="s2">&quot;SELECT astext(give_we_wkt(&quot;</span><span class="o">.</span><span class="nv">$endEdge</span><span class="p">[</span><span class="s1">&#39;gid&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="nv">$ergebnis_nebengeometrie_ende_gid</span><span class="o">.</span><span class="s2">&quot;,&#39;&quot;</span><span class="o">.</span>
 <span class="nv">$point_on_line_ende</span><span class="o">.</span><span class="s2">&quot;&#39;))&quot;</span><span class="p">;</span>
-<span class="nv">$query5</span> <span class="o">=</span> <span class="nb">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql5</span><span class="p">);</span>
+<span class="nv">$query5</span> <span class="o">=</span> <span class="nx">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql5</span><span class="p">);</span>
 <span class="nv">$gesuchtes_wkt_ende</span><span class="o">=</span> <span class="nb">pg_fetch_result</span><span class="p">(</span><span class="nv">$query5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
 
 <span class="nv">$sql6</span><span class="o">=</span><span class="s2">&quot;SELECT length(&#39;&quot;</span><span class="o">.</span><span class="nv">$gesuchtes_wkt_ende</span><span class="o">.</span><span class="s2">&quot;&#39;)&quot;</span><span class="p">;</span>
-<span class="nv">$query6</span> <span class="o">=</span> <span class="nb">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql6</span><span class="p">);</span>
+<span class="nv">$query6</span> <span class="o">=</span> <span class="nx">pg_query</span><span class="p">(</span><span class="nv">$con</span><span class="p">,</span><span class="nv">$sql6</span><span class="p">);</span>
 <span class="nv">$laenge_ende</span><span class="o">=</span> <span class="nb">pg_fetch_result</span><span class="p">(</span><span class="nv">$query6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
           <span class="c1">// Return route as XML</span>
@@ -404,7 +404,7 @@
             <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&lt;edge id=&#39;1&#39;&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
             <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;id&gt;&quot;</span><span class="o">.</span><span class="nv">$startEdge</span><span class="p">[</span><span class="s1">&#39;gid&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;/id&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
             <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;wkt&gt;&quot;</span><span class="o">.</span><span class="nv">$gesuchtes_wkt_anfang</span><span class="o">.</span><span class="s2">&quot;&lt;/wkt&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-            <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;length&gt;&quot;</span><span class="o">.</span><span class="nb">round</span><span class="p">((</span><span class="nv">$laenge_anfang</span><span class="o">/</span><span class="mi">1000</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;/length&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+            <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;length&gt;&quot;</span><span class="o">.</span><span class="nx">round</span><span class="p">((</span><span class="nv">$laenge_anfang</span><span class="o">/</span><span class="mi">1000</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;/length&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
             <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&lt;/edge&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
 
           <span class="c1">// Add edges to XML file</span>
@@ -420,13 +420,13 @@
             <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&lt;edge id=&#39;&quot;</span><span class="o">.++</span><span class="nv">$counter</span><span class="o">.</span><span class="s2">&quot;&#39;&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
             <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;id&gt;&quot;</span><span class="o">.</span><span class="nv">$edge</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;/id&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
             <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;wkt&gt;&quot;</span><span class="o">.</span><span class="nv">$edge</span><span class="p">[</span><span class="s1">&#39;wkt&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;/wkt&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-            <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;length&gt;&quot;</span><span class="o">.</span><span class="nb">round</span><span class="p">((</span><span class="nv">$pathlength</span><span class="o">/</span><span class="mi">1000</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;/length&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+            <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;length&gt;&quot;</span><span class="o">.</span><span class="nx">round</span><span class="p">((</span><span class="nv">$pathlength</span><span class="o">/</span><span class="mi">1000</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;/length&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
             <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&lt;/edge&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
           <span class="p">}</span>
            <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&lt;edge id=&#39;&quot;</span><span class="o">.++</span><span class="nv">$counter</span><span class="o">.</span><span class="s2">&quot;&#39;&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
             <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;id&gt;&quot;</span><span class="o">.</span><span class="nv">$startEdge</span><span class="p">[</span><span class="s1">&#39;gid&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;/id&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
             <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;wkt&gt;&quot;</span><span class="o">.</span><span class="nv">$gesuchtes_wkt_ende</span><span class="o">.</span><span class="s2">&quot;&lt;/wkt&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-            <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;length&gt;&quot;</span><span class="o">.</span><span class="nb">round</span><span class="p">((</span><span class="nv">$laenge_ende</span><span class="o">/</span><span class="mi">1000</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;/length&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+            <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&lt;length&gt;&quot;</span><span class="o">.</span><span class="nx">round</span><span class="p">((</span><span class="nv">$laenge_ende</span><span class="o">/</span><span class="mi">1000</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;/length&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
             <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&lt;/edge&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
 
 
@@ -437,7 +437,7 @@
           <span class="c1">// Close database connection</span>
           <span class="nb">pg_close</span><span class="p">(</span><span class="nv">$con</span><span class="p">);</span>
           <span class="c1">// Return routing result</span>
-          <span class="nb">header</span><span class="p">(</span><span class="s1">&#39;Content-type: text/xml&#39;</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
+          <span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Content-type: text/xml&#39;</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
           <span class="k">echo</span> <span class="nv">$xml</span><span class="p">;</span>
 
 <span class="cp">?&gt;</span><span class="x"></span>
