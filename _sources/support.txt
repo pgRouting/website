@@ -1,73 +1,69 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _support:
 
-===============
- Support
-===============
+Support
+===============================================================================
 
-pgRouting community support is available through :doc:`documentation and 
-tutorials <documentation>`, through mailing lists and user forum. If you're 
-looking for commercial support, find below a list of companies providing
-pgRouting development and consulting services.
+pgRouting community support is available through `website <http://www.pgrouting.org>`_, `documentation <http://docs.pgrouting.org>`_, tutorials, mailing lists and others. If you’re looking for :ref:`commercial support <support_commercial>`, find below a list of companies providing pgRouting development and consulting services.
 
-Mailing Lists
--------------
 
-There are two mailing lists for pgRouting hosted on 
-`OSGeo <http://www.osgeo.org>`_ mailing list server:
+Reporting Problems
+-------------------------------------------------------------------------------
 
-* **User** mailing list: http://lists.osgeo.org/mailman/listinfo/pgrouting-users
-* **Developer** mailing list: http://lists.osgeo.org/mailman/listinfo/pgrouting-dev
+Bugs are reported and managed in an `issue tracker <https://github.com/pgrouting/pgrouting/issues>`_. Please follow these steps:
 
-For general questions and topics about how to use pgRouting, please write to the 
-user mailing list.
+1. Search the tickets to see if your problem has already been reported. If so, add any extra context you might have found, or at least indicate that you too are having the problem. This will help us prioritize common issues.
+2. If your problem is unreported, create a `new issue <https://github.com/pgRouting/pgrouting/issues/new>`_ for it.
+3. In your report include explicit instructions to replicate your issue. The best tickets include the exact SQL necessary to replicate a problem. 
+4. If you can test older versions of PostGIS for your problem, please do. On your ticket, note the earliest version the problem appears.
+5. For the versions where you can replicate the problem, note the operating system and version of pgRouting, PostGIS and PostgreSQL.
+   
 
-User Forum
-----------
+Mailing List and GIS StackExchange
+-------------------------------------------------------------------------------
 
-For pgRouting related questions we recommend to use `gis.stackexchange.com 
-<http://gis.stackexchange.com>`_ and tag the question with 
-:command:`pgrouting`. Find all questions tagged with :command:`pgrouting` under 
-http://gis.stackexchange.com/questions/tagged/pgrouting or subscribe to the 
-`pgrouting questions feed <http://gis.stackexchange.com/feeds/tag?tagnames=pgrouting&sort=newest>`_.
+There are two mailing lists for pgRouting hosted on OSGeo mailing list server:
 
-.. note::
+* User mailing list: http://lists.osgeo.org/mailman/listinfo/pgrouting-users
+* Developer mailing list: http://lists.osgeo.org/mailman/listinfo/pgrouting-dev
 
-	Due to increasing problem with spam we decided to stop the previous discussion 
-	forum when moving to the new project website. You can find a cached copy of the 
-	old forum at http://download.osgeo.org/pgrouting/forum/
+For general questions and topics about how to use pgRouting, please write to the user mailing list.
+
+You can also ask at `GIS StackExchange <http://gis.stackexchange.com/>`_ and tag the question with ``pgrouting``. Find all questions tagged with ``pgrouting`` under http://gis.stackexchange.com/questions/tagged/pgrouting or subscribe to the `pgRouting questions feed <http://gis.stackexchange.com/feeds/tag?tagnames=pgrouting&sort=newest>`_.
+
+
+.. _support_commercial:
 
 Commercial Support
-------------------
+-------------------------------------------------------------------------------
 
-For users who require professional support, development or consulting services, 
-feel free to contact the listed companies or individuals:
+For users who require professional support, development and consulting services, consider contacting any of the following organizations, which have significantly contributed to the development of pgRouting:
 
 .. list-table::
-   :widths: 20 30 50
+   :widths: 100 160 200
 
    * - **Company**
      - **Offices in**
      - **Website**
    * - Georepublic
      - Germany, Japan
-     - http://georepublic.de
+     - http://georepublic.info
+   * - iMaptools
+     - United States
+     - http://imaptools.com
    * - Orkney Inc.
      - Japan
      - http://www.orkney.co.jp
    * - Camptocamp
      - Switzerland, France
      - http://www.camptocamp.com
-   * - iMaptools
-     - United States
-     - http://imaptools.com
    
-
-.. note::
-
-	If you're a company providing commercial support for pgRouting, send an email
-	to project@pgrouting.org and we will add you to the list.
-
 

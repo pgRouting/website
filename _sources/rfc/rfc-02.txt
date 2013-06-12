@@ -1,11 +1,16 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _rfc-02:
 
-================================================================================
 RFC 02: [done] Migrate pgRouting to OSGeo Infrastructure
-================================================================================
+===============================================================================
 
 .. list-table::
    :widths: 15 85
@@ -22,7 +27,7 @@ RFC 02: [done] Migrate pgRouting to OSGeo Infrastructure
      - Adopted (2010/04/18)
 
 Motivation to migrate pgRouting infrastructure
-----------------------------------------------
+********************************************************************************
 
 * All maintenance work for mailing list, SVN repository, TRAC website is under the responsibility of Orkney at the moment.
 * pgRouting would like to establish a new mailing list "pgrouting-dev" without the hassle of maintaining a mail server.
@@ -41,7 +46,7 @@ What is affected by the migration?
 * DNS settings ( http://[xyz].postlbs.org)
 
 Migration steps
----------------
+********************************************************************************
 
 Mailing lists
 ^^^^^^^^^^^^^
@@ -78,13 +83,13 @@ DNS settings
 Update DNS settings to comply with the new URL's, create redirects to avoid dead links. (Keep pgrouting.postlbs.org or take "pgrouting.org" domain?)
 
 Possible issues
----------------
+********************************************************************************
 
 * OSGeo domain will be used for SVN, mailing lists, download server. How about TRAC?
 * URL's might change and links might not be accessible anymore.
 * Discussion forum will be closed (keep current forum as static HTML and reference?). Can we expect all users to use the mailing list for questions?
 
 Remarks, Links
---------------
+********************************************************************************
 
 * http://lists.postlbs.org/pipermail/pgrouting-users/2010-March/000268.html

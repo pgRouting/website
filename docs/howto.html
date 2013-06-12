@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -16,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.05',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +27,7 @@
     <link rel="top" title="Open Source Routing Library" href="../index.html" />
     <link rel="up" title="Documentation" href="../documentation.html" />
     <link rel="next" title="Build pgRouting for Windows" href="howto/build_on_windows.html" />
-    <link rel="prev" title="Path on one line" href="ol-workshop/ch14.html" />
+    <link rel="prev" title="Installation on FreeBSD" href="1.x/install_freebsd.html" />
     
 
   </head>
@@ -71,8 +69,8 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="ol-workshop/ch14.html"
-                        title="previous chapter">Path on one line</a></p>
+  <p class="topless"><a href="1.x/install_freebsd.html"
+                        title="previous chapter">Installation on FreeBSD</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="howto/build_on_windows.html"
                         title="next chapter">Build pgRouting for Windows</a></p>
@@ -101,25 +99,25 @@
     </p>
     <h2>Links</h2>
     <ul style="list-style: square; margin-left: 20px;">
-    	<li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
+        <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
     	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="http://www.postgis.org/">PostGIS</a></li>
+    	<li><a href="http://www.postgis.net/">PostGIS</a></li>
     </ul>
     
     <!-- Callout -->
-    <a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2012">
-    <img src="../_static/img/gsoc_2012.png" 
-    	alt="Google Summer of Code 2011" title="Google Summer of Code 2012" style="width:210px;"/>
+    <a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2013">
+    <img src="../_static/img/gsoc_2013.png" 
+    	alt="Google Summer of Code 2013" title="Google Summer of Code 2013" style="width:210px;margin-bottom:20px;"/>
     </a>
     
-    <!--a href="http://2012.foss4g.org">
-    <img src="../_static/img/foss4g_2012.jpg" 
-    	alt="FOSS4G 2011, Denver" title="FOSS4G 2012, Beijing" style="width:210px;"/>
-    </a-->
+    <a href="http://2013.foss4g.org">
+    <img src="../_static/img/foss4g_2013.png" 
+    	alt="FOSS4G 2013, Nottingham" title="FOSS4G 2013, Nottingham" style="width:210px;margin-bottom:20px;"/>
+    </a>
     
     <a href="http://www.osgeo.org">
     <img src="../_static/img/OSGeo_logo.png" 
-    	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
+    	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;margin-bottom:20px;"/>
     </a>
 
         </div>
@@ -134,10 +132,9 @@
             
   <div class="section" id="pgrouting-howto-s">
 <span id="howto"></span><h1>pgRouting Howto&#8217;s<a class="headerlink" href="#pgrouting-howto-s" title="Permalink to this headline">¶</a></h1>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Howto&#8217;s were copied from TRAC wiki, where pgRouting was hosted before. Be
-aware that not all content has been checked and may be outdated.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Many of them probably won&#8217;t work with pgRouting 2.x. Be aware that not all content has been checked and may be outdated. We&#8217;re planning to include howto&#8217;s and recipes in the official documentation in the near future.</p>
 </div>
 <div class="toctree-wrapper compound">
 <ul>
@@ -145,6 +142,7 @@ aware that not all content has been checked and may be outdated.</p>
 <li class="toctree-l1"><a class="reference internal" href="howto/contribute.html">How to Contribute</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="howto/contribute.html#code-snippets">Code Snippets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="howto/contribute.html#get-involved">Get Involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/contribute.html#fork-pgrouting-on-github">Fork pgRouting on Github</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="howto/convert_osm.html">Converting OSM-Files into PostgreSQL-Scripts</a></li>
@@ -174,9 +172,7 @@ aware that not all content has been checked and may be outdated.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If you want to share some knowledge how to work with pgRouting, we&#8217;re glad
-toadd new content to this site. Send an email to <a class="reference external" href="mailto:project&#37;&#52;&#48;pgrouting&#46;org">project<span>&#64;</span>pgrouting<span>&#46;</span>org</a> for
-further informations.</p>
+<p class="last">If you want to share some knowledge how to work with pgRouting, we&#8217;re glad      to add new content to this site. Send an email to <a class="reference external" href="mailto:project&#37;&#52;&#48;pgrouting&#46;org">project<span>&#64;</span>pgrouting<span>&#46;</span>org</a> for further informations.</p>
 </div>
 </div>
 
@@ -193,7 +189,7 @@ further informations.</p>
               <a href="howto/build_on_windows.html" title="Build pgRouting for Windows"
                  accesskey="N">next</a></li>
             <li class="right" >
-              <a href="ol-workshop/ch14.html" title="Path on one line"
+              <a href="1.x/install_freebsd.html" title="Installation on FreeBSD"
                  accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Home</a> &raquo;</li>
           <li><a href="../documentation.html" >Documentation</a> &raquo;</li>

@@ -1,30 +1,36 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _documentation:
 
-===============
- Documentation
-===============
+Documentation
+===============================================================================
 
 .. toctree::
 	:maxdepth: 1
 
-	Versions 1.x (current)    <docs/1.x/index>
-	contributor
+	pgRouting versions 1.x <docs/1.x/index>
+	pgRouting versions 2.x <http://docs.pgrouting.org>
 
 
 Workshops & Tutorials
----------------------
+-------------------------------------------------------------------------------
 
 .. toctree::
 	:maxdepth: 1
 
-	docs/tutorials
+	pgRouting Workshop for v1.05 (English) <http://workshop.pgrouting.org>
+	pgRouting Workshop for v1.05 (Français) <http://postgis.fr/chrome/site/docs/workshop-routing-foss4g/docs/_build/html/index.html>
 
 
 Tools and HowTo's
------------------
+-------------------------------------------------------------------------------
 
 .. toctree::
 	:maxdepth: 1
@@ -34,23 +40,30 @@ Tools and HowTo's
 
 
 pgRouting Gallery
------------------
+-------------------------------------------------------------------------------
 
 .. toctree::
 	:maxdepth: 1
 
-	gallery
+	Examples and Demos <gallery>
 	OSGeo LiveDVD <http://live.osgeo.org>
 
 
-.. note::
+List of Contributors
+-------------------------------------------------------------------------------
 
-	The pgRouting website is built with `Sphinx <http://sphinx.pocoo.org>`_ and 
-	hosted on GitHub: https://github.com/pgRouting/website. 
-	
-	If 	you want to make changes to the website, contribute content or make 
-	corrections, feel free to fork the repository and submit pull requests. Or 
-	send an email to project@pgrouting.org and we will give you commit rights
-	to the repository.
+Thanks to everyone who contributed to pgRouting project over the past years! Thank you also to all corporate sponsors that have contributed developer time, hosting, or direct monetary funding to the pgRouting project:
+
+
+.. rubric:: Individuals (in alphabetical order)
+
+Akio Takubo, Anton Patrushev, Ashraf Hossain, Christian Gonzalez, Daniel Kastl, Dave Potts, David Techer, Ema Miyawaki, Florian Thurkow, Frederic Junod, Gerald Fenoy, Jay Mahadeokar, Jinfu Leng, Kai Behncke, Kishore Kumar, Ko Nagase, Mario Basa, Martin Wiesenhaan, Razequl Islam, Stephen Woodbridge, Sylvain Housseman, Sylvain Pasche
+
+
+.. rubric:: Corporate Sponsors (in alphabetical order)
+
+Camptocamp, CSIS (University of Tokyo), Georepublic, Google Summer of Code, iMaptools, Orkney, Paragon Corporation
+
+
 	
 

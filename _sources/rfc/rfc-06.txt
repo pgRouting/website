@@ -1,11 +1,16 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _rfc-06:
 
-================================================================================
-RFC 06: [open] Implementation of "Bidirectional search" algorithm
-================================================================================
+RFC 06: [done] Implementation of "Bidirectional search" algorithm
+===============================================================================
 
 .. list-table::
    :widths: 15 85
@@ -17,12 +22,12 @@ RFC 06: [open] Implementation of "Bidirectional search" algorithm
    * - Contact:
      - daniel at georepublic.de
    * - Last Edited:
-     - 2010/11/22
+     - 2013/06/09
    * - Status: 
-     - Draft (xxxx/xx/xx)
+     - Implemented (v2.0.0)
 
 Overview
-----------------------------------------------
+********************************************************************************
 
 Bidirectional search is a graph search algorithm that finds a shortest path from 
 an initial vertex to a goal vertex in a directed graph. It runs two simultaneous 
@@ -39,7 +44,7 @@ the beginning to the goal.
 
 
 Implementation Details
-----------------------------------------------
+********************************************************************************
 
 List of online resources:
 
@@ -47,46 +52,26 @@ List of online resources:
 * http://en.wikibooks.org/wiki/Artificial_Intelligence/Search/Heuristic_search/Bidirectional_Search
 * http://intelligence.worldofcomputing.net/ai-search/bidirectional-search.html
 
-	TBD
-
-
-Usage Example
-----------------------------------------------
-
-	TBD
-
-
-Further Considerations
-----------------------------------------------
-
-	TBD
-
-
-Files Affected
-----------------------------------------------
-
-	TBD
-	
 
 Backwards Compatibilty Issues
-----------------------------------------------
+********************************************************************************
 
 Are not expected
 
 
 Documentation
-----------------------------------------------
+********************************************************************************
 
 Required. 
 
 
 Ticket ID
-----------------------------------------------
+********************************************************************************
 
 Not assigned.
 
 
 Voting History
-----------------------------------------------
+********************************************************************************
 
 No vote yet.

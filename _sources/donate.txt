@@ -1,47 +1,37 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _sponsorship:
 
-==========================
- Sponsorship and Donation
-==========================
+Sponsorship and Donation
+===============================================================================
 
-Maybe you have used pgRouting for your research project or for some commercial
-application or something else. Then we hope that the library and the information
-on the pgRouting website helped you to get your work done. Or maybe you're 
-planning to use pgRouting for your next project.
+Maybe you have used pgRouting for your research project or for some commercial application or something else. Then we hope that the library and the information on the pgRouting website helped you to get your work done. Or maybe you're planning to use pgRouting for your next project.
 
-pgRouting is an Open Source project and so the users and the community are the
-most valuable and most important factor. pgRouting development is carried 
-out largely by a group of volunteers, that in time have built up a large, 
-valuable and useful code base, free to use and improve for everybody. We 
-appreciate every `feedback, question, bug report, patches and contributions 
-<development>`_.
+pgRouting is an Open Source project and so the users and the community are the most valuable and most important factor. pgRouting development is carried out largely by a group of volunteers, that in time have built up a large, valuable and useful code base, free to use and improve for everybody. We appreciate every `feedback, question, bug report, patches and contributions <development>`_.
 
-We would like to extend our activities and improve the quality of pgRouting. 
-Your financial contribution will support the maintenance, improvement, and 
-promotion of pgRouting. Sponsorship is not a way for individuals to control the 
-development of the project, but rather a way of ensuring the longevity and 
-overall health of the project.
+We would like to extend our activities and improve the quality of pgRouting. Your financial contribution will support the maintenance, improvement, and promotion of pgRouting. Sponsorship is not a way for individuals to control the development of the project, but rather a way of ensuring the longevity and overall health of the project.
 
 
 How can you support the pgRouting Development
----------------------------------------------
+-------------------------------------------------------------------------------
 
 There are two kinds of financial contributions, we accept:
 
-* **sponsorships**: a sponsorship is an annual commitment of funds to the project.
-* **donation**: a donation is a once off financial contribution to the project.
+* **Sponsorships**: a sponsorship is an annual commitment of funds to the project.
+* **Donations**: a donation is a once off financial contribution to the project.
 
 
 Sponsorship
-^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Sponsors can sponsor pgRouting for any amount of money of at least 150 EUR / 
-200 USD. Sponsorships last one year, after which they may be continued with a 
-new payment, or allowed to lapse. At or above the following levels a sponsor 
-will be designated as being one of the following class:
+Sponsors can sponsor pgRouting for any amount of money of at least 150 EUR / 200 USD. Sponsorships last one year, after which they may be continued with a new payment, or allowed to lapse. At or above the following levels a sponsor will be designated as being one of the following class:
 
 * 1.500+ EUR / 2.000+ USD: Platinum Sponsor
 * 750+ EUR / 1.000+ USD: Gold Sponsor
@@ -59,7 +49,7 @@ will be designated as being one of the following class:
 
 
 Donation
-^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Donations can be of any amount through PayPal. 
 
@@ -86,12 +76,11 @@ Donations can be of any amount through PayPal.
 		</form>			
 	</div>
 	
-Even a small donation can make a big difference and help to reach important 
-project goals!
+Even a small donation can make a big difference and help to reach important project goals!
 
 	
 What is your benefit sponsoring the pgRouting Development
----------------------------------------------------------
+-------------------------------------------------------------------------------
 
 Sponsoring the pgRouting project provides the following benefits:
 
@@ -109,12 +98,9 @@ Sponsoring the pgRouting project provides the following benefits:
 
 
 How do we use financial support
--------------------------------
+-------------------------------------------------------------------------------
 
-The sponsorship funds will be spent to directly improve the code base of the 
-project, to fund tasks that generally receive less attention from developers, 
-and to fund work on peripheral project tasks so that core contributors can focus 
-efforts on pgRouting improvements. 
+The sponsorship funds will be spent to directly improve the code base of the project, to fund tasks that generally receive less attention from developers, and to fund work on peripheral project tasks so that core contributors can focus efforts on pgRouting improvements. 
 
 As an example, we would like to fund the following project activities:
 
@@ -126,23 +112,15 @@ As an example, we would like to fund the following project activities:
 
 .. note::
 
-	For the beginning (to keep it simple) we're using a private PayPal account
-	registered by `Georepublic UG <http://georepublic.de>`_ (Germany). In case 
-	the amount of donations will increase by a signifacant amount we might 
-	consider to setup some non-profit organisation. Georepublic will report
-	donations to the pgRouting PSC.
+	For the beginning (to keep it simple) we're using a private PayPal account 	registered by `Georepublic <http://georepublic.info>`_ (Germany). In case 	the amount of donations will increase by a signifacant amount we might 	consider to setup some non-profit organisation. Georepublic will report donations to the pgRouting PSC.
 	
 
-Donations received in 2012
---------------------------
+Donations received in past 12 months
+-------------------------------------------------------------------------------
 
 The following people or organizations have made donations or supplied finacial development support to the pgRouting project and have specifically requested that their names appear here:	
 
-* Julie Kinnear from `Toronto MLS listings <http://juliekinnear.com>`_
-* Elli Davis from `Toronto real estate <http://ellidavis.com>`_
-* Sebastian Albrecht from `Vancouver Real Estate <http://yourvancouverrealestate.ca>`_
-* Chantall Marr from `Life Insurance Canada <http://lsminsurance.ca>`_
 * Crucial Paradigm Pty Ltd
 
-Many thanks to the listed and non-listed supporters have provided support or made donations. Names listed here are by specific request. If you have made a donation or provided financial support and wish to appear in this list, please send an email to project at pgrouting dot org.
+Many thanks to the listed and non-listed supporters have provided support or made donations. Names listed here are by specific request (and will be removed after about 12 months). If you have made a donation or provided financial support and wish to appear in this list (no links!), please send an email to project at pgrouting dot org.
 	

@@ -13,7 +13,7 @@ with a road network that has one-way streets.
 
 This little example will illustrate how this is done. The sample data was 
 created using `OpenJump <http://openjump.org>`_ and then was saved in a 
-`PostGIS <http://www.postgis.org>`_ database where pgRouting was also installed.
+`PostGIS <http://www.postgis.net>`_ database where pgRouting was also installed.
 
 The graph looks like this; note that edge !#2 was digitized from right to left, 
 unlike most of the edges which was digitized left to right. This was done to 
