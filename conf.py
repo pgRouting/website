@@ -61,7 +61,6 @@ release = '2.0.0'
 
 # List of documents that shouldn't be included in the build.
 unused_docs = [
-	'404',
 	'docs/tutorials',
 	'docs/foss4g2007/*',
 	'docs/foss4g2008/*',
