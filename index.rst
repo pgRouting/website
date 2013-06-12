@@ -1,64 +1,71 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _home:
 
-.. 
-	**pgRouting got a new website!**
-	
-	It has been a long way but finally we made it: pgRouting got a new website!
-	This also includes several other important changes:
-	
-	* The source repository moved to GitHub: https://github.com/pgRouting/ 
-	* The mailing lists run on OSGeo mailing list server
-	* The file downloads are hosted on OSGeo server
-	* The forum was closed due to spam and we recommend http://gis.stackexchange.com instead (we kept a cached copy as a reference, see :doc:`support`)
-	
-	We hope the migration doesn't produce a lot of confusion but makes it easier 
-	to participate in the project and make development faster and better!
-	
-
 pgRouting Project
-=================
+===============================================================================
 
 .. image:: _themes/pgrouting/static/img/pgrouting.png
-	:scale: 100%
 	:alt: pgRouting Project
 	:align: right
 
 
-pgRouting extends the `PostGIS <http://www.postgis.org>`_ / `PostgreSQL <http://www.postgresql.org>`_ geospatial database to provide geospatial routing functionality.
+pgRouting extends the `PostGIS <http://www.postgis.net>`_ / `PostgreSQL <http://www.postgresql.org>`_ geospatial database to provide geospatial routing functionality.
 
 Advantages of the database routing approach are:
 
-* Data and attributes can be modified by many clients, like `Quantum GIS <qgis_overview.html>`_ and `uDig <udig_overview.html>`_ through JDBC, ODBC, or directly using Pl/pgSQL. The clients can either be PCs or mobile devices.
+* Data and attributes can be modified by many clients, like `Quantum GIS <http://www.qgis.org>`_ and `uDig <http://udig.refractions.net>`_ through JDBC, ODBC, or directly using Pl/pgSQL. The clients can either be PCs or mobile devices.
 * Data changes can be reflected instantaneously through the routing engine. There is no need for precalculation.
 * The "cost" parameter can be dynamically calculated through SQL and its value can come from multiple fields or tables.
 
-.. 
-	.. image:: img/screenshot_pgadmin.png
-	  :scale: 60%
-	  :alt: pgRouting query in pgAdmin III
-	  :align: center
+.. note::
+
+	It has been a long way but finally we made it: **pgRouting got on a new version!**
+	Still it's in development state and the stable version has not been released yet. But you can already try out the latest pre-release version and we're glad about any feedback.
+	For more details see:
+
+	* New documentation: http://docs.pgrouting.org
+	* Development branch on Github:  https://github.com/pgrouting/pgrouting/tree/develop
+
+	Thanks to everyone who makes the new release possible!	
+	If you want to contribute to the project financially, any `sponsorship or donation <donation>`_ is of great help. 
+
 
 Core Features
--------------
+-------------------------------------------------------------------------------
 
 pgRouting provides functions for:
 
-* Shortest Path Dijkstra: routing algorithm without heuristics
-* Shortest Path A-Star: routing for large datasets (with heuristics)
-* Shortest Path Shooting-Star: routing with turn restrictions (with heuristics)
-* Traveling Salesperson Problem (TSP)
-* Driving Distance calculation (Isolines)
+* All Pairs Shortest Path, Johnson’s Algorithm :sup:`[1]`
+* All Pairs Shortest Path, Floyd-Warshall Algorithm :sup:`[1]`
+* Shortest Path A*
+* Bi-directional Dijkstra Shortest Path :sup:`[1]`
+* Bi-directional A* Shortest Path :sup:`[1]`
+* Shortest Path Dijkstra
+* Driving Distance
+* K-Shortest Path, Multiple Alternative Paths :sup:`[1]`
+* K-Dijkstra, One to Many Shortest Path :sup:`[1]`
+* Traveling Sales Person
+* Turn Restriction Shortest Path (TRSP) :sup:`[1]`
+* Shortest Path Shooting Star :sup:`[2]`
 
 Learn more about using pgRouting in your application by reading the :doc:`documentation <documentation>`.
 
-pgRouting is Open Source
-------------------------
+| :sup:`[1]` **New** in pgRouting 2.0.0
+| :sup:`[2]` Discontinued in pgRouting 2.0.0
 
-pgRouting is available under the GPLv2 license and is supported by a growing
-community of individuals, businesses and organizations.
+
+pgRouting is Open Source
+-------------------------------------------------------------------------------
+
+pgRouting is available under the GPLv2 license and is supported by a growing community of individuals, businesses and organizations.
 
 .. toctree::
 	:hidden:
@@ -67,6 +74,4 @@ community of individuals, businesses and organizations.
 	download
 	support
 	development
-
-
 

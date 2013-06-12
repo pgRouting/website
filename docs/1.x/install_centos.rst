@@ -1,11 +1,21 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _install_centos:
 
-================================================================
- Installation on CentOS
-================================================================
+Installation on CentOS
+===============================================================================
+
+.. important::
+
+	Only valid for pgRouting v1.x. For pgRouting v2.0 or higher see http://docs.pgrouting.org
+
 
 .. note::
 	
@@ -13,7 +23,7 @@
 	
 	
 Install required packages
--------------------------
+-------------------------------------------------------------------------------
 
 .. code-block:: bash
 
@@ -22,7 +32,7 @@ Install required packages
 
 
 Compile proj4 & geos
---------------------
+-------------------------------------------------------------------------------
 
 * proj4
 
@@ -66,12 +76,12 @@ Compile proj4 & geos
 
 
 Compile PostGIS
----------------
+-------------------------------------------------------------------------------
 
 .. code-block:: bash
 
 	cd ..
-	Wget http://www.postgis.org/download/postgis-1.3.3.tar.gz
+	Wget http://www.postgis.net/download/postgis-1.3.3.tar.gz
 	tar -zxvf postgis-1.3.3.tar.gz
 	cd postgis-1.3.3
 	./configure
@@ -79,7 +89,7 @@ Compile PostGIS
 
 
 Setup PostgreSQL
-----------------
+-------------------------------------------------------------------------------
 
 Set local database connections to "trust" in "pg_hba.conf" to be able to work 
 with PostgreSQL as user "postgres". Then restart PostgreSQL. 
@@ -102,7 +112,7 @@ with PostgreSQL as user "postgres". Then restart PostgreSQL.
 
 
 Compile cmake
--------------
+-------------------------------------------------------------------------------
 
 .. code-block:: bash
 
@@ -115,7 +125,7 @@ Compile cmake
 
 
 Compile pgRouting
------------------
+-------------------------------------------------------------------------------
 
 .. code-block:: bash
 
@@ -129,7 +139,7 @@ Please replace [cmake_dir] with the path which cmake is installed ex)/home/hoge/
 
 
 Create routing database
------------------------
+-------------------------------------------------------------------------------
 
 .. code-block:: bash
 

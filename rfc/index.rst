@@ -1,11 +1,16 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _rfc:
 
-==========================
 Request for Comments (RFC)
-==========================
+===============================================================================
 
 A pgRouting RFC describes a major change in the technological underpinnings of pgRouting, major additions to functionality, or changes in the direction of the project.
 
@@ -19,8 +24,9 @@ A pgRouting RFC describes a major change in the technological underpinnings of p
 	rfc-02
 	rfc-01
 
+
 Template:
----------
+********************************************************************************
 
 .. toctree::
 	:maxdepth: 1

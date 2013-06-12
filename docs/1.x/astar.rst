@@ -1,14 +1,24 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _astar:
 
-================================================================
- Shortest Path A*
-================================================================
+Shortest Path A*
+===============================================================================
+
+.. important::
+
+	Only valid for pgRouting v1.x. For pgRouting v2.0 or higher see http://docs.pgrouting.org
+
 
 Function:
----------
+-------------------------------------------------------------------------------
 
 The shortest_path_astar function has the following declaration:
 
@@ -24,7 +34,7 @@ The shortest_path_astar function has the following declaration:
 
 
 Arguments:
-----------
+-------------------------------------------------------------------------------
 
 **sql**: a SQL query, which should return a set of rows with the following columns:
 
@@ -50,7 +60,7 @@ Arguments:
 **has_reverse_cost**: if true, the reverse_cost column of the SQL generated set of rows will be used for the cost of the traversal of the edge in the opposite direction.
 
 Output:
-------- 
+------------------------------------------------------------------------------- 
 
 The function returns a set of rows. There is one row for each crossed edge, and 
 an additional one containing the terminal vertex. The columns of each row are:
@@ -60,7 +70,7 @@ an additional one containing the terminal vertex. The columns of each row are:
 * cost: The cost associated to the current edge. It is 0 for the row after the last edge. Thus, the path total cost can be computated using a sum of all rows in the cost column.
 
 Examples:
----------
+-------------------------------------------------------------------------------
 
 .. code-block:: sql
 

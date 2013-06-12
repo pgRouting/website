@@ -57,7 +57,7 @@ There is other software, that can be used to create a topology:
 PostGIS
 -------
 
-As of this writing, the latest `PostGIS <http://www.postgis.org>`_ 1.1.2, has 
+As of this writing, the latest `PostGIS <http://www.postgis.net>`_ 1.1.2, has 
 started adding a topology functionality. But it is still in a very alpha stage 
 and there are very little documentation yet on how to create the topology. This 
 page will be updated once the topology functionality becomes stable enough to use.

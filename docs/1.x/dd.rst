@@ -1,14 +1,24 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _dd:
 
-================================================================
- Driving Distance calculation
-================================================================
+Driving Distance calculation
+===============================================================================
+
+.. important::
+
+	Only valid for pgRouting v1.x. For pgRouting v2.0 or higher see http://docs.pgrouting.org
+
 
 Function:
----------
+-------------------------------------------------------------------------------
 
 The driving_distance function has the following signature:
 
@@ -24,7 +34,7 @@ The driving_distance function has the following signature:
 
 
 Arguments:
-----------
+-------------------------------------------------------------------------------
 
 **sql**: a SQL query, which should return a set of rows with the following columns:
 
@@ -43,7 +53,7 @@ Arguments:
 
 
 Output:
-------- 
+------------------------------------------------------------------------------- 
 
 The function returns a set of rows. There is one row for each crossed edge, and 
 an additional one containing the terminal vertex. The columns of each row are:
@@ -54,7 +64,7 @@ an additional one containing the terminal vertex. The columns of each row are:
 
 
 Examples:
----------
+-------------------------------------------------------------------------------
 
 .. code-block:: sql
 

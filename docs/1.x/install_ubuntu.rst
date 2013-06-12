@@ -1,11 +1,21 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _install_ubuntu:
 
-================================================================
- Installation on Ubuntu
-================================================================
+Installation on Ubuntu
+===============================================================================
+
+.. important::
+
+	Only valid for pgRouting v1.x. For pgRouting v2.0 or higher see http://docs.pgrouting.org
+
 
 .. note::
 	
@@ -15,7 +25,7 @@
 
 
 Install required packages
--------------------------
+-------------------------------------------------------------------------------
 
 .. code-block:: bash
 
@@ -59,7 +69,7 @@ default Boost library from the repository. This will be version 1.34 at the mome
 
 
 Compile pgRouting core (with TSP and DD flag on)
-------------------------------------------------
+-------------------------------------------------------------------------------
 
 .. code-block:: bash
 
@@ -72,7 +82,7 @@ Compile pgRouting core (with TSP and DD flag on)
 
 
 Setup PostgreSQL
-----------------
+-------------------------------------------------------------------------------
 
 Set local database connections to "trust" in "pg_hba.conf" to be able to work 
 with PostgreSQL as user "postgres". Then restart PostgreSQL.
@@ -84,7 +94,7 @@ with PostgreSQL as user "postgres". Then restart PostgreSQL.
 
 
 Create routing database
------------------------
+-------------------------------------------------------------------------------
 
 .. code-block:: bash
 

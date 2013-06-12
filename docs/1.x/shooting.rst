@@ -1,14 +1,24 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _shootingstar:
 
-================================================================
- Shortest Path Shooting Star
-================================================================
+Shortest Path Shooting Star
+===============================================================================
+
+.. important::
+
+	Only valid for pgRouting v1.x. For pgRouting v2.0 or higher see http://docs.pgrouting.org
+
 
 Function:
----------
+-------------------------------------------------------------------------------
 
 The shortest_path_shooting_star function has the following declaration:
 
@@ -31,7 +41,7 @@ Where path_result is:
 
 
 Arguments:
-----------
+-------------------------------------------------------------------------------
 
 **sql**: a SQL query, which should return a set of rows with the following columns:
 
@@ -62,7 +72,7 @@ Arguments:
 
 
 Output:
-------- 
+------------------------------------------------------------------------------- 
 
 The function returns a set of rows. There is one row for each crossed edge, and 
 an additional one containing the terminal vertex. The columns of each row are:
@@ -73,7 +83,7 @@ an additional one containing the terminal vertex. The columns of each row are:
 
 
 Examples:
----------
+-------------------------------------------------------------------------------
 
 Shooting* algorithm calculates a path from edge to edge (not from vertex to 
 vertex). Column vertex_id contains start vertex of an edge from column edge_id.

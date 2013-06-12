@@ -1,29 +1,38 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _osm2pgrouting:
 
-===========================================================
- osm2pgrouting - Import OSM data into pgRouting Database
-===========================================================
+osm2pgrouting - Import OSM data into pgRouting Database
+===============================================================================
 
-Easily import OpenStreetMap data into a pgRouting database using osm2pgrouting 
-tool.
+.. important::
 
-osm2pgrouting was primarily written by Daniel Wendt and is now hosted on the 
-pgRouting project site.
+	osm2pgrouting currently doesn't support pgRouting v2.0.0
+
+
+Easily import OpenStreetMap data into a pgRouting database using osm2pgrouting tool.
+
+osm2pgrouting was primarily written by Daniel Wendt and is now hosted on the pgRouting project site.
+
 
 Features
---------
+-------------------------------------------------------------------------------
 
 * Uses XML configuration file to select road types and classes to import
 * Creates types and classes tables, which can help to create sophisticated cost functions
 
-Requirements
-------------
 
-If you already [wiki:1.x/InstallationManual installed pgRouting], you should 
-have all required libraries/packages.
+Requirements
+-------------------------------------------------------------------------------
+
+If you already [wiki:1.x/InstallationManual installed pgRouting], you should have all required libraries/packages.
 
 * PostgreSQL
 * PostGIS
@@ -31,11 +40,11 @@ have all required libraries/packages.
 
 Currently osm2pgrouting is only tested on Linux distributions. 
 
-How to install
---------------
 
-Download the latest version from `osm2pgrouting GitHub repository 
-<https://github.com/pgRouting/osm2pgrouting>`_ and extract the file:
+How to install
+-------------------------------------------------------------------------------
+
+Download the latest version from `osm2pgrouting GitHub repository <https://github.com/pgRouting/osm2pgrouting>`_ and extract the file:
 
 Then compile:
 
@@ -58,8 +67,9 @@ If you get an error like
 
 just change src/Export2DB.h and set the path to libpq-fe.h statically.
 
+
 How to use
-----------
+-------------------------------------------------------------------------------
 
 Start the program like this:
 
@@ -90,5 +100,4 @@ all available parameters are:
 
 .. note::
 
-	There was a patch attached to some Wiki page on the previous TRAC website.
-	You can download the patch from here: :download:`osm2pgrouting.patch`
+	There was a patch attached to some Wiki page on the previous TRAC website. 	You can download the patch from here: :download:`osm2pgrouting.patch`

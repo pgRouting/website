@@ -1,11 +1,16 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _rfc-05:
 
-================================================================================
 RFC 05: [open] Implementation of "Chinese postman problem (CPP)" algorithm
-================================================================================
+===============================================================================
 
 .. list-table::
    :widths: 15 85
@@ -22,7 +27,7 @@ RFC 05: [open] Implementation of "Chinese postman problem (CPP)" algorithm
      - Draft (xxxx/xx/xx)
 
 Overview
-----------------------------------------------
+********************************************************************************
 
 In graph theory, a branch of mathematics, the Chinese postman problem (CPP), 
 postman tour or route inspection problem is to find a shortest closed path or 
@@ -38,7 +43,7 @@ Chinese mathematician Mei-Ku Kuan in 1962.
 
 
 Implementation Details
-----------------------------------------------
+********************************************************************************
 
 List of online resources:
 
@@ -46,46 +51,25 @@ List of online resources:
 * http://www.wikihow.com/Use-the-Chinese-Postman-Algorithm
 * http://www.uclic.ucl.ac.uk/harold/cpp/
 
-	TBD
-
-
-Usage Example
-----------------------------------------------
-
-	TBD
-
-
-Further Considerations
-----------------------------------------------
-
-	TBD
-
-
-Files Affected
-----------------------------------------------
-
-	TBD
-	
-
 Backwards Compatibilty Issues
-----------------------------------------------
+********************************************************************************
 
 Are not expected
 
 
 Documentation
-----------------------------------------------
+********************************************************************************
 
 Required. 
 
 
 Ticket ID
-----------------------------------------------
+********************************************************************************
 
 Not assigned.
 
 
 Voting History
-----------------------------------------------
+********************************************************************************
 
 No vote yet.

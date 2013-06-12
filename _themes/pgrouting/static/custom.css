@@ -259,3 +259,9 @@ select.paypal_currency {
 .align-right {
 	float: right;
 }
+
+img.align-right, 
+.figure.align-right, 
+object.align-right  {
+    clear: none;
+}

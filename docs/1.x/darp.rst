@@ -1,11 +1,21 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _darp:
 
-================================================================
- Dial-a-ride Problem Solver (DARP)
-================================================================
+Dial-a-ride Problem Solver (DARP)
+===============================================================================
+
+.. important::
+
+	Only valid for pgRouting v1.x. For pgRouting v2.0 or higher see http://docs.pgrouting.org
+
 
 .. warning::
 
@@ -21,7 +31,7 @@ service level constraints (Quality of Service).
 
 
 Function:
----------
+-------------------------------------------------------------------------------
 
 The darp function has the following declaration:
 
@@ -55,7 +65,7 @@ Itinerary is used to represent a schedule entry and contains the following colum
 
 
 Arguments:
-----------
+-------------------------------------------------------------------------------
 
 **orders_sql**: see "Orders query"
 
@@ -74,7 +84,7 @@ returns a set of itineraries.
 
 
 Orders query
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Orders query must return the following fields:
 
@@ -91,7 +101,7 @@ Orders query must return the following fields:
 
 
 Vehicles query
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Vehicles query must return the following fields:
 
@@ -101,7 +111,7 @@ Vehicles query must return the following fields:
 
 
 Distances query
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Distances query must return the following fields:
 
@@ -113,7 +123,7 @@ Distances query must return the following fields:
 
 
 Penalties query 
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Penalties query is optional and can be null. The query must return 1 row with 
 8 fields, w1 through w8 with integer values.
@@ -130,7 +140,7 @@ Penalties have following meanings:
 * w8: route time violation
 
 Output:
-------- 
+------------------------------------------------------------------------------- 
 
 .. note::
 
@@ -138,7 +148,7 @@ Output:
 	
 
 Examples:
----------
+-------------------------------------------------------------------------------
 
 .. note::
 

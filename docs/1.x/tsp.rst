@@ -1,11 +1,21 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _tsp:
 
-================================================================
-  Traveling Sales Person (TSP)
-================================================================
+Traveling Sales Person (TSP)
+===============================================================================
+
+.. important::
+
+	Only valid for pgRouting v1.x. For v2.0 or higher see http://docs.pgrouting.org
+
 
 The tsp solution is based on ordering the points using straight line (euclidean) 
 distance between nodes. There was some thought given to pre-calculating the 
@@ -21,7 +31,7 @@ The TSP solver is using a genetic algorithm. It is not an exact solution, but it
 is guarantied that you get a solution after certain number of iterations.
 
 Function:
----------
+-------------------------------------------------------------------------------
 
 The pgpsql tsp function has the following signature:
 
@@ -35,7 +45,7 @@ The pgpsql tsp function has the following signature:
 
 
 Arguments:
-----------
+-------------------------------------------------------------------------------
 
 **sql**: a SQL query, which should return a set of rows with the following columns:
 
@@ -48,7 +58,7 @@ Arguments:
 **source_id**: int 4 id of the start point
 
 Output:
-------- 
+------------------------------------------------------------------------------- 
 
 The function returns a set of rows. There is one row for each crossed edge, and 
 an additional one containing the terminal vertex. The columns of each row are:

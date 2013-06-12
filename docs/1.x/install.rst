@@ -1,11 +1,21 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _install:
 
-================================================================
- Installation
-================================================================
+Installation
+===============================================================================
+
+.. important::
+
+	Only valid for pgRouting v1.x. For pgRouting v2.0 or higher see http://docs.pgrouting.org
+
 
 .. note::
 
@@ -14,10 +24,10 @@
 	functionality)
 	
 Requirements
-------------
+-------------------------------------------------------------------------------
 
 pgRouting Core - Shortest-Path algorithms
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * C and C++ compilers
 * Postgresql version >= 8.0
@@ -25,21 +35,21 @@ pgRouting Core - Shortest-Path algorithms
 * The Boost Graph Library (BGL). Version >= 1.33 which contains the astar.hpp. 
 
 pgRouting Extra - with TSP
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * The Genetic Algorithm Utility Library (GAUL). See http://gaul.sourceforge.net
 
 pgRouting Extra - with Driving Distance
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Computational Geometry Algorithms Library (CGAL) version >= 3.2. See http://www.cgal.org
 
 
 Installation Instructions
--------------------------
+-------------------------------------------------------------------------------
 
 Step 1: Libraries installation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Compile and install PostgreSQL, PostGIS, Proj, GEOS, BGL and GAUL. Usually it is 
 sufficient to run:
@@ -57,8 +67,7 @@ If you have BGL installed but the version is less than 1.33.0, just download
 the astar.hpp file from http://www.boost.org/boost/graph/astar_search.hpp and 
 copy it to ''BOOST_PATH/graph'' directory.
 
-For Traveling Salesperson Problem (optional)
-"""""""""""""""""""""""""""""""""""""""""""""
+.. rubric:: For Traveling Salesperson Problem (optional)
 
 The GAUL library should be compiled with --enable-slang=no option. Otherwise 
 make sure you have slang.h installed in ''/usr/include''. For more details 
@@ -69,8 +78,7 @@ please refer to corresponding ''README'' or ''INSTALL'' file.
 	# ./configure --disable-slang
 
 
-For Driving Distance (optional)
-"""""""""""""""""""""""""""""""
+.. rubric:: For Driving Distance (optional)
 
 For CGAL, the compile option below can be used to create the library:
 
@@ -125,14 +133,13 @@ For example:
 
 
 Step 2: Compiling the pgRouting library
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. :ref:`Get pgRouting source <download>`
 2. Change to pgRouting directory
 3. Compile and install pgRouting
 
-For pgRouting core (required)
-"""""""""""""""""""""""""""""
+.. rubric:: For pgRouting core (required)
 
 .. code-block:: bash
 
@@ -141,8 +148,7 @@ For pgRouting core (required)
 	make install
 
 
-For pgRouting extras (optional)
-"""""""""""""""""""""""""""""""
+.. rubric:: For pgRouting extras (optional)
 
 .. code-block:: bash
 
@@ -187,7 +193,7 @@ presuming you installed PostgreSQL at /usr/local/pgsql/bin
 
 
 Step 3: Create a routing database and load PostGIS and pgRouting functions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Create a routing database and load PostGIS
 

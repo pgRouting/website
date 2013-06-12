@@ -1,11 +1,16 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _rfc-04:
 
-================================================================================
-RFC 04: [open] Implementation of "k-shortest path" algorithm
-================================================================================
+RFC 04: [done] Implementation of "k-shortest path" algorithm
+===============================================================================
 
 .. list-table::
    :widths: 15 85
@@ -17,12 +22,12 @@ RFC 04: [open] Implementation of "k-shortest path" algorithm
    * - Contact:
      - daniel at georepublic.de
    * - Last Edited:
-     - 2010/11/22
+     - 2013/06/09
    * - Status: 
-     - Draft (xxxx/xx/xx)
+     - Implemented (v2.0.0)
 
 Overview
-----------------------------------------------
+********************************************************************************
 
 Yen’s algorithm is one of derivation algorithms for ranking the K shortest paths 
 between a pair of nodes [1]. It always searches the shortest paths in a 
@@ -42,53 +47,32 @@ Operations Research Societies, 2003.
 
 
 Implementation Details
-----------------------------------------------
+********************************************************************************
 
 The source above provides an implementation of K-Shortest Path Algorithm written
 in C++, available under Apache License 2.0
 
 If possible adapt this implementation to make it available as pgRouting function.
 
-	TBD
-
-
-Usage Example
-----------------------------------------------
-
-	TBD
-
-
-Further Considerations
-----------------------------------------------
-
-	TBD
-
-
-Files Affected
-----------------------------------------------
-
-	TBD
-	
-
 Backwards Compatibilty Issues
-----------------------------------------------
+********************************************************************************
 
 Are not expected
 
 
 Documentation
-----------------------------------------------
+********************************************************************************
 
 Required. 
 
 
 Ticket ID
-----------------------------------------------
+********************************************************************************
 
 Not assigned.
 
 
 Voting History
-----------------------------------------------
+********************************************************************************
 
 No vote yet.

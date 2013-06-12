@@ -1,11 +1,21 @@
-:Author: ToomasAas (edited by Daniel Kastl)
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _install_freebsd:
 
-================================================================
- Installation on FreeBSD
-================================================================
+Installation on FreeBSD
+===============================================================================
+
+.. important::
+
+	Only valid for pgRouting v1.x. For pgRouting v2.0 or higher see http://docs.pgrouting.org
+
 
 Here's how I managed to install pgrouting 1.0.3 on FreeBSD together with TSP and DD.
 

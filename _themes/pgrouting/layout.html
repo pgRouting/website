@@ -48,25 +48,25 @@
     </p>
     <h2>Links</h2>
     <ul style="list-style: square; margin-left: 20px;">
-    	<li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
+        <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
     	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="http://www.postgis.org/">PostGIS</a></li>
+    	<li><a href="http://www.postgis.net/">PostGIS</a></li>
     </ul>
     
     <!-- Callout -->
-    <a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2012">
-    <img src="{{ pathto('_static/img/gsoc_2012.png', 1)}}" 
-    	alt="Google Summer of Code 2011" title="Google Summer of Code 2012" style="width:210px;"/>
+    <a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2013">
+    <img src="{{ pathto('_static/img/gsoc_2013.png', 1)}}" 
+    	alt="Google Summer of Code 2013" title="Google Summer of Code 2013" style="width:210px;margin-bottom:20px;"/>
     </a>
     
-    <!--a href="http://2012.foss4g.org">
-    <img src="{{ pathto('_static/img/foss4g_2012.jpg', 1)}}" 
-    	alt="FOSS4G 2011, Denver" title="FOSS4G 2012, Beijing" style="width:210px;"/>
-    </a-->
+    <a href="http://2013.foss4g.org">
+    <img src="{{ pathto('_static/img/foss4g_2013.png', 1)}}" 
+    	alt="FOSS4G 2013, Nottingham" title="FOSS4G 2013, Nottingham" style="width:210px;margin-bottom:20px;"/>
+    </a>
     
     <a href="http://www.osgeo.org">
     <img src="{{ pathto('_static/img/OSGeo_logo.png', 1)}}" 
-    	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
+    	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;margin-bottom:20px;"/>
     </a>
 {%- endmacro %}
 
@@ -74,7 +74,10 @@
     <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
             <h2>Download</h2>
-            <p>Current release: <a href="{{ pathto('download') }}">{{ release }}</a></p>
+            <ul style="list-style: square; margin-left: 20px;">
+                <li><a href="{{ pathto('download') }}">pgRouting 1.05</a></li>
+                <li><a href="{{ pathto('download') }}">pgRouting 2.0.0-alpha</a></li>
+            </ul>
    			{{ callout_sidebar() }}
         </div>
     </div>

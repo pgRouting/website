@@ -1,11 +1,16 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _rfc-03:
 
-================================================================================
-RFC 03: [open] Implementation of "All-pairs shortest path" algorithm
-================================================================================
+RFC 03: [done] Implementation of "All-pairs shortest path" algorithm
+===============================================================================
 
 .. list-table::
    :widths: 15 85
@@ -17,12 +22,12 @@ RFC 03: [open] Implementation of "All-pairs shortest path" algorithm
    * - Contact:
      - daniel at georepublic.de
    * - Last Edited:
-     - 2010/11/22
+     - 2013/06/09
    * - Status: 
-     - Draft (xxxx/xx/xx)
+     - Implemented (v2.0.0)
 
 Overview
-----------------------------------------------
+********************************************************************************
 
 The all-pairs shortest path problem aims to compute the shortest path from each 
 vertex v to every other u. Using standard single-source algorithms, you can 
@@ -45,7 +50,7 @@ as the algorithm will scale very poorly.
 
 
 Implementation Details
-----------------------------------------------
+********************************************************************************
 
 There are two important algorithms that solve "All-pairs shortest path":
 
@@ -53,50 +58,28 @@ There are two important algorithms that solve "All-pairs shortest path":
 * Johnson's algorithm (http://en.wikipedia.org/wiki/Johnson's_algorithm)
 
 At least one of them should be considered, if possible both of them.
-
-	TBD
-
-
-Usage Example
-----------------------------------------------
-
-	TBD
-
-
-Further Considerations
-----------------------------------------------
-
-	TBD
-
-
-Files Affected
-----------------------------------------------
-
-	TBD
 	
 
 Backwards Compatibilty Issues
-----------------------------------------------
+********************************************************************************
 
 Are not expected
 
 
 Documentation
-----------------------------------------------
+********************************************************************************
 
 Required. 
 
 
 Ticket ID
-----------------------------------------------
+********************************************************************************
 
 Not assigned.
 
 
 Voting History
-----------------------------------------------
+********************************************************************************
 
 No vote yet.
-
-
 

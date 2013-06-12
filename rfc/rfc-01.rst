@@ -1,11 +1,16 @@
-:Author: Daniel Kastl
-:License: Creative Commons
+.. 
+   ****************************************************************************
+    pgRouting Website
+    Copyright(c) pgRouting Contributors
+
+    This documentation is licensed under a Creative Commons Attribution-Share  
+    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+   ****************************************************************************
 
 .. _rfc-01:
 
-================================================================================
 RFC 01: [done] Technical Steering Committee Guidelines
-================================================================================
+===============================================================================
 
 .. list-table::
    :widths: 15 85
@@ -22,7 +27,7 @@ RFC 01: [done] Technical Steering Committee Guidelines
      - Adopted (2010/04/18)
 
 Summary
--------
+********************************************************************************
 
 This document describes how the pgRouting Project Steering Committee determines membership, and makes decisions on all aspects of the pgRouting project - both technical and non-technical.
 
@@ -41,7 +46,7 @@ Examples of PSC management responsibilities:
 In brief the project team votes on proposals on `pgRouting mailing list <http://lists.osgeo.org/mailman/listinfo/pgrouting-dev>`_. Proposals are available for review for at least four days, and a single veto is sufficient delay progress though ultimately a majority of members can pass a proposal.
 
 Detailed Process
-----------------
+********************************************************************************
 
 * Proposals such as RFC's are written up and submitted on the `pgRouting mailing list <http://lists.osgeo.org/mailman/listinfo/pgrouting-dev>`_ for discussion and voting, by any interested party, not just committee members.
 * Proposals need to be available for review for at least four business days before a final decision can be made.
@@ -58,7 +63,7 @@ Detailed Process
 * The Chair adjudicates in cases of disputes about voting.
 
 When is Vote Required?
-----------------------
+********************************************************************************
 
 * Any change to committee membership (new members, removing inactive members)
 * Changes to project infrastructure (e.g. tool, location or substantive configuration)
@@ -71,14 +76,14 @@ When is Vote Required?
 * Anything that might be controversial.
 
 Observations
-------------
+********************************************************************************
 
 * The Chair is the ultimate adjudicator if things break down.
 * The absolute majority rule can be used to override an obstructionist veto, but it is intended that in normal circumstances vetoers need to be convinced to withdraw their veto. We are trying to reach consensus.
 * It is anticipated that separate “committees” will exist to manage conferences, documentation and web sites. That said, it is expected that the PSC will be the entity largely responsible for creating any such committees.
 
 Committee Membership
---------------------
+********************************************************************************
 
 The PSC is made up of individuals consisting of technical contributors (e.g. developers) and prominent members of the pgRouting user community. There is no set number of members for the PSC although the initial desire to have members from all previously main contributing parties.
 
@@ -93,7 +98,7 @@ Stepping Down
 If for any reason a PSC member is not able to fully participate then they certainly are free to step down. If a member is not active (e.g. no voting, no IRC, forum or email participation) for a period of six months then the committee reserves the right to seek nominations to fill that position. Should that person become active again then they would certainly be welcome, but would require a nomination.
 
 Membership Responsibilities
----------------------------
+********************************************************************************
 
 Guiding Development
 ^^^^^^^^^^^^^^^^^^^
@@ -106,9 +111,9 @@ Mailing List/Forum Participation
 PSC members are expected to be active on pgRouting mailing lists (`pgrouting-dev <http://lists.osgeo.org/mailman/listinfo/pgrouting-dev>`_, `pgrouting-users <http://lists.osgeo.org/mailman/listinfo/pgrouting-users>`_), subject to open source mailing list etiquette. Non-developer members of the PSC are not expected to respond to coding level questions on the developer mailing list, however they are expected to provide their thoughts and opinions on user level requirements and compatibility issues when RFC discussions take place.
 
 Bootstrapping
--------------
+********************************************************************************
 
-Initial members of the the Project Steering Committe are:
+Initial members of the the Project Steering Committee are:
 
 * Anton Patrushev
 * Christian Gonzalez
