@@ -17,9 +17,9 @@ Page not found
 To find the page you were looking for you might want to ...
 
 * :ref:`search this website <search>`
-* start with :doc:`pgRouting Home <index>`
-* visit the :doc:`pgRouting Manual <http://docs.pgrouting.org>`
-* go to the :doc:`pgRouting Workshop <http://workshop.pgrouting.org>`
+* start with `pgRouting Home <index>`
+* visit the `pgRouting Manual <http://docs.pgrouting.org>`
+* go to the `pgRouting Workshop <http://workshop.pgrouting.org>`
 
 .. note::
 
@@ -33,14 +33,4 @@ To find the page you were looking for you might want to ...
 	Thanks to everyone who makes the new release possible!	
 	If you want to contribute to the project financially, any `sponsorship or donation <donation>`_ is of great help. 
 	
-
-.. raw:: html
-
-	<script type="text/javascript">
-		// Hack to redirect to standard error page 
-		var errorPage = "http://www.pgrouting.org/error.html"
-		if(window.location.href != errorPage){
-			window.location.href = errorPage;
-		}
-	</script>
 
