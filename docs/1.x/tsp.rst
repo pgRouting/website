@@ -14,7 +14,7 @@ Traveling Sales Person (TSP)
 
 .. important::
 
-	Only valid for pgRouting v1.x. For v2.0 or higher see http://docs.pgrouting.org
+	Only valid for pgRouting v1.x. For pgRouting v2.0 or higher see http://docs.pgrouting.org
 
 
 The tsp solution is based on ordering the points using straight line (euclidean) 

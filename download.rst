@@ -21,8 +21,9 @@ Linux / OS X Packages
 
 * DEB packages: https://launchpad.net/~georepublic/+archive/pgrouting
 * RPM packages: 
-	* http://wiki.osgeo.org/wiki/Enterprise_Linux_GIS
-	* http://fedoraproject.org/wiki/GIS (https://admin.fedoraproject.org/pkgdb/acls/name/pgRouting)
+	* PostgreSQL Community packages: http://yum.postgresql.org
+	* Enterprise Linux GIS: http://wiki.osgeo.org/wiki/Enterprise_Linux_GIS
+	* Fedora Project: http://fedoraproject.org/wiki/GIS (https://admin.fedoraproject.org/pkgdb/acls/name/pgRouting)
 * OS X packages: http://www.kyngchaos.com/software/postgres
 
 
