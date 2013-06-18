@@ -22,10 +22,10 @@ pgRouting Gallery
 * http://orbis.stanford.edu (Routing in the Roman Empire)
 * http://BikeDistrict.org (Bike routing service for the city of Milan)
 * http://routing.geosdi.org (geoSDI routing demo)
-* http://www.searoutefinder.com (Optimizing sea routes)
 * http://percursos.pinhel.proasolutions.pt (Accessible paths in Pinhel)
 * http://maps.clemetparks.com (Cleveland Metroparks Trails Map)
 
+.. * http://www.searoutefinder.com (Optimizing sea routes)
 
 .. note::
 

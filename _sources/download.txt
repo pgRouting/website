@@ -19,11 +19,17 @@ If you want to install the current development version, check out the source fro
 Linux / OS X Packages
 -------------------------------------------------------------------------------
 
-* DEB packages: https://launchpad.net/~georepublic/+archive/pgrouting
+* DEB packages: 
+
+  * Launchpad PPA (stable): https://launchpad.net/~georepublic/+archive/pgrouting
+  * Launchpad PPA (unstable): https://launchpad.net/~georepublic/+archive/pgrouting
+
 * RPM packages: 
-	* PostgreSQL Community packages: http://yum.postgresql.org
-	* Enterprise Linux GIS: http://wiki.osgeo.org/wiki/Enterprise_Linux_GIS
-	* Fedora Project: http://fedoraproject.org/wiki/GIS (https://admin.fedoraproject.org/pkgdb/acls/name/pgRouting)
+
+  * PostgreSQL Community packages: http://yum.postgresql.org
+  * Enterprise Linux GIS: http://wiki.osgeo.org/wiki/Enterprise_Linux_GIS
+  * Fedora Project: http://fedoraproject.org/wiki/GIS (https://admin.fedoraproject.org/pkgdb/acls/name/pgRouting)
+
 * OS X packages: http://www.kyngchaos.com/software/postgres
 
 
@@ -63,10 +69,14 @@ Source Packages
 .. rubric:: pgRouting v2.x
 
 ======================== ======================= ====================
+Git 2.0.0-beta release   `v2.0.0-beta.tar.gz`_   `v2.0.0-beta.zip`_
 Git 2.0.0-alpha release  `v2.0.0-alpha.tar.gz`_  `v2.0.0-alpha.zip`_
 Git master branch        `master.tar.gz`_        `master.zip`_
 Git develop branch       `develop.tar.gz`_       `develop.zip`_
 ======================== ======================= ====================
+
+.. _v2.0.0-beta.tar.gz: https://github.com/pgRouting/pgrouting/archive/v2.0.0-beta.tar.gz
+.. _v2.0.0-beta.zip: https://github.com/pgRouting/pgrouting/archive/v2.0.0-beta.zip
 
 .. _v2.0.0-alpha.tar.gz: https://github.com/pgRouting/pgrouting/archive/v2.0.0-alpha.tar.gz
 .. _v2.0.0-alpha.zip: https://github.com/pgRouting/pgrouting/archive/v2.0.0-alpha.zip
