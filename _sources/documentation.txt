@@ -15,8 +15,8 @@ Documentation
 .. toctree::
 	:maxdepth: 1
 
-	pgRouting versions 2.x <http://docs.pgrouting.org>
-	pgRouting versions 1.x <docs/1.x/index>
+	pgRouting versions 2.x (current) <http://docs.pgrouting.org>
+	pgRouting versions 1.x (deprecated) <docs/1.x/index>
 
 .. note::
 
@@ -61,7 +61,7 @@ Thanks to everyone who contributed to pgRouting project over the past years! Tha
 
 .. rubric:: Individuals (in alphabetical order)
 
-Akio Takubo, Anton Patrushev, Ashraf Hossain, Christian Gonzalez, Daniel Kastl, Dave Potts, David Techer, Ema Miyawaki, Florian Thurkow, Frederic Junod, Gerald Fenoy, Jay Mahadeokar, Jinfu Leng, Kai Behncke, Kishore Kumar, Ko Nagase, Mario Basa, Martin Wiesenhaan, Razequl Islam, Stephen Woodbridge, Sylvain Housseman, Sylvain Pasche
+Akio Takubo, Anton Patrushev, Ashraf Hossain, Christian Gonzalez, Daniel Kastl, Dave Potts, David Techer, Ema Miyawaki, Florian Thurkow, Frederic Junod, Gerald Fenoy, Jay Mahadeokar, Jinfu Leng, Kai Behncke, Kishore Kumar, Ko Nagase, Mario Basa, Martin Wiesenhaan, Razequl Islam, Stephen Woodbridge, Sylvain Housseman, Sylvain Pasche, Virginia Vergara
 
 
 .. rubric:: Corporate Sponsors (in alphabetical order)

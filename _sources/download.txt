@@ -21,8 +21,7 @@ Linux / OS X Packages
 
 * DEB packages: 
 
-  * Launchpad PPA (stable): https://launchpad.net/~georepublic/+archive/pgrouting
-  * Launchpad PPA (unstable): https://launchpad.net/~georepublic/+archive/pgrouting
+  * Launchpad PPA (v2.x): https://launchpad.net/~georepublic/+archive/pgrouting-unstable
 
 * RPM packages: 
 
@@ -36,13 +35,13 @@ Linux / OS X Packages
 Windows Binaries
 -------------------------------------------------------------------------------
 
-.. rubric:: PostGIS and pgRouting Experimental Builds (pgRouting v2.x)
+.. rubric:: PostGIS and pgRouting Builds (pgRouting v2.x)
 
-* `for PostgreSQL 9.3 32-bit <http://winnie.postgis.net/download/windows/pg93/buildbot/>`_, 64-bit compiled against PostgreSQL 9.3 beta1
-* `for PostgreSQL 9.2 32-bit <http://winnie.postgis.net/download/windows/pg92/buildbot/>`_, 64-bit (also pgrouting 2.0dev will work for PostGIS 2.0 and 2.1)
-* `for PostgreSQL 9.1 64-bit <http://winnie.postgis.net/download/windows/pg91/buildbot/>`_ (also pgrouting 2.0dev will work for PostGIS 2.0 and 2.1)
+* `for PostgreSQL 9.3 32-bit <http://winnie.postgis.net/download/windows/pg93/buildbot/>`_
+* `for PostgreSQL 9.2 32-bit <http://winnie.postgis.net/download/windows/pg92/buildbot/>`_
+* `for PostgreSQL 9.1 64-bit <http://winnie.postgis.net/download/windows/pg91/buildbot/>`_
 
-PostGIS and pgRouting Experimental Builds are provided by `Winnie <http://postgis.net/windows_downloads>`_, the PostGIS build bot.
+PostGIS and pgRouting Builds are provided by `Winnie <http://postgis.net/windows_downloads>`_, the PostGIS build bot.
 
 .. rubric:: pgRouting v1.x
 
@@ -69,12 +68,16 @@ Source Packages
 .. rubric:: pgRouting v2.x
 
 ======================== ======================= ====================
+**Git 2.0.0 release**    `v2.0.0.tar.gz`_        `v2.0.0.zip`_ 
 Git 2.0.0-rc1 release    `v2.0.0-rc1.tar.gz`_    `v2.0.0-rc1.zip`_
 Git 2.0.0-beta release   `v2.0.0-beta.tar.gz`_   `v2.0.0-beta.zip`_
 Git 2.0.0-alpha release  `v2.0.0-alpha.tar.gz`_  `v2.0.0-alpha.zip`_
 Git master branch        `master.tar.gz`_        `master.zip`_
 Git develop branch       `develop.tar.gz`_       `develop.zip`_
 ======================== ======================= ====================
+
+.. _v2.0.0.tar.gz: https://github.com/pgRouting/pgrouting/archive/v2.0.0.tar.gz
+.. _v2.0.0.zip: https://github.com/pgRouting/pgrouting/archive/v2.0.0.zip
 
 .. _v2.0.0-rc1.tar.gz: https://github.com/pgRouting/pgrouting/archive/v2.0.0-rc1.tar.gz
 .. _v2.0.0-rc1.zip: https://github.com/pgRouting/pgrouting/archive/v2.0.0-rc1.zip
