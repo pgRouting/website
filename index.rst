@@ -31,6 +31,7 @@ Advantages of the database routing approach are:
 	For more details see:
 
 	* New documentation: http://docs.pgrouting.org
+	* New workshop: http://workshop.pgrouting.org
 
 	Thanks to everyone who makes the new release possible!	
 	If you want to contribute to the project financially, any `sponsorship or donation <donation>`_ is of great help. 
