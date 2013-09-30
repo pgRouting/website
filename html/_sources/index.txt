@@ -28,14 +28,13 @@ Advantages of the database routing approach are:
 .. note::
 
 	It has been a long way but finally we made it: **pgRouting got on a new version!**
-	Still it's in development state and the stable version has not been released yet. But you can already try out the latest pre-release version and we're glad about any feedback.
 	For more details see:
 
 	* New documentation: http://docs.pgrouting.org
-	* Development branch on Github:  https://github.com/pgrouting/pgrouting/tree/develop
+	* New workshop: http://workshop.pgrouting.org
 
 	Thanks to everyone who makes the new release possible!	
-	If you want to contribute to the project financially, any `sponsorship or donation <donation>`_ is of great help. 
+	If you want to contribute to the project financially, any :doc:`sponsorship or donation <donate>` is of great help. 
 
 
 Core Features

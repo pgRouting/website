@@ -87,6 +87,14 @@ To checkout the latest `pgRouting Website <https://github.com/pgRouting/pgroutin
 The pgRouting website is built with `Sphinx <http://sphinx.pocoo.org>`_. If you want to make changes to the website, contribute content or make corrections, feel free to fork the repository and submit pull requests. Or send an email to project@pgrouting.org and we will give you commit rights to the repository. 
 
 
+Translations
+-------------------------------------------------------------------------------
+
+Translations of documentation and workshop are managed with Transifex: https://www.transifex.com/organization/pgrouting
+
+If you want to help with translations, `create an account <https://www.transifex.com/signup/>`_ and make a request to join the project on Transifex.
+
+
 How to contribute
 -------------------------------------------------------------------------------
 
