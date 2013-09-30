@@ -34,7 +34,7 @@ Advantages of the database routing approach are:
 	* New workshop: http://workshop.pgrouting.org
 
 	Thanks to everyone who makes the new release possible!	
-	If you want to contribute to the project financially, any `sponsorship or donation <donation>`_ is of great help. 
+	If you want to contribute to the project financially, any :doc:`sponsorship or donation <donate>` is of great help. 
 
 
 Core Features
