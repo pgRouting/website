@@ -21,7 +21,7 @@ pgRouting extends the `PostGIS <http://www.postgis.net>`_ / `PostgreSQL <http://
 
 Advantages of the database routing approach are:
 
-* Data and attributes can be modified by many clients, like `Quantum GIS <http://www.qgis.org>`_ and `uDig <http://udig.refractions.net>`_ through JDBC, ODBC, or directly using Pl/pgSQL. The clients can either be PCs or mobile devices.
+* Data and attributes can be modified by many clients, like `QGIS <http://www.qgis.org>`_ and `uDig <http://udig.refractions.net>`_ through JDBC, ODBC, or directly using Pl/pgSQL. The clients can either be PCs or mobile devices.
 * Data changes can be reflected instantaneously through the routing engine. There is no need for precalculation.
 * The "cost" parameter can be dynamically calculated through SQL and its value can come from multiple fields or tables.
 
