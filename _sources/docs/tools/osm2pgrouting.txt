@@ -14,7 +14,7 @@ osm2pgrouting - Import OSM data into pgRouting Database
 
 .. important::
 
-	osm2pgrouting currently doesn't support pgRouting v2.0.0
+	osm2pgrouting currently doesn't support anymore pgRouting v1.x but requires pgRouting 2.0 or higher.
 
 
 Easily import OpenStreetMap data into a pgRouting database using osm2pgrouting tool.
