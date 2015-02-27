@@ -265,3 +265,8 @@ img.align-right,
 object.align-right  {
     clear: none;
 }
+
+.callout-sidebar img {
+    display: block;
+    margin: 0 auto 20px auto;
+}
