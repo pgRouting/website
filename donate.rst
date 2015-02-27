@@ -115,10 +115,12 @@ As an example, we would like to fund the following project activities:
 	For the beginning (to keep it simple) we're using a private PayPal account 	registered by `Georepublic <http://georepublic.info>`_ (Germany). In case 	the amount of donations will increase by a signifacant amount we might 	consider to setup some non-profit organisation. Georepublic will report donations to the pgRouting PSC.
 	
 
-Donations received in past 12 months
+Donations and Sponsorship received in the past 12 months
 -------------------------------------------------------------------------------
 
-The following people or organizations have made donations or supplied finacial development support to the pgRouting project and have specifically requested that their names appear here:	
+The following people or organizations have made donations or supplied financial development support to the pgRouting project and have specifically requested that their names appear here:	
+
+* `San Francisco Bay Area Movers <https://uplinemoving.com>`_ (Bronze Sponsor)
 
 Many thanks to the listed and non-listed supporters have provided support or made donations. Names listed here are by specific request (and will be removed after about 12 months). If you have made a donation or provided financial support and wish to appear in this list (no links!), please send an email to project at pgrouting dot org.
 	
