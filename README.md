@@ -27,7 +27,7 @@ make html
 
 ```
 git checkout gh-pages 
-cp -r build/html/* . 
+cp -r _build/html/* . 
 git add <new pages>
 git commit -a -m "<commit message>" 
 git push origin gh-pages
