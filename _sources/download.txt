@@ -37,11 +37,14 @@ Windows Binaries
 
 .. rubric:: PostGIS and pgRouting Builds (pgRouting v2.x)
 
-* `for PostgreSQL 9.3 32-bit <http://winnie.postgis.net/download/windows/pg93/buildbot/>`_
-* `for PostgreSQL 9.2 32-bit <http://winnie.postgis.net/download/windows/pg92/buildbot/>`_
-* `for PostgreSQL 9.1 64-bit <http://winnie.postgis.net/download/windows/pg91/buildbot/>`_
+Winnie Bot Builds:
 
-PostGIS and pgRouting Builds are provided by `Winnie <http://postgis.net/windows_downloads>`_, the PostGIS build bot.
+* `Winnie PostgreSQL 9.2-9.5 32-bit/64-bit <http://postgis.net/windows_downloads>`_
+
+Production Builds:
+
+* Production builds are part of the Spatial Extensions/PostGIS Bundle available via Application StackBuilder
+* `You can also get PostGIS Bundle from <http://download.osgeo.org/postgis/windows/>`_
 
 .. rubric:: pgRouting v1.x
 
@@ -67,33 +70,9 @@ Source Packages
 
 .. rubric:: pgRouting v2.x
 
-======================== ======================= ====================
-**Git 2.0.0 release**    `v2.0.0.tar.gz`_        `v2.0.0.zip`_ 
-Git 2.0.0-rc1 release    `v2.0.0-rc1.tar.gz`_    `v2.0.0-rc1.zip`_
-Git 2.0.0-beta release   `v2.0.0-beta.tar.gz`_   `v2.0.0-beta.zip`_
-Git 2.0.0-alpha release  `v2.0.0-alpha.tar.gz`_  `v2.0.0-alpha.zip`_
-Git master branch        `master.tar.gz`_        `master.zip`_
-Git develop branch       `develop.tar.gz`_       `develop.zip`_
-======================== ======================= ====================
+You can find all the pgRouting Releases:
 
-.. _v2.0.0.tar.gz: https://github.com/pgRouting/pgrouting/archive/v2.0.0.tar.gz
-.. _v2.0.0.zip: https://github.com/pgRouting/pgrouting/archive/v2.0.0.zip
-
-.. _v2.0.0-rc1.tar.gz: https://github.com/pgRouting/pgrouting/archive/v2.0.0-rc1.tar.gz
-.. _v2.0.0-rc1.zip: https://github.com/pgRouting/pgrouting/archive/v2.0.0-rc1.zip
-
-.. _v2.0.0-beta.tar.gz: https://github.com/pgRouting/pgrouting/archive/v2.0.0-beta.tar.gz
-.. _v2.0.0-beta.zip: https://github.com/pgRouting/pgrouting/archive/v2.0.0-beta.zip
-
-.. _v2.0.0-alpha.tar.gz: https://github.com/pgRouting/pgrouting/archive/v2.0.0-alpha.tar.gz
-.. _v2.0.0-alpha.zip: https://github.com/pgRouting/pgrouting/archive/v2.0.0-alpha.zip
-
-.. _master.tar.gz: https://github.com/pgRouting/pgrouting/archive/master.tar.gz
-.. _master.zip: https://github.com/pgRouting/pgrouting/archive/master.zip
-
-.. _develop.tar.gz: https://github.com/pgRouting/pgrouting/archive/develop.tar.gz
-.. _develop.zip: https://github.com/pgRouting/pgrouting/archive/develop.zip
-
+https://github.com/pgRouting/pgrouting/releases
 
 .. rubric:: pgRouting v1.x
 
