@@ -71,7 +71,7 @@ Examples:
 .. code-block:: sql
 
 	SELECT * FROM shortest_path('SELECT gid AS id, source::int4, 
-		     target::int4, length::double precision AS cost,
+		     target::int4, length::double precision AS cost
 		FROM dourol',3, 7, false, false);
 
 
