@@ -41,25 +41,21 @@ Advantages of the database routing approach are:
 Core Features
 -------------------------------------------------------------------------------
 
-pgRouting provides functions for:
+pgRouting library contains following features:
 
-* All Pairs Shortest Path, Johnson’s Algorithm :sup:`[1]`
-* All Pairs Shortest Path, Floyd-Warshall Algorithm :sup:`[1]`
+* All Pairs Shortest Path, Johnson’s Algorithm
+* All Pairs Shortest Path, Floyd-Warshall Algorithm
 * Shortest Path A*
-* Bi-directional Dijkstra Shortest Path :sup:`[1]`
-* Bi-directional A* Shortest Path :sup:`[1]`
+* Bi-directional Dijkstra Shortest Path
+* Bi-directional A* Shortest Path
 * Shortest Path Dijkstra
 * Driving Distance
-* K-Shortest Path, Multiple Alternative Paths :sup:`[1]`
-* K-Dijkstra, One to Many Shortest Path :sup:`[1]`
+* K-Shortest Path, Multiple Alternative Paths
+* K-Dijkstra, One to Many Shortest Path
 * Traveling Sales Person
-* Turn Restriction Shortest Path (TRSP) :sup:`[1]`
-* Shortest Path Shooting Star :sup:`[2]`
+* Turn Restriction Shortest Path (TRSP)
 
 Learn more about using pgRouting in your application by reading the :doc:`documentation <documentation>`.
-
-| :sup:`[1]` **New** in pgRouting 2.0.0
-| :sup:`[2]` Discontinued in pgRouting 2.0.0
 
 
 pgRouting is Open Source
