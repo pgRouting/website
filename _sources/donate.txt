@@ -92,7 +92,6 @@ Sponsoring the pgRouting project provides the following benefits:
   * Silver sponsors will be listed on the sponsors page with a medium size logo (30k pixel, e.g. 200x150px)
   * Bronze sponsors will be listed on the sponsors page with a small size logo (6k ixel, e.g. 100x60px)
   
-* Sponsors will be listed in the pgRouting workshop handouts
 * Sponsors will be allowed to use a special version of the pgRouting logo on their web site, which shows they are a sponsor of the pgRouting project
 * Donors will be listed on the sponsors page upon request, but do not receive the additional benefits listed above for sponsors
 
@@ -124,6 +123,13 @@ The following people or organizations have made donations or supplied financial 
 * `Wrinkles.org <http://www.wrinkles.org>`_ (Bronze Sponsor)
 * `Baby Etymology <http://babynames.net/all/starts-with/a>`_ (Bronze Sponsor)
 * `Penetration Testing Company <https://www.security-audit.com/company>`_ (Bronze Sponsor)
+* `Serenata Flowers <http://www.serenataflowers.com>`_ (Bronze Sponsor) 
+	|sponsor_serenata|
+
+.. |sponsor_serenata| image:: _static/img/sponsor_serenata.jpg
+	 :width: 120
+	 :target: http://www.serenataflowers.com
+	 :alt:  SerenataFlowers.com 
 
 Many thanks to the listed and non-listed supporters have provided support or made donations. Names listed here are by specific request (and will be removed after about 12 months). If you have made a donation or provided financial support and wish to appear in this list (no links!), please send an email to project at pgrouting dot org.
 	
