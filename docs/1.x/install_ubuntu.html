@@ -31,7 +31,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
@@ -152,7 +152,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="installation-on-ubuntu">
 <span id="install-ubuntu"></span><h1>Installation on Ubuntu<a class="headerlink" href="#installation-on-ubuntu" title="Permalink to this headline">¶</a></h1>
@@ -194,7 +194,7 @@ Boost 1.34.</p>
 </ul>
 <div class="highlight-bash"><div class="highlight"><pre>wget http://downloads.sourceforge.net/gaul/gaul-devel-0.1849-0.tar.gz
 tar -xzf gaul-devel-0.1849-0.tar.gz
-<span class="nb">cd </span>gaul-devel-0.1849-0/
+<span class="nb">cd</span> gaul-devel-0.1849-0/
 ./configure --disable-slang
 make
 sudo make install
@@ -206,7 +206,7 @@ sudo ldconfig
 <h2>Compile pgRouting core (with TSP and DD flag on)<a class="headerlink" href="#compile-pgrouting-core-with-tsp-and-dd-flag-on" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><div class="highlight"><pre>git clone git://github.com/pgRouting/pgrouting.git pgrouting
 
-<span class="nb">cd </span>pgrouting/
+<span class="nb">cd</span> pgrouting/
 cmake -DWITH_TSP<span class="o">=</span>ON -DWITH_DD<span class="o">=</span>ON .
 make
 sudo make install

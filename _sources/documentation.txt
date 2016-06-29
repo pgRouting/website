@@ -18,18 +18,13 @@ Documentation
 	pgRouting versions 2.x (current) <http://docs.pgrouting.org>
 	pgRouting versions 1.x (deprecated) <docs/1.x/index>
 
-.. note::
-
-	With the release of version 2.0.0 previous versions (v1.x) are not maintained anymore.
-
-
 Workshops & Tutorials
 -------------------------------------------------------------------------------
 
 .. toctree::
 	:maxdepth: 1
 
-	pgRouting Workshop for v2.0.0 (English) <http://workshop.pgrouting.org>
+	pgRouting Workshop for v2.x (English) <http://workshop.pgrouting.org>
 	pgRouting Workshop for v1.05 (Français) <http://postgis.fr/chrome/site/docs/workshop-routing-foss4g/docs/_build/html/index.html>
 
 

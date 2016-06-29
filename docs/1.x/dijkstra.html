@@ -31,7 +31,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
@@ -152,7 +152,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="shortest-path-dijkstra">
 <span id="dijkstra"></span><h1>Shortest Path Dijkstra<a class="headerlink" href="#shortest-path-dijkstra" title="Permalink to this headline">¶</a></h1>
@@ -202,7 +202,7 @@
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path</span><span class="p">(</span><span class="s1">&#39;SELECT gid AS id, source::int4,</span>
-<span class="s1">             target::int4, length::double precision AS cost,</span>
+<span class="s1">             target::int4, length::double precision AS cost</span>
 <span class="s1">        FROM dourol&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
 </pre></div>
 </div>

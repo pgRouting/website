@@ -31,7 +31,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
@@ -153,7 +153,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="creating-data-for-routing-applications">
 <span id="topology"></span><h1>Creating Data for Routing Applications<a class="headerlink" href="#creating-data-for-routing-applications" title="Permalink to this headline">¶</a></h1>
@@ -248,7 +248,7 @@ N,S,E,W,T,B: 35.674216, 35.672010, 139.756261, 139.755285, 0.000000, 0.000000
 N,S,E,W,T,B: 35.672010, 35.671649, 139.755285, 139.755014, 0.000000, 0.000000
 </pre></div>
 </div>
-<p>A perl program like <a class="reference download internal" href="../../_downloads/table_topo.pl"><tt class="xref download docutils literal"><span class="pre">table_topo.pl</span></tt></a>
+<p>A perl program like <a class="reference download internal" href="../../_downloads/table_topo.pl" download=""><code class="xref download docutils literal"><span class="pre">table_topo.pl</span></code></a>
 can be used to convert GRASS output into SQL files that will create node and
 line tables containing the topological information. These tables can then be
 linked into the PostGIS network table to create the source-target node

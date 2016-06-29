@@ -120,9 +120,10 @@ Donations and Sponsorship received in the past 12 months
 The following people or organizations have made donations or supplied financial development support to the pgRouting project and have specifically requested that their names appear here:	
 
 * `San Francisco Bay Area Movers <https://uplinemoving.com>`_ (Bronze Sponsor)
-* `Wrinkles.org <http://www.wrinkles.org>`_ (Bronze Sponsor)
-* `Baby Etymology <http://babynames.net/all/starts-with/a>`_ (Bronze Sponsor)
 * `Penetration Testing Company <https://www.security-audit.com/company>`_ (Bronze Sponsor)
+* `Stretchmarks.org <http://stretchmarks.org>`_ (Bronze Sponsor)
+* `Vein Disease Resource <https://varicoseveins.org>`_ (Bronze Sponsor)
+* `Online Educational Site <http://www.onlinedegree.com>`_ (Bronze Sponsor)
 * `Serenata Flowers <http://www.serenataflowers.com>`_ (Bronze Sponsor) 
 	|sponsor_serenata|
 

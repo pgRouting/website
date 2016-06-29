@@ -31,7 +31,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="install_centos.html"
@@ -141,7 +141,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="installation-on-freebsd">
 <span id="install-freebsd"></span><h1>Installation on FreeBSD<a class="headerlink" href="#installation-on-freebsd" title="Permalink to this headline">¶</a></h1>
@@ -163,7 +163,7 @@
 <p>pgRouting docs suggest installing gaul without slang support. So before you
 install the port, change the port Makefile, commenting out the LIB_DEPENDS line
 which pulls in libslang, and add a line to disable slang support:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c">#LIB_DEPENDS=    slang.2:${PORTSDIR}/devel/libslang2</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c1">#LIB_DEPENDS=    slang.2:${PORTSDIR}/devel/libslang2</span>
 CONFIGURE_ARGS+<span class="o">=</span> --disable-slang
 </pre></div>
 </div>
@@ -174,9 +174,9 @@ line after line 177:</p>
 </pre></div>
 </div>
 <p>End result should look like:</p>
-<div class="highlight-bash"><div class="highlight"><pre>175: <span class="c">#if HAVE__BOOL != 1</span>
+<div class="highlight-bash"><div class="highlight"><pre>175: <span class="c1">#if HAVE__BOOL != 1</span>
 176: typedef short _Bool<span class="p">;</span>
-177: <span class="c">#endif</span>
+177: <span class="c1">#endif</span>
 178: typedef short _Bool<span class="p">;</span>
 </pre></div>
 </div>
@@ -211,7 +211,7 @@ core/src/edge_visitors.hpp
 </div>
 <p>you need to change the path to include file property_map.hpp so the line reads
 like this:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c">#include &lt;boost/property_map/property_map.hpp&gt;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c1">#include &lt;boost/property_map/property_map.hpp&gt;</span>
 </pre></div>
 </div>
 <p>This is probably not necessary with older versions of boost-libs, but I&#8217;m not
