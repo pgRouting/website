@@ -31,7 +31,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="topology.html"
@@ -141,7 +141,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="network-data-validation">
 <span id="validation"></span><h1>Network data validation<a class="headerlink" href="#network-data-validation" title="Permalink to this headline">¶</a></h1>
@@ -162,11 +162,11 @@ connections be segments.</p>
 
 NAME           <span class="s1">&#39;mymap&#39;</span>
 STATUS ON
-<span class="c1">#EXTENT 3427065.200000 5788323.530000 3443999.370000 5800691.660000</span>
-<span class="c1">#EXTENT 7.9189 52.2102 8.1716 52.3467</span>
-EXTENT <span class="m">880000</span> <span class="m">6840000</span> <span class="m">915000</span> 6860000
-IMAGECOLOR <span class="m">255</span> <span class="m">255</span> 255
-SIZE      <span class="m">700</span> 700
+<span class="c">#EXTENT 3427065.200000 5788323.530000 3443999.370000 5800691.660000</span>
+<span class="c">#EXTENT 7.9189 52.2102 8.1716 52.3467</span>
+EXTENT 880000 6840000 915000 6860000
+IMAGECOLOR 255 255 255
+SIZE      700 700
 SYMBOLSET       <span class="s1">&#39;/your_path/symbols/symbols.sym&#39;</span>
 FONTSET       <span class="s1">&#39;/your_path/fonts/fonts.list&#39;</span>
 
@@ -188,8 +188,8 @@ PROJECTION
 END
 
 LAYER
-OFFSITE <span class="m">255</span> <span class="m">255</span> 255
-<span class="c1">#LABELITEM &#39;name&#39;</span>
+OFFSITE 255 255 255
+<span class="c">#LABELITEM &#39;name&#39;</span>
 TOLERANCE 20
 NAME            <span class="s1">&#39;streets&#39;</span>
 TYPE            LINE
@@ -207,20 +207,20 @@ METADATA
 END
 
 CLASS
-TEXT <span class="o">([</span>gid<span class="o">]</span>,<span class="o">[</span>source<span class="o">]</span>,<span class="o">[</span>target<span class="o">])</span>
+TEXT <span class="o">([</span>gid<span class="o">]</span>,<span class="o">[</span><span class="nb">source</span><span class="o">]</span>,<span class="o">[</span>target<span class="o">])</span>
 EXPRESSION /./
 
 STYLE
 WIDTH 1
-COLOR <span class="m">0</span> <span class="m">0</span> 0
+COLOR 0 0 0
 END
 
 LABEL
         TYPE TRUETYPE
         ANTIALIAS TRUE
         FONT <span class="s1">&#39;arial&#39;</span>
-        COLOR <span class="m">0</span> <span class="m">0</span> 0
-        BACKGROUNDCOLOR <span class="m">240</span> <span class="m">240</span> 240
+        COLOR 0 0 0
+        BACKGROUNDCOLOR 240 240 240
          POSITION cc
           MINSIZE 8
         MAXSIZE 12
@@ -230,8 +230,8 @@ END
 END
 
 LAYER
-OFFSITE <span class="m">255</span> <span class="m">255</span> 255
-<span class="c1">#LABELITEM &#39;name&#39;</span>
+OFFSITE 255 255 255
+<span class="c">#LABELITEM &#39;name&#39;</span>
 TOLERANCE 20
 NAME            <span class="s1">&#39;dead_ends&#39;</span>
 TYPE            POINT
@@ -255,15 +255,15 @@ EXPRESSION /1/
 STYLE
 SYMBOL <span class="s1">&#39;tent&#39;</span>
 SIZE 11
-COLOR <span class="m">255</span> <span class="m">0</span> 0
+COLOR 255 0 0
 END
 
 LABEL
         TYPE TRUETYPE
         ANTIALIAS TRUE
         FONT <span class="s1">&#39;arial&#39;</span>
-        COLOR <span class="m">255</span> <span class="m">0</span> 0
-        BACKGROUNDCOLOR <span class="m">240</span> <span class="m">240</span> 240
+        COLOR 255 0 0
+        BACKGROUNDCOLOR 240 240 240
          POSITION cr
           MINSIZE 8
         MAXSIZE 12
@@ -278,15 +278,15 @@ EXPRESSION /./
 STYLE
 SYMBOL <span class="s1">&#39;tent&#39;</span>
 SIZE 11
-COLOR <span class="m">0</span> <span class="m">0</span> 255
+COLOR 0 0 255
 END
 
 LABEL
         TYPE TRUETYPE
         ANTIALIAS TRUE
         FONT <span class="s1">&#39;arial&#39;</span>
-        COLOR <span class="m">0</span> <span class="m">0</span> 255
-        BACKGROUNDCOLOR <span class="m">240</span> <span class="m">240</span> 240
+        COLOR 0 0 255
+        BACKGROUNDCOLOR 240 240 240
          POSITION cr
           MINSIZE 8
         MAXSIZE 12

@@ -31,7 +31,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
@@ -149,19 +149,19 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="collection-of-useful-sql-commands">
 <span id="sql"></span><h1>Collection of useful SQL commands<a class="headerlink" href="#collection-of-useful-sql-commands" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="join-two-tables">
 <h2>JOIN two tables<a class="headerlink" href="#join-two-tables" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-sql"><div class="highlight"><pre>SELECT
+<div class="highlight-sql"><pre>SELECT
         count(gid) AS links,
         sum(a.cost) AS cost,
         sum(length) AS length
 
 FROM shortest_path(
-        &#39;SELECT gid AS id,
+        &#x27;SELECT gid AS id,
                 source::integer,
                 target::integer,
                 length::double precision AS cost
@@ -169,8 +169,7 @@ FROM shortest_path(
         WHERE &lt;...&gt;,
         false,
         false
-) AS a LEFT JOIN &lt;TABLE B&gt; ON (a.gid = gid)
-</pre></div>
+) AS a LEFT JOIN &lt;TABLE B&gt; ON (a.gid = gid)</pre>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
