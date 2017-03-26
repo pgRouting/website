@@ -1,9 +1,9 @@
-.. 
+..
    ****************************************************************************
     pgRouting Website
     Copyright(c) pgRouting Contributors
 
-    This documentation is licensed under a Creative Commons Attribution-Share  
+    This documentation is licensed under a Creative Commons Attribution-Share
     Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
    ****************************************************************************
 
@@ -41,9 +41,9 @@ Sponsors can sponsor pgRouting for any amount of money of at least 150 EUR / 200
 .. raw:: html
 
   <p>Organizations or individuals interested in sponsoring the pgRouting project
-  should contact 
-  <script type="text/javascript"> 
-	  document.write('<a href="mailto:' + new Array("project","pgrouting.org").join("@") + '">project at pgrouting dot org</a>'); 
+  should contact
+  <script type="text/javascript">
+	  document.write('<a href="mailto:' + new Array("project","pgrouting.org").join("@") + '">project at pgrouting dot org</a>');
   </script>
   with questions, or to make arrangements.</p>
 
@@ -51,7 +51,7 @@ Sponsors can sponsor pgRouting for any amount of money of at least 150 EUR / 200
 Donation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Donations can be of any amount through PayPal. 
+Donations can be of any amount through PayPal.
 
 .. raw:: html
 
@@ -73,12 +73,12 @@ Donations can be of any amount through PayPal.
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-		</form>			
+		</form>
 	</div>
-	
+
 Even a small donation can make a big difference and help to reach important project goals!
 
-	
+
 What is your benefit sponsoring the pgRouting Development
 -------------------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ Sponsoring the pgRouting project provides the following benefits:
   * Gold Sponsors will be listed on the sponsors page with a large logo (60k pixel, e.g. 300x200px)
   * Silver sponsors will be listed on the sponsors page with a medium size logo (30k pixel, e.g. 200x150px)
   * Bronze sponsors will be listed on the sponsors page with a small size logo (6k ixel, e.g. 100x60px)
-  
+
 * Sponsors will be allowed to use a special version of the pgRouting logo on their web site, which shows they are a sponsor of the pgRouting project
 * Donors will be listed on the sponsors page upon request, but do not receive the additional benefits listed above for sponsors
 
@@ -99,7 +99,7 @@ Sponsoring the pgRouting project provides the following benefits:
 How do we use financial support
 -------------------------------------------------------------------------------
 
-The sponsorship funds will be spent to directly improve the code base of the project, to fund tasks that generally receive less attention from developers, and to fund work on peripheral project tasks so that core contributors can focus efforts on pgRouting improvements. 
+The sponsorship funds will be spent to directly improve the code base of the project, to fund tasks that generally receive less attention from developers, and to fund work on peripheral project tasks so that core contributors can focus efforts on pgRouting improvements.
 
 As an example, we would like to fund the following project activities:
 
@@ -112,26 +112,26 @@ As an example, we would like to fund the following project activities:
 .. note::
 
 	For the beginning (to keep it simple) we're using a private PayPal account 	registered by `Georepublic <http://georepublic.info>`_ (Germany). In case 	the amount of donations will increase by a signifacant amount we might 	consider to setup some non-profit organisation. Georepublic will report donations to the pgRouting PSC.
-	
+
 
 Donations and Sponsorship received in the past 12 months
 -------------------------------------------------------------------------------
 
-The following people or organizations have made donations or supplied financial development support to the pgRouting project and have specifically requested that their names appear here:	
+The following people or organizations have made donations or supplied financial development support to the pgRouting project and have specifically requested that their names appear here:
 
 * `Binary Options Broker <https://www.binaryuno.com>`_ (Bronze Sponsor)
 * `San Francisco Bay Area Movers <https://uplinemoving.com>`_ (Bronze Sponsor)
-* `Penetration Testing Company <https://www.security-audit.com/company>`_ (Bronze Sponsor)
+* `Website Security Companies <https://www.security-audit.com/company>`_ (Bronze Sponsor)
 * `Stretchmarks.org <http://stretchmarks.org>`_ (Bronze Sponsor)
 * `Vein Disease Resource <https://varicoseveins.org>`_ (Bronze Sponsor)
 * `Online Educational Site <http://www.onlinedegree.com>`_ (Bronze Sponsor)
-* `Serenata Flowers <http://www.serenataflowers.com>`_ (Bronze Sponsor) 
+* `Serenata Flowers <http://www.serenataflowers.com>`_ (Bronze Sponsor)
 	|sponsor_serenata|
 
 .. |sponsor_serenata| image:: _static/img/sponsor_serenata.jpg
 	 :width: 120
 	 :target: http://www.serenataflowers.com
-	 :alt:  SerenataFlowers.com 
+	 :alt:  SerenataFlowers.com
 
 Many thanks to the listed and non-listed supporters have provided support or made donations. Names listed here are by specific request (and will be removed after about 12 months). If you have made a donation or provided financial support and wish to appear in this list (no links!), please send an email to project at pgrouting dot org.
-	
+
