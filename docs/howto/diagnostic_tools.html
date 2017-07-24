@@ -31,7 +31,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
@@ -150,7 +150,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="diagnostic-tools">
 <span id="diagnostics"></span><h1>Diagnostic Tools<a class="headerlink" href="#diagnostic-tools" title="Permalink to this headline">¶</a></h1>
@@ -185,7 +185,7 @@ with their UID so you can go back to the database and query them in detail.</p>
         MAXLABELSCALEDENOM 25000
         CLASS
           STYLE
-                COLOR <span class="m">87</span> <span class="m">87</span> 87
+                COLOR 87 87 87
                 WIDTH 1
           END
           LABEL
@@ -193,14 +193,14 @@ with their UID so you can go back to the database and query them in detail.</p>
                 TYPE TRUETYPE
                 ANGLE AUTO
                 SIZE 7
-                COLOR <span class="m">1</span> <span class="m">1</span> 1
+                COLOR 1 1 1
           END
         END
         END
 
         symbol
         name <span class="s2">&quot;one_way_from&quot;</span>
-        <span class="nb">type</span> truetype
+        <span class="nb">type </span>truetype
         font arial-bold
         character <span class="s2">&quot;&gt;&quot;</span>
         gap -40
@@ -208,7 +208,7 @@ with their UID so you can go back to the database and query them in detail.</p>
 
         symbol
         name <span class="s2">&quot;one_way_to&quot;</span>
-        <span class="nb">type</span> truetype
+        <span class="nb">type </span>truetype
         font arial-bold
         character <span class="s2">&quot;&lt;&quot;</span>
         gap -40
@@ -231,7 +231,7 @@ with their UID so you can go back to the database and query them in detail.</p>
           EXPRESSION <span class="s2">&quot;FT&quot;</span>
           STYLE
                 SYMBOL <span class="s2">&quot;one_way_from&quot;</span>
-                COLOR <span class="m">80</span> <span class="m">80</span> 80
+                COLOR 80 80 80
                 SIZE 8
           END
         END
@@ -240,7 +240,7 @@ with their UID so you can go back to the database and query them in detail.</p>
           EXPRESSION <span class="s2">&quot;TF&quot;</span>
           STYLE
                 SYMBOL <span class="s2">&quot;one_way_to&quot;</span>
-                COLOR <span class="m">80</span> <span class="m">80</span> 80
+                COLOR 80 80 80
                 SIZE 8
           END
         END
@@ -271,7 +271,7 @@ of segments that reference that node. Maybe something like this:</p>
          STYLE
            SYMBOL <span class="s2">&quot;circle&quot;</span>
            SIZE 5
-           COLOR <span class="m">255</span> <span class="m">0</span> 0
+           COLOR 255 0 0
          END
    END
    CLASS
@@ -279,7 +279,7 @@ of segments that reference that node. Maybe something like this:</p>
          STYLE
            SYMBOL <span class="s2">&quot;circle&quot;</span>
            SIZE 3
-           COLOR <span class="m">0</span> <span class="m">255</span> 0
+           COLOR 0 255 0
          END
    END
 END

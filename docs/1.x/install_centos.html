@@ -31,7 +31,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
@@ -155,7 +155,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="installation-on-centos">
 <span id="install-centos"></span><h1>Installation on CentOS<a class="headerlink" href="#installation-on-centos" title="Permalink to this headline">¶</a></h1>
@@ -181,7 +181,7 @@ sudo yum install postgresql-server postgresql-devel flex
 </ul>
 <div class="highlight-bash"><div class="highlight"><pre>wget ftp://ftp.remotesensing.org/proj/proj-4.6.0.tar.gz
 tar -zxvf proj-4.6.0.tar.gz
-<span class="nb">cd</span> proj-4.6.0
+<span class="nb">cd </span>proj-4.6.0
 ./configure
 sudo make install
 </pre></div>
@@ -192,7 +192,7 @@ sudo make install
 <div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> ..
 wget http://geos.refractions.net/downloads/geos-3.0.0.tar.bz2
 tar -jxvf geos-3.0.0.tar.bz2
-<span class="nb">cd</span> geos-3.0.0
+<span class="nb">cd </span>geos-3.0.0
 ./configure
 sudo make install
 </pre></div>
@@ -203,7 +203,7 @@ sudo make install
 <div class="highlight-bash"><div class="highlight"><pre>sudo vi /etc/ld.so.conf
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c1"># add this line</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># add this line</span>
 /usr/local/lib
 </pre></div>
 </div>
@@ -216,7 +216,7 @@ sudo make install
 <div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> ..
 Wget http://www.postgis.net/download/postgis-1.3.3.tar.gz
 tar -zxvf postgis-1.3.3.tar.gz
-<span class="nb">cd</span> postgis-1.3.3
+<span class="nb">cd </span>postgis-1.3.3
 ./configure
 sudo make install
 </pre></div>
@@ -229,9 +229,9 @@ with PostgreSQL as user &#8220;postgres&#8221;. Then restart PostgreSQL.</p>
 <div class="highlight-bash"><div class="highlight"><pre>sudo vi /var/lib/pgsql/data/pg_hba.conf
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c1"># &quot;local&quot; is for Unix domain socket connections only</span>
-<span class="c1">#local   all         all                               ident sameuser</span>
-<span class="nb">local</span>   all     all                                     trust
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># &quot;local&quot; is for Unix domain socket connections only</span>
+<span class="c">#local   all         all                               ident sameuser</span>
+<span class="nb">local   </span>all     all                                     trust
 </pre></div>
 </div>
 <div class="highlight-bash"><div class="highlight"><pre>sudo /etc/init.d/postgresql restart
@@ -243,7 +243,7 @@ with PostgreSQL as user &#8220;postgres&#8221;. Then restart PostgreSQL.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> ..
 wget http://www.cmake.org/files/v2.4/cmake-2.4.8.tar.gz
 tar -zxvf cmake-2.4.8.tar.gz
-<span class="nb">cd</span> cmake-2.4.8
+<span class="nb">cd </span>cmake-2.4.8
 ./configure
 gmake
 </pre></div>
@@ -252,7 +252,7 @@ gmake
 <div class="section" id="compile-pgrouting">
 <h2>Compile pgRouting<a class="headerlink" href="#compile-pgrouting" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><div class="highlight"><pre>git clone git://github.com/pgRouting/pgrouting.git pgrouting
-<span class="nb">cd</span> pgrouting/
+<span class="nb">cd </span>pgrouting/
 sudo <span class="o">[</span>cmake_dir<span class="o">]</span>/bin/cmake .
 sudo make install
 </pre></div>
@@ -264,11 +264,11 @@ sudo make install
 <div class="highlight-bash"><div class="highlight"><pre>createdb -U postgres routing
 createlang -U postgres plpgsql routing
 
-<span class="c1"># Add PostGIS functions</span>
+<span class="c"># Add PostGIS functions</span>
 psql -U postgres -f /usr/share/lwpostgis.sql routing
 psql -U postgres -f /usr/share/spatial_ref_sys.sql routing
 
-<span class="c1"># Add core pgRouting functions</span>
+<span class="c"># Add core pgRouting functions</span>
 psql -U postgres -f /usr/share/postlbs/routing_core.sql routing
 psql -U postgres -f /usr/share/postlbs/routing_core_wrappers.sql routing
 psql -U postgres -f /usr/share/postlbs/routing_topology.sql routing

@@ -31,7 +31,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
@@ -153,7 +153,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="creating-data-for-routing-applications">
 <span id="topology"></span><h1>Creating Data for Routing Applications<a class="headerlink" href="#creating-data-for-routing-applications" title="Permalink to this headline">¶</a></h1>
@@ -228,7 +228,7 @@ For example:</p>
 <p>The output will be like this;</p>
 <div class="highlight-bash"><div class="highlight"><pre>---------- TOPOLOGY DUMP ----------
 N,S,E,W,T,B: 35.897887, 24.281578, 153.985841, 138.943042, 0.000000, 0.000000
-Nodes <span class="o">(</span><span class="m">148304</span> nodes, alive + dead <span class="o">)</span>:
+Nodes <span class="o">(</span>148304 nodes, alive + dead <span class="o">)</span>:
 <span class="nv">node</span> <span class="o">=</span> 1, <span class="nv">n_lines</span> <span class="o">=</span> 3, <span class="nv">xy</span> <span class="o">=</span> 139.756532, 35.67451
 <span class="nv">line</span> <span class="o">=</span> 1, <span class="nb">type</span> <span class="o">=</span> 2, <span class="nv">angle</span> <span class="o">=</span> -2.265356
 <span class="nv">line</span> <span class="o">=</span> -20, <span class="nb">type</span> <span class="o">=</span> 2, <span class="nv">angle</span> <span class="o">=</span> -0.055499
@@ -239,16 +239,16 @@ Nodes <span class="o">(</span><span class="m">148304</span> nodes, alive + dead 
 ...
 ...
 ...
-Lines <span class="o">(</span><span class="m">220672</span> lines, alive + dead <span class="o">)</span>:
-<span class="nv">line</span> <span class="o">=</span> 1, <span class="nb">type</span> <span class="o">=</span> 2, <span class="nv">offset</span> <span class="o">=</span> <span class="m">14</span> <span class="nv">n1</span> <span class="o">=</span> 1, <span class="nv">n2</span> <span class="o">=</span> 2, left/area <span class="o">=</span> 0, <span class="nv">right</span> <span class="o">=</span> 0
+Lines <span class="o">(</span>220672 lines, alive + dead <span class="o">)</span>:
+<span class="nv">line</span> <span class="o">=</span> 1, <span class="nb">type</span> <span class="o">=</span> 2, <span class="nv">offset</span> <span class="o">=</span> 14 <span class="nv">n1</span> <span class="o">=</span> 1, <span class="nv">n2</span> <span class="o">=</span> 2, left/area <span class="o">=</span> 0, <span class="nv">right</span> <span class="o">=</span> 0
 N,S,E,W,T,B: 35.674510, 35.674216, 139.756532, 139.756261, 0.000000, 0.000000
-<span class="nv">line</span> <span class="o">=</span> 2, <span class="nb">type</span> <span class="o">=</span> 2, <span class="nv">offset</span> <span class="o">=</span> <span class="m">79</span> <span class="nv">n1</span> <span class="o">=</span> 2, <span class="nv">n2</span> <span class="o">=</span> 3, left/area <span class="o">=</span> 0, <span class="nv">right</span> <span class="o">=</span> 0
+<span class="nv">line</span> <span class="o">=</span> 2, <span class="nb">type</span> <span class="o">=</span> 2, <span class="nv">offset</span> <span class="o">=</span> 79 <span class="nv">n1</span> <span class="o">=</span> 2, <span class="nv">n2</span> <span class="o">=</span> 3, left/area <span class="o">=</span> 0, <span class="nv">right</span> <span class="o">=</span> 0
 N,S,E,W,T,B: 35.674216, 35.672010, 139.756261, 139.755285, 0.000000, 0.000000
-<span class="nv">line</span> <span class="o">=</span> 3, <span class="nb">type</span> <span class="o">=</span> 2, <span class="nv">offset</span> <span class="o">=</span> <span class="m">160</span> <span class="nv">n1</span> <span class="o">=</span> 3, <span class="nv">n2</span> <span class="o">=</span> 4, left/area <span class="o">=</span> 0, <span class="nv">right</span> <span class="o">=</span> 0
+<span class="nv">line</span> <span class="o">=</span> 3, <span class="nb">type</span> <span class="o">=</span> 2, <span class="nv">offset</span> <span class="o">=</span> 160 <span class="nv">n1</span> <span class="o">=</span> 3, <span class="nv">n2</span> <span class="o">=</span> 4, left/area <span class="o">=</span> 0, <span class="nv">right</span> <span class="o">=</span> 0
 N,S,E,W,T,B: 35.672010, 35.671649, 139.755285, 139.755014, 0.000000, 0.000000
 </pre></div>
 </div>
-<p>A perl program like <a class="reference download internal" href="../../_downloads/table_topo.pl" download=""><code class="xref download docutils literal"><span class="pre">table_topo.pl</span></code></a>
+<p>A perl program like <a class="reference download internal" href="../../_downloads/table_topo.pl"><tt class="xref download docutils literal"><span class="pre">table_topo.pl</span></tt></a>
 can be used to convert GRASS output into SQL files that will create node and
 line tables containing the topological information. These tables can then be
 linked into the PostGIS network table to create the source-target node

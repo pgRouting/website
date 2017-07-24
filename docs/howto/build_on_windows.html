@@ -31,7 +31,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="../howto.html"
@@ -141,7 +141,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="build-pgrouting-for-windows">
 <span id="build-windows"></span><h1>Build pgRouting for Windows<a class="headerlink" href="#build-pgrouting-for-windows" title="Permalink to this headline">¶</a></h1>
@@ -170,9 +170,9 @@ cp /lib/libpthreadGC2.a /mingw/lib/libpthread.a
 <li><strong>CMake</strong></li>
 </ul>
 <p>Use latest version(2.4.7)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c1">#./configure --prefix=E:/Build/msys/1.0/local</span>
-<span class="c1">#make</span>
-<span class="c1">#make install</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#./configure --prefix=E:/Build/msys/1.0/local</span>
+<span class="c">#make</span>
+<span class="c">#make install</span>
 </pre></div>
 </div>
 <p>Or you can use Windows installer.</p>
@@ -180,9 +180,9 @@ cp /lib/libpthreadGC2.a /mingw/lib/libpthread.a
 <li><strong>Boost</strong></li>
 </ul>
 <p>Use previous version (1.33.1) because of v2 problem</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c1">#bjam -sTOOLS=mingw &quot;-sBUILD=release &lt;runtime-link&gt;static &lt;threading&gt;multi &lt;native-wchar_t&gt;on&quot; --prefix=/e/Build/msys/1.0/local install</span>
-<span class="c1">#mv /usr/local/include/boost-1_33_1/boost /usr/local/include/boost</span>
-<span class="c1">#rmdir /usr/local/include/boost-1_33_1</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#bjam -sTOOLS=mingw &quot;-sBUILD=release &lt;runtime-link&gt;static &lt;threading&gt;multi &lt;native-wchar_t&gt;on&quot; --prefix=/e/Build/msys/1.0/local install</span>
+<span class="c">#mv /usr/local/include/boost-1_33_1/boost /usr/local/include/boost</span>
+<span class="c">#rmdir /usr/local/include/boost-1_33_1</span>
 </pre></div>
 </div>
 <p>If you don&#8217;t need CGAL library (driving distance functionality),
@@ -192,7 +192,7 @@ So you needs download Boost headers(1.33.1 or later), and extract it.</p>
 <li><strong>Gaul</strong></li>
 </ul>
 <p>Use latest version(0.1849-0)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c1">#./configure --enable-slang=no</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#./configure --enable-slang=no</span>
 edit /util/Makefile
         <span class="nv">DEFS</span> <span class="o">=</span> -DHAVE_CONFIG_H
          -&gt; <span class="nv">DEFS</span> <span class="o">=</span> -DHAVE_CONFIG_H -DBUILDING_DLL
@@ -206,24 +206,24 @@ edit /tests/Makefile
          -&gt; <span class="nv">DEFS</span> <span class="o">=</span> -DHAVE_CONFIG_H -DBUILDING_DLL
         <span class="nv">INCLUDES</span> <span class="o">=</span> -I../util/ -I../../util/ -I../src/ -I../../src/ -I/usr/include/slang/
          -&gt; <span class="nv">INCLUDES</span> <span class="o">=</span> -I../util -I../../util -I../src -I../../src -I/usr/include/slang/
-<span class="c1">#make</span>
-<span class="c1">#make install</span>
+<span class="c">#make</span>
+<span class="c">#make install</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><strong>CGAL</strong></li>
 </ul>
 <p>Use latest version(3.2.1)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c1">#./install_cgal --prefix=/usr/local/cgal  --with-BOOST --BOOST_INCL_DIR=/usr/local/include --BOOST_LIB_DIR=/usr/local/lib --without-autofind -ni /mingw/bin/g++</span>
-<span class="c1">#cp /usr/local/cgal/include/CGAL/config/i686_MINGW32NT-5.1_g++-3.4.2/CGAL/compiler_config.h /usr/local/cgal/include/CGAL/compiler_config.h</span>
-<span class="c1">#cp /usr/local/cgal/lib/i686_MINGW32NT-5.1_g++-3.4.2/libCGAL.a /usr/local/cgal/lib/libCGAL.a</span>
-<span class="c1">#cp /usr/local/cgal/lib/i686_MINGW32NT-5.1_g++-3.4.2/libCGAL.so /usr/local/cgal/lib/libCGAL.so</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#./install_cgal --prefix=/usr/local/cgal  --with-BOOST --BOOST_INCL_DIR=/usr/local/include --BOOST_LIB_DIR=/usr/local/lib --without-autofind -ni /mingw/bin/g++</span>
+<span class="c">#cp /usr/local/cgal/include/CGAL/config/i686_MINGW32NT-5.1_g++-3.4.2/CGAL/compiler_config.h /usr/local/cgal/include/CGAL/compiler_config.h</span>
+<span class="c">#cp /usr/local/cgal/lib/i686_MINGW32NT-5.1_g++-3.4.2/libCGAL.a /usr/local/cgal/lib/libCGAL.a</span>
+<span class="c">#cp /usr/local/cgal/lib/i686_MINGW32NT-5.1_g++-3.4.2/libCGAL.so /usr/local/cgal/lib/libCGAL.so</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><strong>pgRouting</strong></li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c1">#cmake -G&quot;MSYS Makefiles&quot; -DWITH_TSP=ON -DWITH_DD=ON .</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#cmake -G&quot;MSYS Makefiles&quot; -DWITH_TSP=ON -DWITH_DD=ON .</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -327,7 +327,7 @@ GAUL_LIBRARIES:FILEPATH<span class="o">=</span>GAUL_LIBRARIES-NOTFOUND
 <ul class="simple">
 <li><strong>Build pgRouting</strong></li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c1">#make</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#make</span>
 </pre></div>
 </div>
 </div>

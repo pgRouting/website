@@ -35,11 +35,11 @@ Linux / OS X Packages
 Windows Binaries
 -------------------------------------------------------------------------------
 
-.. rubric:: PostGIS and pgRouting Builds (pgRouting v2.x)
+.. rubric:: PostGIS, pgRouting, and osm2pgRouting Builds (pgRouting v2.x / osm2pgRouting v2.x)
 
 Winnie Bot Builds:
 
-* `Winnie PostgreSQL 9.2-9.5 32-bit/64-bit <http://postgis.net/windows_downloads>`_
+* `Winnie 32-bit/64-bit <http://postgis.net/windows_downloads>`_
 
 Production Builds:
 
