@@ -84,7 +84,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -96,11 +96,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -177,18 +182,18 @@ for the Cape Town area.</p>
 specifically used in this workshop and installed on the workshop virtual
 machine.</p>
 <p>The Mapfish project can be found at:</p>
-<div class="highlight-bash"><div class="highlight"><pre>/var/www/foss4g08_routing
+<div class="highlight-bash"><div class="highlight"><pre><span></span>/var/www/foss4g08_routing
 </pre></div>
 </div>
 <p>From that directory, there are several levels of directories used by the deploy
 system.</p>
 <p>The interesting stuff about how routing part is working will be found in:</p>
-<div class="highlight-bash"><div class="highlight"><pre>/var/www/foss4g08_routing/foss4g08_routing/foss4g08_routing/foss4g08_routing/
+<div class="highlight-bash"><div class="highlight"><pre><span></span>/var/www/foss4g08_routing/foss4g08_routing/foss4g08_routing/foss4g08_routing/
 </pre></div>
 </div>
 <p>From that point, the file public/index.html contains the JavaScript code to
 handle the routing part on the client side, including the panel.</p>
-<div class="highlight-js"><div class="highlight"><pre><span class="c1">//////////////////////////////////// MapFish routing code</span>
+<div class="highlight-js"><div class="highlight"><pre><span></span><span class="c1">//////////////////////////////////// MapFish routing code</span>
            <span class="kd">var</span> <span class="nx">routing</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mapfish</span><span class="p">.</span><span class="nx">Routing</span><span class="p">(</span><span class="s1">&#39;routing&#39;</span><span class="p">,</span> <span class="nx">map</span><span class="p">,</span> <span class="p">{</span>
                <span class="nx">fetchRoute</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">button</span><span class="p">,</span> <span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
               <span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="nx">button</span><span class="p">.</span><span class="nx">ownerCt</span><span class="p">.</span><span class="nx">getForm</span><span class="p">();</span>
@@ -270,7 +275,7 @@ OpenStreetMap tile with MapFish/OpenLayers.</p>
 <p>On the server side, the file controllers/routing.py contains the code that
 handles the nearest edge calculation, the routing calculation with the route
 returns as a geojson object.</p>
-<div class="highlight-py"><div class="highlight"><pre><span class="k">class</span> <span class="nc">RoutingController</span><span class="p">(</span><span class="n">BaseController</span><span class="p">):</span>
+<div class="highlight-py"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RoutingController</span><span class="p">(</span><span class="n">BaseController</span><span class="p">):</span>
          <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
                <span class="c1"># find the nearest node</span>
                <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nearestEdge</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">source</span>
@@ -300,7 +305,7 @@ returns as a geojson object.</p>
 <p>You can modify the routing function by modifying func.shortest_path.</p>
 <p>The file model/osm.py contains the definition for the routing table used by the
 ORM, which is in this case composed one single table:</p>
-<div class="highlight-py"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">foss4g08_routing.lib.base</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-py"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">foss4g08_routing.lib.base</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">Column</span><span class="p">,</span> <span class="n">MetaData</span><span class="p">,</span> <span class="n">types</span>
 <span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">mapper</span>
 <span class="kn">from</span> <span class="nn">mapfish.sqlalchemygeom</span> <span class="kn">import</span> <span class="n">Geometry</span><span class="p">,</span> <span class="n">GeometryTableMixIn</span>

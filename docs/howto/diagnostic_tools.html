@@ -31,7 +31,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
@@ -104,7 +104,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -116,11 +116,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -150,7 +155,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="diagnostic-tools">
 <span id="diagnostics"></span><h1>Diagnostic Tools<a class="headerlink" href="#diagnostic-tools" title="Permalink to this headline">¶</a></h1>
@@ -173,7 +178,7 @@ database and add this as an optional base layer. You might want to add
 color oneway streets a different color, but in general keep the display
 simple and probably single pixel lines. You might label the segments
 with their UID so you can go back to the database and query them in detail.</p>
-<div class="highlight-bash"><div class="highlight"><pre>LAYER
+<div class="highlight-bash"><div class="highlight"><pre><span></span>LAYER
         NAME <span class="s2">&quot;Streets&quot;</span>
         STATUS DEFAULT
         TYPE LINE
@@ -182,25 +187,25 @@ with their UID so you can go back to the database and query them in detail.</p>
         DATA <span class="s2">&quot;the_geom from (select gid, the_geom from st) as foo</span>
 <span class="s2">                  using SRID=4326 using unique gid&quot;</span>
         LABELITEM <span class="s2">&quot;gid&quot;</span>
-        MAXLABELSCALEDENOM 25000
+        MAXLABELSCALEDENOM <span class="m">25000</span>
         CLASS
           STYLE
-                COLOR 87 87 87
-                WIDTH 1
+                COLOR <span class="m">87</span> <span class="m">87</span> <span class="m">87</span>
+                WIDTH <span class="m">1</span>
           END
           LABEL
                 FONT <span class="s2">&quot;arial&quot;</span>
                 TYPE TRUETYPE
                 ANGLE AUTO
-                SIZE 7
-                COLOR 1 1 1
+                SIZE <span class="m">7</span>
+                COLOR <span class="m">1</span> <span class="m">1</span> <span class="m">1</span>
           END
         END
         END
 
         symbol
         name <span class="s2">&quot;one_way_from&quot;</span>
-        <span class="nb">type </span>truetype
+        <span class="nb">type</span> truetype
         font arial-bold
         character <span class="s2">&quot;&gt;&quot;</span>
         gap -40
@@ -208,7 +213,7 @@ with their UID so you can go back to the database and query them in detail.</p>
 
         symbol
         name <span class="s2">&quot;one_way_to&quot;</span>
-        <span class="nb">type </span>truetype
+        <span class="nb">type</span> truetype
         font arial-bold
         character <span class="s2">&quot;&lt;&quot;</span>
         gap -40
@@ -219,7 +224,7 @@ with their UID so you can go back to the database and query them in detail.</p>
         NAME <span class="s2">&quot;One_Way_Arrows&quot;</span>
         STATUS DEFAULT
         TYPE LINE
-        MAXSCALEDENOM 25000
+        MAXSCALEDENOM <span class="m">25000</span>
         CONNECTIONTYPE postgis
         CONNECTION <span class="s2">&quot;user=postgres dbname=routing host=centos port=5432&quot;</span>
         DATA <span class="s2">&quot;the_geom from (select gid, one_way, the_geom from st</span>
@@ -231,8 +236,8 @@ with their UID so you can go back to the database and query them in detail.</p>
           EXPRESSION <span class="s2">&quot;FT&quot;</span>
           STYLE
                 SYMBOL <span class="s2">&quot;one_way_from&quot;</span>
-                COLOR 80 80 80
-                SIZE 8
+                COLOR <span class="m">80</span> <span class="m">80</span> <span class="m">80</span>
+                SIZE <span class="m">8</span>
           END
         END
         CLASS
@@ -240,8 +245,8 @@ with their UID so you can go back to the database and query them in detail.</p>
           EXPRESSION <span class="s2">&quot;TF&quot;</span>
           STYLE
                 SYMBOL <span class="s2">&quot;one_way_to&quot;</span>
-                COLOR 80 80 80
-                SIZE 8
+                COLOR <span class="m">80</span> <span class="m">80</span> <span class="m">80</span>
+                SIZE <span class="m">8</span>
           END
         END
 END
@@ -252,14 +257,14 @@ END
 <h2>2. View intersections and detect deadends<a class="headerlink" href="#view-intersections-and-detect-deadends" title="Permalink to this headline">¶</a></h2>
 <p>Add a column cnt integer to the vertices_tmp table and update it with the count
 of segments that reference that node. Maybe something like this:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">alter</span> <span class="k">table</span> <span class="n">vertices_tmp</span> <span class="k">add</span> <span class="k">column</span> <span class="n">cnt</span> <span class="nb">integer</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">alter</span> <span class="k">table</span> <span class="n">vertices_tmp</span> <span class="k">add</span> <span class="k">column</span> <span class="n">cnt</span> <span class="nb">integer</span><span class="p">;</span>
 <span class="k">update</span> <span class="n">vertices_tmp</span> <span class="k">set</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 <span class="k">update</span> <span class="n">vertices_tmp</span> <span class="k">set</span> <span class="n">cnt</span><span class="o">=</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span> <span class="k">where</span> <span class="n">streets</span><span class="p">.</span><span class="k">source</span><span class="o">=</span><span class="n">id</span><span class="p">;</span>
 <span class="k">update</span> <span class="n">vertices_tmp</span> <span class="k">set</span> <span class="n">cnt</span><span class="o">=</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span> <span class="k">where</span> <span class="n">streets</span><span class="p">.</span><span class="n">target</span><span class="o">=</span><span class="n">id</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Now create a mapfile layer for points and display the vertices_tmp</p>
-<div class="highlight-bash"><div class="highlight"><pre>LAYER
+<div class="highlight-bash"><div class="highlight"><pre><span></span>LAYER
    NAME <span class="s2">&quot;deadends&quot;</span>
    TYPE POINT
    CONNECTIONTYPE <span class="s2">&quot;postgis&quot;</span>
@@ -270,16 +275,16 @@ of segments that reference that node. Maybe something like this:</p>
          EXPRESSION <span class="s2">&quot;cnt=1&quot;</span>
          STYLE
            SYMBOL <span class="s2">&quot;circle&quot;</span>
-           SIZE 5
-           COLOR 255 0 0
+           SIZE <span class="m">5</span>
+           COLOR <span class="m">255</span> <span class="m">0</span> <span class="m">0</span>
          END
    END
    CLASS
          EXPRESSION <span class="s2">&quot;cnt&gt;2&quot;</span>
          STYLE
            SYMBOL <span class="s2">&quot;circle&quot;</span>
-           SIZE 3
-           COLOR 0 255 0
+           SIZE <span class="m">3</span>
+           COLOR <span class="m">0</span> <span class="m">255</span> <span class="m">0</span>
          END
    END
 END

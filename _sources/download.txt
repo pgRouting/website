@@ -16,7 +16,7 @@ pgRouting is available as source code as well as in binary formats (Linux, Windo
 If you want to install the current development version, check out the source from pgRouting Git repository.
 
 
-Linux / OS X Packages
+Linux / OS X / BSD Packages
 -------------------------------------------------------------------------------
 
 * DEB packages: 
@@ -30,6 +30,7 @@ Linux / OS X Packages
   * Fedora Project: http://fedoraproject.org/wiki/GIS (https://admin.fedoraproject.org/pkgdb/acls/name/pgRouting)
 
 * OS X packages: http://www.kyngchaos.com/software/postgres
+* FreeBSD packages: https://www.freshports.org/databases/pgrouting
 
 
 Windows Binaries

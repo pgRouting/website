@@ -31,7 +31,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
@@ -114,7 +114,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -126,11 +126,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -160,7 +165,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="installation">
 <span id="install"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
@@ -204,9 +209,9 @@ functionality)</p>
 <h3>Step 1: Libraries installation<a class="headerlink" href="#step-1-libraries-installation" title="Permalink to this headline">¶</a></h3>
 <p>Compile and install PostgreSQL, PostGIS, Proj, GEOS, BGL and GAUL. Usually it is
 sufficient to run:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># ./configure</span>
-<span class="c"># make</span>
-<span class="c"># make install</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ./configure</span>
+<span class="c1"># make</span>
+<span class="c1"># make install</span>
 </pre></div>
 </div>
 <p>in corresponding directory.</p>
@@ -217,12 +222,12 @@ copy it to &#8216;&#8217;BOOST_PATH/graph&#8217;&#8217; directory.</p>
 <p>The GAUL library should be compiled with &#8211;enable-slang=no option. Otherwise
 make sure you have slang.h installed in &#8216;&#8217;/usr/include&#8217;&#8216;. For more details
 please refer to corresponding &#8216;&#8217;README&#8217;&#8217; or &#8216;&#8217;INSTALL&#8217;&#8217; file.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># ./configure --disable-slang</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ./configure --disable-slang</span>
 </pre></div>
 </div>
 <p class="rubric">For Driving Distance (optional)</p>
 <p>For CGAL, the compile option below can be used to create the library:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># ./install_cgal --prefix=/usr --with-boost=n --without-autofind -ni /usr/bin/g++</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ./install_cgal --prefix=/usr --with-boost=n --without-autofind -ni /usr/bin/g++</span>
 </pre></div>
 </div>
 <p><strong>CGAL needs special treatment!</strong></p>
@@ -230,54 +235,54 @@ please refer to corresponding &#8216;&#8217;README&#8217;&#8217; or &#8216;&#821
 In that directory you need to find &#8216;&#8217;config&#8217;&#8217; subdirectory.
 This directory contains one or more subdirectories with platform-dependent information.</p>
 <p>It may look like this, for example:</p>
-<div class="highlight-bash"><div class="highlight"><pre>/
-|
+<div class="highlight-bash"><div class="highlight"><pre><span></span>/
+<span class="p">|</span>
 +- usr
-  |
+  <span class="p">|</span>
   +- include
-         |
+         <span class="p">|</span>
          +- CGAL
-            |
+            <span class="p">|</span>
             +- config
-               |
+               <span class="p">|</span>
                +- i686_Linux-2.6_g++4.1.1
-               |  |
-               |  +- CGAL
-               |     |
-               |     +- compiler_config.h   <span class="o">&lt;&lt;&lt;</span> this is the file you need
-               |
+               <span class="p">|</span>  <span class="p">|</span>
+               <span class="p">|</span>  +- CGAL
+               <span class="p">|</span>     <span class="p">|</span>
+               <span class="p">|</span>     +- compiler_config.h   <span class="o">&lt;&lt;&lt;</span> this is the file you need
+               <span class="p">|</span>
                +- msvc7
-               |  |
-               |  +- CGAL
-               |     |
-               |     +- compiler_config.h
-               |
+               <span class="p">|</span>  <span class="p">|</span>
+               <span class="p">|</span>  +- CGAL
+               <span class="p">|</span>     <span class="p">|</span>
+               <span class="p">|</span>     +- compiler_config.h
+               <span class="p">|</span>
               etc...
 </pre></div>
 </div>
 <p>All you need to do is to choose &#8216;&#8217;compiler_config.h&#8217;&#8217; for your platform and make
 a symlink or copy it to the main headers directory.</p>
 <p>For example:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># ln -s /usr/include/CGAL/config/i686_Linux-2.6_g++4.1.1/compiler_config.h /usr/include/CGAL/compiler_config.h</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ln -s /usr/include/CGAL/config/i686_Linux-2.6_g++4.1.1/compiler_config.h /usr/include/CGAL/compiler_config.h</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="step-2-compiling-the-pgrouting-library">
 <h3>Step 2: Compiling the pgRouting library<a class="headerlink" href="#step-2-compiling-the-pgrouting-library" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><a class="reference internal" href="../../download.html#download"><em>Get pgRouting source</em></a></li>
+<li><a class="reference internal" href="../../download.html#download"><span class="std std-ref">Get pgRouting source</span></a></li>
 <li>Change to pgRouting directory</li>
 <li>Compile and install pgRouting</li>
 </ol>
 <p class="rubric">For pgRouting core (required)</p>
-<div class="highlight-bash"><div class="highlight"><pre>cmake .
+<div class="highlight-bash"><div class="highlight"><pre><span></span>cmake .
 make
 make install
 </pre></div>
 </div>
 <p class="rubric">For pgRouting extras (optional)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># Add Traveling Salesperson functionality:  -DWITH_TSP=ON</span>
-<span class="c"># Add Driving Distance functionality     :  -DWITH_DD=ON</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Add Traveling Salesperson functionality:  -DWITH_TSP=ON</span>
+<span class="c1"># Add Driving Distance functionality     :  -DWITH_DD=ON</span>
 
 cmake -DWITH_TSP<span class="o">=</span>ON -DWITH_DD<span class="o">=</span>ON .
 make
@@ -285,7 +290,7 @@ make install
 </pre></div>
 </div>
 <p>If your program compiles but you get an error like the following one:</p>
-<div class="highlight-bash"><div class="highlight"><pre>error <span class="k">while </span>loading shared libraries: libgaul.so.0: cannot open
+<div class="highlight-bash"><div class="highlight"><pre><span></span>error <span class="k">while</span> loading shared libraries: libgaul.so.0: cannot open
 shared object file: No such file or directory
 </pre></div>
 </div>
@@ -294,13 +299,14 @@ shared object file: No such file or directory
 <li>Run ldconfig</li>
 </ol>
 <p>Maybe you installed PostgreSQL from Source-code, while compiling pgRouting you might get an error like</p>
-<div class="highlight-bash"><pre>Output directory for libraries is set to sh: pg_config: command not found
+<div class="highlight-bash"><div class="highlight"><pre><span></span>Output directory <span class="k">for</span> libraries is <span class="nb">set</span> to sh: pg_config: <span class="nb">command</span> not found
 ....
 ....
-ERROR: could not access file &quot;$libdir/librouting</pre>
+ERROR: could not access file <span class="s2">&quot;</span><span class="nv">$libdir</span><span class="s2">/librouting</span>
+</pre></div>
 </div>
 <p>Then you need to type at the shell-console:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;$PATH:/usr/local/pgsql/bin&quot;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">:/usr/local/pgsql/bin&quot;</span>
 </pre></div>
 </div>
 <p>presuming you installed PostgreSQL at /usr/local/pgsql/bin</p>
@@ -310,7 +316,7 @@ ERROR: could not access file &quot;$libdir/librouting</pre>
 <ol class="arabic simple">
 <li>Create a routing database and load PostGIS</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>createdb -U postgres -E UNICODE routing
+<div class="highlight-bash"><div class="highlight"><pre><span></span>createdb -U postgres -E UNICODE routing
 createlang -U postgres plpgsql routing
 
 psql -U postgres -f /path/to/postgis/lwpostgis.sql routing
@@ -320,18 +326,18 @@ psql -U postgres -f /path/to/postgis/spatial_ref_sys.sql routing
 <ol class="arabic simple" start="2">
 <li>Add pgRouting core functions (required)</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>psql -U postgres -f /usr/share/postlbs/routing_core.sql routing
+<div class="highlight-bash"><div class="highlight"><pre><span></span>psql -U postgres -f /usr/share/postlbs/routing_core.sql routing
 psql -U postgres -f /usr/share/postlbs/routing_core_wrappers.sql routing
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li>Add pgRouting extra functions (optional)</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># With TSP</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># With TSP</span>
 psql -U postgres -f /usr/share/postlbs/routing_tsp.sql routing
 psql -U postgres -f /usr/share/postlbs/routing_tsp_wrappers.sql routing
 
-<span class="c"># With Driving Distance</span>
+<span class="c1"># With Driving Distance</span>
 psql -U postgres -f /usr/share/postlbs/routing_dd.sql routing
 psql -U postgres -f /usr/share/postlbs/routing_dd_wrappers.sql routing
 </pre></div>

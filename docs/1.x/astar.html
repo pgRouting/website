@@ -31,7 +31,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
@@ -106,7 +106,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -118,11 +118,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -152,7 +157,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="shortest-path-a">
 <span id="astar"></span><h1>Shortest Path A*<a class="headerlink" href="#shortest-path-a" title="Permalink to this headline">¶</a></h1>
@@ -163,7 +168,7 @@
 <div class="section" id="function">
 <h2>Function:<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h2>
 <p>The shortest_path_astar function has the following declaration:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">shortest_path_astar</span><span class="p">(</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">shortest_path_astar</span><span class="p">(</span>
                                                 <span class="k">sql</span> <span class="nb">text</span><span class="p">,</span>
                                                 <span class="n">source_id</span> <span class="nb">integer</span><span class="p">,</span>
                                                 <span class="n">target_id</span> <span class="nb">integer</span><span class="p">,</span>
@@ -176,7 +181,7 @@
 <div class="section" id="arguments">
 <h2>Arguments:<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
 <p><strong>sql</strong>: a SQL query, which should return a set of rows with the following columns:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">id</span><span class="p">,</span> <span class="k">source</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">cost</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="k">FROM</span> <span class="n">edge_table</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">id</span><span class="p">,</span> <span class="k">source</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">cost</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="k">FROM</span> <span class="n">edge_table</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -206,12 +211,12 @@ an additional one containing the terminal vertex. The columns of each row are:</
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;SELECT gid AS id, source::int4,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;SELECT gid AS id, source::int4,</span>
 <span class="s1">             target::int4, length::double precision AS cost, x1, y1, x2, y2</span>
 <span class="s1">        FROM dourol&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre> <span class="n">vertex_id</span> <span class="o">|</span> <span class="n">edge_id</span> <span class="o">|</span> <span class="n">cost</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span> <span class="n">vertex_id</span> <span class="o">|</span> <span class="n">edge_id</span> <span class="o">|</span> <span class="n">cost</span>
 <span class="c1">-----------+---------+------------------------</span>
              <span class="mi">3</span> <span class="o">|</span>       <span class="mi">2</span> <span class="o">|</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">000763954363701041</span>
              <span class="mi">4</span> <span class="o">|</span>      <span class="mi">21</span> <span class="o">|</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">00150254971056274</span>
@@ -220,7 +225,7 @@ an additional one containing the terminal vertex. The columns of each row are:</
 <span class="p">(</span><span class="mi">4</span> <span class="k">rows</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;SELECT gid AS id, source::int4,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;SELECT gid AS id, source::int4,</span>
 <span class="s1">             target::int4, length::double precision AS cost,length::double precision</span>
 <span class="s1">        AS reverse_cost, x1, y1, x2, y2 FROM dourol&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
 </pre></div>

@@ -84,7 +84,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -96,11 +96,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -135,7 +140,7 @@
   <div class="section" id="explanation-source-code-for-killing-some-bugs-wrong-path-calculation">
 <span id="ol-workshop-ch13"></span><h1>Explanation Source Code for Killing some bugs (wrong path calculation)<a class="headerlink" href="#explanation-source-code-for-killing-some-bugs-wrong-path-calculation" title="Permalink to this headline">¶</a></h1>
 <p>In the source-code the routing calculation is called twice</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="x">$length_1 = getting_pathlength($startEdge[&#39;source&#39;],$endEdge[&#39;target&#39;],$startEdge[&#39;gid&#39;],$endEdge[&#39;gid&#39;],$point_on_line_begin,$point_on_line_ende);</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">$length_1 = getting_pathlength($startEdge[&#39;source&#39;],$endEdge[&#39;target&#39;],$startEdge[&#39;gid&#39;],$endEdge[&#39;gid&#39;],$point_on_line_begin,$point_on_line_ende);</span>
 
 
 <span class="x">$length_2 = getting_pathlength($endEdge[&#39;source&#39;],$startEdge[&#39;target&#39;],$startEdge[&#39;gid&#39;],$endEdge[&#39;gid&#39;],$point_on_line_begin,$point_on_line_ende);</span>
@@ -144,7 +149,7 @@
 <p>... and it is calculated how long the pathes are (whole MULTINESTRINGS and the
 &#8220;pieces&#8221; between start/end_point and the next geometry</p>
 <p>It depends on the length which route is painted:</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="x">if ($length_1 &lt; $length_2){</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">if ($length_1 &lt; $length_2){</span>
 
 
 

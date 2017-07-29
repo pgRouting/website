@@ -97,7 +97,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -109,11 +109,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -151,7 +156,7 @@
 It doesn&#8217;t require more attributes than source and target ID, and it can
 distinguish between directed and undirected graphs. You can specify if your
 network has &#8220;reverse cost&#8221; or not.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">shortest_path</span><span class="p">(</span> <span class="k">sql</span> <span class="nb">text</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">shortest_path</span><span class="p">(</span> <span class="k">sql</span> <span class="nb">text</span><span class="p">,</span>
                    <span class="n">source_id</span> <span class="nb">integer</span><span class="p">,</span>
                    <span class="n">target_id</span> <span class="nb">integer</span><span class="p">,</span>
                    <span class="n">directed</span> <span class="nb">boolean</span><span class="p">,</span>
@@ -167,7 +172,7 @@ network has &#8220;reverse cost&#8221; or not.</p>
 <h2>Shortest Path Dijkstra core function<a class="headerlink" href="#shortest-path-dijkstra-core-function" title="Permalink to this headline">¶</a></h2>
 <p>Each algorithm has its core function (implementation), which is the base for its
 wrapper functions.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path</span><span class="p">(</span><span class="s1">&#39;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path</span><span class="p">(</span><span class="s1">&#39;</span>
 <span class="s1">                SELECT gid as id,</span>
 <span class="s1">                         source::integer,</span>
 <span class="s1">                         target::integer,</span>
@@ -176,7 +181,7 @@ wrapper functions.</p>
                 <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre> <span class="n">vertex_id</span> <span class="o">|</span> <span class="n">edge_id</span> <span class="o">|</span>        <span class="n">cost</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span> <span class="n">vertex_id</span> <span class="o">|</span> <span class="n">edge_id</span> <span class="o">|</span>        <span class="n">cost</span>
 <span class="c1">-----------+---------+---------------------</span>
             <span class="mi">10</span> <span class="o">|</span>     <span class="mi">293</span> <span class="o">|</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">0059596293824534</span>
              <span class="mi">9</span> <span class="o">|</span>    <span class="mi">4632</span> <span class="o">|</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">0846731039249787</span>
@@ -196,11 +201,11 @@ limitations, etc..</p>
 <h3>Wrapper WITHOUT bounding box<a class="headerlink" href="#wrapper-without-bounding-box" title="Permalink to this headline">¶</a></h3>
 <p>Wrappers can change the format and ordering of the result. They often set
 default function parameters and make the usage of pgRouting more simple.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
         <span class="k">FROM</span> <span class="n">dijkstra_sp</span><span class="p">(</span><span class="s1">&#39;ways&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre>  <span class="n">gid</span>   <span class="o">|</span>                              <span class="n">the_geom</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span>  <span class="n">gid</span>   <span class="o">|</span>                              <span class="n">the_geom</span>
 <span class="c1">--------+---------------------------------------------------------------</span>
         <span class="mi">293</span> <span class="o">|</span> <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">18</span><span class="p">.</span><span class="mi">4074149</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9443308</span><span class="p">,</span><span class="mi">18</span><span class="p">.</span><span class="mi">4074019</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9443833</span><span class="p">))</span>
    <span class="mi">4632</span> <span class="o">|</span> <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">18</span><span class="p">.</span><span class="mi">4074149</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9443308</span><span class="p">,</span><span class="mi">18</span><span class="p">.</span><span class="mi">4077388</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9436183</span><span class="p">))</span>
@@ -216,11 +221,11 @@ default function parameters and make the usage of pgRouting more simple.</p>
 <h3>Wrapper WITH bounding box<a class="headerlink" href="#wrapper-with-bounding-box" title="Permalink to this headline">¶</a></h3>
 <p>You can limit your search area by adding a bounding box. This will improve
 performance especially for large networks.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
         <span class="k">FROM</span> <span class="n">dijkstra_sp_delta</span><span class="p">(</span><span class="s1">&#39;ways&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre>  <span class="n">gid</span>   <span class="o">|</span>                              <span class="n">the_geom</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span>  <span class="n">gid</span>   <span class="o">|</span>                              <span class="n">the_geom</span>
 <span class="c1">--------+---------------------------------------------------------------</span>
         <span class="mi">293</span> <span class="o">|</span> <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">18</span><span class="p">.</span><span class="mi">4074149</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9443308</span><span class="p">,</span><span class="mi">18</span><span class="p">.</span><span class="mi">4074019</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9443833</span><span class="p">))</span>
    <span class="mi">4632</span> <span class="o">|</span> <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">18</span><span class="p">.</span><span class="mi">4074149</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9443308</span><span class="p">,</span><span class="mi">18</span><span class="p">.</span><span class="mi">4077388</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9436183</span><span class="p">))</span>

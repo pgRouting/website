@@ -101,7 +101,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -113,11 +113,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -162,7 +167,7 @@
 <li>Make the Shortest Path database query.</li>
 <li>Transform the query result to XML and send it back to the web client.</li>
 </ul>
-<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 
   <span class="c1">// Database connection settings</span>
   <span class="nb">define</span><span class="p">(</span><span class="s2">&quot;PG_DB&quot;</span>  <span class="p">,</span> <span class="s2">&quot;routing&quot;</span><span class="p">);</span>
@@ -193,7 +198,7 @@ start or end vertex of an edge. It is more convenient to look for the closest
 edge than for the closest vertex, because Shooting Star algorithm is “edge-based”.
 For “vertex-based” algorithms (Dijkstra, A-Star) we can choose arbitrary start
 or end of the selected edge.</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
   <span class="c1">// Find the nearest edge</span>
   <span class="nv">$startEdge</span> <span class="o">=</span> <span class="nx">findNearestEdge</span><span class="p">(</span><span class="nv">$startPoint</span><span class="p">);</span>
   <span class="nv">$endEdge</span>   <span class="o">=</span> <span class="nx">findNearestEdge</span><span class="p">(</span><span class="nv">$endPoint</span><span class="p">);</span>
@@ -233,7 +238,7 @@ or end of the selected edge.</p>
 </div>
 <div class="section" id="routing-query">
 <h2>Routing Query<a class="headerlink" href="#routing-query" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
   <span class="c1">// Select the routing algorithm</span>
   <span class="k">switch</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">])</span> <span class="p">{</span>
 <span class="cp">?&gt;</span><span class="x"></span>
@@ -241,7 +246,7 @@ or end of the selected edge.</p>
 </div>
 <div class="section" id="for-shortest-path-dijkstra">
 <h3>For Shortest Path Dijkstra<a class="headerlink" href="#for-shortest-path-dijkstra" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
         <span class="k">case</span> <span class="s1">&#39;SPD&#39;</span> <span class="o">:</span> <span class="c1">// Shortest Path Dijkstra</span>
 
           <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT rt.gid, AsText(rt.the_geom) AS wkt,</span>
@@ -262,7 +267,7 @@ or end of the selected edge.</p>
 </div>
 <div class="section" id="for-shortest-path-a-star">
 <h3>For Shortest Path A-Star<a class="headerlink" href="#for-shortest-path-a-star" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
         <span class="k">case</span> <span class="s1">&#39;SPA&#39;</span> <span class="o">:</span> <span class="c1">// Shortest Path A*</span>
 
           <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT rt.gid, AsText(rt.the_geom) AS wkt,</span>
@@ -283,7 +288,7 @@ or end of the selected edge.</p>
 </div>
 <div class="section" id="for-shortest-path-shooting-star">
 <h3>For Shortest Path Shooting-Star<a class="headerlink" href="#for-shortest-path-shooting-star" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
         <span class="k">case</span> <span class="s1">&#39;SPS&#39;</span> <span class="o">:</span> <span class="c1">// Shortest Path Shooting*</span>
 
           <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT rt.gid, AsText(rt.the_geom) AS wkt,</span>
@@ -304,7 +309,7 @@ or end of the selected edge.</p>
 </div>
 <div class="section" id="query-database">
 <h3>Query database<a class="headerlink" href="#query-database" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
   <span class="p">}</span> <span class="c1">// close switch</span>
 
   <span class="c1">// Connect to database</span>
@@ -321,7 +326,7 @@ or end of the selected edge.</p>
 <h2>XML output<a class="headerlink" href="#xml-output" title="Permalink to this headline">¶</a></h2>
 <p>OpenLayers allows to draw lines directly using WKT (Well-Known Text) format.
 This makes the XML output short and simple:</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
   <span class="c1">// Return route as XML</span>
   <span class="nv">$xml</span>  <span class="o">=</span> <span class="s1">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot; ?&gt;&#39;</span><span class="o">.</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
   <span class="nv">$xml</span> <span class="o">.=</span> <span class="s2">&quot;&lt;route&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>

@@ -84,7 +84,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -96,11 +96,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -135,7 +140,7 @@
   <div class="section" id="explanation-of-the-php-code-step-1">
 <span id="ol-workshop-ch08"></span><h1>Explanation of the php-code step 1<a class="headerlink" href="#explanation-of-the-php-code-step-1" title="Permalink to this headline">¶</a></h1>
 <p>First of all a database-connection is set</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
   <span class="c1">// Database connection settings</span>
   <span class="nb">define</span><span class="p">(</span><span class="s2">&quot;PG_DB&quot;</span>  <span class="p">,</span> <span class="s2">&quot;routing&quot;</span><span class="p">);</span>
   <span class="nb">define</span><span class="p">(</span><span class="s2">&quot;PG_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">);</span>
@@ -152,7 +157,7 @@ If you use a database-connection with password of course you need to define a pa
 <dd>$con = pg_connect(&#8220;dbname=&#8221;.PG_DB.&#8221; host=&#8221;.PG_HOST.&#8221; password=&#8221;.PG_PASS.&#8221; user=&#8221;.PG_USER);</dd>
 </dl>
 <p>At the next step, the start- and endpoint are set.</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="x">$counter = $pathlength = 0;</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">$counter = $pathlength = 0;</span>
 <span class="x">// Retrieve start point</span>
 <span class="x">$start = split(&#39; &#39;,$_REQUEST[&#39;startpoint&#39;]);</span>
 
@@ -171,7 +176,7 @@ it`s looked for the_geom. Because of ORDER BY dist LIMIT 1 the nearest one will
 be taken.</p>
 <p>That screenshot visualises the bounding-box:</p>
 <a class="reference internal image-reference" href="../../_images/routingfrage_1.png"><img alt="../../_images/routingfrage_1.png" class="align-center" src="../../_images/routingfrage_1.png" style="width: 832.0px; height: 665.6px;" /></a>
-<div class="highlight-php"><div class="highlight"><pre><span class="x">// Find the nearest edge</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">// Find the nearest edge</span>
 <span class="x">$startEdge = findNearestEdge($startPoint);</span>
 
 
@@ -209,7 +214,7 @@ be taken.</p>
 </pre></div>
 </div>
 <p>After that, the routing-algorithm is taken.</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="x">// Select the routing algorithm</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">// Select the routing algorithm</span>
 <span class="x">switch($_REQUEST[&#39;method&#39;]) {</span>
 
 <span class="x">case &#39;SPD&#39; : // Shortest Path Dijkstra</span>
@@ -301,7 +306,7 @@ and the endpoint is 900912.1967151827  6852354.021605052</p>
 <p>The result of the first SQL-Requests for the StartPoint will be the geom with the 7289 and the source-value 486, target-value: 43
 For the endPoint: Gid:8298, Source: 4490, Target: 449</p>
 <p>Then The SQL-Command tor e.g. Shortest Path Dijkstra starts. The result in this case is:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">gid</span>                           <span class="n">wkt</span>                                                                                                            <span class="k">length</span>             <span class="n">id</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">gid</span>                           <span class="n">wkt</span>                                                                                                            <span class="k">length</span>             <span class="n">id</span>
 <span class="c1">----        ----------------------------------------------------------------------------------------------------------------------         ---------------- -------</span>
 <span class="mi">738</span>         <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">900623</span><span class="p">.</span><span class="mi">048836333</span> <span class="mi">6852579</span><span class="p">.</span><span class="mi">25744262</span><span class="p">,</span><span class="mi">900636</span><span class="p">.</span><span class="mi">485098872</span> <span class="mi">6852566</span><span class="p">.</span><span class="mi">95487873</span><span class="p">,</span><span class="mi">900770</span><span class="p">.</span><span class="mi">11301562</span> <span class="mi">6852342</span><span class="p">.</span><span class="mi">72756191</span><span class="p">))</span>        <span class="mi">279</span><span class="p">.</span><span class="mi">243241240336</span>     <span class="mi">738</span>
 <span class="mi">8298</span>        <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">900883</span><span class="p">.</span><span class="mi">369465553</span> <span class="mi">6852397</span><span class="p">.</span><span class="mi">46895301</span><span class="p">,</span><span class="mi">900923</span><span class="p">.</span><span class="mi">778440711</span> <span class="mi">6852337</span><span class="p">.</span><span class="mi">886752</span><span class="p">,</span><span class="mi">900926</span><span class="p">.</span><span class="mi">539164082</span> <span class="mi">685231</span> <span class="n">etc</span><span class="p">......)</span>              <span class="mi">102</span><span class="p">.</span><span class="mi">503920838894</span> <span class="mi">8298</span>

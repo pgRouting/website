@@ -31,7 +31,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="install_centos.html"
@@ -95,7 +95,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -107,11 +107,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -141,7 +146,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="installation-on-freebsd">
 <span id="install-freebsd"></span><h1>Installation on FreeBSD<a class="headerlink" href="#installation-on-freebsd" title="Permalink to this headline">¶</a></h1>
@@ -163,21 +168,21 @@
 <p>pgRouting docs suggest installing gaul without slang support. So before you
 install the port, change the port Makefile, commenting out the LIB_DEPENDS line
 which pulls in libslang, and add a line to disable slang support:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c">#LIB_DEPENDS=    slang.2:${PORTSDIR}/devel/libslang2</span>
-CONFIGURE_ARGS+<span class="o">=</span> --disable-slang
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#LIB_DEPENDS=    slang.2:${PORTSDIR}/devel/libslang2</span>
+<span class="nv">CONFIGURE_ARGS</span><span class="o">+=</span> --disable-slang
 </pre></div>
 </div>
 <p>After installing gaul you need to modify one header file, otherwise you can&#8217;t
 compile pgrouting later. In file /usr/local/include/gaul/gaul_util.h, add this
 line after line 177:</p>
-<div class="highlight-bash"><div class="highlight"><pre>typedef short _Bool;
+<div class="highlight-bash"><div class="highlight"><pre><span></span>typedef short _Bool<span class="p">;</span>
 </pre></div>
 </div>
 <p>End result should look like:</p>
-<div class="highlight-bash"><div class="highlight"><pre>175: <span class="c">#if HAVE__BOOL != 1</span>
-176: typedef short _Bool;
-177: <span class="c">#endif</span>
-178: typedef short _Bool;
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="m">175</span>: <span class="c1">#if HAVE__BOOL != 1</span>
+<span class="m">176</span>: typedef short _Bool<span class="p">;</span>
+<span class="m">177</span>: <span class="c1">#endif</span>
+<span class="m">178</span>: typedef short _Bool<span class="p">;</span>
 </pre></div>
 </div>
 <p>This is certainly not a proper fix, but it seems that for some reason _Bool is
@@ -193,7 +198,7 @@ can probably suggest a proper fix.</p>
 </div></blockquote>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>core/src/dijkstra.c
+<div class="highlight-bash"><div class="highlight"><pre><span></span>core/src/dijkstra.c
 core/src/astar.c
 core/src/shooting_star.c
 extra/driving_distance/src/alpha.c
@@ -205,25 +210,26 @@ extra/driving_distance/src/drivedist.c
 and newer.</p>
 <blockquote>
 <div>5.2. In following files:</div></blockquote>
-<div class="highlight-bash"><div class="highlight"><pre>core/src/shooting_star_relax.hpp
+<div class="highlight-bash"><div class="highlight"><pre><span></span>core/src/shooting_star_relax.hpp
 core/src/edge_visitors.hpp
 </pre></div>
 </div>
 <p>you need to change the path to include file property_map.hpp so the line reads
 like this:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c">#include &lt;boost/property_map/property_map.hpp&gt;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#include &lt;boost/property_map/property_map.hpp&gt;</span>
 </pre></div>
 </div>
 <p>This is probably not necessary with older versions of boost-libs, but I&#8217;m not
 sure which version introduces the need for this change.</p>
 <blockquote>
 <div>5.3. In file core/src/shooting_star_boost_wrapper.cpp you need to change the path to include file vector_property_map.hpp in a way not unlike the previous change:</div></blockquote>
-<div class="highlight-bash"><pre>#include &lt;boost/property_map/vector_property_map.hpp&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span>#include &lt;boost/property_map/vector_property_map.hpp&gt;
 
 
-5.4. In file CMakeLists.txt, you need to add &quot;-frounding-math&quot; to variables CMAKE_C_FLAGS and CMAKE_CXX_FLAGS, otherwise you&#x27;ll run into problems later when trying to add DD functions to the database. The end result should look like this:</pre>
+5.4. In file CMakeLists.txt, you need to add &quot;-frounding-math&quot; to variables CMAKE_C_FLAGS and CMAKE_CXX_FLAGS, otherwise you&#39;ll run into problems later when trying to add DD functions to the database. The end result should look like this:
+</pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre>SET<span class="o">(</span>CMAKE_C_FLAGS <span class="s2">&quot;-O2 -g -frounding-math&quot;</span><span class="o">)</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>SET<span class="o">(</span>CMAKE_C_FLAGS <span class="s2">&quot;-O2 -g -frounding-math&quot;</span><span class="o">)</span>
 SET<span class="o">(</span>CMAKE_CXX_FLAGS <span class="s2">&quot;-O2 -g -frounding-math&quot;</span><span class="o">)</span>
 </pre></div>
 </div>

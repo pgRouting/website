@@ -31,7 +31,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="topology.html"
@@ -95,7 +95,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -107,11 +107,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -141,7 +146,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="network-data-validation">
 <span id="validation"></span><h1>Network data validation<a class="headerlink" href="#network-data-validation" title="Permalink to this headline">¶</a></h1>
@@ -149,7 +154,7 @@
 <p>If you are more or less fit to UMN MapServer you can easily do some tests.</p>
 <p>First of all many thank to Stephen WOODBRIDGE for that idea.</p>
 <p>You need to type the following commands on your vertices_tmp-table</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">alter</span> <span class="k">table</span> <span class="n">vertices_tmp</span> <span class="k">add</span> <span class="k">column</span> <span class="n">cnt</span> <span class="nb">integer</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">alter</span> <span class="k">table</span> <span class="n">vertices_tmp</span> <span class="k">add</span> <span class="k">column</span> <span class="n">cnt</span> <span class="nb">integer</span><span class="p">;</span>
 <span class="k">update</span> <span class="n">vertices_tmp</span> <span class="k">set</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 <span class="k">update</span> <span class="n">vertices_tmp</span> <span class="k">set</span> <span class="n">cnt</span><span class="o">=</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span> <span class="k">from</span> <span class="n">ways</span> <span class="k">where</span> <span class="n">ways</span><span class="p">.</span><span class="k">source</span><span class="o">=</span><span class="n">vertices_tmp</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
 <span class="k">update</span> <span class="n">vertices_tmp</span> <span class="k">set</span> <span class="n">cnt</span><span class="o">=</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span> <span class="k">from</span> <span class="n">ways</span> <span class="k">where</span> <span class="n">ways</span><span class="p">.</span><span class="n">target</span><span class="o">=</span><span class="n">vertices_tmp</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
@@ -158,15 +163,15 @@
 <p>This will display red dots at dead ends and green dots as good
 connections be segments.</p>
 <p>You can visualize it with the UMN MapServer, just take a mapfile like:</p>
-<div class="highlight-bash"><div class="highlight"><pre>MAP
+<div class="highlight-bash"><div class="highlight"><pre><span></span>MAP
 
 NAME           <span class="s1">&#39;mymap&#39;</span>
 STATUS ON
-<span class="c">#EXTENT 3427065.200000 5788323.530000 3443999.370000 5800691.660000</span>
-<span class="c">#EXTENT 7.9189 52.2102 8.1716 52.3467</span>
-EXTENT 880000 6840000 915000 6860000
-IMAGECOLOR 255 255 255
-SIZE      700 700
+<span class="c1">#EXTENT 3427065.200000 5788323.530000 3443999.370000 5800691.660000</span>
+<span class="c1">#EXTENT 7.9189 52.2102 8.1716 52.3467</span>
+EXTENT <span class="m">880000</span> <span class="m">6840000</span> <span class="m">915000</span> <span class="m">6860000</span>
+IMAGECOLOR <span class="m">255</span> <span class="m">255</span> <span class="m">255</span>
+SIZE      <span class="m">700</span> <span class="m">700</span>
 SYMBOLSET       <span class="s1">&#39;/your_path/symbols/symbols.sym&#39;</span>
 FONTSET       <span class="s1">&#39;/your_path/fonts/fonts.list&#39;</span>
 
@@ -188,9 +193,9 @@ PROJECTION
 END
 
 LAYER
-OFFSITE 255 255 255
-<span class="c">#LABELITEM &#39;name&#39;</span>
-TOLERANCE 20
+OFFSITE <span class="m">255</span> <span class="m">255</span> <span class="m">255</span>
+<span class="c1">#LABELITEM &#39;name&#39;</span>
+TOLERANCE <span class="m">20</span>
 NAME            <span class="s1">&#39;streets&#39;</span>
 TYPE            LINE
 STATUS  DEFAULT
@@ -207,32 +212,32 @@ METADATA
 END
 
 CLASS
-TEXT <span class="o">([</span>gid<span class="o">]</span>,<span class="o">[</span><span class="nb">source</span><span class="o">]</span>,<span class="o">[</span>target<span class="o">])</span>
+TEXT <span class="o">([</span>gid<span class="o">]</span>,<span class="o">[</span>source<span class="o">]</span>,<span class="o">[</span>target<span class="o">])</span>
 EXPRESSION /./
 
 STYLE
-WIDTH 1
-COLOR 0 0 0
+WIDTH <span class="m">1</span>
+COLOR <span class="m">0</span> <span class="m">0</span> <span class="m">0</span>
 END
 
 LABEL
         TYPE TRUETYPE
         ANTIALIAS TRUE
         FONT <span class="s1">&#39;arial&#39;</span>
-        COLOR 0 0 0
-        BACKGROUNDCOLOR 240 240 240
+        COLOR <span class="m">0</span> <span class="m">0</span> <span class="m">0</span>
+        BACKGROUNDCOLOR <span class="m">240</span> <span class="m">240</span> <span class="m">240</span>
          POSITION cc
-          MINSIZE 8
-        MAXSIZE 12
-        BUFFER 2
+          MINSIZE <span class="m">8</span>
+        MAXSIZE <span class="m">12</span>
+        BUFFER <span class="m">2</span>
          END
 END
 END
 
 LAYER
-OFFSITE 255 255 255
-<span class="c">#LABELITEM &#39;name&#39;</span>
-TOLERANCE 20
+OFFSITE <span class="m">255</span> <span class="m">255</span> <span class="m">255</span>
+<span class="c1">#LABELITEM &#39;name&#39;</span>
+TOLERANCE <span class="m">20</span>
 NAME            <span class="s1">&#39;dead_ends&#39;</span>
 TYPE            POINT
 STATUS  DEFAULT
@@ -254,20 +259,20 @@ Text <span class="o">([</span>id<span class="o">])</span>
 EXPRESSION /1/
 STYLE
 SYMBOL <span class="s1">&#39;tent&#39;</span>
-SIZE 11
-COLOR 255 0 0
+SIZE <span class="m">11</span>
+COLOR <span class="m">255</span> <span class="m">0</span> <span class="m">0</span>
 END
 
 LABEL
         TYPE TRUETYPE
         ANTIALIAS TRUE
         FONT <span class="s1">&#39;arial&#39;</span>
-        COLOR 255 0 0
-        BACKGROUNDCOLOR 240 240 240
+        COLOR <span class="m">255</span> <span class="m">0</span> <span class="m">0</span>
+        BACKGROUNDCOLOR <span class="m">240</span> <span class="m">240</span> <span class="m">240</span>
          POSITION cr
-          MINSIZE 8
-        MAXSIZE 12
-        BUFFER 2
+          MINSIZE <span class="m">8</span>
+        MAXSIZE <span class="m">12</span>
+        BUFFER <span class="m">2</span>
          END
 END
 
@@ -277,20 +282,20 @@ EXPRESSION /./
 
 STYLE
 SYMBOL <span class="s1">&#39;tent&#39;</span>
-SIZE 11
-COLOR 0 0 255
+SIZE <span class="m">11</span>
+COLOR <span class="m">0</span> <span class="m">0</span> <span class="m">255</span>
 END
 
 LABEL
         TYPE TRUETYPE
         ANTIALIAS TRUE
         FONT <span class="s1">&#39;arial&#39;</span>
-        COLOR 0 0 255
-        BACKGROUNDCOLOR 240 240 240
+        COLOR <span class="m">0</span> <span class="m">0</span> <span class="m">255</span>
+        BACKGROUNDCOLOR <span class="m">240</span> <span class="m">240</span> <span class="m">240</span>
          POSITION cr
-          MINSIZE 8
-        MAXSIZE 12
-        BUFFER 2
+          MINSIZE <span class="m">8</span>
+        MAXSIZE <span class="m">12</span>
+        BUFFER <span class="m">2</span>
          END
 END
 END

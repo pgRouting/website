@@ -84,7 +84,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -96,11 +96,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -135,7 +140,7 @@
   <div class="section" id="advanced-usage-of-pgrouting-shortest-path-search">
 <span id="foss4g2008-ch11"></span><h1>Advanced usage of pgRouting shortest path search<a class="headerlink" href="#advanced-usage-of-pgrouting-shortest-path-search" title="Permalink to this headline">¶</a></h1>
 <p>An ordinary shortest path query with result usualy looks like this:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_shooting_star</span><span class="p">(</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_shooting_star</span><span class="p">(</span>
         <span class="s1">&#39;SELECT gid as id, source, target, length as cost, x1, y1, x2, y2, rule,</span>
 <span class="s1">        to_cost, reverse_cost FROM ways&#39;</span><span class="p">,</span> <span class="mi">1955</span><span class="p">,</span> <span class="mi">5787</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
 
@@ -163,7 +168,7 @@ road types for example. In other words, we want to calculate CHEAPEST path - a
 path with a minimal cost. There is no limitation in what we take as costs.</p>
 <p>When we convert data from OSM format using the osm2pgrouting tool, we get these
 two additional tables for road types and classes:</p>
-<div class="highlight-sql"><div class="highlight"><pre>\d classes
+<div class="highlight-sql"><div class="highlight"><pre><span></span>\d classes
 
   id |   name
 -----+------------
@@ -173,7 +178,7 @@ two additional tables for road types and classes:</p>
    3 | tracktype
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre>\d types
+<div class="highlight-sql"><div class="highlight"><pre><span></span>\d types
 
  id  | type_id |        name        |  cost
 -----+---------+--------------------+--------
@@ -215,16 +220,16 @@ two additional tables for road types and classes:</p>
 </div>
 <p>Road class is linked with the ways table by class_id field. Cost values for
 classes table are assigned arbitrary.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">UPDATE</span> <span class="n">classes</span> <span class="k">SET</span> <span class="n">cost</span><span class="o">=</span><span class="mi">15</span> <span class="k">WHERE</span> <span class="n">id</span><span class="o">&gt;</span><span class="mi">300</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">classes</span> <span class="k">SET</span> <span class="n">cost</span><span class="o">=</span><span class="mi">15</span> <span class="k">WHERE</span> <span class="n">id</span><span class="o">&gt;</span><span class="mi">300</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>For better performance it is worth to create an index on id field of classes table.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">class_idx</span> <span class="k">ON</span> <span class="n">ways</span> <span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">class_idx</span> <span class="k">ON</span> <span class="n">ways</span> <span class="p">(</span><span class="n">id</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>The idea behind these two tables is to specify a factor to be multiplied with
 the cost of each link (usually length):</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_shooting_star</span><span class="p">(</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_shooting_star</span><span class="p">(</span>
         <span class="s1">&#39;SELECT gid as id, class_id, source, target, length*c.cost as cost,</span>
 <span class="s1">                x1, y1, x2, y2, rule, to_cost, reverse_cost*c.cost as reverse_cost</span>
 <span class="s1">        FROM ways w, classes c</span>
@@ -247,7 +252,7 @@ the cost of each link (usually length):</p>
 <p>We can see that the shortest path result is completely different from the
 example before. We call this &#8220;weighted costs&#8221;.</p>
 <p>Another example is to restrict access to roads of a certain type:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">UPDATE</span> <span class="n">classes</span> <span class="k">SET</span> <span class="n">cost</span><span class="o">=</span><span class="mi">100000</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;motorway%&#39;</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">classes</span> <span class="k">SET</span> <span class="n">cost</span><span class="o">=</span><span class="mi">100000</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;motorway%&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Through subqueries you can &#8220;mix&#8221; your costs as you like and this will change

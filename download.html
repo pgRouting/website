@@ -30,7 +30,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="index.html">pgRouting</a></h1>
@@ -64,12 +64,12 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Download</a><ul>
-<li><a class="reference internal" href="#linux-os-x-packages">Linux / OS X Packages</a></li>
+<li><a class="reference internal" href="#linux-os-x-bsd-packages">Linux / OS X / BSD Packages</a></li>
 <li><a class="reference internal" href="#windows-binaries">Windows Binaries</a></li>
 <li><a class="reference internal" href="#osgeo-live-dvd">OSGeo Live DVD</a></li>
 <li><a class="reference internal" href="#source-packages">Source Packages</a></li>
@@ -104,7 +104,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -116,11 +116,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -150,14 +155,14 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="download">
 <span id="id1"></span><h1>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h1>
 <p>pgRouting is available as source code as well as in binary formats (Linux, Windows, Mac OS X).
 If you want to install the current development version, check out the source from pgRouting Git repository.</p>
-<div class="section" id="linux-os-x-packages">
-<h2>Linux / OS X Packages<a class="headerlink" href="#linux-os-x-packages" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="linux-os-x-bsd-packages">
+<h2>Linux / OS X / BSD Packages<a class="headerlink" href="#linux-os-x-bsd-packages" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>DEB packages:<ul>
 <li>Launchpad PPA (v2.x): <a class="reference external" href="https://launchpad.net/~georepublic/+archive/pgrouting-unstable">https://launchpad.net/~georepublic/+archive/pgrouting-unstable</a></li>
@@ -170,6 +175,7 @@ If you want to install the current development version, check out the source fro
 </ul>
 </li>
 <li>OS X packages: <a class="reference external" href="http://www.kyngchaos.com/software/postgres">http://www.kyngchaos.com/software/postgres</a></li>
+<li>FreeBSD packages: <a class="reference external" href="https://www.freshports.org/databases/pgrouting">https://www.freshports.org/databases/pgrouting</a></li>
 </ul>
 </div>
 <div class="section" id="windows-binaries">
@@ -217,7 +223,7 @@ If you want to install the current development version, check out the source fro
 <div class="section" id="github-repository">
 <h2>Github Repository<a class="headerlink" href="#github-repository" title="Permalink to this headline">¶</a></h2>
 <p>Check out the latest source code from pgRouting Git repository hosted at <a class="reference external" href="https://github.com/pgRouting/pgrouting">Github</a>.</p>
-<div class="highlight-bash"><div class="highlight"><pre>git clone git://github.com/pgRouting/pgrouting.git pgrouting
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone git://github.com/pgRouting/pgrouting.git pgrouting
 </pre></div>
 </div>
 </div>

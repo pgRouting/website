@@ -101,7 +101,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -113,11 +113,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -167,7 +172,7 @@ service level constraints (Quality of Service).</p>
 <div class="section" id="function">
 <h2>Function:<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h2>
 <p>The darp function has the following declaration:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">darp</span><span class="p">(</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">darp</span><span class="p">(</span>
                                         <span class="n">orders_sql</span> <span class="nb">text</span><span class="p">,</span>
                                         <span class="n">vehicles_sql</span> <span class="nb">text</span><span class="p">,</span>
                                         <span class="n">distance_sql</span> <span class="nb">text</span><span class="p">,</span>
@@ -178,7 +183,7 @@ service level constraints (Quality of Service).</p>
 </pre></div>
 </div>
 <p>Where itinerary is:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TYPE</span> <span class="n">itinerary</span> <span class="k">AS</span> <span class="p">(</span><span class="n">id</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">order_id</span> <span class="nb">integer</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TYPE</span> <span class="n">itinerary</span> <span class="k">AS</span> <span class="p">(</span><span class="n">id</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">order_id</span> <span class="nb">integer</span><span class="p">,</span>
                 <span class="n">vehicle_id</span> <span class="nb">integer</span><span class="p">,</span> <span class="n">point</span> <span class="nb">integer</span><span class="p">,</span> <span class="k">at</span> <span class="k">timestamp</span> <span class="k">with</span> <span class="n">time</span> <span class="k">zone</span><span class="p">);</span>
 </pre></div>
 </div>

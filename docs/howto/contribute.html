@@ -25,13 +25,13 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="top" title="Open Source Routing Library" href="../../index.html" />
-    <link rel="up" title="Development" href="../../development.html" />
-    <link rel="next" title="Sponsorship and Donation" href="../../donate.html" />
-    <link rel="prev" title="RFC XX: [done] RFC template" href="../../rfc/rfc-XX.html" />
+    <link rel="up" title="pgRouting Howto’s" href="../howto.html" />
+    <link rel="next" title="Converting OSM-Files into PostgreSQL-Scripts" href="convert_osm.html" />
+    <link rel="prev" title="Build pgRouting for Windows" href="build_on_windows.html" />
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -59,14 +59,15 @@
       <h3>Navigation</h3>
       <ul>
         <li><a href="../../index.html">Home</a> &raquo;</li>
-          <li><a href="../../development.html" accesskey="U">Development</a> &raquo;</li>
+          <li><a href="../../documentation.html" >Documentation</a> &raquo;</li>
+          <li><a href="../howto.html" accesskey="U">pgRouting Howto&#8217;s</a> &raquo;</li>
         <li><a href="#">How to Contribute</a></li>
       </ul>
     </div>
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
@@ -79,11 +80,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../../rfc/rfc-XX.html"
-                        title="previous chapter">RFC XX: [done] RFC template</a></p>
+  <p class="topless"><a href="build_on_windows.html"
+                        title="previous chapter">Build pgRouting for Windows</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../../donate.html"
-                        title="next chapter">Sponsorship and Donation</a></p>
+  <p class="topless"><a href="convert_osm.html"
+                        title="next chapter">Converting OSM-Files into PostgreSQL-Scripts</a></p>
     
     <h2>Make a Donation</h2>
     <p>
@@ -104,7 +105,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -116,11 +117,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -150,7 +156,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="how-to-contribute">
 <span id="contribute"></span><h1>How to Contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h1>
@@ -163,7 +169,7 @@ is a useful tool.</p>
 <li>Make sure you snippet has all the pgRouting snippet header included and filled out</li>
 </ol>
 <blockquote>
-<div><div class="highlight-sql"><div class="highlight"><pre><span class="c1">--</span>
+<div><div class="highlight-sql"><div class="highlight"><pre><span></span><span class="c1">--</span>
 <span class="c1">-- TITLE:</span>
 <span class="c1">-- DESCRIPTION:</span>
 <span class="c1">-- USE CASES:</span>
@@ -178,7 +184,7 @@ is a useful tool.</p>
 <ol class="arabic simple" start="2">
 <li>Post your snippet to Gist: <a class="reference external" href="https://gist.github.com">https://gist.github.com</a></li>
 <li>Add a link to the <a class="reference external" href="https://github.com/pgRouting/pgrouting/wiki/Writing-functions">pgRouting Wiki</a>.</li>
-<li>Create a ticket on the <a class="reference external" href="https://github.com/pgrouting/pgrouting/issues">pgRouting issue tracker</a> and add the label <tt class="docutils literal"><span class="pre">Snippet</span></tt>.</li>
+<li>Create a ticket on the <a class="reference external" href="https://github.com/pgrouting/pgrouting/issues">pgRouting issue tracker</a> and add the label <code class="docutils literal"><span class="pre">Snippet</span></code>.</li>
 <li>Post an email to <a class="reference external" href="mailto:pgrouting-users&#37;&#52;&#48;lists&#46;osgeo&#46;org">pgrouting-users<span>&#64;</span>lists<span>&#46;</span>osgeo<span>&#46;</span>org</a> with links to your Gist and some explanation.</li>
 </ol>
 </div>
@@ -199,8 +205,8 @@ is a useful tool.</p>
 <div class="section" id="fork-pgrouting-on-github">
 <h2>Fork pgRouting on Github<a class="headerlink" href="#fork-pgrouting-on-github" title="Permalink to this headline">¶</a></h2>
 <p>If you plan to submit patches or changes, make a fork of the repository:</p>
-<p>Make sure you&#8217;ve got a Github account and that you&#8217;re logged in. Go to: <a class="reference external" href="https://github.com/pgRouting/pgrouting">https://github.com/pgRouting/pgrouting</a>, click the <tt class="docutils literal"><span class="pre">fork</span></tt> button. Now you should have your own version of the repository.</p>
-<div class="highlight-bash"><div class="highlight"><pre>git clone git://github.com/&lt;username&gt;/pgrouting.git pgrouting
+<p>Make sure you&#8217;ve got a Github account and that you&#8217;re logged in. Go to: <a class="reference external" href="https://github.com/pgRouting/pgrouting">https://github.com/pgRouting/pgrouting</a>, click the <code class="docutils literal"><span class="pre">fork</span></code> button. Now you should have your own version of the repository.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone git://github.com/&lt;username&gt;/pgrouting.git pgrouting
 </pre></div>
 </div>
 <p>If you&#8217;re new to Git, find more information here:</p>
@@ -221,13 +227,14 @@ is a useful tool.</p>
       <h3>Navigation</h3>
       <ul>
             <li class="right" style="margin-right: 10px">
-              <a href="../../donate.html" title="Sponsorship and Donation"
+              <a href="convert_osm.html" title="Converting OSM-Files into PostgreSQL-Scripts"
                  accesskey="N">next</a></li>
             <li class="right" >
-              <a href="../../rfc/rfc-XX.html" title="RFC XX: [done] RFC template"
+              <a href="build_on_windows.html" title="Build pgRouting for Windows"
                  accesskey="P">previous</a> |</li>
         <li><a href="../../index.html">Home</a> &raquo;</li>
-          <li><a href="../../development.html" >Development</a> &raquo;</li>
+          <li><a href="../../documentation.html" >Documentation</a> &raquo;</li>
+          <li><a href="../howto.html" >pgRouting Howto&#8217;s</a> &raquo;</li>
         <li><a href="#">How to Contribute</a></li>
       </ul>
     </div>

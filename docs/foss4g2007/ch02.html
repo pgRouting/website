@@ -125,7 +125,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -137,11 +137,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -178,17 +183,17 @@
 <div class="section" id="create-a-routing-database">
 <h2>Create a routing database<a class="headerlink" href="#create-a-routing-database" title="Permalink to this headline">¶</a></h2>
 <p>We will create a database “routing” and load the PostGIS and pgRouting functions.</p>
-<div class="highlight-bash"><div class="highlight"><pre>createdb -U postgres -E UNICODE routing
+<div class="highlight-bash"><div class="highlight"><pre><span></span>createdb -U postgres -E UNICODE routing
 createlang -U postgres plpgsql routing
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> /usr/share/postgresql/8.2/contrib/
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> /usr/share/postgresql/8.2/contrib/
 psql -U postgres -f postgis-1.2.1/lwpostgis.sql routing
 psql -U postgres -f postgis-1.2.1/spatial_ref_sys.sql routing
 </pre></div>
 </div>
 <p>The sql-data will probably be in /usr/share/postlbs/</p>
-<div class="highlight-bash"><div class="highlight"><pre>psql -U postgres -f routing_core.sql routing
+<div class="highlight-bash"><div class="highlight"><pre><span></span>psql -U postgres -f routing_core.sql routing
 psql -U postgres -f routing_core_wrappers.sql routing
 psql -U postgres -f routing_topology.sql routing
 psql -U postgres -f matching.sql routing
@@ -206,7 +211,7 @@ not contain data.
 For this routing workshop we will only keep “gid”, “id” and “the_geom”.</p>
 <p>To overlay the route with Google Maps the data has been reprojected to
 EPSG 54004 meanwhile you better use: EPSG 900913)</p>
-<div class="highlight-sql"><div class="highlight"><pre>        <span class="k">Column</span>    <span class="o">|</span>       <span class="k">Type</span>       <span class="o">|</span> <span class="n">Modifiers</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span>        <span class="k">Column</span>    <span class="o">|</span>       <span class="k">Type</span>       <span class="o">|</span> <span class="n">Modifiers</span>
 <span class="c1">--------------+------------------+-----------</span>
  <span class="n">gid</span>          <span class="o">|</span> <span class="nb">integer</span>          <span class="o">|</span>
  <span class="n">id</span>           <span class="o">|</span> <span class="nb">integer</span>          <span class="o">|</span>
@@ -216,7 +221,7 @@ EPSG 54004 meanwhile you better use: EPSG 900913)</p>
 <div class="section" id="import-a-clip-victoria-downtown-area-of-the-british-columbia-road-network-data">
 <h3>Import a clip (Victoria Downtown area) of the British Columbia road network data.<a class="headerlink" href="#import-a-clip-victoria-downtown-area-of-the-british-columbia-road-network-data" title="Permalink to this headline">¶</a></h3>
 <p>A table named “victoria” will be created automatically.</p>
-<div class="highlight-bash"><div class="highlight"><pre>psql -U postgres routing
+<div class="highlight-bash"><div class="highlight"><pre><span></span>psql -U postgres routing
 <span class="se">\i</span> /home/pgrouting/RoutingData/victoria.sql
 </pre></div>
 </div>
@@ -224,7 +229,7 @@ EPSG 54004 meanwhile you better use: EPSG 900913)</p>
 </div>
 <div class="section" id="add-the-geometry-column">
 <h3>Add the geometry column:<a class="headerlink" href="#add-the-geometry-column" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">RENAME</span> <span class="k">COLUMN</span> <span class="n">the_geom</span> <span class="k">TO</span> <span class="n">geom</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">RENAME</span> <span class="k">COLUMN</span> <span class="n">the_geom</span> <span class="k">TO</span> <span class="n">geom</span><span class="p">;</span>
 <span class="k">SELECT</span> <span class="n">AddGeometryColumn</span><span class="p">(</span><span class="s1">&#39;victoria&#39;</span><span class="p">,</span><span class="s1">&#39;the_geom&#39;</span><span class="p">,</span><span class="mi">54004</span><span class="p">,</span><span class="s1">&#39;MULTILINESTRING&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
 <span class="k">UPDATE</span> <span class="n">victoria</span> <span class="k">SET</span> <span class="n">the_geom</span><span class="o">=</span><span class="n">geom</span><span class="p">;</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">DROP</span> <span class="k">COLUMN</span> <span class="n">geom</span><span class="p">;</span>
@@ -236,7 +241,7 @@ EPSG 54004 meanwhile you better use: EPSG 900913)</p>
 <h2>Prepare routing table for Dijkstra<a class="headerlink" href="#prepare-routing-table-for-dijkstra" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="add-source-target-and-length-column">
 <h3>Add source, target and length column<a class="headerlink" href="#add-source-target-and-length-column" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="k">source</span> <span class="nb">integer</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="k">source</span> <span class="nb">integer</span><span class="p">;</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">target</span> <span class="nb">integer</span><span class="p">;</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="k">length</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
 </pre></div>
@@ -244,14 +249,14 @@ EPSG 54004 meanwhile you better use: EPSG 900913)</p>
 </div>
 <div class="section" id="create-network-topology">
 <h3>Create network topology<a class="headerlink" href="#create-network-topology" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">assign_vertex_id</span><span class="p">(</span><span class="s1">&#39;victoria&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span><span class="p">,</span> <span class="s1">&#39;the_geom&#39;</span><span class="p">,</span> <span class="s1">&#39;gid&#39;</span><span class="p">);</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">assign_vertex_id</span><span class="p">(</span><span class="s1">&#39;victoria&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span><span class="p">,</span> <span class="s1">&#39;the_geom&#39;</span><span class="p">,</span> <span class="s1">&#39;gid&#39;</span><span class="p">);</span>
 <span class="k">UPDATE</span> <span class="n">victoria</span> <span class="k">SET</span> <span class="k">length</span> <span class="o">=</span> <span class="k">length</span><span class="p">(</span><span class="n">the_geom</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="create-indexes-for-source-target-and-geometry-column">
 <h3>Create indexes for source, target and geometry column<a class="headerlink" href="#create-indexes-for-source-target-and-geometry-column" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">source_idx</span> <span class="k">ON</span> <span class="n">victoria</span><span class="p">(</span><span class="k">source</span><span class="p">);</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">source_idx</span> <span class="k">ON</span> <span class="n">victoria</span><span class="p">(</span><span class="k">source</span><span class="p">);</span>
 <span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">target_idx</span> <span class="k">ON</span> <span class="n">victoria</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
 <span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">geom_idx</span> <span class="k">ON</span> <span class="n">victoria</span> <span class="k">USING</span> <span class="n">GIST</span><span class="p">(</span><span class="n">the_geom</span> <span class="n">GIST_GEOMETRY_OPS</span><span class="p">);</span>
 </pre></div>
@@ -259,7 +264,7 @@ EPSG 54004 meanwhile you better use: EPSG 900913)</p>
 </div>
 <div class="section" id="run-shortest-path-dijkstra-query">
 <h3>Run Shortest Path Dijkstra query<a class="headerlink" href="#run-shortest-path-dijkstra-query" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">shortest_path</span><span class="p">(</span> <span class="k">sql</span> <span class="nb">text</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">shortest_path</span><span class="p">(</span> <span class="k">sql</span> <span class="nb">text</span><span class="p">,</span>
                    <span class="n">source_id</span> <span class="nb">integer</span><span class="p">,</span>
                    <span class="n">target_id</span> <span class="nb">integer</span><span class="p">,</span>
                    <span class="n">directed</span> <span class="nb">boolean</span><span class="p">,</span>
@@ -269,7 +274,7 @@ EPSG 54004 meanwhile you better use: EPSG 900913)</p>
 <p>(Source and target IDs are node IDs.)</p>
 <div class="section" id="shortest-path-core-function">
 <h4>Shortest path core function<a class="headerlink" href="#shortest-path-core-function" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path</span><span class="p">(</span><span class="s1">&#39;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path</span><span class="p">(</span><span class="s1">&#39;</span>
 <span class="s1">                SELECT gid as id,</span>
 <span class="s1">                         source::integer,</span>
 <span class="s1">                         target::integer,</span>
@@ -278,7 +283,7 @@ EPSG 54004 meanwhile you better use: EPSG 900913)</p>
                 <span class="mi">238</span><span class="p">,</span> <span class="mi">1455</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre> <span class="n">vertex_id</span> <span class="o">|</span> <span class="n">edge_id</span> <span class="o">|</span>       <span class="n">cost</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span> <span class="n">vertex_id</span> <span class="o">|</span> <span class="n">edge_id</span> <span class="o">|</span>       <span class="n">cost</span>
 <span class="c1">-----------+---------+------------------</span>
            <span class="mi">238</span> <span class="o">|</span>   <span class="mi">76619</span> <span class="o">|</span> <span class="mi">172</span><span class="p">.</span><span class="mi">172139617447</span>
           <span class="mi">1051</span> <span class="o">|</span>   <span class="mi">80792</span> <span class="o">|</span> <span class="mi">309</span><span class="p">.</span><span class="mi">209732132692</span>
@@ -289,11 +294,11 @@ EPSG 54004 meanwhile you better use: EPSG 900913)</p>
 </div>
 <div class="section" id="wrapper-function-without-bounding-box">
 <h4>Wrapper function without bounding box<a class="headerlink" href="#wrapper-function-without-bounding-box" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
         <span class="k">FROM</span> <span class="n">dijkstra_sp</span><span class="p">(</span><span class="s1">&#39;victoria&#39;</span><span class="p">,</span> <span class="mi">238</span><span class="p">,</span> <span class="mi">1455</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre>  <span class="n">gid</span>   <span class="o">|</span>                              <span class="n">the_geom</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span>  <span class="n">gid</span>   <span class="o">|</span>                              <span class="n">the_geom</span>
 <span class="c1">--------+---------------------------------------------------------------</span>
         <span class="mi">484</span> <span class="o">|</span> <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="o">-</span><span class="mi">13735834</span><span class="p">.</span><span class="mi">0196717</span> <span class="mi">6151280</span><span class="p">.</span><span class="mi">78177026</span><span class="p">,</span> <span class="p">...</span> <span class="p">))</span>
   <span class="mi">13944</span> <span class="o">|</span> <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="o">-</span><span class="mi">13734179</span><span class="p">.</span><span class="mi">5114759</span> <span class="mi">6150720</span><span class="p">.</span><span class="mi">27269911</span><span class="p">,</span> <span class="p">...</span> <span class="p">))</span>
@@ -304,7 +309,7 @@ EPSG 54004 meanwhile you better use: EPSG 900913)</p>
 </div>
 <div class="section" id="wrapper-function-with-bounding-box">
 <h4>Wrapper function with bounding box<a class="headerlink" href="#wrapper-function-with-bounding-box" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
         <span class="k">FROM</span> <span class="n">dijkstra_sp_delta</span><span class="p">(</span><span class="s1">&#39;victoria&#39;</span><span class="p">,</span> <span class="mi">238</span><span class="p">,</span> <span class="mi">1455</span><span class="p">,</span> <span class="mi">3000</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -315,13 +320,13 @@ EPSG 54004 meanwhile you better use: EPSG 900913)</p>
 <h2>Prepare routing table for A-Star<a class="headerlink" href="#prepare-routing-table-for-a-star" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="add-x1-y1-and-x2-y2-column">
 <h3>Add x1, y1 and x2, y2 column<a class="headerlink" href="#add-x1-y1-and-x2-y2-column" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">x1</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">x1</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">y1</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">x2</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">y2</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">UPDATE</span> <span class="n">victoria</span> <span class="k">SET</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">startpoint</span><span class="p">(</span><span class="n">the_geom</span><span class="p">));</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">victoria</span> <span class="k">SET</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">startpoint</span><span class="p">(</span><span class="n">the_geom</span><span class="p">));</span>
 <span class="k">UPDATE</span> <span class="n">victoria</span> <span class="k">SET</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">startpoint</span><span class="p">(</span><span class="n">the_geom</span><span class="p">));</span>
 <span class="k">UPDATE</span> <span class="n">victoria</span> <span class="k">SET</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">endpoint</span><span class="p">(</span><span class="n">the_geom</span><span class="p">));</span>
 <span class="k">UPDATE</span> <span class="n">victoria</span> <span class="k">SET</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">endpoint</span><span class="p">(</span><span class="n">the_geom</span><span class="p">));</span>
@@ -331,7 +336,7 @@ EPSG 54004 meanwhile you better use: EPSG 900913)</p>
 <p class="first admonition-title">Note</p>
 <p>&#8220;endpoint()&#8221; function fails for some versions of PostgreSQL (ie. 8.2.5, 8.1.9).
 A workaround for that problem is using the &#8220;PointN()&#8221; function instead:</p>
-<div class="last highlight-sql"><div class="highlight"><pre><span class="k">UPDATE</span> <span class="n">victoria</span> <span class="k">SET</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">PointN</span><span class="p">(</span><span class="n">the_geom</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<div class="last highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">victoria</span> <span class="k">SET</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">PointN</span><span class="p">(</span><span class="n">the_geom</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
 <span class="k">UPDATE</span> <span class="n">victoria</span> <span class="k">SET</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">PointN</span><span class="p">(</span><span class="n">the_geom</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
 <span class="k">UPDATE</span> <span class="n">victoria</span> <span class="k">SET</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">PointN</span><span class="p">(</span><span class="n">the_geom</span><span class="p">,</span> <span class="n">NumPoints</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)));</span>
 <span class="k">UPDATE</span> <span class="n">victoria</span> <span class="k">SET</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">PointN</span><span class="p">(</span><span class="n">the_geom</span><span class="p">,</span> <span class="n">NumPoints</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)));</span>
@@ -341,7 +346,7 @@ A workaround for that problem is using the &#8220;PointN()&#8221; function inste
 </div>
 <div class="section" id="run-shortest-path-a-star-query">
 <h3>Run Shortest Path A-Star query<a class="headerlink" href="#run-shortest-path-a-star-query" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">shortest_path_astar</span><span class="p">(</span> <span class="k">sql</span> <span class="nb">text</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">shortest_path_astar</span><span class="p">(</span> <span class="k">sql</span> <span class="nb">text</span><span class="p">,</span>
                    <span class="n">source_id</span> <span class="nb">integer</span><span class="p">,</span>
                    <span class="n">target_id</span> <span class="nb">integer</span><span class="p">,</span>
                    <span class="n">directed</span> <span class="nb">boolean</span><span class="p">,</span>
@@ -351,7 +356,7 @@ A workaround for that problem is using the &#8220;PointN()&#8221; function inste
 <p>(Source and target IDs are node IDs.)</p>
 <div class="section" id="a-star-core-function">
 <h4>A-Star core function<a class="headerlink" href="#a-star-core-function" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;</span>
 <span class="s1">                SELECT gid as id,</span>
 <span class="s1">                         source::integer,</span>
 <span class="s1">                         target::integer,</span>
@@ -364,7 +369,7 @@ A workaround for that problem is using the &#8220;PointN()&#8221; function inste
 </div>
 <div class="section" id="id1">
 <h4>Wrapper function with bounding box<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
         <span class="k">FROM</span> <span class="n">astar_sp_delta</span><span class="p">(</span><span class="s1">&#39;victoria&#39;</span><span class="p">,</span> <span class="mi">238</span><span class="p">,</span> <span class="mi">1455</span><span class="p">,</span> <span class="mi">3000</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -375,18 +380,18 @@ A workaround for that problem is using the &#8220;PointN()&#8221; function inste
 <h2>Prepare routing table for Shooting-Star<a class="headerlink" href="#prepare-routing-table-for-shooting-star" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id2">
 <h3>Add x1, y1 and x2, y2 column<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">reverse_cost</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">reverse_cost</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
 <span class="k">UPDATE</span> <span class="n">victoria</span> <span class="k">SET</span> <span class="n">reverse_cost</span> <span class="o">=</span> <span class="k">length</span><span class="p">;</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">to_cost</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">to_cost</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">victoria</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="k">rule</span> <span class="nb">text</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="run-shortest-path-shooting-star-query">
 <h3>Run Shortest Path Shooting-Star query<a class="headerlink" href="#run-shortest-path-shooting-star-query" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">shortest_path_shooting_star</span><span class="p">(</span> <span class="k">sql</span> <span class="nb">text</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">shortest_path_shooting_star</span><span class="p">(</span> <span class="k">sql</span> <span class="nb">text</span><span class="p">,</span>
                    <span class="n">source_id</span> <span class="nb">integer</span><span class="p">,</span>
                    <span class="n">target_id</span> <span class="nb">integer</span><span class="p">,</span>
                    <span class="n">directed</span> <span class="nb">boolean</span><span class="p">,</span>
@@ -397,7 +402,7 @@ A workaround for that problem is using the &#8220;PointN()&#8221; function inste
 </div>
 <div class="section" id="shooting-star-core-function">
 <h3>Shooting-Star core function<a class="headerlink" href="#shooting-star-core-function" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_shooting_star</span><span class="p">(</span><span class="s1">&#39;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_shooting_star</span><span class="p">(</span><span class="s1">&#39;</span>
 <span class="s1">                SELECT gid as id,</span>
 <span class="s1">                         source::integer,</span>
 <span class="s1">                         target::integer,</span>
@@ -411,7 +416,7 @@ A workaround for that problem is using the &#8220;PointN()&#8221; function inste
 </div>
 <div class="section" id="id3">
 <h3>Wrapper function with bounding box<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
         <span class="k">FROM</span> <span class="n">shootingstar_sp</span><span class="p">(</span><span class="s1">&#39;victoria&#39;</span><span class="p">,</span> <span class="mi">36339</span><span class="p">,</span> <span class="mi">22921</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span>
                                  <span class="s1">&#39;length&#39;</span><span class="p">,</span><span class="k">true</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
 </pre></div>

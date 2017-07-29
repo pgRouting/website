@@ -31,7 +31,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="contribute.html"
@@ -95,7 +95,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -107,11 +107,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -141,7 +146,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="converting-osm-files-into-postgresql-scripts">
 <span id="convert-osm"></span><h1>Converting OSM-Files into PostgreSQL-Scripts<a class="headerlink" href="#converting-osm-files-into-postgresql-scripts" title="Permalink to this headline">¶</a></h1>
@@ -162,21 +167,21 @@ that this would be very uncomfortable.</p>
 <p>Here are some new java programs written by myself, that make it very easy to
 import data from OSM-Files into your PostgreSQL databases:</p>
 <ul class="simple">
-<li><a class="reference download internal" href="../../_downloads/nodes2postgis.jar"><tt class="xref download docutils literal"><span class="pre">nodes2postgis.jar</span></tt></a></li>
-<li><a class="reference download internal" href="../../_downloads/lines2postgis.jar"><tt class="xref download docutils literal"><span class="pre">lines2postgis.jar</span></tt></a></li>
-<li><a class="reference download internal" href="../../_downloads/latlon2google.jar"><tt class="xref download docutils literal"><span class="pre">latlon2google.jar</span></tt></a></li>
+<li><a class="reference download internal" href="../../_downloads/nodes2postgis.jar" download=""><code class="xref download docutils literal"><span class="pre">nodes2postgis.jar</span></code></a></li>
+<li><a class="reference download internal" href="../../_downloads/lines2postgis.jar" download=""><code class="xref download docutils literal"><span class="pre">lines2postgis.jar</span></code></a></li>
+<li><a class="reference download internal" href="../../_downloads/latlon2google.jar" download=""><code class="xref download docutils literal"><span class="pre">latlon2google.jar</span></code></a></li>
 </ul>
 <p>The use of the programs is as follows:</p>
 <p>For nodes2postgis.jar:</p>
-<div class="highlight-bash"><div class="highlight"><pre>java -jar nodes2postgis.jar map.osm
+<div class="highlight-bash"><div class="highlight"><pre><span></span>java -jar nodes2postgis.jar map.osm
 </pre></div>
 </div>
 <p>For lines2postgis.jar:</p>
-<div class="highlight-bash"><div class="highlight"><pre>java -jar lines2postgis.jar map.osm
+<div class="highlight-bash"><div class="highlight"><pre><span></span>java -jar lines2postgis.jar map.osm
 </pre></div>
 </div>
 <p>For latlon2google.jar:</p>
-<div class="highlight-bash"><div class="highlight"><pre>java -jar latlon2google.jar yourTablename
+<div class="highlight-bash"><div class="highlight"><pre><span></span>java -jar latlon2google.jar yourTablename
 </pre></div>
 </div>
 <p>The result of running those java-programms are .sql scripts that can be easily

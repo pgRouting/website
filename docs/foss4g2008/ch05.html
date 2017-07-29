@@ -95,7 +95,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -107,11 +107,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -164,18 +169,18 @@ documentation pages on <a class="reference external" href="http://www.pgrouting.
 <p>pgRouting on the workshops virtual machine image has been installed like this:</p>
 <div class="section" id="install-required-packages">
 <h2>Install required packages<a class="headerlink" href="#install-required-packages" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get install build-essential subversion cmake
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install build-essential subversion cmake
 sudo apt-get install libboost-graph*
 sudo apt-get install postgresql-8.3-postgis postgresql-server-dev-8.3
 </pre></div>
 </div>
 <p>For Driving Distance algorithm (optional)
 CGAL library can be easily installed using the Ubuntu multiverse repository.</p>
-<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get install libcgal*
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install libcgal*
 </pre></div>
 </div>
 <p>For TSP algorithm (optional)</p>
-<div class="highlight-bash"><div class="highlight"><pre>wget http://downloads.sourceforge.net/gaul/gaul-devel-0.1849-0.tar.gz?modtime<span class="o">=</span>1114163427<span class="p">&amp;</span><span class="nv">big_mirror</span><span class="o">=</span>0
+<div class="highlight-bash"><div class="highlight"><pre><span></span>wget http://downloads.sourceforge.net/gaul/gaul-devel-0.1849-0.tar.gz?modtime<span class="o">=</span><span class="m">1114163427</span><span class="p">&amp;</span><span class="nv">big_mirror</span><span class="o">=</span><span class="m">0</span>
 tar -xzf gaul-devel-0.1849-0.tar.gz
 <span class="nb">cd</span> gaul-devel-0.1849-0/
 ./configure --disable-slang
@@ -186,7 +191,7 @@ sudo make install
 </div>
 <div class="section" id="compile-pgrouting-core-with-tsp-and-dd-flag-on">
 <h2>Compile pgRouting core (with TSP and DD flag on)<a class="headerlink" href="#compile-pgrouting-core-with-tsp-and-dd-flag-on" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre>svn checkout http://pgrouting.postlbs.org/svn/pgrouting/trunk pgrouting
+<div class="highlight-bash"><div class="highlight"><pre><span></span>svn checkout http://pgrouting.postlbs.org/svn/pgrouting/trunk pgrouting
 
 <span class="nb">cd</span> pgrouting/
 cmake -DWITH_TSP<span class="o">=</span>ON -DWITH_DD<span class="o">=</span>ON .
@@ -199,7 +204,7 @@ sudo make install
 <h2>Setup PostgreSQL<a class="headerlink" href="#setup-postgresql" title="Permalink to this headline">¶</a></h2>
 <p>Set local database connections to &#8220;trust&#8221; in &#8220;pg_hba.conf&#8221; to be able to work
 with PostgreSQL as user &#8220;postgres&#8221;. Then restart PostgreSQL.</p>
-<div class="highlight-bash"><div class="highlight"><pre>sudo gedit /etc/postgresql/8.3/main/pg_hba.conf
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo gedit /etc/postgresql/8.3/main/pg_hba.conf
 sudo /etc/init.d/postgresql-8.3 restart
 </pre></div>
 </div>
@@ -208,28 +213,28 @@ sudo /etc/init.d/postgresql-8.3 restart
 <h2>Create routing database<a class="headerlink" href="#create-routing-database" title="Permalink to this headline">¶</a></h2>
 <p>To test your installation create a first routing database and load the routing
 functions into this database.</p>
-<div class="highlight-bash"><div class="highlight"><pre>createdb -U postgres routing
+<div class="highlight-bash"><div class="highlight"><pre><span></span>createdb -U postgres routing
 createlang -U postgres plpgsql routing
 </pre></div>
 </div>
 <p>Add PostGIS functions</p>
-<div class="highlight-bash"><div class="highlight"><pre>psql -U postgres -f /usr/share/postgresql-8.3-postgis/lwpostgis.sql routing
+<div class="highlight-bash"><div class="highlight"><pre><span></span>psql -U postgres -f /usr/share/postgresql-8.3-postgis/lwpostgis.sql routing
 psql -U postgres -f /usr/share/postgresql-8.3-postgis/spatial_ref_sys.sql routing
 </pre></div>
 </div>
 <p>Add pgRouting functions</p>
-<div class="highlight-bash"><div class="highlight"><pre>psql -U postgres -f /usr/share/postlbs/routing_core.sql routing
+<div class="highlight-bash"><div class="highlight"><pre><span></span>psql -U postgres -f /usr/share/postlbs/routing_core.sql routing
 psql -U postgres -f /usr/share/postlbs/routing_core_wrappers.sql routing
 psql -U postgres -f /usr/share/postlbs/routing_topology.sql routing
 </pre></div>
 </div>
 <p>Add TSP functions (optional)</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">postlbs</span><span class="o">/</span><span class="n">routing_tsp</span><span class="p">.</span><span class="k">sql</span> <span class="n">routing</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">postlbs</span><span class="o">/</span><span class="n">routing_tsp</span><span class="p">.</span><span class="k">sql</span> <span class="n">routing</span>
 <span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">postlbs</span><span class="o">/</span><span class="n">routing_tsp_wrappers</span><span class="p">.</span><span class="k">sql</span> <span class="n">routing</span>
 </pre></div>
 </div>
 <p>Add Driving Distance functions (optional)</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">postlbs</span><span class="o">/</span><span class="n">routing_dd</span><span class="p">.</span><span class="k">sql</span> <span class="n">routing</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">postlbs</span><span class="o">/</span><span class="n">routing_dd</span><span class="p">.</span><span class="k">sql</span> <span class="n">routing</span>
 <span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">postlbs</span><span class="o">/</span><span class="n">routing_dd_wrappers</span><span class="p">.</span><span class="k">sql</span> <span class="n">routing</span>
 </pre></div>
 </div>

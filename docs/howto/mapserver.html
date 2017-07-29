@@ -31,7 +31,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="diagnostic_tools.html"
@@ -95,7 +95,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -107,11 +107,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -141,13 +146,13 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="how-to-show-the-route-with-mapserver">
 <span id="route-mapserver"></span><h1>How to show the route with Mapserver<a class="headerlink" href="#how-to-show-the-route-with-mapserver" title="Permalink to this headline">¶</a></h1>
 <p>The shortest path function (i.e. &#8220;dijkstra_sp()&#8221;) can be used inside
 <a class="reference external" href="http://mapserver.org">Mapserver</a> to draw the shortest path directly:</p>
-<div class="highlight-bash"><div class="highlight"><pre>LAYER
+<div class="highlight-bash"><div class="highlight"><pre><span></span>LAYER
         NAME <span class="s2">&quot;europe&quot;</span>
         TYPE LINE
 
@@ -163,8 +168,8 @@
           NAME <span class="s2">&quot;0&quot;</span>
           STYLE
             SYMBOL <span class="s2">&quot;circle&quot;</span>
-            SIZE 10
-            COLOR 50 50 100
+            SIZE <span class="m">10</span>
+            COLOR <span class="m">50</span> <span class="m">50</span> <span class="m">100</span>
           END
         END
 END

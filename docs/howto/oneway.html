@@ -31,7 +31,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -67,7 +67,7 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="mapserver.html"
@@ -95,7 +95,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -107,11 +107,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -141,7 +146,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="how-to-handle-one-way-streets">
 <span id="oneway"></span><h1>How to handle one-way streets<a class="headerlink" href="#how-to-handle-one-way-streets" title="Permalink to this headline">¶</a></h1>
@@ -158,16 +163,16 @@ simulate a one way street.</p>
 <p>When computing for the cost of both sides of the edge, a reverse_cost field is
 necessary to be passed to the routing algorithm.</p>
 <p>Initially, both the cost and the reverse_cost values set to the length of the edge.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">routing</span><span class="o">=#</span> <span class="k">UPDATE</span> <span class="n">rtest</span> <span class="k">SET</span> <span class="n">cost</span><span class="o">=</span><span class="k">length</span><span class="p">(</span><span class="n">the_geom</span><span class="p">),</span> <span class="n">rcost</span><span class="o">=</span><span class="k">length</span><span class="p">(</span><span class="n">the_geom</span><span class="p">);</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">routing</span><span class="o">=#</span> <span class="k">UPDATE</span> <span class="n">rtest</span> <span class="k">SET</span> <span class="n">cost</span><span class="o">=</span><span class="k">length</span><span class="p">(</span><span class="n">the_geom</span><span class="p">),</span> <span class="n">rcost</span><span class="o">=</span><span class="k">length</span><span class="p">(</span><span class="n">the_geom</span><span class="p">);</span>
 <span class="k">UPDATE</span> <span class="mi">5</span>
 </pre></div>
 </div>
 <p>Then, to increase the reverse_cost of edge !#2, a value of 1,000,000 was added
 to the value of the reverse_cost field.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">routing</span><span class="o">=#</span> <span class="k">UPDATE</span> <span class="n">rtest</span> <span class="k">SET</span> <span class="n">rcost</span><span class="o">=</span><span class="n">rcost</span> <span class="o">+</span> <span class="mi">1000000</span> <span class="k">WHERE</span> <span class="n">gid</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">routing</span><span class="o">=#</span> <span class="k">UPDATE</span> <span class="n">rtest</span> <span class="k">SET</span> <span class="n">rcost</span><span class="o">=</span><span class="n">rcost</span> <span class="o">+</span> <span class="mi">1000000</span> <span class="k">WHERE</span> <span class="n">gid</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">routing</span><span class="o">=#</span> <span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span><span class="n">cost</span><span class="p">,</span><span class="n">rcost</span><span class="p">,</span><span class="k">source</span><span class="p">,</span><span class="n">target</span> <span class="k">FROM</span> <span class="n">rtest</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">gid</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">routing</span><span class="o">=#</span> <span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span><span class="n">cost</span><span class="p">,</span><span class="n">rcost</span><span class="p">,</span><span class="k">source</span><span class="p">,</span><span class="n">target</span> <span class="k">FROM</span> <span class="n">rtest</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">gid</span><span class="p">;</span>
 
 <span class="n">gid</span> <span class="o">|</span>        <span class="n">cost</span>      <span class="o">|</span>         <span class="n">rcost</span>       <span class="o">|</span> <span class="k">source</span> <span class="o">|</span> <span class="n">target</span>
 <span class="c1">----+------------------+---------------------+--------+--------</span>
@@ -184,7 +189,7 @@ the reverse cost will also be computed when finding a route through the graph.</
 <p>When set to false, both algorithms will search using only the cost parameter,
 which in this case is just the length of each edge. For this example, we&#8217;ll find
 a route between node #1 until node #3.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">routing</span><span class="o">=#</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;SELECT gid AS id,source::int4,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">routing</span><span class="o">=#</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;SELECT gid AS id,source::int4,</span>
 <span class="s1">        target::int4, cost::double precision, rcost::double precision AS reverse_cost,</span>
 <span class="s1">        x1,y1,x2,y2 FROM rtest&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="k">false</span><span class="p">,</span><span class="k">false</span><span class="p">);</span>
 
@@ -200,7 +205,7 @@ a route between node #1 until node #3.</p>
 <p>Now, if the reverse parameter is set to true, the algorithms will use the
 reverse_cost and see that node 2 of edge #2 has a very hight cost and will look
 for another route.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">routing</span><span class="o">=#</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;SELECT gid AS id, source::int4,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">routing</span><span class="o">=#</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;SELECT gid AS id, source::int4,</span>
 <span class="s1">         target::int4, cost::double precision, rcost::double precision AS reverse_cost,</span>
 <span class="s1">         x1,y1,x2,y2 FROM rtest&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="k">false</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
 
@@ -218,7 +223,7 @@ for another route.</p>
 <p>Although having the ability to compute the cost of both sides of the edge is a
 very nifty feature, it come with a heavy price since it will impact performance
 quite a bit and thus should be used only when it is really necessary.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">routing</span><span class="o">=#</span> <span class="k">EXPLAIN</span> <span class="k">ANALYZE</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;SELECT gid</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">routing</span><span class="o">=#</span> <span class="k">EXPLAIN</span> <span class="k">ANALYZE</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;SELECT gid</span>
 <span class="s1">        AS id,source::int4, target::int4, cost::double precision, rcost::double</span>
 <span class="s1">        precision AS reverse_cost,x1,y1,x2,y2 FROM rtest&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="k">false</span><span class="p">,</span><span class="k">false</span><span class="p">);</span>
 
@@ -229,7 +234,7 @@ quite a bit and thus should be used only when it is really necessary.</p>
 <span class="p">(</span><span class="mi">2</span> <span class="k">rows</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">routing</span><span class="o">=#</span> <span class="k">EXPLAIN</span> <span class="k">ANALYZE</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;SELECT gid</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">routing</span><span class="o">=#</span> <span class="k">EXPLAIN</span> <span class="k">ANALYZE</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;SELECT gid</span>
 <span class="s1">        AS id, source::int4, target::int4, cost::double precision, rcost::double</span>
 <span class="s1">        precision AS reverse_cost,x1,y1,x2,y2 FROM rtest&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="k">false</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
 

@@ -84,7 +84,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -96,11 +96,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -143,7 +148,7 @@ start-marker to the end-marker (nevertheless if the markers are above vertices o
 <li>Calculates then the geometry from the first points pgRouting draws (also without these functions) to the point that is the nearest from the click point.</li>
 </ol>
 <p>For a) use the following SQL in the database:</p>
-<div class="highlight-sql"><div class="highlight"><pre>CREATE OR REPLACE FUNCTION multiline_locate_point(amultils geometry,apoint geometry)
+<div class="highlight-sql"><div class="highlight"><pre><span></span>CREATE OR REPLACE FUNCTION multiline_locate_point(amultils geometry,apoint geometry)
 
         RETURNS geometry AS
 
@@ -175,7 +180,7 @@ $BODY$
 </div>
 <p>For b)</p>
 <p>use the folowing SQL</p>
-<div class="highlight-html"><div class="highlight"><pre>    CREATE OR REPLACE FUNCTION give_we_wkt(gid_a integer,gid_b integer,start geometry)
+<div class="highlight-html"><div class="highlight"><pre><span></span>    CREATE OR REPLACE FUNCTION give_we_wkt(gid_a integer,gid_b integer,start geometry)
 
             RETURNS geometry AS
 
@@ -332,11 +337,11 @@ LANGUAGE &#39;plpgsql&#39; IMMUTABLE STRICT;
 <p>That function gives the geometry you want in wkt-format.</p>
 <p>Attention: That function is for data in meters (e.g. epsg:900913)</p>
 <p>If you have data in deegrees (epsg:4326) you will to do a small change in the function, write then:</p>
-<div class="highlight-html"><div class="highlight"><pre>SELECT INTO p ST_intersects(line,buffer($3,0.001));
+<div class="highlight-html"><div class="highlight"><pre><span></span>SELECT INTO p ST_intersects(line,buffer($3,0.001));
 </pre></div>
 </div>
 <p>... instead of:</p>
-<div class="highlight-html"><div class="highlight"><pre>SELECT INTO p ST_intersects(line,buffer($3,1));
+<div class="highlight-html"><div class="highlight"><pre><span></span>SELECT INTO p ST_intersects(line,buffer($3,1));
 </pre></div>
 </div>
 </div>

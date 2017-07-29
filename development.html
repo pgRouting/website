@@ -30,7 +30,7 @@
     
 
   </head>
-  <body>
+  <body role="document">
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="index.html">pgRouting</a></h1>
@@ -64,7 +64,7 @@
     
 
     	
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -77,12 +77,8 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#translations">Translations</a></li>
-<li><a class="reference internal" href="#how-to-contribute">How to contribute</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#request-for-comments-rfc">Request for Comments (RFC)</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#how-to-contribute">How to contribute</a></li>
+<li><a class="reference internal" href="#request-for-comments-rfc">Request for Comments (RFC)</a></li>
 <li><a class="reference internal" href="#project-steering-committee">Project Steering Committee</a></li>
 </ul>
 </li>
@@ -114,7 +110,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -126,11 +122,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -160,7 +161,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="development">
 <span id="id1"></span><h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
@@ -197,7 +198,7 @@ If you&#8217;re new to Git, find more information here:</p>
 <div class="section" id="pgrouting-library">
 <h3>pgRouting Library<a class="headerlink" href="#pgrouting-library" title="Permalink to this headline">¶</a></h3>
 <p>To checkout the latest <a class="reference external" href="https://github.com/pgRouting/pgrouting">pgRouting Library</a> code base:</p>
-<div class="highlight-bash"><div class="highlight"><pre>git clone git://github.com/pgRouting/pgrouting.git pgrouting
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone git://github.com/pgRouting/pgrouting.git pgrouting
 </pre></div>
 </div>
 <p>If you plan to submit patches or changes, make a <strong>fork</strong> of the repository:</p>
@@ -206,14 +207,14 @@ If you&#8217;re new to Git, find more information here:</p>
 <li>Go to: <a class="reference external" href="https://github.com/pgRouting/pgrouting">https://github.com/pgRouting/pgrouting</a>,  click the &#8220;fork&#8221; button. Now you should have your own version of the repository.</li>
 <li>Use the same commands as above, but you&#8217;ll substitute your username like this:</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>git clone git://github.com/&lt;username&gt;/pgrouting.git pgrouting
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone git://github.com/&lt;username&gt;/pgrouting.git pgrouting
 </pre></div>
 </div>
 </div>
 <div class="section" id="pgrouting-website">
 <h3>pgRouting Website<a class="headerlink" href="#pgrouting-website" title="Permalink to this headline">¶</a></h3>
 <p>To checkout the latest <a class="reference external" href="https://github.com/pgRouting/pgrouting">pgRouting Website</a> code base:</p>
-<div class="highlight-bash"><div class="highlight"><pre>git clone git://github.com/pgRouting/website.git website
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone git://github.com/pgRouting/website.git website
 </pre></div>
 </div>
 <p>The pgRouting website is built with <a class="reference external" href="http://sphinx.pocoo.org">Sphinx</a>. If you want to make changes to the website, contribute content or make corrections, feel free to fork the repository and submit pull requests. Or send an email to <a class="reference external" href="mailto:project&#37;&#52;&#48;pgrouting&#46;org">project<span>&#64;</span>pgrouting<span>&#46;</span>org</a> and we will give you commit rights to the repository.</p>
@@ -236,14 +237,14 @@ If you&#8217;re new to Git, find more information here:</p>
 </div>
 <div class="section" id="request-for-comments-rfc">
 <h2>Request for Comments (RFC)<a class="headerlink" href="#request-for-comments-rfc" title="Permalink to this headline">¶</a></h2>
-<p>pgRouting <a class="reference internal" href="rfc/index.html"><em>RFC&#8217;s</em></a> describes a major change in the technological underpinnings of pgRouting, major additions to functionality, or changes in the direction of the project.</p>
+<p>pgRouting <a class="reference internal" href="rfc/index.html"><span class="doc">RFC&#8217;s</span></a> describes a major change in the technological underpinnings of pgRouting, major additions to functionality, or changes in the direction of the project.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
 <div class="section" id="project-steering-committee">
 <span id="development-psc"></span><h2>Project Steering Committee<a class="headerlink" href="#project-steering-committee" title="Permalink to this headline">¶</a></h2>
 <p>Due to members inactivity the project steering committee is currently not operating.</p>
-<p>For Project Steering Committee guideline see <a class="reference internal" href="rfc/rfc-01.html"><em>RFC 01</em></a>.</p>
+<p>For Project Steering Committee guideline see <a class="reference internal" href="rfc/rfc-01.html"><span class="doc">RFC 01</span></a>.</p>
 </div>
 </div>
 

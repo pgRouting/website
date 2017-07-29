@@ -93,7 +93,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -105,11 +105,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -151,7 +156,7 @@ pgRouting project site.</p>
 <div class="section" id="how-to-install-ubuntu-8-04">
 <h2>How to install (Ubuntu 8.04)<a class="headerlink" href="#how-to-install-ubuntu-8-04" title="Permalink to this headline">¶</a></h2>
 <p>Check out the latest version from SVN repository:</p>
-<div class="highlight-bash"><div class="highlight"><pre>svn checkout http://pgrouting.postlbs.org/svn/pgrouting/tools/osm2pgrouting/trunk osm2pgrouting
+<div class="highlight-bash"><div class="highlight"><pre><span></span>svn checkout http://pgrouting.postlbs.org/svn/pgrouting/tools/osm2pgrouting/trunk osm2pgrouting
 </pre></div>
 </div>
 <p>Required packages/libraries:</p>
@@ -168,7 +173,7 @@ pgRouting project site.</p>
 <p class="last">if you already compiled pgRouting point 1. to 4. should already be installed.</p>
 </div>
 <p>Then compile</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> osm2pgrouting
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> osm2pgrouting
 make
 </pre></div>
 </div>
@@ -178,7 +183,7 @@ make
 <ul class="simple">
 <li>First you need to create a database and add PostGIS and pgRouting functions:</li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre>createdb -U postgres osm
+<div class="highlight-bash"><div class="highlight"><pre><span></span>createdb -U postgres osm
 createlang -U postgres plpgsql osm
 
 psql -U postgres -f /usr/share/postgresql-8.3-postgis/lwpostgis.sql osm
@@ -193,7 +198,7 @@ psql -U postgres -f /usr/share/postlbs/routing_topology.sql osm
 <li>You can define the features and attributes to be imported from the OpenStreetMap XML file in the configuration file (default: mapconfig.xml)</li>
 <li>Open a terminal window and run osm2pgrouting with the following paramters</li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre>./osm2pgrouting -file /home/foss4g/capetown_20080829.osm <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./osm2pgrouting -file /home/foss4g/capetown_20080829.osm <span class="se">\</span>
                                 -conf mapconfig.xml <span class="se">\</span>
                                 -dbname osm <span class="se">\</span>
                                 -user postgres <span class="se">\</span>
@@ -201,14 +206,14 @@ psql -U postgres -f /usr/share/postlbs/routing_topology.sql osm
 </pre></div>
 </div>
 <p>Other available parameters are:</p>
-<div class="highlight-bash"><div class="highlight"><pre>* required:
+<div class="highlight-bash"><div class="highlight"><pre><span></span>* required:
        -file   &lt;file&gt;          -- name of your osm xml file
        -dbname &lt;dbname&gt;        -- name of your database
        -user   &lt;user&gt;          -- name of the user, which have write access to the database
        -conf   &lt;file&gt;          -- name of your configuration xml file
 * optional:
-       -host   &lt;host&gt;          -- host of your postgresql database <span class="o">(</span>default: 127.0.0.1<span class="o">)</span>
-       -port   &lt;port&gt;          -- port of your database <span class="o">(</span>default: 5432<span class="o">)</span>
+       -host   &lt;host&gt;          -- host of your postgresql database <span class="o">(</span>default: <span class="m">127</span>.0.0.1<span class="o">)</span>
+       -port   &lt;port&gt;          -- port of your database <span class="o">(</span>default: <span class="m">5432</span><span class="o">)</span>
        -passwd &lt;passwd&gt;        --  password <span class="k">for</span> database access
        -clean                          -- drop peviously created tables
 </pre></div>
@@ -216,7 +221,7 @@ psql -U postgres -f /usr/share/postlbs/routing_topology.sql osm
 <ul class="simple">
 <li>Connect to your database and see the tables that have been created</li>
 </ul>
-<div class="highlight-sql"><div class="highlight"><pre>psql -U postgres osm
+<div class="highlight-sql"><div class="highlight"><pre><span></span>psql -U postgres osm
 \d
                      List of relations
  Schema |        Name         |   Type   |  Owner

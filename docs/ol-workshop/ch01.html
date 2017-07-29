@@ -84,7 +84,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -96,11 +96,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -135,17 +140,17 @@
   <div class="section" id="create-a-routing-database">
 <span id="ol-workshop-ch01"></span><h1>Create a routing database<a class="headerlink" href="#create-a-routing-database" title="Permalink to this headline">¶</a></h1>
 <p>We will create a database “routing” and load the PostGIS and pgRouting functions.</p>
-<div class="highlight-bash"><div class="highlight"><pre>createdb -U postgres -E UNICODE routing
+<div class="highlight-bash"><div class="highlight"><pre><span></span>createdb -U postgres -E UNICODE routing
 createlang -U postgres plpgsql routing
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> /usr/share/postgresql/8.2/contrib/
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> /usr/share/postgresql/8.2/contrib/
 psql -U postgres -f postgis-1.2.1/lwpostgis.sql routing
 psql -U postgres -f postgis-1.2.1/spatial_ref_sys.sql routing
 </pre></div>
 </div>
 <p>The sql-data will probably be in /usr/share/postlbs/</p>
-<div class="highlight-bash"><div class="highlight"><pre>psql -U postgres -f routing_core.sql routing
+<div class="highlight-bash"><div class="highlight"><pre><span></span>psql -U postgres -f routing_core.sql routing
 psql -U postgres -f routing_core_wrappers.sql routing
 psql -U postgres -f routing_topology.sql routing
 psql -U postgres -f matching.sql routing

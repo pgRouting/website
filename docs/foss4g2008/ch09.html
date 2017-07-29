@@ -98,7 +98,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -110,11 +110,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -159,7 +164,7 @@ have same source and target but different costs.</p>
 <p>For Shooting-Star you need to prepare your network table and add the
 &#8220;reverse_cost&#8221; and &#8220;to_cost&#8221; column. Like A-Star this algorithm also has a
 heuristic function, which prefers links closer to the target of the search.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">reverse_cost</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">reverse_cost</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
 <span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">reverse_cost</span> <span class="o">=</span> <span class="k">length</span><span class="p">;</span>
 
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">to_cost</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
@@ -174,7 +179,7 @@ heuristic function, which prefers links closer to the target of the search.</p>
 <li>rule: a string with a comma separated list of edge IDs, which describes a rule for turning restriction (if you came along these edges, you can pass through the current one only with the cost stated in to_cost column)</li>
 <li>to_cost: a cost of a restricted passage (can be very high in a case of turn restriction or comparable with an edge cost in a case of traffic light)</li>
 </ul>
-<div class="highlight-sql"><div class="highlight"><pre><span class="n">shortest_path_shooting_star</span><span class="p">(</span> <span class="k">sql</span> <span class="nb">text</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">shortest_path_shooting_star</span><span class="p">(</span> <span class="k">sql</span> <span class="nb">text</span><span class="p">,</span>
                    <span class="n">source_id</span> <span class="nb">integer</span><span class="p">,</span>
                    <span class="n">target_id</span> <span class="nb">integer</span><span class="p">,</span>
                    <span class="n">directed</span> <span class="nb">boolean</span><span class="p">,</span>
@@ -191,13 +196,13 @@ heuristic function, which prefers links closer to the target of the search.</p>
 <p>Shooting* algorithm calculates a path from edge to edge (not from vertex to
 vertex). Column vertex_id contains start vertex of an edge from column edge_id.</p>
 <p>To describe turn restrictions:</p>
-<div class="highlight-sql"><div class="highlight"><pre> <span class="n">gid</span> <span class="o">|</span> <span class="k">source</span> <span class="o">|</span> <span class="n">target</span> <span class="o">|</span> <span class="n">cost</span> <span class="o">|</span> <span class="n">x1</span> <span class="o">|</span> <span class="n">y1</span> <span class="o">|</span> <span class="n">x2</span> <span class="o">|</span> <span class="n">y2</span> <span class="o">|</span> <span class="n">to_cost</span> <span class="o">|</span> <span class="k">rule</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span> <span class="n">gid</span> <span class="o">|</span> <span class="k">source</span> <span class="o">|</span> <span class="n">target</span> <span class="o">|</span> <span class="n">cost</span> <span class="o">|</span> <span class="n">x1</span> <span class="o">|</span> <span class="n">y1</span> <span class="o">|</span> <span class="n">x2</span> <span class="o">|</span> <span class="n">y2</span> <span class="o">|</span> <span class="n">to_cost</span> <span class="o">|</span> <span class="k">rule</span>
 <span class="c1">-----+--------+--------+------+----+----+----+----+---------+------</span>
   <span class="mi">12</span> <span class="o">|</span>      <span class="mi">3</span> <span class="o">|</span>     <span class="mi">10</span> <span class="o">|</span>    <span class="mi">2</span> <span class="o">|</span>  <span class="mi">4</span> <span class="o">|</span>  <span class="mi">3</span> <span class="o">|</span>  <span class="mi">4</span> <span class="o">|</span>  <span class="mi">5</span> <span class="o">|</span>    <span class="mi">1000</span> <span class="o">|</span> <span class="mi">14</span>
 </pre></div>
 </div>
 <p>means that the cost of going from edge 14 to edge 12 is 1000, and</p>
-<div class="highlight-sql"><div class="highlight"><pre> <span class="n">gid</span> <span class="o">|</span> <span class="k">source</span> <span class="o">|</span> <span class="n">target</span> <span class="o">|</span> <span class="n">cost</span> <span class="o">|</span> <span class="n">x1</span> <span class="o">|</span> <span class="n">y1</span> <span class="o">|</span> <span class="n">x2</span> <span class="o">|</span> <span class="n">y2</span> <span class="o">|</span> <span class="n">to_cost</span> <span class="o">|</span> <span class="k">rule</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span> <span class="n">gid</span> <span class="o">|</span> <span class="k">source</span> <span class="o">|</span> <span class="n">target</span> <span class="o">|</span> <span class="n">cost</span> <span class="o">|</span> <span class="n">x1</span> <span class="o">|</span> <span class="n">y1</span> <span class="o">|</span> <span class="n">x2</span> <span class="o">|</span> <span class="n">y2</span> <span class="o">|</span> <span class="n">to_cost</span> <span class="o">|</span> <span class="k">rule</span>
 <span class="c1">-----+--------+--------+------+----+----+----+----+---------+------</span>
   <span class="mi">12</span> <span class="o">|</span>      <span class="mi">3</span> <span class="o">|</span>     <span class="mi">10</span> <span class="o">|</span>    <span class="mi">2</span> <span class="o">|</span>  <span class="mi">4</span> <span class="o">|</span>  <span class="mi">3</span> <span class="o">|</span>  <span class="mi">4</span> <span class="o">|</span>  <span class="mi">5</span> <span class="o">|</span>    <span class="mi">1000</span> <span class="o">|</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">4</span>
 </pre></div>
@@ -205,7 +210,7 @@ vertex). Column vertex_id contains start vertex of an edge from column edge_id.<
 <p>means that the cost of going from edge 14 to edge 12 through edge 4 is 1000.</p>
 <p>If you need multiple restrictions for a given edge then you have to add
 multiple records for that edge each with a separate restriction.</p>
-<div class="highlight-sql"><div class="highlight"><pre> <span class="n">gid</span> <span class="o">|</span> <span class="k">source</span> <span class="o">|</span> <span class="n">target</span> <span class="o">|</span> <span class="n">cost</span> <span class="o">|</span> <span class="n">x1</span> <span class="o">|</span> <span class="n">y1</span> <span class="o">|</span> <span class="n">x2</span> <span class="o">|</span> <span class="n">y2</span> <span class="o">|</span> <span class="n">to_cost</span> <span class="o">|</span> <span class="k">rule</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span> <span class="n">gid</span> <span class="o">|</span> <span class="k">source</span> <span class="o">|</span> <span class="n">target</span> <span class="o">|</span> <span class="n">cost</span> <span class="o">|</span> <span class="n">x1</span> <span class="o">|</span> <span class="n">y1</span> <span class="o">|</span> <span class="n">x2</span> <span class="o">|</span> <span class="n">y2</span> <span class="o">|</span> <span class="n">to_cost</span> <span class="o">|</span> <span class="k">rule</span>
 <span class="c1">-----+--------+--------+------+----+----+----+----+---------+------</span>
   <span class="mi">11</span> <span class="o">|</span>      <span class="mi">3</span> <span class="o">|</span>     <span class="mi">10</span> <span class="o">|</span>    <span class="mi">2</span> <span class="o">|</span>  <span class="mi">4</span> <span class="o">|</span>  <span class="mi">3</span> <span class="o">|</span>  <span class="mi">4</span> <span class="o">|</span>  <span class="mi">5</span> <span class="o">|</span>    <span class="mi">1000</span> <span class="o">|</span> <span class="mi">4</span>
   <span class="mi">11</span> <span class="o">|</span>      <span class="mi">3</span> <span class="o">|</span>     <span class="mi">10</span> <span class="o">|</span>    <span class="mi">2</span> <span class="o">|</span>  <span class="mi">4</span> <span class="o">|</span>  <span class="mi">3</span> <span class="o">|</span>  <span class="mi">4</span> <span class="o">|</span>  <span class="mi">5</span> <span class="o">|</span>    <span class="mi">1000</span> <span class="o">|</span> <span class="mi">12</span>
@@ -217,7 +222,7 @@ path function..</p>
 </div>
 <div class="section" id="example-of-shooting-star-core-function">
 <h3>Example of Shooting-Star core function<a class="headerlink" href="#example-of-shooting-star-core-function" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_shooting_star</span><span class="p">(</span><span class="s1">&#39;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_shooting_star</span><span class="p">(</span><span class="s1">&#39;</span>
 <span class="s1">                SELECT gid as id,</span>
 <span class="s1">                         source::integer,</span>
 <span class="s1">                         target::integer,</span>
@@ -228,7 +233,7 @@ path function..</p>
                 <span class="mi">293</span><span class="p">,</span> <span class="mi">761</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre> <span class="n">vertex_id</span> <span class="o">|</span> <span class="n">edge_id</span> <span class="o">|</span>        <span class="n">cost</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span> <span class="n">vertex_id</span> <span class="o">|</span> <span class="n">edge_id</span> <span class="o">|</span>        <span class="n">cost</span>
 <span class="c1">-----------+---------+---------------------</span>
           <span class="mi">4232</span> <span class="o">|</span>     <span class="mi">293</span> <span class="o">|</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">0059596293824534</span>
           <span class="mi">3144</span> <span class="o">|</span>     <span class="mi">293</span> <span class="o">|</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">0059596293824534</span>
@@ -244,11 +249,11 @@ path function..</p>
 <h2>Wrapper function WITH bounding box<a class="headerlink" href="#wrapper-function-with-bounding-box" title="Permalink to this headline">¶</a></h2>
 <p>Wrapper functions extend the core functions with transformations, bounding box
 limitations, etc..</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
         <span class="k">FROM</span> <span class="n">shootingstar_sp</span><span class="p">(</span><span class="s1">&#39;ways&#39;</span><span class="p">,</span> <span class="mi">293</span><span class="p">,</span> <span class="mi">761</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre>  <span class="n">gid</span>   <span class="o">|</span>                              <span class="n">the_geom</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span>  <span class="n">gid</span>   <span class="o">|</span>                              <span class="n">the_geom</span>
 <span class="c1">--------+---------------------------------------------------------------</span>
         <span class="mi">293</span> <span class="o">|</span> <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">18</span><span class="p">.</span><span class="mi">4074149</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9443308</span><span class="p">,</span><span class="mi">18</span><span class="p">.</span><span class="mi">4074019</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9443833</span><span class="p">))</span>
         <span class="mi">293</span> <span class="o">|</span> <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">18</span><span class="p">.</span><span class="mi">4074149</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9443308</span><span class="p">,</span><span class="mi">18</span><span class="p">.</span><span class="mi">4074019</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9443833</span><span class="p">))</span>

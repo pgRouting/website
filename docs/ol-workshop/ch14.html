@@ -84,7 +84,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -96,11 +96,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -137,7 +142,7 @@
 <p>To get a path on one line like that:</p>
 <a class="reference internal image-reference" href="../../_images/path_on_one_line.PNG"><img alt="../../_images/path_on_one_line.PNG" class="align-center" src="../../_images/path_on_one_line.PNG" style="width: 457.0px; height: 424.0px;" /></a>
 <p>Please use the following function</p>
-<div class="highlight-sql"><div class="highlight"><pre>CREATE OR REPLACE FUNCTION intersection_on_line(gid_a integer,start geometry,ende geometry)
+<div class="highlight-sql"><div class="highlight"><pre><span></span>CREATE OR REPLACE FUNCTION intersection_on_line(gid_a integer,start geometry,ende geometry)
   RETURNS geometry AS
 $BODY$
 DECLARE
@@ -263,7 +268,7 @@ $BODY$
 </pre></div>
 </div>
 <p>It is called in routing3.php if startedge-gid and end-edge-gid are equal.</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="x">if ($startEdge[&#39;gid&#39;]==$endEdge[&#39;gid&#39;]){</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">if ($startEdge[&#39;gid&#39;]==$endEdge[&#39;gid&#39;]){</span>
 
 <span class="x">        $abfrage_path_between_two_points=&quot;SELECT astext(intersection_on_line($result_besidegeometrie_begin_gid,&#39;$point_on_line_begin&#39;,&#39;$point_on_line_ende&#39;)) as wkt,ST_length(schnittpunkt_auf_linie($result_besidegeometrie_begin_gid,&#39;$point_on_line_begin&#39;,&#39;$point_on_line_ende&#39;)) as length&quot;;</span>
 

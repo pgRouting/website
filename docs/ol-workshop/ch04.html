@@ -84,7 +84,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -96,11 +96,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -145,7 +150,7 @@ epsg-file of the proj-library.</p>
 understand that this was the reason, that my geodata were located 80 kilometers
 too much in the south), so, as an SQL-command use the following to bring 900913
 in the spatial_ref_sys-table:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">spatial_ref_sys</span> <span class="p">(</span><span class="n">srid</span><span class="p">,</span> <span class="n">auth_name</span><span class="p">,</span> <span class="n">auth_srid</span><span class="p">,</span> <span class="n">srtext</span><span class="p">,</span> <span class="n">proj4text</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">900913</span><span class="p">,</span> <span class="s1">&#39;EPSG&#39;</span><span class="p">,</span> <span class="mi">900913</span><span class="p">,</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">spatial_ref_sys</span> <span class="p">(</span><span class="n">srid</span><span class="p">,</span> <span class="n">auth_name</span><span class="p">,</span> <span class="n">auth_srid</span><span class="p">,</span> <span class="n">srtext</span><span class="p">,</span> <span class="n">proj4text</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">900913</span><span class="p">,</span> <span class="s1">&#39;EPSG&#39;</span><span class="p">,</span> <span class="mi">900913</span><span class="p">,</span>
 <span class="s1">&#39;PROJCS[&quot;unnamed&quot;,GEOGCS[&quot;unnamed ellipse&quot;,DATUM[&quot;unknown&quot;,SPHEROID[&quot;unnamed&quot;,6378137,0]],</span>
 <span class="s1">PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;degree&quot;,0.0174532925199433]],</span>
 <span class="s1">PROJECTION[&quot;Mercator_2SP&quot;],PARAMETER[&quot;standard_parallel_1&quot;,0],PARAMETER[&quot;central_meridian&quot;,0],PARAMETER[&quot;false_easting&quot;,0],</span>
@@ -155,7 +160,7 @@ in the spatial_ref_sys-table:</p>
 </pre></div>
 </div>
 <p>In the epsg-file (should be in /usr/local/share/proj/epsg) write at the end:</p>
-<div class="highlight-bash"><div class="highlight"><pre>&lt;900913&gt; +proj<span class="o">=</span>merc +a<span class="o">=</span><span class="m">6378137</span> +b<span class="o">=</span><span class="m">6378137</span> +lat_ts<span class="o">=</span>0.0 +lon_0<span class="o">=</span>0.0 +x_0<span class="o">=</span>0.0 +y_0<span class="o">=</span><span class="m">0</span> +k<span class="o">=</span>1.0 +units<span class="o">=</span>m +nadgrids<span class="o">=</span>@null +no_defs
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&lt;<span class="m">900913</span>&gt; +proj<span class="o">=</span>merc +a<span class="o">=</span><span class="m">6378137</span> +b<span class="o">=</span><span class="m">6378137</span> +lat_ts<span class="o">=</span><span class="m">0</span>.0 +lon_0<span class="o">=</span><span class="m">0</span>.0 +x_0<span class="o">=</span><span class="m">0</span>.0 +y_0<span class="o">=</span><span class="m">0</span> +k<span class="o">=</span><span class="m">1</span>.0 +units<span class="o">=</span>m +nadgrids<span class="o">=</span>@null +no_defs
 </pre></div>
 </div>
 <p>... so you have the possibility now to transform your geodata.</p>
@@ -165,13 +170,13 @@ and add a new column &#8220;the_geom&#8221; (as geometry).</p>
 <p>After that you need to change the table geometry_columns. You need to type that
 the srid for the_geom (table ways &amp; and vertices_tmp) is 900913 as well (!!!)</p>
 <p>Then do the SQL-command:.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">the_geom</span><span class="o">=</span><span class="k">transform</span><span class="p">(</span><span class="n">the_geom_4326</span><span class="p">,</span><span class="mi">900913</span><span class="p">)</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">the_geom</span><span class="o">=</span><span class="k">transform</span><span class="p">(</span><span class="n">the_geom_4326</span><span class="p">,</span><span class="mi">900913</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>...and your data in the_geom exist in the &#8220;Google Projection&#8221;.</p>
 <p>Furthermore you need to add a column &#8220;id&#8221; (integer) to the table &#8220;ways&#8221; to work with the routing-alorithm.</p>
 <p>If you have that column just do the command:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">id</span><span class="o">=</span><span class="n">gid</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">id</span><span class="o">=</span><span class="n">gid</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>After that the table-structure of &#8220;ways&#8221; should look like:</p>
@@ -187,7 +192,7 @@ vertices of &#8220;vertices_tmp&#8221;). This result comes from OSM-Shape-files 
 <p><strong>How to test the geodata?</strong></p>
 <p>First of all many thank to Stephen WOODBRIDGE for that idea.</p>
 <p>You need to type the following commands on your vertices_tmp-table</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">alter</span> <span class="k">table</span> <span class="n">vertices_tmp</span> <span class="k">add</span> <span class="k">column</span> <span class="n">cnt</span> <span class="nb">integer</span><span class="p">;</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">alter</span> <span class="k">table</span> <span class="n">vertices_tmp</span> <span class="k">add</span> <span class="k">column</span> <span class="n">cnt</span> <span class="nb">integer</span><span class="p">;</span>
 <span class="k">update</span> <span class="n">vertices_tmp</span> <span class="k">set</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 <span class="k">update</span> <span class="n">vertices_tmp</span> <span class="k">set</span> <span class="n">cnt</span><span class="o">=</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span> <span class="k">from</span> <span class="n">ways</span> <span class="k">where</span> <span class="n">ways</span><span class="p">.</span><span class="k">source</span><span class="o">=</span><span class="n">vertices_tmp</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
 <span class="k">update</span> <span class="n">vertices_tmp</span> <span class="k">set</span> <span class="n">cnt</span><span class="o">=</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span> <span class="k">from</span> <span class="n">ways</span> <span class="k">where</span> <span class="n">ways</span><span class="p">.</span><span class="n">target</span><span class="o">=</span><span class="n">vertices_tmp</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
@@ -196,142 +201,142 @@ vertices of &#8220;vertices_tmp&#8221;). This result comes from OSM-Shape-files 
 <p>This will display red dots at dead ends and green dots as good
 connections be segments.</p>
 <p>You can visualize it with the UMN MapServer, just take a mapfile like:</p>
-<div class="highlight-python"><div class="highlight"><pre>MAP
-        NAME &#39;mymap&#39;
-        STATUS ON
-        EXTENT 880000 6840000 915000 6860000
-        IMAGECOLOR 255 255 255
-        SIZE 700 700
-        SYMBOLSET &#39;/your_path/symbols/symbols.sym&#39;
-        FONTSET &#39;/your_path/fonts/fonts.list&#39;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MAP</span>
+        <span class="n">NAME</span> <span class="s1">&#39;mymap&#39;</span>
+        <span class="n">STATUS</span> <span class="n">ON</span>
+        <span class="n">EXTENT</span> <span class="mi">880000</span> <span class="mi">6840000</span> <span class="mi">915000</span> <span class="mi">6860000</span>
+        <span class="n">IMAGECOLOR</span> <span class="mi">255</span> <span class="mi">255</span> <span class="mi">255</span>
+        <span class="n">SIZE</span> <span class="mi">700</span> <span class="mi">700</span>
+        <span class="n">SYMBOLSET</span> <span class="s1">&#39;/your_path/symbols/symbols.sym&#39;</span>
+        <span class="n">FONTSET</span> <span class="s1">&#39;/your_path/fonts/fonts.list&#39;</span>
 
-        WEB
-                TEMPLATE  &#39;template.html&#39;
-                IMAGEPATH &#39;/your_path/tmp/&#39;
-                IMAGEURL   &#39;/tmp/&#39;
+        <span class="n">WEB</span>
+                <span class="n">TEMPLATE</span>  <span class="s1">&#39;template.html&#39;</span>
+                <span class="n">IMAGEPATH</span> <span class="s1">&#39;/your_path/tmp/&#39;</span>
+                <span class="n">IMAGEURL</span>   <span class="s1">&#39;/tmp/&#39;</span>
 
-                METADATA
-                        &#39;WMS_TITLE&#39;   &#39;Gastronomap_routing&#39;
-                        &#39;WMS_FEATURE_INFO_MIME_TYPE&#39; &#39;text/html&#39;
-                        &#39;WMS_ONLINERESOURCE&#39;   &#39;http://localhost/cgi-bin/mapserv?map=/your_path/routing.map&#39;
-                        &#39;WMS_SRS&#39;       &quot;EPSG:900913&quot;
-                END
-        END
+                <span class="n">METADATA</span>
+                        <span class="s1">&#39;WMS_TITLE&#39;</span>   <span class="s1">&#39;Gastronomap_routing&#39;</span>
+                        <span class="s1">&#39;WMS_FEATURE_INFO_MIME_TYPE&#39;</span> <span class="s1">&#39;text/html&#39;</span>
+                        <span class="s1">&#39;WMS_ONLINERESOURCE&#39;</span>   <span class="s1">&#39;http://localhost/cgi-bin/mapserv?map=/your_path/routing.map&#39;</span>
+                        <span class="s1">&#39;WMS_SRS&#39;</span>       <span class="s2">&quot;EPSG:900913&quot;</span>
+                <span class="n">END</span>
+        <span class="n">END</span>
 
-        PROJECTION
-                &#39;init=epsg:900913&#39;
-        END
+        <span class="n">PROJECTION</span>
+                <span class="s1">&#39;init=epsg:900913&#39;</span>
+        <span class="n">END</span>
 
-        LAYER
-                OFFSITE 255 255 255
-                #LABELITEM &#39;name&#39;
-                TOLERANCE 20
-                NAME            &#39;streets&#39;
-                TYPE            LINE
-                STATUS  DEFAULT
-                CONNECTIONTYPE postgis
-                CONNECTION &#39;user=postgres password=postgres dbname=routing host=localhost port=5432&#39;
-                DATA &#39;the_geom from ways as foo using unique gid using SRID=900913&#39;
-                CLASSITEM &#39;gid&#39;
-                TEMPLATE &#39;ausgabe.phtml&#39;
+        <span class="n">LAYER</span>
+                <span class="n">OFFSITE</span> <span class="mi">255</span> <span class="mi">255</span> <span class="mi">255</span>
+                <span class="c1">#LABELITEM &#39;name&#39;</span>
+                <span class="n">TOLERANCE</span> <span class="mi">20</span>
+                <span class="n">NAME</span>            <span class="s1">&#39;streets&#39;</span>
+                <span class="n">TYPE</span>            <span class="n">LINE</span>
+                <span class="n">STATUS</span>  <span class="n">DEFAULT</span>
+                <span class="n">CONNECTIONTYPE</span> <span class="n">postgis</span>
+                <span class="n">CONNECTION</span> <span class="s1">&#39;user=postgres password=postgres dbname=routing host=localhost port=5432&#39;</span>
+                <span class="n">DATA</span> <span class="s1">&#39;the_geom from ways as foo using unique gid using SRID=900913&#39;</span>
+                <span class="n">CLASSITEM</span> <span class="s1">&#39;gid&#39;</span>
+                <span class="n">TEMPLATE</span> <span class="s1">&#39;ausgabe.phtml&#39;</span>
 
-                METADATA
-                        &#39;WMS_TITLE&#39;   &#39;streets&#39;
-                        &#39;WMS_SRS&#39;    &quot;EPSG:900913&quot;
-                        &#39;WMS_INCLUDE_ITEMS&#39; &#39;all&#39;
-                END
+                <span class="n">METADATA</span>
+                        <span class="s1">&#39;WMS_TITLE&#39;</span>   <span class="s1">&#39;streets&#39;</span>
+                        <span class="s1">&#39;WMS_SRS&#39;</span>    <span class="s2">&quot;EPSG:900913&quot;</span>
+                        <span class="s1">&#39;WMS_INCLUDE_ITEMS&#39;</span> <span class="s1">&#39;all&#39;</span>
+                <span class="n">END</span>
 
-                CLASS
-                        TEXT ([gid],[source],[target])
-                        EXPRESSION /./
+                <span class="n">CLASS</span>
+                        <span class="n">TEXT</span> <span class="p">([</span><span class="n">gid</span><span class="p">],[</span><span class="n">source</span><span class="p">],[</span><span class="n">target</span><span class="p">])</span>
+                        <span class="n">EXPRESSION</span> <span class="o">/./</span>
 
-                        STYLE
-                                WIDTH 1
-                                COLOR 0 0 0
-                        END
+                        <span class="n">STYLE</span>
+                                <span class="n">WIDTH</span> <span class="mi">1</span>
+                                <span class="n">COLOR</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+                        <span class="n">END</span>
 
-                        LABEL
-                                TYPE TRUETYPE
-                                ANTIALIAS TRUE
-                                FONT &#39;arial&#39;
-                                COLOR 0 0 0
-                                BACKGROUNDCOLOR 240 240 240
-                                POSITION cc
-                                MINSIZE 8
-                                MAXSIZE 12
-                                BUFFER 2
-                        END
-                END
-        END
+                        <span class="n">LABEL</span>
+                                <span class="n">TYPE</span> <span class="n">TRUETYPE</span>
+                                <span class="n">ANTIALIAS</span> <span class="n">TRUE</span>
+                                <span class="n">FONT</span> <span class="s1">&#39;arial&#39;</span>
+                                <span class="n">COLOR</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+                                <span class="n">BACKGROUNDCOLOR</span> <span class="mi">240</span> <span class="mi">240</span> <span class="mi">240</span>
+                                <span class="n">POSITION</span> <span class="n">cc</span>
+                                <span class="n">MINSIZE</span> <span class="mi">8</span>
+                                <span class="n">MAXSIZE</span> <span class="mi">12</span>
+                                <span class="n">BUFFER</span> <span class="mi">2</span>
+                        <span class="n">END</span>
+                <span class="n">END</span>
+        <span class="n">END</span>
 
-        LAYER
-                OFFSITE 255 255 255
-                #LABELITEM &#39;name&#39;
-                TOLERANCE 20
-                NAME            &#39;dead_ends&#39;
-                TYPE            POINT
-                STATUS  DEFAULT
-                CONNECTIONTYPE postgis
-                CONNECTION &#39;user=postgres password=postgres dbname=routing host=localhost port=5432&#39;
-                DATA &#39;the_geom from vertices_tmp as foo using unique id using SRID=900913&#39;
+        <span class="n">LAYER</span>
+                <span class="n">OFFSITE</span> <span class="mi">255</span> <span class="mi">255</span> <span class="mi">255</span>
+                <span class="c1">#LABELITEM &#39;name&#39;</span>
+                <span class="n">TOLERANCE</span> <span class="mi">20</span>
+                <span class="n">NAME</span>            <span class="s1">&#39;dead_ends&#39;</span>
+                <span class="n">TYPE</span>            <span class="n">POINT</span>
+                <span class="n">STATUS</span>  <span class="n">DEFAULT</span>
+                <span class="n">CONNECTIONTYPE</span> <span class="n">postgis</span>
+                <span class="n">CONNECTION</span> <span class="s1">&#39;user=postgres password=postgres dbname=routing host=localhost port=5432&#39;</span>
+                <span class="n">DATA</span> <span class="s1">&#39;the_geom from vertices_tmp as foo using unique id using SRID=900913&#39;</span>
 
 
-                CLASSITEM &#39;cnt&#39;
-                TEMPLATE &#39;ausgabe.phtml&#39;
+                <span class="n">CLASSITEM</span> <span class="s1">&#39;cnt&#39;</span>
+                <span class="n">TEMPLATE</span> <span class="s1">&#39;ausgabe.phtml&#39;</span>
 
-                METADATA
-                        &#39;WMS_TITLE&#39;   &#39;dead_ends&#39;
-                        &#39;WMS_SRS&#39;    &quot;EPSG:900913&quot;
-                        &#39;WMS_INCLUDE_ITEMS&#39; &#39;all&#39;
-                END
+                <span class="n">METADATA</span>
+                        <span class="s1">&#39;WMS_TITLE&#39;</span>   <span class="s1">&#39;dead_ends&#39;</span>
+                        <span class="s1">&#39;WMS_SRS&#39;</span>    <span class="s2">&quot;EPSG:900913&quot;</span>
+                        <span class="s1">&#39;WMS_INCLUDE_ITEMS&#39;</span> <span class="s1">&#39;all&#39;</span>
+                <span class="n">END</span>
 
-                CLASS
-                        Text ([id])
-                        EXPRESSION /1/
+                <span class="n">CLASS</span>
+                        <span class="n">Text</span> <span class="p">([</span><span class="nb">id</span><span class="p">])</span>
+                        <span class="n">EXPRESSION</span> <span class="o">/</span><span class="mi">1</span><span class="o">/</span>
 
-                        STYLE
-                                SYMBOL &#39;tent&#39;
-                                SIZE 11
-                                COLOR 255 0 0
-                        END
+                        <span class="n">STYLE</span>
+                                <span class="n">SYMBOL</span> <span class="s1">&#39;tent&#39;</span>
+                                <span class="n">SIZE</span> <span class="mi">11</span>
+                                <span class="n">COLOR</span> <span class="mi">255</span> <span class="mi">0</span> <span class="mi">0</span>
+                        <span class="n">END</span>
 
-                        LABEL
-                                TYPE TRUETYPE
-                                ANTIALIAS TRUE
-                                FONT &#39;arial&#39;
-                                COLOR 255 0 0
-                                BACKGROUNDCOLOR 240 240 240
-                                POSITION cr
-                                MINSIZE 8
-                                MAXSIZE 12
-                                BUFFER 2
-                        END
-                END
+                        <span class="n">LABEL</span>
+                                <span class="n">TYPE</span> <span class="n">TRUETYPE</span>
+                                <span class="n">ANTIALIAS</span> <span class="n">TRUE</span>
+                                <span class="n">FONT</span> <span class="s1">&#39;arial&#39;</span>
+                                <span class="n">COLOR</span> <span class="mi">255</span> <span class="mi">0</span> <span class="mi">0</span>
+                                <span class="n">BACKGROUNDCOLOR</span> <span class="mi">240</span> <span class="mi">240</span> <span class="mi">240</span>
+                                <span class="n">POSITION</span> <span class="n">cr</span>
+                                <span class="n">MINSIZE</span> <span class="mi">8</span>
+                                <span class="n">MAXSIZE</span> <span class="mi">12</span>
+                                <span class="n">BUFFER</span> <span class="mi">2</span>
+                        <span class="n">END</span>
+                <span class="n">END</span>
 
-                CLASS
-                        TEXT ([id])
-                        EXPRESSION /./
+                <span class="n">CLASS</span>
+                        <span class="n">TEXT</span> <span class="p">([</span><span class="nb">id</span><span class="p">])</span>
+                        <span class="n">EXPRESSION</span> <span class="o">/./</span>
 
-                        STYLE
-                                SYMBOL &#39;tent&#39;
-                                SIZE 11
-                                COLOR 0 0 255
-                        END
+                        <span class="n">STYLE</span>
+                                <span class="n">SYMBOL</span> <span class="s1">&#39;tent&#39;</span>
+                                <span class="n">SIZE</span> <span class="mi">11</span>
+                                <span class="n">COLOR</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">255</span>
+                        <span class="n">END</span>
 
-                        LABEL
-                                TYPE TRUETYPE
-                                ANTIALIAS TRUE
-                                FONT &#39;arial&#39;
-                                COLOR 0 0 255
-                                BACKGROUNDCOLOR 240 240 240
-                                POSITION cr
-                                MINSIZE 8
-                                MAXSIZE 12
-                                BUFFER 2
-                        END
-                END
-        END
-END
+                        <span class="n">LABEL</span>
+                                <span class="n">TYPE</span> <span class="n">TRUETYPE</span>
+                                <span class="n">ANTIALIAS</span> <span class="n">TRUE</span>
+                                <span class="n">FONT</span> <span class="s1">&#39;arial&#39;</span>
+                                <span class="n">COLOR</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">255</span>
+                                <span class="n">BACKGROUNDCOLOR</span> <span class="mi">240</span> <span class="mi">240</span> <span class="mi">240</span>
+                                <span class="n">POSITION</span> <span class="n">cr</span>
+                                <span class="n">MINSIZE</span> <span class="mi">8</span>
+                                <span class="n">MAXSIZE</span> <span class="mi">12</span>
+                                <span class="n">BUFFER</span> <span class="mi">2</span>
+                        <span class="n">END</span>
+                <span class="n">END</span>
+        <span class="n">END</span>
+<span class="n">END</span>
 </pre></div>
 </div>
 <p>If you open your MapServer-testing-apllication via:

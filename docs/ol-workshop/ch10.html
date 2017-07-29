@@ -84,7 +84,7 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/>Support pgRouting with some donation! <a href="../../donate.html">Read more</a> about how your donation will help the project.
+			<br/> <a href="../../donate.html">Read more</a>
 		</form>				
     </p>
     <h2>Links</h2>
@@ -96,11 +96,16 @@
     
     <!-- Callout -->
     <div class="callout-sidebar">
-        <a href="http://2016.foss4g.org">
-        <img src="../../_static/img/foss4g_2016.png" 
-            alt="FOSS4G 2016, Bonn" title="FOSS4G 2016, Bonn" style="width:210px;"/>
+
+        <a href="http://2017.foss4g.org">
+        <img src="../../_static/img/foss4g_2017.png" 
+            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
         </a>
         
+        <a href="http://locatepress.com/pgrouting">
+        <img src="../../_static/img/book_fullsize.png" 
+            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        </a>
         <!--a href="http://europe.foss4g.org">
         <img src="../../_static/img/foss4ge_2015.png" 
             alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
@@ -136,7 +141,7 @@
 <span id="ol-workshop-ch10"></span><h1>Adapting the code so that the gaps are filled<a class="headerlink" href="#adapting-the-code-so-that-the-gaps-are-filled" title="Permalink to this headline">¶</a></h1>
 <p>First of all you need to change the line 164-168 in the index.html</p>
 <p>instead of</p>
-<div class="highlight-js"><div class="highlight"><pre><span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">loadURL</span><span class="p">(</span><span class="s2">&quot;routing.php?startpoint=&quot;</span><span class="o">+</span><span class="nx">startPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nx">startPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">y</span><span class="o">+</span><span class="s2">&quot;&amp;finalpoint=&quot;</span><span class="o">+</span>
+<div class="highlight-js"><div class="highlight"><pre><span></span><span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">loadURL</span><span class="p">(</span><span class="s2">&quot;routing.php?startpoint=&quot;</span><span class="o">+</span><span class="nx">startPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nx">startPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">y</span><span class="o">+</span><span class="s2">&quot;&amp;finalpoint=&quot;</span><span class="o">+</span>
         <span class="nx">stopPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nx">stopPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">y</span><span class="o">+</span><span class="s2">&quot;&amp;method=SPD&amp;srid=900913&quot;</span><span class="p">,</span>
                                    <span class="kc">null</span><span class="p">,</span>
                                    <span class="kc">null</span><span class="p">,</span>
@@ -145,7 +150,7 @@
 </pre></div>
 </div>
 <p>write</p>
-<div class="highlight-js"><div class="highlight"><pre><span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">loadURL</span><span class="p">(</span><span class="s2">&quot;routing2.php?startpoint=&quot;</span><span class="o">+</span><span class="nx">startPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nx">startPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">y</span><span class="o">+</span><span class="s2">&quot;&amp;finalpoint=&quot;</span>
+<div class="highlight-js"><div class="highlight"><pre><span></span><span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">loadURL</span><span class="p">(</span><span class="s2">&quot;routing2.php?startpoint=&quot;</span><span class="o">+</span><span class="nx">startPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nx">startPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">y</span><span class="o">+</span><span class="s2">&quot;&amp;finalpoint=&quot;</span>
         <span class="o">+</span><span class="nx">stopPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nx">stopPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">y</span><span class="o">+</span><span class="s2">&quot;&amp;method=SPD&amp;srid=900913&quot;</span><span class="p">,</span>
                            <span class="kc">null</span><span class="p">,</span>
                            <span class="kc">null</span><span class="p">,</span>
@@ -154,7 +159,7 @@
 </pre></div>
 </div>
 <p>The code of routing2 looks like</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 
           <span class="c1">// Database connection settings</span>
            <span class="nb">define</span><span class="p">(</span><span class="s2">&quot;PG_DB&quot;</span>  <span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">);</span>
