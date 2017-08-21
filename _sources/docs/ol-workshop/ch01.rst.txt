@@ -1,0 +1,34 @@
+:Author: Kai Behncke (edited Daniel Kastl)
+:License: Creative Commons
+
+.. _ol-workshop-ch01:
+
+================================================================
+ Create a routing database
+================================================================
+
+We will create a database “routing” and load the PostGIS and pgRouting functions. 
+
+.. code-block:: bash
+
+	createdb -U postgres -E UNICODE routing
+	createlang -U postgres plpgsql routing
+
+
+
+.. code-block:: bash
+
+	cd /usr/share/postgresql/8.2/contrib/
+	psql -U postgres -f postgis-1.2.1/lwpostgis.sql routing
+	psql -U postgres -f postgis-1.2.1/spatial_ref_sys.sql routing
+
+
+The sql-data will probably be in /usr/share/postlbs/
+
+.. code-block:: bash
+
+	psql -U postgres -f routing_core.sql routing
+	psql -U postgres -f routing_core_wrappers.sql routing
+	psql -U postgres -f routing_topology.sql routing
+	psql -U postgres -f matching.sql routing
+
