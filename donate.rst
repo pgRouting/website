@@ -119,8 +119,6 @@ Donations and Sponsorship received in the past 12 months
 
 The following people or organizations have made donations or supplied financial development support to the pgRouting project and have specifically requested that their names appear here:
 
-* `Binary Options Broker <https://www.binaryuno.com>`_ (Bronze Sponsor)
-* `San Francisco Bay Area Movers <https://uplinemoving.com>`_ (Bronze Sponsor)
 * `Website Security Companies <https://www.security-audit.com/company>`_ (Bronze Sponsor)
 * `Stretchmarks.org <http://stretchmarks.org>`_ (Bronze Sponsor)
 * `Vein Disease Resource <https://varicoseveins.org>`_ (Bronze Sponsor)
