@@ -146,7 +146,7 @@ html_static_path = ['_static']
 #html_additional_pages = {}
 
 # If false, no module index is generated.
-html_use_modindex = False
+html_domain_indices = False
 
 # If false, no index is generated.
 html_use_index = False
@@ -172,11 +172,10 @@ html_show_sphinx = False
 
 # -- Options for LaTeX output --------------------------------------------------
 
-# The paper size ('letter' or 'a4').
-latex_paper_size = 'a4'
-
-# The font size ('10pt', '11pt' or '12pt').
-latex_font_size = '10pt'
+latex_elements = {
+  'papersize': 'a4',
+  'pointsize': '10pt'
+}
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
@@ -200,4 +199,4 @@ latex_documents = [
 #latex_appendices = []
 
 # If false, no module index is generated.
-latex_use_modindex = False
+html_domain_indices = False
