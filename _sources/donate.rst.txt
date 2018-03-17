@@ -92,7 +92,7 @@ Sponsoring the pgRouting project provides the following benefits:
   * Silver sponsors will be listed on the sponsors page with a medium size logo (30k pixel, e.g. 200x150px)
   * Bronze sponsors will be listed on the sponsors page with a small size logo (6k ixel, e.g. 100x60px)
 
-* Sponsors will be allowed to use a special version of the pgRouting logo on their web site, which shows they are a sponsor of the pgRouting project
+* Sponsors will be allowed to use the pgRouting logo on their web site and show they are a sponsor of the pgRouting project
 * Donors will be listed on the sponsors page upon request, but do not receive the additional benefits listed above for sponsors
 
 
@@ -111,7 +111,7 @@ As an example, we would like to fund the following project activities:
 
 .. note::
 
-	For the beginning (to keep it simple) we're using a private PayPal account 	registered by `Georepublic <http://georepublic.info>`_ (Germany). In case 	the amount of donations will increase by a signifacant amount we might 	consider to setup some non-profit organisation. Georepublic will report donations to the pgRouting PSC.
+	For the beginning (to keep it simple) we're using a private PayPal account 	registered by `Georepublic <http://georepublic.info>`_ (Germany). In case the amount of donations will increase by a significant amount we might 	consider to setup some non-profit organization. Georepublic will report donations to the pgRouting PSC.
 
 
 Donations and Sponsorship received in the past 12 months
@@ -119,7 +119,7 @@ Donations and Sponsorship received in the past 12 months
 
 The following people or organizations have made donations or supplied financial development support to the pgRouting project and have specifically requested that their names appear here:
 
-* `Website Security Companies <https://www.security-audit.com/company>`_ (Bronze Sponsor)
+* `IT Security Jobs <https://www.cybersecurityjobs.net>`_ (Bronze Sponsor)
 * `Stretchmarks.org <http://stretchmarks.org>`_ (Bronze Sponsor)
 * `Vein Disease Resource <https://varicoseveins.org>`_ (Bronze Sponsor)
 * `Online Educational Site <http://www.onlinedegree.com>`_ (Bronze Sponsor)
@@ -137,6 +137,8 @@ The following people or organizations have made donations or supplied financial 
 .. |sponsor_komzpa| image:: https://s.gravatar.com/avatar/d9bf60a9d201fe514efa27ac865dc5f7?s=77
 	 :target: http://komzpa.net/
 	 :alt:  Darafei Praliaskouski
+
+* `3D Printing <https://www.allthat3d.com>`_ (Bronze Sponsor)
 
 Many thanks to the listed and non-listed supporters have provided support or made donations. Names listed here are by specific request (and will be removed after about 12 months). If you have made a donation or provided financial support and wish to appear in this list (no links!), please send an email to project at pgrouting dot org.
 
