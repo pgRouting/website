@@ -33,10 +33,10 @@ Sponsorship
 
 Sponsors can sponsor pgRouting for any amount of money of at least 150 EUR / 200 USD. Sponsorships last one year, after which they may be continued with a new payment, or allowed to lapse. At or above the following levels a sponsor will be designated as being one of the following class:
 
-* 1.500+ EUR / 2.000+ USD: Platinum Sponsor
-* 750+ EUR / 1.000+ USD: Gold Sponsor
-* 450+ EUR / 600+ USD: Silver Sponsor
-* 150+ EUR / 200+ USD: Bronze Sponsor
+* 1.700+ EUR / 2.000+ USD: Platinum Sponsor
+* 850+ EUR / 1.000+ USD: Gold Sponsor
+* 510+ EUR / 600+ USD: Silver Sponsor
+* 170+ EUR / 200+ USD: Bronze Sponsor
 
 .. raw:: html
 
@@ -90,7 +90,7 @@ Sponsoring the pgRouting project provides the following benefits:
   * Platinum Sponsors will have their logo placed in the sidebar of pgrouting.org
   * Gold Sponsors will be listed on the sponsors page with a large logo (60k pixel, e.g. 300x200px)
   * Silver sponsors will be listed on the sponsors page with a medium size logo (30k pixel, e.g. 200x150px)
-  * Bronze sponsors will be listed on the sponsors page with a small size logo (6k ixel, e.g. 100x60px)
+  * Bronze sponsors will be listed on the sponsors page without logo
 
 * Sponsors will be allowed to use the pgRouting logo on their web site and show they are a sponsor of the pgRouting project
 * Donors will be listed on the sponsors page upon request, but do not receive the additional benefits listed above for sponsors
