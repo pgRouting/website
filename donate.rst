@@ -131,6 +131,14 @@ The following people or organizations have made donations or supplied financial 
 	 :target: http://www.serenataflowers.com
 	 :alt:  SerenataFlowers.com
 
+* `Hipper.com <https://www.hipper.com/en/uk/flowers>`_ (Bronze Sponsor)
+	|sponsor_hipper|
+
+.. |sponsor_hipper| image:: _static/img/sponsor_hipper.png
+	 :width: 120
+	 :target: https://www.hipper.com/en/uk/flowers
+	 :alt:  Hipper.com
+
 * `Darafei Praliaskouski <http://komzpa.net/>`_ (Bronze Sponsor)
 	|sponsor_komzpa|
 
