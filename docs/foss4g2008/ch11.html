@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Advanced usage of pgRouting shortest path search &#8212; Open Source Routing Library</title>
-    
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -29,7 +26,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -98,38 +95,28 @@
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <a href="https://2018.foss4g.org">
+        <a href="http://2018.foss4g.org">
         <img src="../../_static/img/foss4g_2018.png"
             alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
         </a>
 
         <a href="https://europe.foss4g.org/2018">
-        <img src="../../_static/img/foss4ge_2018.png"
-            alt="FOSS4G Europe 2018, Guimarães (Portugal)" title="FOSS4G Europe 2018, Guimarães (Portugal)" style="width:120px;"/>
+          <img src="../../_static/img/foss4ge_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
         </a>
 
         <a href="http://www.foss4g-asia.org/2018">
-        <img src="../../_static/img/foss4gasia_2018.png"
-            alt="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" title="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" style="width:120px;"/>
+          <img src="../../_static/img/foss4gasia_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
         </a>
 
-        <a href="https://locatepress.com/pgrouting">
-        <img src="../../_static/img/book_fullsize.png"
-            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        <a href="http://locatepress.com/pgrouting">
+          <img src="../../_static/img/book_fullsize.png"
+              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
-
-        <!--a href="http://www.fossgis.de/konferenz/2015/">
-        <img src="../../_static/img/fossgis_2015.png"
-            alt="FOSSGIS 2015, Münster" title="FOSSGIS 2015, Münster" style="height:130px;"/>
-        </a-->
-
-        <!--a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2015">
-        <img src="../../_static/img/gsoc_2015.jpg"
-            alt="Google Summer of Code 2015" title="Google Summer of Code 2015" style="height:130px;"/>
-        </a-->
 
         <a href="http://www.osgeo.org">
-        <img src="../../_static/img/OSGeo_logo.png"
+          <img src="../../_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
     </div>
@@ -169,7 +156,7 @@
 </div>
 <p>That is usually called SHORTEST path, which means that a length of an edge is
 its cost.</p>
-<p><strong>Costs can be anything (&#8220;Weighted costs&#8221;)</strong></p>
+<p><strong>Costs can be anything (“Weighted costs”)</strong></p>
 <p>But in real networks we have different limitations or preferences for different
 road types for example. In other words, we want to calculate CHEAPEST path - a
 path with a minimal cost. There is no limitation in what we take as costs.</p>
@@ -257,12 +244,12 @@ the cost of each link (usually length):</p>
 </pre></div>
 </div>
 <p>We can see that the shortest path result is completely different from the
-example before. We call this &#8220;weighted costs&#8221;.</p>
+example before. We call this “weighted costs”.</p>
 <p>Another example is to restrict access to roads of a certain type:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">classes</span> <span class="k">SET</span> <span class="n">cost</span><span class="o">=</span><span class="mi">100000</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;motorway%&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Through subqueries you can &#8220;mix&#8221; your costs as you like and this will change
+<p>Through subqueries you can “mix” your costs as you like and this will change
 the results of your routing request immediately. Cost changes will affect the
 next shortest path search, and there is no need to rebuild your network.</p>
 </div>

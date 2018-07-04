@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Installation on FreeBSD &#8212; Open Source Routing Library</title>
-    
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -31,7 +28,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -74,7 +71,7 @@
                         title="previous chapter">Installation on CentOS</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../howto.html"
-                        title="next chapter">pgRouting Howto&#8217;s</a></p>
+                        title="next chapter">pgRouting Howto’s</a></p>
     
     <h2>Make a Donation</h2>
     <p>
@@ -108,38 +105,28 @@
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <a href="https://2018.foss4g.org">
+        <a href="http://2018.foss4g.org">
         <img src="../../_static/img/foss4g_2018.png"
             alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
         </a>
 
         <a href="https://europe.foss4g.org/2018">
-        <img src="../../_static/img/foss4ge_2018.png"
-            alt="FOSS4G Europe 2018, Guimarães (Portugal)" title="FOSS4G Europe 2018, Guimarães (Portugal)" style="width:120px;"/>
+          <img src="../../_static/img/foss4ge_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
         </a>
 
         <a href="http://www.foss4g-asia.org/2018">
-        <img src="../../_static/img/foss4gasia_2018.png"
-            alt="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" title="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" style="width:120px;"/>
+          <img src="../../_static/img/foss4gasia_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
         </a>
 
-        <a href="https://locatepress.com/pgrouting">
-        <img src="../../_static/img/book_fullsize.png"
-            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        <a href="http://locatepress.com/pgrouting">
+          <img src="../../_static/img/book_fullsize.png"
+              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
-
-        <!--a href="http://www.fossgis.de/konferenz/2015/">
-        <img src="../../_static/img/fossgis_2015.png"
-            alt="FOSSGIS 2015, Münster" title="FOSSGIS 2015, Münster" style="height:130px;"/>
-        </a-->
-
-        <!--a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2015">
-        <img src="../../_static/img/gsoc_2015.jpg"
-            alt="Google Summer of Code 2015" title="Google Summer of Code 2015" style="height:130px;"/>
-        </a-->
 
         <a href="http://www.osgeo.org">
-        <img src="../../_static/img/OSGeo_logo.png"
+          <img src="../../_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
     </div>
@@ -160,7 +147,7 @@
 <p class="first admonition-title">Important</p>
 <p class="last">Only valid for pgRouting v1.x. For pgRouting v2.0 or higher see <a class="reference external" href="http://docs.pgrouting.org">http://docs.pgrouting.org</a></p>
 </div>
-<p>Here&#8217;s how I managed to install pgrouting 1.0.3 on FreeBSD together with TSP and DD.</p>
+<p>Here’s how I managed to install pgrouting 1.0.3 on FreeBSD together with TSP and DD.</p>
 <ul class="simple">
 <li>FreeBSD version: 8.1 (amd64)</li>
 <li>PostgreSQL version: 9.0.1 (installed from FreeBSD ports)</li>
@@ -178,7 +165,7 @@ which pulls in libslang, and add a line to disable slang support:</p>
 <span class="nv">CONFIGURE_ARGS</span><span class="o">+=</span> --disable-slang
 </pre></div>
 </div>
-<p>After installing gaul you need to modify one header file, otherwise you can&#8217;t
+<p>After installing gaul you need to modify one header file, otherwise you can’t
 compile pgrouting later. In file /usr/local/include/gaul/gaul_util.h, add this
 line after line 177:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>typedef short _Bool<span class="p">;</span>
@@ -196,7 +183,7 @@ not getting defined on FreeBSD and this band-aid fix allows pgrouting
 compilation to succeed. Someone more versed in software development on FreeBSD
 can probably suggest a proper fix.</p>
 <ol class="arabic" start="4">
-<li><p class="first">Install the math/cgal port. I installed version 3.6.1. This pulls in a large chunk of x.org...</p>
+<li><p class="first">Install the math/cgal port. I installed version 3.6.1. This pulls in a large chunk of x.org…</p>
 </li>
 <li><p class="first">Make some modifications to the source.</p>
 <blockquote>
@@ -211,8 +198,8 @@ extra/driving_distance/src/alpha.c
 extra/driving_distance/src/drivedist.c
 </pre></div>
 </div>
-<p>you need to add a line &#8216;#include &#8220;catalog/pg_type.h&#8221;&#8217; after line
-&#8216;#include &#8220;executor/spi.h&#8221;&#8217;. This is probably only necessary with PostgreSQL 8.4
+<p>you need to add a line ‘#include “catalog/pg_type.h”’ after line
+‘#include “executor/spi.h”’. This is probably only necessary with PostgreSQL 8.4
 and newer.</p>
 <blockquote>
 <div>5.2. In following files:</div></blockquote>
@@ -225,7 +212,7 @@ like this:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#include &lt;boost/property_map/property_map.hpp&gt;</span>
 </pre></div>
 </div>
-<p>This is probably not necessary with older versions of boost-libs, but I&#8217;m not
+<p>This is probably not necessary with older versions of boost-libs, but I’m not
 sure which version introduces the need for this change.</p>
 <blockquote>
 <div>5.3. In file core/src/shooting_star_boost_wrapper.cpp you need to change the path to include file vector_property_map.hpp in a way not unlike the previous change:</div></blockquote>
@@ -241,7 +228,7 @@ SET<span class="o">(</span>CMAKE_CXX_FLAGS <span class="s2">&quot;-O2 -g -fround
 </div>
 <p>This change is probably only necessary on 64bit systems, as discussed in ticket #204.</p>
 <blockquote>
-<div>5.5. Also in CMakeLists.txt, you might want to change the variable SQL_INSTALL_PATH to point to /usr/local/share/postlbs instead of /usr/share/postlbs, since the former is more in line with FreeBSD&#8217;s standard directory layout.</div></blockquote>
+<div>5.5. Also in CMakeLists.txt, you might want to change the variable SQL_INSTALL_PATH to point to /usr/local/share/postlbs instead of /usr/share/postlbs, since the former is more in line with FreeBSD’s standard directory layout.</div></blockquote>
 <ol class="arabic simple" start="6">
 <li>After making all these changes you can proceed to compile pgRouting and create a routing-enabled database as discussed in the installation manual.</li>
 </ol>

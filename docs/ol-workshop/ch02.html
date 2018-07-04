@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Get your own routing data &#8212; Open Source Routing Library</title>
-    
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -29,7 +26,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -98,38 +95,28 @@
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <a href="https://2018.foss4g.org">
+        <a href="http://2018.foss4g.org">
         <img src="../../_static/img/foss4g_2018.png"
             alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
         </a>
 
         <a href="https://europe.foss4g.org/2018">
-        <img src="../../_static/img/foss4ge_2018.png"
-            alt="FOSS4G Europe 2018, Guimarães (Portugal)" title="FOSS4G Europe 2018, Guimarães (Portugal)" style="width:120px;"/>
+          <img src="../../_static/img/foss4ge_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
         </a>
 
         <a href="http://www.foss4g-asia.org/2018">
-        <img src="../../_static/img/foss4gasia_2018.png"
-            alt="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" title="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" style="width:120px;"/>
+          <img src="../../_static/img/foss4gasia_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
         </a>
 
-        <a href="https://locatepress.com/pgrouting">
-        <img src="../../_static/img/book_fullsize.png"
-            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        <a href="http://locatepress.com/pgrouting">
+          <img src="../../_static/img/book_fullsize.png"
+              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
-
-        <!--a href="http://www.fossgis.de/konferenz/2015/">
-        <img src="../../_static/img/fossgis_2015.png"
-            alt="FOSSGIS 2015, Münster" title="FOSSGIS 2015, Münster" style="height:130px;"/>
-        </a-->
-
-        <!--a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2015">
-        <img src="../../_static/img/gsoc_2015.jpg"
-            alt="Google Summer of Code 2015" title="Google Summer of Code 2015" style="height:130px;"/>
-        </a-->
 
         <a href="http://www.osgeo.org">
-        <img src="../../_static/img/OSGeo_logo.png"
+          <img src="../../_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
     </div>
@@ -147,7 +134,7 @@
   <div class="section" id="get-your-own-routing-data">
 <span id="ol-workshop-ch02"></span><h1>Get your own routing data<a class="headerlink" href="#get-your-own-routing-data" title="Permalink to this headline">¶</a></h1>
 <p>Get your own routing data</p>
-<p>In that case from Osnabrück ... (in lower saxony(Germany))</p>
+<p>In that case from Osnabrück … (in lower saxony(Germany))</p>
 <p>Getting your own OpenStreetMap?-Routing-data is not the easiest step in the
 world. You know that you need data with a real topology?</p>
 <p>In generel Shapefiles should have one, but be very carefull with OSM-Shapefiles.
@@ -156,7 +143,7 @@ For most thing they work very nice, you get them e.g. from here:
 <p>But please don`t use these Shapefiles (and shp2pgsql) for a routing and have a
 look at that discussion: <a class="reference external" href="http://lists.postlbs.org/pipermail/pgrouting-users/2009-April/000096.html">http://lists.postlbs.org/pipermail/pgrouting-users/2009-April/000096.html</a></p>
 <p>Many thanks to Daniel KASTL who brought the needed information:</p>
-<p>... shp2pgsql imports the geometry correctly, but the topology function will
+<p>… shp2pgsql imports the geometry correctly, but the topology function will
 not work with how OSM represents their ways,  because ways consist (can consist)
 of more than one edge often.</p>
 <p>osm2pgrouting cares about this and splits a way into more edges if they cross
@@ -176,9 +163,9 @@ that:</p>
                                 <span class="nv">top</span><span class="o">=</span><span class="m">52</span>.3537 <span class="nv">bottom</span><span class="o">=</span><span class="m">52</span>.217 --write-xml osnabrueck.osm
 </pre></div>
 </div>
-<p>Now, you have the &#8220;real&#8221;-OSM-XML-Data from Osnabrück, (you find it in the
-download in the &#8220;data&#8221;-directory) but without a topology.</p>
-<p>For that you need the tool &#8220;osm2pgrouting&#8221;.</p>
+<p>Now, you have the “real”-OSM-XML-Data from Osnabrück, (you find it in the
+download in the “data”-directory) but without a topology.</p>
+<p>For that you need the tool “osm2pgrouting”.</p>
 </div>
 
 

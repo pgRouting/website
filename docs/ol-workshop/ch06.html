@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Explanation of the OpenLayers-Code step 1 &#8212; Open Source Routing Library</title>
-    
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -29,7 +26,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -98,38 +95,28 @@
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <a href="https://2018.foss4g.org">
+        <a href="http://2018.foss4g.org">
         <img src="../../_static/img/foss4g_2018.png"
             alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
         </a>
 
         <a href="https://europe.foss4g.org/2018">
-        <img src="../../_static/img/foss4ge_2018.png"
-            alt="FOSS4G Europe 2018, Guimarães (Portugal)" title="FOSS4G Europe 2018, Guimarães (Portugal)" style="width:120px;"/>
+          <img src="../../_static/img/foss4ge_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
         </a>
 
         <a href="http://www.foss4g-asia.org/2018">
-        <img src="../../_static/img/foss4gasia_2018.png"
-            alt="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" title="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" style="width:120px;"/>
+          <img src="../../_static/img/foss4gasia_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
         </a>
 
-        <a href="https://locatepress.com/pgrouting">
-        <img src="../../_static/img/book_fullsize.png"
-            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        <a href="http://locatepress.com/pgrouting">
+          <img src="../../_static/img/book_fullsize.png"
+              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
-
-        <!--a href="http://www.fossgis.de/konferenz/2015/">
-        <img src="../../_static/img/fossgis_2015.png"
-            alt="FOSSGIS 2015, Münster" title="FOSSGIS 2015, Münster" style="height:130px;"/>
-        </a-->
-
-        <!--a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2015">
-        <img src="../../_static/img/gsoc_2015.jpg"
-            alt="Google Summer of Code 2015" title="Google Summer of Code 2015" style="height:130px;"/>
-        </a-->
 
         <a href="http://www.osgeo.org">
-        <img src="../../_static/img/OSGeo_logo.png"
+          <img src="../../_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
     </div>
@@ -147,7 +134,7 @@
   <div class="section" id="explanation-of-the-openlayers-code-step-1">
 <span id="ol-workshop-ch06"></span><h1>Explanation of the OpenLayers-Code step 1<a class="headerlink" href="#explanation-of-the-openlayers-code-step-1" title="Permalink to this headline">¶</a></h1>
 <p>Before you load the code you should install Firebug in your Mozilla-Firefox-Brower
-(on Debian the name of that browser is &#8220;Iceweasel&#8221;).</p>
+(on Debian the name of that browser is “Iceweasel”).</p>
 <p>If you load the code (e.g. via <a class="reference external" href="http://localhost/openlayers/index.html">http://localhost/openlayers/index.html</a>)
 the following image should appear:</p>
 <a class="reference internal image-reference" href="../../_images/start_the_application.png"><img alt="../../_images/start_the_application.png" class="align-center" src="../../_images/start_the_application.png" style="width: 784.8px; height: 670.5px;" /></a>
@@ -160,7 +147,7 @@ the following image should appear:</p>
 <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>...the function toggleControl is activated.</p>
+<p>…the function toggleControl is activated.</p>
 <p>That actives (or deactivates) an OpenLayers. Control-Object</p>
 <div class="highlight-js"><div class="highlight"><pre><span></span>    <span class="nx">controls</span> <span class="o">=</span> <span class="p">{</span>
    <span class="nx">start</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Control</span><span class="p">.</span><span class="nx">DrawFeature</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">SinglePoint</span><span class="p">),</span>
@@ -185,9 +172,9 @@ the following image should appear:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>... whereas start and stop are keys in an Object Literal
+<p>… whereas start and stop are keys in an Object Literal
 (<a class="reference external" href="https://developer.mozilla.org/En/Sandbox/Javascript_Object_Literals">https://developer.mozilla.org/En/Sandbox/Javascript_Object_Literals</a>).</p>
-<p>The &#8220;start&#8221; and &#8220;stop&#8221; symbols are added to the map because of the following code:</p>
+<p>The “start” and “stop” symbols are added to the map because of the following code:</p>
 <div class="highlight-js"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">SinglePoint</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
  <span class="nx">SinglePoint</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">inherit</span><span class="p">(</span><span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Handler</span><span class="p">.</span><span class="nx">Point</span><span class="p">,</span> <span class="p">{</span>
      <span class="nx">createFeature</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>

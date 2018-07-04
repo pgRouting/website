@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Build pgRouting for Windows &#8212; Open Source Routing Library</title>
-    
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -31,7 +28,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -60,7 +57,7 @@
       <ul>
         <li><a href="../../index.html">Home</a> &#187;</li>
           <li><a href="../../documentation.html" >Documentation</a> &#187;</li>
-          <li><a href="../howto.html" accesskey="U">pgRouting Howto&#8217;s</a> &#187;</li>
+          <li><a href="../howto.html" accesskey="U">pgRouting Howto’s</a> &#187;</li>
         <li><a href="#">Build pgRouting for Windows</a></li>
       </ul>
     </div>
@@ -71,7 +68,7 @@
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="../howto.html"
-                        title="previous chapter">pgRouting Howto&#8217;s</a></p>
+                        title="previous chapter">pgRouting Howto’s</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="contribute.html"
                         title="next chapter">How to Contribute</a></p>
@@ -108,38 +105,28 @@
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <a href="https://2018.foss4g.org">
+        <a href="http://2018.foss4g.org">
         <img src="../../_static/img/foss4g_2018.png"
             alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
         </a>
 
         <a href="https://europe.foss4g.org/2018">
-        <img src="../../_static/img/foss4ge_2018.png"
-            alt="FOSS4G Europe 2018, Guimarães (Portugal)" title="FOSS4G Europe 2018, Guimarães (Portugal)" style="width:120px;"/>
+          <img src="../../_static/img/foss4ge_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
         </a>
 
         <a href="http://www.foss4g-asia.org/2018">
-        <img src="../../_static/img/foss4gasia_2018.png"
-            alt="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" title="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" style="width:120px;"/>
+          <img src="../../_static/img/foss4gasia_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
         </a>
 
-        <a href="https://locatepress.com/pgrouting">
-        <img src="../../_static/img/book_fullsize.png"
-            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        <a href="http://locatepress.com/pgrouting">
+          <img src="../../_static/img/book_fullsize.png"
+              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
-
-        <!--a href="http://www.fossgis.de/konferenz/2015/">
-        <img src="../../_static/img/fossgis_2015.png"
-            alt="FOSSGIS 2015, Münster" title="FOSSGIS 2015, Münster" style="height:130px;"/>
-        </a-->
-
-        <!--a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2015">
-        <img src="../../_static/img/gsoc_2015.jpg"
-            alt="Google Summer of Code 2015" title="Google Summer of Code 2015" style="height:130px;"/>
-        </a-->
 
         <a href="http://www.osgeo.org">
-        <img src="../../_static/img/OSGeo_logo.png"
+          <img src="../../_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
     </div>
@@ -196,7 +183,7 @@ cp /lib/libpthreadGC2.a /mingw/lib/libpthread.a
 <span class="c1">#rmdir /usr/local/include/boost-1_33_1</span>
 </pre></div>
 </div>
-<p>If you don&#8217;t need CGAL library (driving distance functionality),
+<p>If you don’t need CGAL library (driving distance functionality),
 pgRouting uses only Boost headers.
 So you needs download Boost headers(1.33.1 or later), and extract it.</p>
 <ul class="simple">
@@ -256,7 +243,7 @@ GAUL_LIBRARIES:FILEPATH<span class="o">=</span>GAUL_LIBRARIES-NOTFOUND
 <ul class="simple">
 <li><strong>Edit coresrcCMakeFilesrouting.dirflags.make</strong></li>
 </ul>
-<p>Adjust &lt;drive&gt; (ie. &#8220;C&#8221;) and &lt;my path&gt; to your system environment!</p>
+<p>Adjust &lt;drive&gt; (ie. “C”) and &lt;my path&gt; to your system environment!</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">C_FLAGS</span> <span class="o">=</span> -Drouting_EXPORTS -O2 -g <span class="se">\</span>
               -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/. <span class="se">\</span>
               -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/core <span class="se">\</span>
@@ -288,7 +275,7 @@ GAUL_LIBRARIES:FILEPATH<span class="o">=</span>GAUL_LIBRARIES-NOTFOUND
 <ul class="simple">
 <li><strong>Edit coresrcCMakeFilesrouting.dirbuild.make</strong></li>
 </ul>
-<p>Adjust &lt;drive&gt; (ie. &#8220;C&#8221;) and &lt;my path&gt; to your system environment!</p>
+<p>Adjust &lt;drive&gt; (ie. “C”) and &lt;my path&gt; to your system environment!</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">routing_EXTERNAL_OBJECTS</span> <span class="o">=</span> <span class="se">\</span>
 </pre></div>
 </div>
@@ -360,7 +347,7 @@ GAUL_LIBRARIES:FILEPATH<span class="o">=</span>GAUL_LIBRARIES-NOTFOUND
                  accesskey="P">previous</a> |</li>
         <li><a href="../../index.html">Home</a> &#187;</li>
           <li><a href="../../documentation.html" >Documentation</a> &#187;</li>
-          <li><a href="../howto.html" >pgRouting Howto&#8217;s</a> &#187;</li>
+          <li><a href="../howto.html" >pgRouting Howto’s</a> &#187;</li>
         <li><a href="#">Build pgRouting for Windows</a></li>
       </ul>
     </div>

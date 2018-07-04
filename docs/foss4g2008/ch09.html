@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>pgRouting with Shooting-Star algorithm &#8212; Open Source Routing Library</title>
-    
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -29,7 +26,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -70,7 +67,7 @@
 <li><a class="reference internal" href="#">pgRouting with Shooting-Star algorithm</a><ul>
 <li><a class="reference internal" href="#prepare-routing-table-for-shooting-star">Prepare routing table for Shooting-Star</a></li>
 <li><a class="reference internal" href="#shortest-path-shooting-star-core-function">Shortest Path Shooting-Star core function</a><ul>
-<li><a class="reference internal" href="#example-for-shooting-star-rule">Example for Shooting-Star &#8220;rule&#8221;</a></li>
+<li><a class="reference internal" href="#example-for-shooting-star-rule">Example for Shooting-Star “rule”</a></li>
 <li><a class="reference internal" href="#example-of-shooting-star-core-function">Example of Shooting-Star core function</a></li>
 </ul>
 </li>
@@ -112,38 +109,28 @@
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <a href="https://2018.foss4g.org">
+        <a href="http://2018.foss4g.org">
         <img src="../../_static/img/foss4g_2018.png"
             alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
         </a>
 
         <a href="https://europe.foss4g.org/2018">
-        <img src="../../_static/img/foss4ge_2018.png"
-            alt="FOSS4G Europe 2018, Guimarães (Portugal)" title="FOSS4G Europe 2018, Guimarães (Portugal)" style="width:120px;"/>
+          <img src="../../_static/img/foss4ge_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
         </a>
 
         <a href="http://www.foss4g-asia.org/2018">
-        <img src="../../_static/img/foss4gasia_2018.png"
-            alt="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" title="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" style="width:120px;"/>
+          <img src="../../_static/img/foss4gasia_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
         </a>
 
-        <a href="https://locatepress.com/pgrouting">
-        <img src="../../_static/img/book_fullsize.png"
-            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        <a href="http://locatepress.com/pgrouting">
+          <img src="../../_static/img/book_fullsize.png"
+              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
-
-        <!--a href="http://www.fossgis.de/konferenz/2015/">
-        <img src="../../_static/img/fossgis_2015.png"
-            alt="FOSSGIS 2015, Münster" title="FOSSGIS 2015, Münster" style="height:130px;"/>
-        </a-->
-
-        <!--a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2015">
-        <img src="../../_static/img/gsoc_2015.jpg"
-            alt="Google Summer of Code 2015" title="Google Summer of Code 2015" style="height:130px;"/>
-        </a-->
 
         <a href="http://www.osgeo.org">
-        <img src="../../_static/img/OSGeo_logo.png"
+          <img src="../../_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
     </div>
@@ -164,12 +151,12 @@
 Its speciality is that it routes from link to link, not from vertex to vertex
 as Dijkstra and A-Star algorithms do.
 This makes it possible to define relations between links for example, and it
-solves some other vertex-based algorithm issues like &#8220;parallel links&#8221;, which
+solves some other vertex-based algorithm issues like “parallel links”, which
 have same source and target but different costs.</p>
 <div class="section" id="prepare-routing-table-for-shooting-star">
 <h2>Prepare routing table for Shooting-Star<a class="headerlink" href="#prepare-routing-table-for-shooting-star" title="Permalink to this headline">¶</a></h2>
 <p>For Shooting-Star you need to prepare your network table and add the
-&#8220;reverse_cost&#8221; and &#8220;to_cost&#8221; column. Like A-Star this algorithm also has a
+“reverse_cost” and “to_cost” column. Like A-Star this algorithm also has a
 heuristic function, which prefers links closer to the target of the search.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">reverse_cost</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
 <span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">reverse_cost</span> <span class="o">=</span> <span class="k">length</span><span class="p">;</span>
@@ -196,10 +183,10 @@ heuristic function, which prefers links closer to the target of the search.</p>
 <p><strong>Note:</strong></p>
 <ul class="simple">
 <li>Source and target IDs are link IDs.</li>
-<li>Undirected graphs (&#8220;directed false&#8221;) ignores &#8220;has_reverse_cost&#8221; setting</li>
+<li>Undirected graphs (“directed false”) ignores “has_reverse_cost” setting</li>
 </ul>
 <div class="section" id="example-for-shooting-star-rule">
-<h3>Example for Shooting-Star &#8220;rule&#8221;<a class="headerlink" href="#example-for-shooting-star-rule" title="Permalink to this headline">¶</a></h3>
+<h3>Example for Shooting-Star “rule”<a class="headerlink" href="#example-for-shooting-star-rule" title="Permalink to this headline">¶</a></h3>
 <p>Shooting* algorithm calculates a path from edge to edge (not from vertex to
 vertex). Column vertex_id contains start vertex of an edge from column edge_id.</p>
 <p>To describe turn restrictions:</p>
@@ -273,8 +260,8 @@ limitations, etc..</p>
 </div>
 <p><strong>Note:</strong></p>
 <ul class="simple">
-<li>There is currently no wrapper function for A-Star without bounding box, since bounding boxes are very useful to increase performance. If you don&#8217;t need a bounding box Dijkstra will be enough anyway.</li>
-<li>The projection of OSM data is &#8220;degree&#8221;, so we set a bounding box containing start and end vertex plus a 0.1 degree buffer for example.</li>
+<li>There is currently no wrapper function for A-Star without bounding box, since bounding boxes are very useful to increase performance. If you don’t need a bounding box Dijkstra will be enough anyway.</li>
+<li>The projection of OSM data is “degree”, so we set a bounding box containing start and end vertex plus a 0.1 degree buffer for example.</li>
 </ul>
 </div>
 </div>

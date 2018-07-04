@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>RFC 02: [done] Migrate pgRouting to OSGeo Infrastructure &#8212; Open Source Routing Library</title>
-    
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -31,7 +28,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../index.html">pgRouting</a></h1>
@@ -92,7 +89,7 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="rfc-03.html"
-                        title="previous chapter">RFC 03: [done] Implementation of &#8220;All-pairs shortest path&#8221; algorithm</a></p>
+                        title="previous chapter">RFC 03: [done] Implementation of “All-pairs shortest path” algorithm</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="rfc-01.html"
                         title="next chapter">RFC 01: [done] Technical Steering Committee Guidelines</a></p>
@@ -129,38 +126,28 @@
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <a href="https://2018.foss4g.org">
+        <a href="http://2018.foss4g.org">
         <img src="../_static/img/foss4g_2018.png"
             alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
         </a>
 
         <a href="https://europe.foss4g.org/2018">
-        <img src="../_static/img/foss4ge_2018.png"
-            alt="FOSS4G Europe 2018, Guimarães (Portugal)" title="FOSS4G Europe 2018, Guimarães (Portugal)" style="width:120px;"/>
+          <img src="../_static/img/foss4ge_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
         </a>
 
         <a href="http://www.foss4g-asia.org/2018">
-        <img src="../_static/img/foss4gasia_2018.png"
-            alt="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" title="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" style="width:120px;"/>
+          <img src="../_static/img/foss4gasia_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
         </a>
 
-        <a href="https://locatepress.com/pgrouting">
-        <img src="../_static/img/book_fullsize.png"
-            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        <a href="http://locatepress.com/pgrouting">
+          <img src="../_static/img/book_fullsize.png"
+              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
-
-        <!--a href="http://www.fossgis.de/konferenz/2015/">
-        <img src="../_static/img/fossgis_2015.png"
-            alt="FOSSGIS 2015, Münster" title="FOSSGIS 2015, Münster" style="height:130px;"/>
-        </a-->
-
-        <!--a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2015">
-        <img src="../_static/img/gsoc_2015.jpg"
-            alt="Google Summer of Code 2015" title="Google Summer of Code 2015" style="height:130px;"/>
-        </a-->
 
         <a href="http://www.osgeo.org">
-        <img src="../_static/img/OSGeo_logo.png"
+          <img src="../_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
     </div>
@@ -204,9 +191,9 @@
 <h2>Motivation to migrate pgRouting infrastructure<a class="headerlink" href="#motivation-to-migrate-pgrouting-infrastructure" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>All maintenance work for mailing list, SVN repository, TRAC website is under the responsibility of Orkney at the moment.</li>
-<li>pgRouting would like to establish a new mailing list &#8220;pgrouting-dev&#8221; without the hassle of maintaining a mail server.</li>
+<li>pgRouting would like to establish a new mailing list “pgrouting-dev” without the hassle of maintaining a mail server.</li>
 <li>TRAC website faces SPAM problems from time to time and there is a large number of invalid users that have been subscribed by spam bots.</li>
-<li>pgRouting has close relation to OSGeo and other OSGeo projects. It&#8217;s part of OSGeo LiveDVD and OSGeo Labs and might aim for incubation someday.</li>
+<li>pgRouting has close relation to OSGeo and other OSGeo projects. It’s part of OSGeo LiveDVD and OSGeo Labs and might aim for incubation someday.</li>
 <li>OSGeo infrastructure provides backups and file downloads (ie. for releases)</li>
 <li>Project team is small and wants to minimize work for administration and maintenance to have more time for the project</li>
 </ul>
@@ -225,7 +212,7 @@
 <h2>Migration steps<a class="headerlink" href="#migration-steps" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mailing-lists">
 <h3>Mailing lists<a class="headerlink" href="#mailing-lists" title="Permalink to this headline">¶</a></h3>
-<p>Create a new mailing list &#8220;pgrouting-dev&#8221; and migrate existing list &#8220;pgrouting-users&#8221; to OSGeo mailing lists. Import existing mail archive and add current subscribers. Remove mailing list &#8220;announcements&#8221;.</p>
+<p>Create a new mailing list “pgrouting-dev” and migrate existing list “pgrouting-users” to OSGeo mailing lists. Import existing mail archive and add current subscribers. Remove mailing list “announcements”.</p>
 <p><a class="reference external" href="http://wiki.osgeo.org/wiki/SAC:Mailing_Lists">http://wiki.osgeo.org/wiki/SAC:Mailing_Lists</a></p>
 </div>
 <div class="section" id="svn-repository">
@@ -235,7 +222,7 @@
 </div>
 <div class="section" id="trac-website">
 <h3>TRAC website<a class="headerlink" href="#trac-website" title="Permalink to this headline">¶</a></h3>
-<p>For now it should be enough to have TRAC as the main website, providing bug tracker, repository browser and wiki. Someday, if we see the need for more &#8220;advanced&#8221; solutions, we can build another project site.
+<p>For now it should be enough to have TRAC as the main website, providing bug tracker, repository browser and wiki. Someday, if we see the need for more “advanced” solutions, we can build another project site.
 Create a new TRAC instance for pgRouting on OSGeo server and try to import as much content as possible. Create static pages of the current forum and keep them somewhere (where?)</p>
 <p><a class="reference external" href="http://wiki.osgeo.org/wiki/Trac_Instances">http://wiki.osgeo.org/wiki/Trac_Instances</a></p>
 </div>
@@ -246,14 +233,14 @@ Create a new TRAC instance for pgRouting on OSGeo server and try to import as mu
 </div>
 <div class="section" id="dns-settings">
 <h3>DNS settings<a class="headerlink" href="#dns-settings" title="Permalink to this headline">¶</a></h3>
-<p>Update DNS settings to comply with the new URL&#8217;s, create redirects to avoid dead links. (Keep pgrouting.postlbs.org or take &#8220;pgrouting.org&#8221; domain?)</p>
+<p>Update DNS settings to comply with the new URL’s, create redirects to avoid dead links. (Keep pgrouting.postlbs.org or take “pgrouting.org” domain?)</p>
 </div>
 </div>
 <div class="section" id="possible-issues">
 <h2>Possible issues<a class="headerlink" href="#possible-issues" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>OSGeo domain will be used for SVN, mailing lists, download server. How about TRAC?</li>
-<li>URL&#8217;s might change and links might not be accessible anymore.</li>
+<li>URL’s might change and links might not be accessible anymore.</li>
 <li>Discussion forum will be closed (keep current forum as static HTML and reference?). Can we expect all users to use the mailing list for questions?</li>
 </ul>
 </div>

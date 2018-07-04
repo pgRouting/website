@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Transforming, describing and testing the data &#8212; Open Source Routing Library</title>
-    
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -29,7 +26,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -98,38 +95,28 @@
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <a href="https://2018.foss4g.org">
+        <a href="http://2018.foss4g.org">
         <img src="../../_static/img/foss4g_2018.png"
             alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
         </a>
 
         <a href="https://europe.foss4g.org/2018">
-        <img src="../../_static/img/foss4ge_2018.png"
-            alt="FOSS4G Europe 2018, Guimarães (Portugal)" title="FOSS4G Europe 2018, Guimarães (Portugal)" style="width:120px;"/>
+          <img src="../../_static/img/foss4ge_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
         </a>
 
         <a href="http://www.foss4g-asia.org/2018">
-        <img src="../../_static/img/foss4gasia_2018.png"
-            alt="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" title="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" style="width:120px;"/>
+          <img src="../../_static/img/foss4gasia_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
         </a>
 
-        <a href="https://locatepress.com/pgrouting">
-        <img src="../../_static/img/book_fullsize.png"
-            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        <a href="http://locatepress.com/pgrouting">
+          <img src="../../_static/img/book_fullsize.png"
+              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
-
-        <!--a href="http://www.fossgis.de/konferenz/2015/">
-        <img src="../../_static/img/fossgis_2015.png"
-            alt="FOSSGIS 2015, Münster" title="FOSSGIS 2015, Münster" style="height:130px;"/>
-        </a-->
-
-        <!--a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2015">
-        <img src="../../_static/img/gsoc_2015.jpg"
-            alt="Google Summer of Code 2015" title="Google Summer of Code 2015" style="height:130px;"/>
-        </a-->
 
         <a href="http://www.osgeo.org">
-        <img src="../../_static/img/OSGeo_logo.png"
+          <img src="../../_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
     </div>
@@ -150,7 +137,7 @@
 <a class="reference internal image-reference" href="../../_images/database1.png"><img alt="../../_images/database1.png" class="align-center" src="../../_images/database1.png" style="width: 835.0px; height: 410.0px;" /></a>
 <p>You need to know: The geodata from OSM lie in the WGS84-reference-system, that
 has the epsg-code:4326.</p>
-<p>For our tutorial we work with the &#8220;Google-Projection&#8221; that has the epsg-code 900913.</p>
+<p>For our tutorial we work with the “Google-Projection” that has the epsg-code 900913.</p>
 <p>First of all you need to bring the code for 900913 in the database and in the
 epsg-file of the proj-library.</p>
 <p>Be carefull: Different codes for 900913 exist (it took me a couple of hours to
@@ -170,32 +157,32 @@ in the spatial_ref_sys-table:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>&lt;<span class="m">900913</span>&gt; +proj<span class="o">=</span>merc +a<span class="o">=</span><span class="m">6378137</span> +b<span class="o">=</span><span class="m">6378137</span> +lat_ts<span class="o">=</span><span class="m">0</span>.0 +lon_0<span class="o">=</span><span class="m">0</span>.0 +x_0<span class="o">=</span><span class="m">0</span>.0 +y_0<span class="o">=</span><span class="m">0</span> +k<span class="o">=</span><span class="m">1</span>.0 +units<span class="o">=</span>m +nadgrids<span class="o">=</span>@null +no_defs
 </pre></div>
 </div>
-<p>... so you have the possibility now to transform your geodata.</p>
+<p>… so you have the possibility now to transform your geodata.</p>
 <p>To get that, you need to remove the constraint that your geodata has to be in 4326.
-After that rename the column &#8220;the_geom&#8221; in the table ways to &#8220;the_geom_4326&#8221;
-and add a new column &#8220;the_geom&#8221; (as geometry).</p>
+After that rename the column “the_geom” in the table ways to “the_geom_4326”
+and add a new column “the_geom” (as geometry).</p>
 <p>After that you need to change the table geometry_columns. You need to type that
 the srid for the_geom (table ways &amp; and vertices_tmp) is 900913 as well (!!!)</p>
 <p>Then do the SQL-command:.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">the_geom</span><span class="o">=</span><span class="k">transform</span><span class="p">(</span><span class="n">the_geom_4326</span><span class="p">,</span><span class="mi">900913</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>...and your data in the_geom exist in the &#8220;Google Projection&#8221;.</p>
-<p>Furthermore you need to add a column &#8220;id&#8221; (integer) to the table &#8220;ways&#8221; to work with the routing-alorithm.</p>
+<p>…and your data in the_geom exist in the “Google Projection”.</p>
+<p>Furthermore you need to add a column “id” (integer) to the table “ways” to work with the routing-alorithm.</p>
 <p>If you have that column just do the command:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">id</span><span class="o">=</span><span class="n">gid</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>After that the table-structure of &#8220;ways&#8221; should look like:</p>
+<p>After that the table-structure of “ways” should look like:</p>
 <a class="reference internal image-reference" href="../../_images/table_routing_structure.png"><img alt="../../_images/table_routing_structure.png" class="align-center" src="../../_images/table_routing_structure.png" style="width: 579.0px; height: 474.0px;" /></a>
 <p>To be used for Dijkstra-algorithm every geometry needs to have a source and a
 target-value. These values needs to be identic with the id-numbers of the table
-&#8220;vertices_tmp&#8221;.</p>
-<p>The next screenshot shows how it shouldn&#8217;t (!!) look like:</p>
+“vertices_tmp”.</p>
+<p>The next screenshot shows how it shouldn’t (!!) look like:</p>
 <a class="reference internal image-reference" href="../../_images/weird_numbers1.png"><img alt="../../_images/weird_numbers1.png" class="align-center" src="../../_images/weird_numbers1.png" style="width: 712.8px; height: 386.1px;" /></a>
 <p>(the three numbers black on grey show the gid,source and target-values of the
-&#8220;ways&#8221;-table. The red-colured numbers are &#8220;dead ends&#8221;, and the blue-one correct
-vertices of &#8220;vertices_tmp&#8221;). This result comes from OSM-Shape-files ...</p>
+“ways”-table. The red-colured numbers are “dead ends”, and the blue-one correct
+vertices of “vertices_tmp”). This result comes from OSM-Shape-files …</p>
 <p><strong>How to test the geodata?</strong></p>
 <p>First of all many thank to Stephen WOODBRIDGE for that idea.</p>
 <p>You need to type the following commands on your vertices_tmp-table</p>

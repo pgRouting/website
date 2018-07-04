@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Converting OSM-Files into PostgreSQL-Scripts &#8212; Open Source Routing Library</title>
-    
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -31,7 +28,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -60,7 +57,7 @@
       <ul>
         <li><a href="../../index.html">Home</a> &#187;</li>
           <li><a href="../../documentation.html" >Documentation</a> &#187;</li>
-          <li><a href="../howto.html" accesskey="U">pgRouting Howto&#8217;s</a> &#187;</li>
+          <li><a href="../howto.html" accesskey="U">pgRouting Howto’s</a> &#187;</li>
         <li><a href="#">Converting OSM-Files into PostgreSQL-Scripts</a></li>
       </ul>
     </div>
@@ -108,38 +105,28 @@
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <a href="https://2018.foss4g.org">
+        <a href="http://2018.foss4g.org">
         <img src="../../_static/img/foss4g_2018.png"
             alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
         </a>
 
         <a href="https://europe.foss4g.org/2018">
-        <img src="../../_static/img/foss4ge_2018.png"
-            alt="FOSS4G Europe 2018, Guimarães (Portugal)" title="FOSS4G Europe 2018, Guimarães (Portugal)" style="width:120px;"/>
+          <img src="../../_static/img/foss4ge_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
         </a>
 
         <a href="http://www.foss4g-asia.org/2018">
-        <img src="../../_static/img/foss4gasia_2018.png"
-            alt="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" title="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" style="width:120px;"/>
+          <img src="../../_static/img/foss4gasia_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
         </a>
 
-        <a href="https://locatepress.com/pgrouting">
-        <img src="../../_static/img/book_fullsize.png"
-            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        <a href="http://locatepress.com/pgrouting">
+          <img src="../../_static/img/book_fullsize.png"
+              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
-
-        <!--a href="http://www.fossgis.de/konferenz/2015/">
-        <img src="../../_static/img/fossgis_2015.png"
-            alt="FOSSGIS 2015, Münster" title="FOSSGIS 2015, Münster" style="height:130px;"/>
-        </a-->
-
-        <!--a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2015">
-        <img src="../../_static/img/gsoc_2015.jpg"
-            alt="Google Summer of Code 2015" title="Google Summer of Code 2015" style="height:130px;"/>
-        </a-->
 
         <a href="http://www.osgeo.org">
-        <img src="../../_static/img/OSGeo_logo.png"
+          <img src="../../_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
     </div>
@@ -159,12 +146,12 @@
 <p><strong>Author:</strong> René Westerholt (edited by Daniel Kastl)</p>
 <p>If you desire to put some data for displaying as an WFS or WMS into your
 database you will assert, that most of the available tools for doing something
-like this are not very satisfying. The tool &#8220;osm2pgsql&#8221; has the fault, that only
+like this are not very satisfying. The tool “osm2pgsql” has the fault, that only
 attributes that are necessary for rendering the map, are imported into your
-database. If you want to have the attribute &#8220;surface&#8221; (for example) in your
-database, this wouldn&#8217;t be imported by osm2pgsql.</p>
-<p>The tool &#8220;osm2pgrouting&#8221; works well with creating a routing topology, but it&#8217;s
-not usefull for the problem aforementioned. &#8220;osmosis&#8221; is another tool for
+database. If you want to have the attribute “surface” (for example) in your
+database, this wouldn’t be imported by osm2pgsql.</p>
+<p>The tool “osm2pgrouting” works well with creating a routing topology, but it’s
+not usefull for the problem aforementioned. “osmosis” is another tool for
 importing data into a PostgreSQL database. But it creates a table structure that
 is very disastrous because it creates one row for each attribute that belongs to
 a geometry. So, if your geometry has 5 attributes, there would be 5 rows with
@@ -195,7 +182,7 @@ loaded in the SQL-Performer in PGAdmin III or even be executed on command-line
 as ususal.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The program &#8220;latlon2google&#8221; converts the data in the declared table from
+<p class="last">The program “latlon2google” converts the data in the declared table from
 geographical reference system into the google projection.</p>
 </div>
 </div>
@@ -217,7 +204,7 @@ geographical reference system into the google projection.</p>
                  accesskey="P">previous</a> |</li>
         <li><a href="../../index.html">Home</a> &#187;</li>
           <li><a href="../../documentation.html" >Documentation</a> &#187;</li>
-          <li><a href="../howto.html" >pgRouting Howto&#8217;s</a> &#187;</li>
+          <li><a href="../howto.html" >pgRouting Howto’s</a> &#187;</li>
         <li><a href="#">Converting OSM-Files into PostgreSQL-Scripts</a></li>
       </ul>
     </div>

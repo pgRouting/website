@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Load your network data and create a network topology &#8212; Open Source Routing Library</title>
-    
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -29,7 +26,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -108,38 +105,28 @@
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <a href="https://2018.foss4g.org">
+        <a href="http://2018.foss4g.org">
         <img src="../../_static/img/foss4g_2018.png"
             alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
         </a>
 
         <a href="https://europe.foss4g.org/2018">
-        <img src="../../_static/img/foss4ge_2018.png"
-            alt="FOSS4G Europe 2018, Guimarães (Portugal)" title="FOSS4G Europe 2018, Guimarães (Portugal)" style="width:120px;"/>
+          <img src="../../_static/img/foss4ge_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
         </a>
 
         <a href="http://www.foss4g-asia.org/2018">
-        <img src="../../_static/img/foss4gasia_2018.png"
-            alt="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" title="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" style="width:120px;"/>
+          <img src="../../_static/img/foss4gasia_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
         </a>
 
-        <a href="https://locatepress.com/pgrouting">
-        <img src="../../_static/img/book_fullsize.png"
-            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        <a href="http://locatepress.com/pgrouting">
+          <img src="../../_static/img/book_fullsize.png"
+              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
-
-        <!--a href="http://www.fossgis.de/konferenz/2015/">
-        <img src="../../_static/img/fossgis_2015.png"
-            alt="FOSSGIS 2015, Münster" title="FOSSGIS 2015, Münster" style="height:130px;"/>
-        </a-->
-
-        <!--a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2015">
-        <img src="../../_static/img/gsoc_2015.jpg"
-            alt="Google Summer of Code 2015" title="Google Summer of Code 2015" style="height:130px;"/>
-        </a-->
 
         <a href="http://www.osgeo.org">
-        <img src="../../_static/img/OSGeo_logo.png"
+          <img src="../../_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
     </div>
@@ -159,7 +146,7 @@
 <p>Some network data already comes with a network topology that can be used with
 pgRouting immediately. But usually the data is in a different format than we
 need for pgRouting. Often network data is stored in the Shape file format (.shp)
-and we can use PostGIS&#8217; shape2postgresql converter to import the data into the
+and we can use PostGIS’ shape2postgresql converter to import the data into the
 database. OpenStreetMap stores its data as XML and it has its own importing
 tools for PostgreSQL database.</p>
 <p>Later we will use the osm2pgrouting converter. But it does much more than the
@@ -177,7 +164,7 @@ our database:</p>
 <p>Note: The SQL dump file was made from a database which already had PostGIS
 functions loaded, so it will report errors during import that these functions
 already exist. You can ignore these errors.</p>
-<p>Let&#8217;s see witch tables have been created:</p>
+<p>Let’s see witch tables have been created:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>\d
 
                   List of relations
@@ -211,15 +198,15 @@ Check constraints:
 <p>Having your data imported into a PostgreSQL database usually requires one more
 step for pgRouting. You have to make sure that your data provides a correct
 network topology, which consists of links with source and target ID each.</p>
-<p>If your network data doesn&#8217;t have such network topology information already
-you need to run the &#8220;assign_vertex_id&#8221; function. This function assigns a source
-and a target ID to each link and it can &#8220;snap&#8221; nearby vertices within a
+<p>If your network data doesn’t have such network topology information already
+you need to run the “assign_vertex_id” function. This function assigns a source
+and a target ID to each link and it can “snap” nearby vertices within a
 certain tolerance.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">assign_vertex_id</span><span class="p">(</span><span class="s1">&#39;&lt;table&gt;&#39;</span><span class="p">,</span> <span class="nb">float</span> <span class="n">tolerance</span><span class="p">,</span> <span class="s1">&#39;&lt;geometry column&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;gid&gt;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>First we have to add source and target column, then we run the assign_vertex_id
-function ... and wait.</p>
+function … and wait.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="k">source</span> <span class="nb">integer</span><span class="p">;</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">target</span> <span class="nb">integer</span><span class="p">;</span>
 <span class="k">SELECT</span> <span class="n">assign_vertex_id</span><span class="p">(</span><span class="s1">&#39;ways&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00001</span><span class="p">,</span> <span class="s1">&#39;the_geom&#39;</span><span class="p">,</span> <span class="s1">&#39;gid&#39;</span><span class="p">);</span>
@@ -228,15 +215,15 @@ function ... and wait.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The dimension of the tolerance parameter depends on your data projection.
-Usually it&#8217;s either &#8220;degrees&#8221; or &#8220;meters&#8221;. Because OSM data has a very good
-quality for Cape town we can choose a very small &#8220;snapping&#8221; tolerance:
+Usually it’s either “degrees” or “meters”. Because OSM data has a very good
+quality for Cape town we can choose a very small “snapping” tolerance:
 0.00001 degrees</p>
 </div>
 </div>
 <div class="section" id="add-indices">
 <h2>Add indices<a class="headerlink" href="#add-indices" title="Permalink to this headline">¶</a></h2>
-<p>Fortunately we didn&#8217;t need to wait too long because the data is small. But your
-network data might be very large, so it&#8217;s a good idea to add an index on source,
+<p>Fortunately we didn’t need to wait too long because the data is small. But your
+network data might be very large, so it’s a good idea to add an index on source,
 target and geometry column.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">source_idx</span> <span class="k">ON</span> <span class="n">ways</span><span class="p">(</span><span class="k">source</span><span class="p">);</span>
 <span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">target_idx</span> <span class="k">ON</span> <span class="n">ways</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>

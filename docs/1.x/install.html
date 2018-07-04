@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Installation &#8212; Open Source Routing Library</title>
-    
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -31,7 +28,7 @@
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -127,38 +124,28 @@
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <a href="https://2018.foss4g.org">
+        <a href="http://2018.foss4g.org">
         <img src="../../_static/img/foss4g_2018.png"
             alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
         </a>
 
         <a href="https://europe.foss4g.org/2018">
-        <img src="../../_static/img/foss4ge_2018.png"
-            alt="FOSS4G Europe 2018, Guimarães (Portugal)" title="FOSS4G Europe 2018, Guimarães (Portugal)" style="width:120px;"/>
+          <img src="../../_static/img/foss4ge_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
         </a>
 
         <a href="http://www.foss4g-asia.org/2018">
-        <img src="../../_static/img/foss4gasia_2018.png"
-            alt="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" title="FOSS4G Asia 2018, Moratuwa (Sri Lanka)" style="width:120px;"/>
+          <img src="../../_static/img/foss4gasia_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
         </a>
 
-        <a href="https://locatepress.com/pgrouting">
-        <img src="../../_static/img/book_fullsize.png"
-            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+        <a href="http://locatepress.com/pgrouting">
+          <img src="../../_static/img/book_fullsize.png"
+              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
-
-        <!--a href="http://www.fossgis.de/konferenz/2015/">
-        <img src="../../_static/img/fossgis_2015.png"
-            alt="FOSSGIS 2015, Münster" title="FOSSGIS 2015, Münster" style="height:130px;"/>
-        </a-->
-
-        <!--a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2015">
-        <img src="../../_static/img/gsoc_2015.jpg"
-            alt="Google Summer of Code 2015" title="Google Summer of Code 2015" style="height:130px;"/>
-        </a-->
 
         <a href="http://www.osgeo.org">
-        <img src="../../_static/img/OSGeo_logo.png"
+          <img src="../../_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
     </div>
@@ -223,11 +210,11 @@ sufficient to run:</p>
 <p>in corresponding directory.</p>
 <p>If you have BGL installed but the version is less than 1.33.0, just download
 the astar.hpp file from <a class="reference external" href="http://www.boost.org/boost/graph/astar_search.hpp">http://www.boost.org/boost/graph/astar_search.hpp</a> and
-copy it to &#8216;&#8217;BOOST_PATH/graph&#8217;&#8217; directory.</p>
+copy it to ‘’BOOST_PATH/graph’’ directory.</p>
 <p class="rubric">For Traveling Salesperson Problem (optional)</p>
-<p>The GAUL library should be compiled with &#8211;enable-slang=no option. Otherwise
-make sure you have slang.h installed in &#8216;&#8217;/usr/include&#8217;&#8216;. For more details
-please refer to corresponding &#8216;&#8217;README&#8217;&#8217; or &#8216;&#8217;INSTALL&#8217;&#8217; file.</p>
+<p>The GAUL library should be compiled with –enable-slang=no option. Otherwise
+make sure you have slang.h installed in ‘’/usr/include’‘. For more details
+please refer to corresponding ‘’README’’ or ‘’INSTALL’’ file.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ./configure --disable-slang</span>
 </pre></div>
 </div>
@@ -238,7 +225,7 @@ please refer to corresponding &#8216;&#8217;README&#8217;&#8217; or &#8216;&#821
 </div>
 <p><strong>CGAL needs special treatment!</strong></p>
 <p>After you install CGAL, you need to locate the directory with CGAL header files.
-In that directory you need to find &#8216;&#8217;config&#8217;&#8217; subdirectory.
+In that directory you need to find ‘’config’’ subdirectory.
 This directory contains one or more subdirectories with platform-dependent information.</p>
 <p>It may look like this, for example:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>/
@@ -266,7 +253,7 @@ This directory contains one or more subdirectories with platform-dependent infor
               etc...
 </pre></div>
 </div>
-<p>All you need to do is to choose &#8216;&#8217;compiler_config.h&#8217;&#8217; for your platform and make
+<p>All you need to do is to choose ‘’compiler_config.h’’ for your platform and make
 a symlink or copy it to the main headers directory.</p>
 <p>For example:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ln -s /usr/include/CGAL/config/i686_Linux-2.6_g++4.1.1/compiler_config.h /usr/include/CGAL/compiler_config.h</span>
