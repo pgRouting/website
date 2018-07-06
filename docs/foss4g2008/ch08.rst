@@ -7,14 +7,18 @@
  pgRouting with A-Star algorithm
 ================================================================
 
-A-Star algorithm is another well-known routing algorithm. It adds geographical 
-information to source and target of each network link. This enables the shortest 
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
+A-Star algorithm is another well-known routing algorithm. It adds geographical
+information to source and target of each network link. This enables the shortest
 path search to prefer links which are closer to the target of the search.
 
 Prepare routing table for A-Star
 --------------------------------
 
-For A-Star you need to prepare your network table and add latitute/longitude 
+For A-Star you need to prepare your network table and add latitute/longitude
 columns (x1, y1 and x2, y2) and calculate their values.
 
 .. code-block:: sql
@@ -33,9 +37,9 @@ columns (x1, y1 and x2, y2) and calculate their values.
 	UPDATE ways SET y2 = y(endpoint(the_geom));
 
 
-.. note:: 
+.. note::
 
-	"endpoint()" function fails for some versions of PostgreSQL (ie. 8.2.5, 8.1.9). 
+	"endpoint()" function fails for some versions of PostgreSQL (ie. 8.2.5, 8.1.9).
 	A workaround for that problem is using the "PointN()" function instead:
 
 	.. code-block:: sql
@@ -49,18 +53,18 @@ columns (x1, y1 and x2, y2) and calculate their values.
 Shortest Path A-Star core function
 ----------------------------------
 
-Shortest Path A-Star function is very similar to the Dijkstra function, though 
-it prefers links that are close to the target of the search. The heuristics of 
-this search are predefined, so you need to recompile pgRouting if you want to 
+Shortest Path A-Star function is very similar to the Dijkstra function, though
+it prefers links that are close to the target of the search. The heuristics of
+this search are predefined, so you need to recompile pgRouting if you want to
 make changes to the heuristic function itself.
 
 .. code-block:: sql
 
-	shortest_path_astar( sql text, 
-			   source_id integer, 
-			   target_id integer, 
-			   directed boolean, 
-			   has_reverse_cost boolean ) 
+	shortest_path_astar( sql text,
+			   source_id integer,
+			   target_id integer,
+			   directed boolean,
+			   has_reverse_cost boolean )
 
 
 **Note:**
@@ -74,18 +78,18 @@ Example of A-Star core function
 .. code-block:: sql
 
 	SELECT * FROM shortest_path_astar('
-			SELECT gid as id, 
-				 source::integer, 
-				 target::integer, 
-				 length::double precision as cost, 
+			SELECT gid as id,
+				 source::integer,
+				 target::integer,
+				 length::double precision as cost,
 				 x1, y1, x2, y2
-				FROM ways', 
-			10, 20, false, false); 
+				FROM ways',
+			10, 20, false, false);
 
 
 .. code-block:: sql
 
-	vertex_id | edge_id |        cost         
+	vertex_id | edge_id |        cost
 	-----------+---------+---------------------
 		    10 |     293 |  0.0059596293824534
 		     9 |    4632 |  0.0846731039249787
@@ -98,18 +102,18 @@ Example of A-Star core function
 Wrapper function WITH bounding box
 ----------------------------------
 
-Wrapper functions extend the core functions with transformations, bounding box 
-limitations, etc.. 
+Wrapper functions extend the core functions with transformations, bounding box
+limitations, etc..
 
 .. code-block:: sql
 
-	SELECT gid, AsText(the_geom) AS the_geom 
+	SELECT gid, AsText(the_geom) AS the_geom
 		FROM astar_sp_delta('ways', 10, 20, 0.1);
 
 
 .. code-block:: sql
 
-	  gid   |                              the_geom      
+	  gid   |                              the_geom
 	--------+---------------------------------------------------------------
 		293 | MULTILINESTRING((18.4074149 -33.9443308,18.4074019 -33.9443833))
 	   4632 | MULTILINESTRING((18.4074149 -33.9443308,18.4077388 -33.9436183))
@@ -121,7 +125,7 @@ limitations, etc..
 
 
 **Note:**
- 
+
 * There is currently no wrapper function for A-Star without bounding box, since bounding boxes are very useful to increase performance. If you don't need a bounding box Dijkstra will be enough anyway.
 * The projection of OSM data is "degree", so we set a bounding box containing start and end vertex plus a 0.1 degree buffer for example.
 

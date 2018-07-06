@@ -7,6 +7,10 @@
  Installation of pgRouting
 ================================================================
 
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
 Installation on Ubuntu 8.04 (with PostgreSQL 8.3) with TSP and Driving Distance (Extras)
 
 To build pgRouting the following libraries are required:
@@ -17,13 +21,13 @@ To build pgRouting the following libraries are required:
 * PostGIS version >= 1.0
 * The Boost Graph Library (BGL). Version >= 1.33 which contains the astar.hpp (http://www.boost.org/libs/graph/doc/index.html)
 * For TSP (optional): The Genetic Algorithm Utility Library (GAUL) (http://gaul.sourceforge.net)
-* For Driving Distance (optional): Computational Geometry Algorithms Library (CGAL) version >= 3.2 (http://www.cgal.org) 
+* For Driving Distance (optional): Computational Geometry Algorithms Library (CGAL) version >= 3.2 (http://www.cgal.org)
 
-The workshop will use a virtual machine image running Xubuntu 8.04 with 
-preinstalled pgRouting. You can download the virtual machine image from 
+The workshop will use a virtual machine image running Xubuntu 8.04 with
+preinstalled pgRouting. You can download the virtual machine image from
 http://download.osgeo.org/pgrouting/foss4g2008/
 
-For installation instructions on other platforms take a look at the pgRouting 
+For installation instructions on other platforms take a look at the pgRouting
 documentation pages on http://www.pgrouting.org
 
 pgRouting on the workshops virtual machine image has been installed like this:
@@ -74,12 +78,12 @@ Compile pgRouting core (with TSP and DD flag on)
 Setup PostgreSQL
 ----------------
 
-Set local database connections to "trust" in "pg_hba.conf" to be able to work 
+Set local database connections to "trust" in "pg_hba.conf" to be able to work
 with PostgreSQL as user "postgres". Then restart PostgreSQL.
 
 .. code-block:: bash
 
-	sudo gedit /etc/postgresql/8.3/main/pg_hba.conf 
+	sudo gedit /etc/postgresql/8.3/main/pg_hba.conf
 	sudo /etc/init.d/postgresql-8.3 restart
 
 

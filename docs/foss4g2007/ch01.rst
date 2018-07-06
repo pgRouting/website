@@ -7,6 +7,10 @@
  Introduction
 ================================================================
 
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
 pgRouting requirements
 ----------------------
 
@@ -22,16 +26,16 @@ To install/compile pgRouting the following applications/libraries are required:
 
 For installation instructions have a look at the documentation pages.
 
-The FOSS4G2007 workshop installation has been done on 
-`Xubuntu 7.04 <http://www.ubuntu.com>`_ and is provided as a 
-`VMware <http://www.vmware.com>`_ image. You can download the virtual machine 
+The FOSS4G2007 workshop installation has been done on
+`Xubuntu 7.04 <http://www.ubuntu.com>`_ and is provided as a
+`VMware <http://www.vmware.com>`_ image. You can download the virtual machine
 image from http://download.osgeo.org/pgrouting/foss4g2007/W-12/
 
 
 Workplace access
 ----------------
 
-* Download the compressed VMware image and extract the file 
+* Download the compressed VMware image and extract the file
 * Start VM Player and load the workshop virtual machine
 * If root access is required, use
 

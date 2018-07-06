@@ -7,6 +7,10 @@
  Web-based Routing: An Introduction to pgRouting with OpenLayers
 ================================================================
 
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
 Presenters
 ----------
 
