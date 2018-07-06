@@ -7,6 +7,10 @@
 FOSS4G routing with pgRouting tools and OpenStreetMap road data
 ================================================================
 
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
 Presenters
 ----------
 

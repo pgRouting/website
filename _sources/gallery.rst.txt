@@ -15,7 +15,6 @@ pgRouting Gallery
 * http://www.ridethecity.com (a website that helps you find the safest bike route between any two points in New York City)
 * http://www.sushi-kiwami.com/map (This site routes you from the highway exit to the closest Sushi restaurant in Niigata)
 * http://www.fcmq.qc.ca/cartes/en (Snowmobile trails, Quebec)
-* http://www.naturparkscout.de (tourism routes, Germany)
 * http://plan.epfl.ch (Campus routing also over different floors, Switzerland)
 * http://orbis.stanford.edu (Routing in the Roman Empire)
 * http://BikeDistrict.org (Bike routing service for the city of Milan)

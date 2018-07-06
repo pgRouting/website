@@ -7,11 +7,15 @@
  About OpenStreetMap
 ================================================================
 
-"OpenStreetMap is a project aimed squarely at creating and providing free 
-geographic data such as street maps to anyone who wants them." 
-"The project was started because most maps you think of as free actually have 
-legal or technical restrictions on their use, holding back people from using 
-them in creative, productive or unexpected ways." 
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
+"OpenStreetMap is a project aimed squarely at creating and providing free
+geographic data such as street maps to anyone who wants them."
+"The project was started because most maps you think of as free actually have
+legal or technical restrictions on their use, holding back people from using
+them in creative, productive or unexpected ways."
 [Source: http://wiki.openstreetmap.org/index.php/Press]
 
 OpenStreetMap uses a topological data structure:
@@ -20,7 +24,7 @@ OpenStreetMap uses a topological data structure:
 * Ways are lists of nodes, representing a polyline or polygon.
 * Relations are groups of nodes, ways and other relations which can be assigned certain properties.
 * Tags can be applied to nodes, ways or relations and consist of name=value pairs.
- 
+
 This is how nodes, ways and relations are described in the OpenStreetMap XML
 file:
 
@@ -76,19 +80,19 @@ file:
 	</osm>
 
 
-The OSM data can be downloaded from OpenStreetMap website using an API (see 
-http://wiki.openstreetmap.org/index.php/OSM_Protocol_Version_0.5), or with some 
+The OSM data can be downloaded from OpenStreetMap website using an API (see
+http://wiki.openstreetmap.org/index.php/OSM_Protocol_Version_0.5), or with some
 other OSM tools, for example JOSM editor.
 
-**Update:** CloudMade offers extracts of maps from different places around the 
-world. For South Africa go to http://download.cloudmade.com/africa/south_africa 
+**Update:** CloudMade offers extracts of maps from different places around the
+world. For South Africa go to http://download.cloudmade.com/africa/south_africa
 
-.. note:: 
+.. note::
 
-	The API has a download size limitation, which can make it a bit inconvenient 
+	The API has a download size limitation, which can make it a bit inconvenient
 	to download extensive areas with many features.
 
-When using the osm2pgrouting converter, we take only nodes and ways of types and 
+When using the osm2pgrouting converter, we take only nodes and ways of types and
 classes specified in "mapconfig.xml" file to be converted to pgRouting table format:
 
 .. code-block:: xml
@@ -101,11 +105,11 @@ classes specified in "mapconfig.xml" file to be converted to pgRouting table for
 		<class name="motorway_junction" id="103" />
 		...
 		<class name="road" id="100" />
-	  </type>    
+	  </type>
 	  <type name="junction" id="4">
 		<class name="roundabout" id="401" />
-	  </type>  
-	</configuration>  
+	  </type>
+	</configuration>
 
 
 Detailed description of all possible types and classes can be found here:

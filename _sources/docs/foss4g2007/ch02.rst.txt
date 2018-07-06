@@ -7,10 +7,14 @@
  PostgreSQL / pgRouting
 ================================================================
 
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
 Create a routing database
 -------------------------
 
-We will create a database “routing” and load the PostGIS and pgRouting functions. 
+We will create a database “routing” and load the PostGIS and pgRouting functions.
 
 .. code-block:: bash
 
@@ -38,30 +42,30 @@ The sql-data will probably be in /usr/share/postlbs/
 Load routing data
 -----------------
 
-The data we use for routing is the `Geobase <http://geobase.ca/geobase/en/data/nrn/index.html>`_ 
-“National Road Network” dataset for British Columbia (nrn_rrn_bc_shp_en.zip). 
-It is available in shape file format and can be loaded into PostgreSQL using 
+The data we use for routing is the `Geobase <http://geobase.ca/geobase/en/data/nrn/index.html>`_
+“National Road Network” dataset for British Columbia (nrn_rrn_bc_shp_en.zip).
+It is available in shape file format and can be loaded into PostgreSQL using
 “shp2pgsql”.
-A long list of attributes comes with the road network data, but most of them do 
-not contain data. 
+A long list of attributes comes with the road network data, but most of them do
+not contain data.
 For this routing workshop we will only keep “gid”, “id” and “the_geom”.
 
-To overlay the route with Google Maps the data has been reprojected to 
+To overlay the route with Google Maps the data has been reprojected to
 EPSG 54004 meanwhile you better use: EPSG 900913)
 
 .. code-block:: sql
 
-		Column    |       Type       | Modifiers 
+		Column    |       Type       | Modifiers
 	--------------+------------------+-----------
-	 gid          | integer          | 
-	 id           | integer          | 
-	 the_geom     | geometry         | 
+	 gid          | integer          |
+	 id           | integer          |
+	 the_geom     | geometry         |
 
 
 Import a clip (Victoria Downtown area) of the British Columbia road network data.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A table named “victoria” will be created automatically. 
+A table named “victoria” will be created automatically.
 
 .. code-block:: bash
 
@@ -118,11 +122,11 @@ Run Shortest Path Dijkstra query
 
 .. code-block:: sql
 
-	shortest_path( sql text, 
-			   source_id integer, 
-			   target_id integer, 
-			   directed boolean, 
-			   has_reverse_cost boolean ) 
+	shortest_path( sql text,
+			   source_id integer,
+			   target_id integer,
+			   directed boolean,
+			   has_reverse_cost boolean )
 
 
 (Source and target IDs are node IDs.)
@@ -134,17 +138,17 @@ Shortest path core function
 .. code-block:: sql
 
 	SELECT * FROM shortest_path('
-			SELECT gid as id, 
-				 source::integer, 
-				 target::integer, 
-				 length::double precision as cost 
-				FROM victoria', 
-			238, 1455, false, false); 
+			SELECT gid as id,
+				 source::integer,
+				 target::integer,
+				 length::double precision as cost
+				FROM victoria',
+			238, 1455, false, false);
 
 
 .. code-block:: sql
 
-	 vertex_id | edge_id |       cost       
+	 vertex_id | edge_id |       cost
 	-----------+---------+------------------
 		   238 |   76619 | 172.172139617447
 		  1051 |   80792 | 309.209732132692
@@ -157,13 +161,13 @@ Wrapper function without bounding box
 
 .. code-block:: sql
 
-	SELECT gid, AsText(the_geom) AS the_geom 
+	SELECT gid, AsText(the_geom) AS the_geom
 		FROM dijkstra_sp('victoria', 238, 1455);
 
 
 .. code-block:: sql
 
-	  gid   |                              the_geom      
+	  gid   |                              the_geom
 	--------+---------------------------------------------------------------
 		484 | MULTILINESTRING((-13735834.0196717 6151280.78177026, ... ))
 	  13944 | MULTILINESTRING((-13734179.5114759 6150720.27269911, ... ))
@@ -176,7 +180,7 @@ Wrapper function with bounding box
 
 .. code-block:: sql
 
-	SELECT gid, AsText(the_geom) AS the_geom 
+	SELECT gid, AsText(the_geom) AS the_geom
 		FROM dijkstra_sp_delta('victoria', 238, 1455, 3000);
 
 
@@ -202,9 +206,9 @@ Add x1, y1 and x2, y2 column
 	UPDATE victoria SET y2 = y(endpoint(the_geom));
 
 
-.. note:: 
+.. note::
 
-	"endpoint()" function fails for some versions of PostgreSQL (ie. 8.2.5, 8.1.9). 
+	"endpoint()" function fails for some versions of PostgreSQL (ie. 8.2.5, 8.1.9).
 	A workaround for that problem is using the "PointN()" function instead:
 
 	.. code-block:: sql
@@ -220,11 +224,11 @@ Run Shortest Path A-Star query
 
 .. code-block:: sql
 
-	shortest_path_astar( sql text, 
-			   source_id integer, 
-			   target_id integer, 
-			   directed boolean, 
-			   has_reverse_cost boolean ) 
+	shortest_path_astar( sql text,
+			   source_id integer,
+			   target_id integer,
+			   directed boolean,
+			   has_reverse_cost boolean )
 
 
 (Source and target IDs are node IDs.)
@@ -236,13 +240,13 @@ A-Star core function
 .. code-block:: sql
 
 	SELECT * FROM shortest_path_astar('
-			SELECT gid as id, 
-				 source::integer, 
-				 target::integer, 
-				 length::double precision as cost, 
+			SELECT gid as id,
+				 source::integer,
+				 target::integer,
+				 length::double precision as cost,
 				 x1, y1, x2, y2
-				FROM victoria', 
-			238, 1455, false, false); 
+				FROM victoria',
+			238, 1455, false, false);
 
 
 Wrapper function with bounding box
@@ -277,11 +281,11 @@ Run Shortest Path Shooting-Star query
 
 .. code-block:: sql
 
-	shortest_path_shooting_star( sql text, 
-			   source_id integer, 
-			   target_id integer, 
-			   directed boolean, 
-			   has_reverse_cost boolean ) 
+	shortest_path_shooting_star( sql text,
+			   source_id integer,
+			   target_id integer,
+			   directed boolean,
+			   has_reverse_cost boolean )
 
 
 (Source and target IDs are edge IDs.)
@@ -293,14 +297,14 @@ Shooting-Star core function
 .. code-block:: sql
 
 	SELECT * FROM shortest_path_shooting_star('
-			SELECT gid as id, 
+			SELECT gid as id,
 				 source::integer,
-				 target::integer, 
-				 length::double precision as cost, 
+				 target::integer,
+				 length::double precision as cost,
 				 x1, y1, x2, y2,
-				 rule, to_cost 
-				FROM victoria', 
-			36339, 22921, false, false); 
+				 rule, to_cost
+				FROM victoria',
+			36339, 22921, false, false);
 
 
 Wrapper function with bounding box

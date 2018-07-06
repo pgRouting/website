@@ -7,11 +7,15 @@
  osm2pgrouting data converter
 ================================================================
 
-This tool makes it easy to import OpenStreetMap data and use it with pgRouting.
-It creates topology automatically and creates tables for feature types and road 
-classes. 
+.. important::
 
-osm2pgrouting was primarily written by Daniel Wendt and is now hosted on the 
+	The content of this page is outdated and is for archiving purposes only.
+
+This tool makes it easy to import OpenStreetMap data and use it with pgRouting.
+It creates topology automatically and creates tables for feature types and road
+classes.
+
+osm2pgrouting was primarily written by Daniel Wendt and is now hosted on the
 pgRouting project site.
 
 How to install (Ubuntu 8.04)
@@ -33,7 +37,7 @@ Required packages/libraries:
 #. Expat library
 #. libpq library
 
-.. note:: 
+.. note::
 	if you already compiled pgRouting point 1. to 4. should already be installed.
 
 Then compile
@@ -78,7 +82,7 @@ Other available parameters are:
 
 .. code-block:: bash
 
- * required: 
+ * required:
 	-file 	<file>  	-- name of your osm xml file
 	-dbname <dbname> 	-- name of your database
 	-user 	<user> 		-- name of the user, which have write access to the database
@@ -97,7 +101,7 @@ Other available parameters are:
 	psql -U postgres osm
 	\d
 		             List of relations
-	 Schema |        Name         |   Type   |  Owner   
+	 Schema |        Name         |   Type   |  Owner
 	--------+---------------------+----------+----------
 	 public | classes             | table    | postgres
 	 public | geometry_columns    | table    | postgres
@@ -110,7 +114,7 @@ Other available parameters are:
 	(8 rows)
 
 
-.. note:: 
+.. note::
 
 	If tables are missing you might have forgotten to add PostGIS or pgRouting functions to your database.
 

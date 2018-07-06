@@ -7,17 +7,21 @@
  pgRouting with Shooting-Star algorithm
 ================================================================
 
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
 Shooting-Star algorithm is the latest of pgRouting shortest path algorithms.
-Its speciality is that it routes from link to link, not from vertex to vertex 
+Its speciality is that it routes from link to link, not from vertex to vertex
 as Dijkstra and A-Star algorithms do.
-This makes it possible to define relations between links for example, and it 
+This makes it possible to define relations between links for example, and it
 solves some other vertex-based algorithm issues like "parallel links", which
 have same source and target but different costs.
 
 Prepare routing table for Shooting-Star
 ---------------------------------------
 
-For Shooting-Star you need to prepare your network table and add the 
+For Shooting-Star you need to prepare your network table and add the
 "reverse_cost" and "to_cost" column. Like A-Star this algorithm also has a
 heuristic function, which prefers links closer to the target of the search.
 
@@ -40,11 +44,11 @@ Shooting-Star algorithm introduces two new attributes:
 
 .. code-block:: sql
 
-	shortest_path_shooting_star( sql text, 
-			   source_id integer, 
-			   target_id integer, 
-			   directed boolean, 
-			   has_reverse_cost boolean ) 
+	shortest_path_shooting_star( sql text,
+			   source_id integer,
+			   target_id integer,
+			   directed boolean,
+			   has_reverse_cost boolean )
 
 
 **Note:**
@@ -55,7 +59,7 @@ Shooting-Star algorithm introduces two new attributes:
 Example for Shooting-Star "rule"
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Shooting* algorithm calculates a path from edge to edge (not from vertex to 
+Shooting* algorithm calculates a path from edge to edge (not from vertex to
 vertex). Column vertex_id contains start vertex of an edge from column edge_id.
 
 To describe turn restrictions:
@@ -78,7 +82,7 @@ means that the cost of going from edge 14 to edge 12 is 1000, and
 
 means that the cost of going from edge 14 to edge 12 through edge 4 is 1000.
 
-If you need multiple restrictions for a given edge then you have to add 
+If you need multiple restrictions for a given edge then you have to add
 multiple records for that edge each with a separate restriction.
 
 .. code-block:: sql
@@ -89,8 +93,8 @@ multiple records for that edge each with a separate restriction.
 	  11 |      3 |     10 |    2 |  4 |  3 |  4 |  5 |    1000 | 12
 
 
-means that the cost of going from either edge 4 or 12 to edge 11 is 1000. And 
-then you always need to order your data by gid when you load it to a shortest 
+means that the cost of going from either edge 4 or 12 to edge 11 is 1000. And
+then you always need to order your data by gid when you load it to a shortest
 path function..
 
 Example of Shooting-Star core function
@@ -99,19 +103,19 @@ Example of Shooting-Star core function
 .. code-block:: sql
 
 	SELECT * FROM shortest_path_shooting_star('
-			SELECT gid as id, 
+			SELECT gid as id,
 				 source::integer,
-				 target::integer, 
-				 length::double precision as cost, 
+				 target::integer,
+				 length::double precision as cost,
 				 x1, y1, x2, y2,
-				 rule, to_cost 
-				FROM ways', 
-			293, 761, false, false); 
+				 rule, to_cost
+				FROM ways',
+			293, 761, false, false);
 
 
 .. code-block:: sql
 
-	 vertex_id | edge_id |        cost         
+	 vertex_id | edge_id |        cost
 	-----------+---------+---------------------
 		  4232 |     293 |  0.0059596293824534
 		  3144 |     293 |  0.0059596293824534
@@ -124,8 +128,8 @@ Example of Shooting-Star core function
 Wrapper function WITH bounding box
 ----------------------------------
 
-Wrapper functions extend the core functions with transformations, bounding box 
-limitations, etc.. 
+Wrapper functions extend the core functions with transformations, bounding box
+limitations, etc..
 
 .. code-block:: sql
 
@@ -135,7 +139,7 @@ limitations, etc..
 
 .. code-block:: sql
 
-	  gid   |                              the_geom      
+	  gid   |                              the_geom
 	--------+---------------------------------------------------------------
 		293 | MULTILINESTRING((18.4074149 -33.9443308,18.4074019 -33.9443833))
 		293 | MULTILINESTRING((18.4074149 -33.9443308,18.4074019 -33.9443833))
@@ -147,7 +151,7 @@ limitations, etc..
 
 
 **Note:**
- 
+
 * There is currently no wrapper function for A-Star without bounding box, since bounding boxes are very useful to increase performance. If you don't need a bounding box Dijkstra will be enough anyway.
 * The projection of OSM data is "degree", so we set a bounding box containing start and end vertex plus a 0.1 degree buffer for example.
 

@@ -7,8 +7,12 @@
  About pgRouting
 ================================================================
 
-pgRouting is an extension of PostGIS and adds routing functionality to 
-PostGIS/PostgreSQL. pgRouting is a further development of pgDijkstra 
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
+pgRouting is an extension of PostGIS and adds routing functionality to
+PostGIS/PostgreSQL. pgRouting is a further development of pgDijkstra
 (by Camptocamp). It is currently developed and maintained by Orkney, JAPAN.
 
 **pgRouting provides functions for:**
@@ -25,6 +29,6 @@ PostGIS/PostgreSQL. pgRouting is a further development of pgDijkstra
 * Uses PostGIS for its geographic data format, which in turn uses OGC's data format Well Konwn Text (WKT) and Well Known Binary (WKB). This allows usage of existing open data converters.
 * Open Source software like qGIS and uDig can modify the data/attributes,
 * Data changes can be reflected instantaneously through the routing engine. There is no need for precalculation.
-* The "cost" parameter can be dynamically calculated through SQL and its value can come from multiple fields or tables. 
+* The "cost" parameter can be dynamically calculated through SQL and its value can come from multiple fields or tables.
 
 **pgRouting project website:** http://www.pgrouting.org
