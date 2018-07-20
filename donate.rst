@@ -120,7 +120,6 @@ Donations and Sponsorship received in the past 12 months
 The following people or organizations have made donations or supplied financial development support to the pgRouting project and have specifically requested that their names appear here:
 
 * `IT Security Jobs <https://www.cybersecurityjobs.net>`_ (Bronze Sponsor)
-* `Stretchmarks.org <http://stretchmarks.org>`_ (Bronze Sponsor)
 * `Vein Disease Resource <https://varicoseveins.org>`_ (Bronze Sponsor)
 * `Online Educational Site <http://www.onlinedegree.com>`_ (Bronze Sponsor)
 * `Serenata Flowers <http://www.serenataflowers.com>`_ (Bronze Sponsor)
