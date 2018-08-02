@@ -114,15 +114,38 @@ As an example, we would like to fund the following project activities:
 	For the beginning (to keep it simple) we're using a private PayPal account 	registered by `Georepublic <http://georepublic.info>`_ (Germany). In case the amount of donations will increase by a significant amount we might 	consider to setup some non-profit organization. Georepublic will report donations to the pgRouting PSC.
 
 
+.. _sponsors:
+
 Donations and Sponsorship received in the past 12 months
 -------------------------------------------------------------------------------
 
 The following people or organizations have made donations or supplied financial development support to the pgRouting project and have specifically requested that their names appear here:
 
-* `IT Security Jobs <https://www.cybersecurityjobs.net>`_ (Bronze Sponsor)
-* `Vein Disease Resource <https://varicoseveins.org>`_ (Bronze Sponsor)
-* `Online Educational Site <http://www.onlinedegree.com>`_ (Bronze Sponsor)
-* `Serenata Flowers <http://www.serenataflowers.com>`_ (Bronze Sponsor)
+**In-kind Sponsors**
+
+* `Georepublic <https://georepublic.info>`_ (Development, GSoC mentors)
+	|sponsor_georepublic|
+
+.. |sponsor_georepublic| image:: _static/img/sponsor_georepublic.png
+	 :width: 240
+	 :target: https://georepublic.info
+	 :alt: Georepublic - A Geolocation Technology Company
+
+* `StickerMule <https://mule.to/pgRouting>`_ (Open source stickers)
+	|sponsor_stickermule|
+
+.. |sponsor_stickermule| image:: _static/img/02-sticker-mule-logo-light.png
+	 :width: 240
+	 :target: https://mule.to/pgRouting
+	 :alt: Sticker Mule is the easiest way to buy custom stickers.
+
+
+**Bronze Sponsors**
+
+* `IT Security Jobs <https://www.cybersecurityjobs.net>`_
+* `Vein Disease Resource <https://varicoseveins.org>`_
+* `Online Educational Site <http://www.onlinedegree.com>`_
+* `Serenata Flowers <http://www.serenataflowers.com>`_
 	|sponsor_serenata|
 
 .. |sponsor_serenata| image:: _static/img/sponsor_serenata.jpg
@@ -130,7 +153,7 @@ The following people or organizations have made donations or supplied financial 
 	 :target: http://www.serenataflowers.com
 	 :alt:  SerenataFlowers.com
 
-* `Hipper.com <https://www.hipper.com/en/uk/flowers>`_ (Bronze Sponsor)
+* `Hipper.com <https://www.hipper.com/en/uk/flowers>`_
 	|sponsor_hipper|
 
 .. |sponsor_hipper| image:: _static/img/sponsor_hipper.png
@@ -138,15 +161,15 @@ The following people or organizations have made donations or supplied financial 
 	 :target: https://www.hipper.com/en/uk/flowers
 	 :alt:  Hipper.com
 
-* `Darafei Praliaskouski <http://komzpa.net/>`_ (Bronze Sponsor)
+* `Darafei Praliaskouski <http://komzpa.net/>`_
 	|sponsor_komzpa|
 
 .. |sponsor_komzpa| image:: https://s.gravatar.com/avatar/d9bf60a9d201fe514efa27ac865dc5f7?s=77
 	 :target: http://komzpa.net/
 	 :alt:  Darafei Praliaskouski
 
-* `3D Printing <https://www.allthat3d.com>`_ (Bronze Sponsor)
-* `Comparing web hosts <https://www.websitehostingrating.com/siteground-vs-bluehost/>`_ (Bronze Sponsor)
-* `Scrum Master Zertifizierung <https://agile.coach/training/scrum-master-zertifizierung/>`_ (Bronze Sponsor)
+* `3D Printing <https://www.allthat3d.com>`_
+* `Comparing web hosts <https://www.websitehostingrating.com/siteground-vs-bluehost/>`_
+* `Scrum Master Zertifizierung <https://agile.coach/training/scrum-master-zertifizierung/>`_
 
 Many thanks to the listed and non-listed supporters have provided support or made donations. Names listed here are by specific request (and will be removed after about 12 months). If you have made a donation or provided financial support and wish to appear in this list (no links!), please send an email to project at pgrouting dot org.
