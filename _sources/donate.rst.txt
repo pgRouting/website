@@ -171,5 +171,6 @@ The following people or organizations have made donations or supplied financial 
 * `3D Printing <https://www.allthat3d.com>`_
 * `Comparing web hosts <https://www.websitehostingrating.com/siteground-vs-bluehost/>`_
 * `Scrum Master Zertifizierung <https://agile.coach/training/scrum-master-zertifizierung/>`_
+* `Teleph Product Reviews <https://www.teleph.com/>`_
 
 Many thanks to the listed and non-listed supporters have provided support or made donations. Names listed here are by specific request (and will be removed after about 12 months). If you have made a donation or provided financial support and wish to appear in this list (no links!), please send an email to project at pgrouting dot org.
