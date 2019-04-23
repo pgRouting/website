@@ -139,7 +139,7 @@ The following people or organizations have made donations or supplied financial 
 	 :target: https://mule.to/pgRouting
 	 :alt: Sticker Mule is the easiest way to buy custom stickers.
 
-**Bronze Sponsors**
+**Silver Sponsors**
 
 * `Darafei Praliaskouski <http://komzpa.net/>`_
 	|sponsor_komzpa|
