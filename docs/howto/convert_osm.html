@@ -4,31 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Converting OSM-Files into PostgreSQL-Scripts &#8212; Open Source Routing Library</title>
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Diagnostic Tools" href="diagnostic_tools.html" />
     <link rel="prev" title="How to Contribute" href="contribute.html" />
     
 
-  </head>
-  <body>
+  </head><body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -72,68 +64,18 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="diagnostic_tools.html"
                         title="next chapter">Diagnostic Tools</a></p>
-    
-    <h2>Make a Donation</h2>
-    <p>
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG">
-			<input type="hidden" name="business" value="donate@pgrouting.org">
-			<input type="hidden" name="notify_url" value="http://www.pgrouting.org">
-			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
-			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
-			<select name="currency_code" class="paypal_currency">
-				<option value="EUR" title="€" selected="">EUR</option>
-				<option value="AUD" title="$">AUD</option>
-				<option value="GBP" title="£">GBP</option>
-				<option value="JPY" title="¥">JPY</option>
-				<option value="CAD" title="$">CAD</option>
-				<option value="CHF" title="">CHF</option>
-				<option value="USD" title="$">USD</option>
-			</select>
-			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-      <ul style="list-style: square; margin-left: 20px;">
-        <li><a href="../../donate.html">Read more</a></li>
-        <li><a href="../../donate.html#sponsors">Our sponsors</a></li>
-      </ul>
-		</form>
-    </p>
-    <h2>Links</h2>
-    <ul style="list-style: square; margin-left: 20px;">
-      <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
-    	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="http://www.postgis.net/">PostGIS</a></li>
-    </ul>
-
-    <!-- Callout -->
-    <div class="callout-sidebar">
-
-        <a href="http://2018.foss4g.org">
-        <img src="../../_static/img/foss4g_2018.png"
-            alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
-        </a>
-
-        <a href="https://europe.foss4g.org/2018">
-          <img src="../../_static/img/foss4ge_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
-        </a>
-
-        <a href="http://www.foss4g-asia.org/2018">
-          <img src="../../_static/img/foss4gasia_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
-        </a>
-
-        <a href="http://locatepress.com/pgrouting">
-          <img src="../../_static/img/book_fullsize.png"
-              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
-        </a>
-
-        <a href="http://www.osgeo.org">
-          <img src="../../_static/img/OSGeo_logo.png"
-        	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
-        </a>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
     </div>
-
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -163,21 +105,21 @@ that this would be very uncomfortable.</p>
 <p>Here are some new java programs written by myself, that make it very easy to
 import data from OSM-Files into your PostgreSQL databases:</p>
 <ul class="simple">
-<li><a class="reference download internal" href="../../_downloads/nodes2postgis.jar" download=""><code class="xref download docutils literal"><span class="pre">nodes2postgis.jar</span></code></a></li>
-<li><a class="reference download internal" href="../../_downloads/lines2postgis.jar" download=""><code class="xref download docutils literal"><span class="pre">lines2postgis.jar</span></code></a></li>
-<li><a class="reference download internal" href="../../_downloads/latlon2google.jar" download=""><code class="xref download docutils literal"><span class="pre">latlon2google.jar</span></code></a></li>
+<li><a class="reference download internal" download="" href="../../_downloads/ddf73768ea769942d5d5ae725c040ff2/nodes2postgis.jar"><code class="xref download docutils literal notranslate"><span class="pre">nodes2postgis.jar</span></code></a></li>
+<li><a class="reference download internal" download="" href="../../_downloads/47ead6413bfb21d07260bee0224fd78f/lines2postgis.jar"><code class="xref download docutils literal notranslate"><span class="pre">lines2postgis.jar</span></code></a></li>
+<li><a class="reference download internal" download="" href="../../_downloads/d8e909f637c9cc885e69265b3768ff90/latlon2google.jar"><code class="xref download docutils literal notranslate"><span class="pre">latlon2google.jar</span></code></a></li>
 </ul>
 <p>The use of the programs is as follows:</p>
 <p>For nodes2postgis.jar:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>java -jar nodes2postgis.jar map.osm
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java -jar nodes2postgis.jar map.osm
 </pre></div>
 </div>
 <p>For lines2postgis.jar:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>java -jar lines2postgis.jar map.osm
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java -jar lines2postgis.jar map.osm
 </pre></div>
 </div>
 <p>For latlon2google.jar:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>java -jar latlon2google.jar yourTablename
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java -jar latlon2google.jar yourTablename
 </pre></div>
 </div>
 <p>The result of running those java-programms are .sql scripts that can be easily

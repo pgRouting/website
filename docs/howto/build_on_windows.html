@@ -4,31 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Build pgRouting for Windows &#8212; Open Source Routing Library</title>
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="How to Contribute" href="contribute.html" />
     <link rel="prev" title="pgRouting Howto’s" href="../howto.html" />
     
 
-  </head>
-  <body>
+  </head><body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -72,68 +64,18 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="contribute.html"
                         title="next chapter">How to Contribute</a></p>
-    
-    <h2>Make a Donation</h2>
-    <p>
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG">
-			<input type="hidden" name="business" value="donate@pgrouting.org">
-			<input type="hidden" name="notify_url" value="http://www.pgrouting.org">
-			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
-			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
-			<select name="currency_code" class="paypal_currency">
-				<option value="EUR" title="€" selected="">EUR</option>
-				<option value="AUD" title="$">AUD</option>
-				<option value="GBP" title="£">GBP</option>
-				<option value="JPY" title="¥">JPY</option>
-				<option value="CAD" title="$">CAD</option>
-				<option value="CHF" title="">CHF</option>
-				<option value="USD" title="$">USD</option>
-			</select>
-			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-      <ul style="list-style: square; margin-left: 20px;">
-        <li><a href="../../donate.html">Read more</a></li>
-        <li><a href="../../donate.html#sponsors">Our sponsors</a></li>
-      </ul>
-		</form>
-    </p>
-    <h2>Links</h2>
-    <ul style="list-style: square; margin-left: 20px;">
-      <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
-    	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="http://www.postgis.net/">PostGIS</a></li>
-    </ul>
-
-    <!-- Callout -->
-    <div class="callout-sidebar">
-
-        <a href="http://2018.foss4g.org">
-        <img src="../../_static/img/foss4g_2018.png"
-            alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
-        </a>
-
-        <a href="https://europe.foss4g.org/2018">
-          <img src="../../_static/img/foss4ge_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
-        </a>
-
-        <a href="http://www.foss4g-asia.org/2018">
-          <img src="../../_static/img/foss4gasia_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
-        </a>
-
-        <a href="http://locatepress.com/pgrouting">
-          <img src="../../_static/img/book_fullsize.png"
-              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
-        </a>
-
-        <a href="http://www.osgeo.org">
-          <img src="../../_static/img/OSGeo_logo.png"
-        	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
-        </a>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
     </div>
-
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -163,7 +105,7 @@ for pgRouting. It was written some time ago, so it might be outdated.</p>
 </li>
 </ul>
 <p>Download prebuild-dll-2-7-0-release from <a class="reference external" href="ftp://sources.redhat.com/pub/pthreads-win32/">ftp://sources.redhat.com/pub/pthreads-win32/</a></p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>cp /include/*.h /mingw/include
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp /include/*.h /mingw/include
 cp /lib/libpthreadGC2.a /mingw/lib/libpthread.a
 </pre></div>
 </div>
@@ -171,7 +113,7 @@ cp /lib/libpthreadGC2.a /mingw/lib/libpthread.a
 <li><strong>CMake</strong></li>
 </ul>
 <p>Use latest version(2.4.7)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#./configure --prefix=E:/Build/msys/1.0/local</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#./configure --prefix=E:/Build/msys/1.0/local</span>
 <span class="c1">#make</span>
 <span class="c1">#make install</span>
 </pre></div>
@@ -181,7 +123,7 @@ cp /lib/libpthreadGC2.a /mingw/lib/libpthread.a
 <li><strong>Boost</strong></li>
 </ul>
 <p>Use previous version (1.33.1) because of v2 problem</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#bjam -sTOOLS=mingw &quot;-sBUILD=release &lt;runtime-link&gt;static &lt;threading&gt;multi &lt;native-wchar_t&gt;on&quot; --prefix=/e/Build/msys/1.0/local install</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#bjam -sTOOLS=mingw &quot;-sBUILD=release &lt;runtime-link&gt;static &lt;threading&gt;multi &lt;native-wchar_t&gt;on&quot; --prefix=/e/Build/msys/1.0/local install</span>
 <span class="c1">#mv /usr/local/include/boost-1_33_1/boost /usr/local/include/boost</span>
 <span class="c1">#rmdir /usr/local/include/boost-1_33_1</span>
 </pre></div>
@@ -193,7 +135,7 @@ So you needs download Boost headers(1.33.1 or later), and extract it.</p>
 <li><strong>Gaul</strong></li>
 </ul>
 <p>Use latest version(0.1849-0)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#./configure --enable-slang=no</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#./configure --enable-slang=no</span>
 edit /util/Makefile
         <span class="nv">DEFS</span> <span class="o">=</span> -DHAVE_CONFIG_H
          -&gt; <span class="nv">DEFS</span> <span class="o">=</span> -DHAVE_CONFIG_H -DBUILDING_DLL
@@ -215,7 +157,7 @@ edit /tests/Makefile
 <li><strong>CGAL</strong></li>
 </ul>
 <p>Use latest version(3.2.1)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#./install_cgal --prefix=/usr/local/cgal  --with-BOOST --BOOST_INCL_DIR=/usr/local/include --BOOST_LIB_DIR=/usr/local/lib --without-autofind -ni /mingw/bin/g++</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#./install_cgal --prefix=/usr/local/cgal  --with-BOOST --BOOST_INCL_DIR=/usr/local/include --BOOST_LIB_DIR=/usr/local/lib --without-autofind -ni /mingw/bin/g++</span>
 <span class="c1">#cp /usr/local/cgal/include/CGAL/config/i686_MINGW32NT-5.1_g++-3.4.2/CGAL/compiler_config.h /usr/local/cgal/include/CGAL/compiler_config.h</span>
 <span class="c1">#cp /usr/local/cgal/lib/i686_MINGW32NT-5.1_g++-3.4.2/libCGAL.a /usr/local/cgal/lib/libCGAL.a</span>
 <span class="c1">#cp /usr/local/cgal/lib/i686_MINGW32NT-5.1_g++-3.4.2/libCGAL.so /usr/local/cgal/lib/libCGAL.so</span>
@@ -224,13 +166,13 @@ edit /tests/Makefile
 <ul class="simple">
 <li><strong>pgRouting</strong></li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#cmake -G&quot;MSYS Makefiles&quot; -DWITH_TSP=ON -DWITH_DD=ON .</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#cmake -G&quot;MSYS Makefiles&quot; -DWITH_TSP=ON -DWITH_DD=ON .</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><strong>Edit CMakeCache.txt</strong></li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>Boost_INCLUDE_DIR:PATH<span class="o">=</span>Boost_INCLUDE_DIR-NOTFOUND
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Boost_INCLUDE_DIR:PATH<span class="o">=</span>Boost_INCLUDE_DIR-NOTFOUND
  -&gt; Boost_INCLUDE_DIR:PATH<span class="o">=</span>E:/Build/msys/1.0/local/include
 
 CGAL_INCLUDE_DIR:PATH<span class="o">=</span>CGAL_INCLUDE_DIR-NOTFOUND
@@ -247,7 +189,7 @@ GAUL_LIBRARIES:FILEPATH<span class="o">=</span>GAUL_LIBRARIES-NOTFOUND
 <li><strong>Edit coresrcCMakeFilesrouting.dirflags.make</strong></li>
 </ul>
 <p>Adjust &lt;drive&gt; (ie. “C”) and &lt;my path&gt; to your system environment!</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">C_FLAGS</span> <span class="o">=</span> -Drouting_EXPORTS -O2 -g <span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">C_FLAGS</span> <span class="o">=</span> -Drouting_EXPORTS -O2 -g <span class="se">\</span>
               -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/. <span class="se">\</span>
               -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/core <span class="se">\</span>
               -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/core/src <span class="se">\</span>
@@ -279,11 +221,11 @@ GAUL_LIBRARIES:FILEPATH<span class="o">=</span>GAUL_LIBRARIES-NOTFOUND
 <li><strong>Edit coresrcCMakeFilesrouting.dirbuild.make</strong></li>
 </ul>
 <p>Adjust &lt;drive&gt; (ie. “C”) and &lt;my path&gt; to your system environment!</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">routing_EXTERNAL_OBJECTS</span> <span class="o">=</span> <span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">routing_EXTERNAL_OBJECTS</span> <span class="o">=</span> <span class="se">\</span>
 </pre></div>
 </div>
 <p>Edit last line as follows (not make clean!!!)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> /&lt;drive&gt;/&lt;my path&gt;/pgrouting/core/src <span class="o">&amp;&amp;</span> /&lt;drive&gt;/&lt;my path&gt;/mingw/bin/g++.exe <span class="k">$(</span>routing_OBJECTS<span class="k">)</span> <span class="k">$(</span>routing_EXTERNAL_OBJECTS<span class="k">)</span> <span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /&lt;drive&gt;/&lt;my path&gt;/pgrouting/core/src <span class="o">&amp;&amp;</span> /&lt;drive&gt;/&lt;my path&gt;/mingw/bin/g++.exe <span class="k">$(</span>routing_OBJECTS<span class="k">)</span> <span class="k">$(</span>routing_EXTERNAL_OBJECTS<span class="k">)</span> <span class="se">\</span>
                -L/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/lib <span class="se">\</span>
                -LC:/PROGRA~1/PostgreSQL/8.2/lib <span class="se">\</span>
                -lpostgres -shared -o ../../lib/librouting.dll <span class="se">\</span>
@@ -294,41 +236,41 @@ GAUL_LIBRARIES:FILEPATH<span class="o">=</span>GAUL_LIBRARIES-NOTFOUND
 <ul class="simple">
 <li><strong>Edit extratspsrcCMakeFilesrouting_tsp.dirflags.make</strong></li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">C_FLAGS</span> <span class="o">=</span> -Drouting_tsp_EXPORTS -g -O2 -IE:/Build/msys/1.0/local/include -I/E/Build/msys/1.0/local/src/pgrouting/pgrouting/core/src -IC:/PROGRA~1/PostgreSQL/8.2/include/server -IC:/PROGRA~1/PostgreSQL/8.2/include/server/port/win32
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">C_FLAGS</span> <span class="o">=</span> -Drouting_tsp_EXPORTS -g -O2 -IE:/Build/msys/1.0/local/include -I/E/Build/msys/1.0/local/src/pgrouting/pgrouting/core/src -IC:/PROGRA~1/PostgreSQL/8.2/include/server -IC:/PROGRA~1/PostgreSQL/8.2/include/server/port/win32
 <span class="nv">CXX_FLAGS</span> <span class="o">=</span> -Drouting_tsp_EXPORTS -g -O2 -IE:/Build/msys/1.0/local/include -I/E/Build/msys/1.0/local/src/pgrouting/pgrouting/core/src -IC:/PROGRA~1/PostgreSQL/8.2/include/server -IC:/PROGRA~1/PostgreSQL/8.2/include/server/port/win32 -DBUILDING_DLL
 </pre></div>
 </div>
 <ul class="simple">
 <li><strong>Edit extratspsrcCMakeFilesrouting_tsp.dirbuild.make</strong></li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">routing_tsp_EXTERNAL_OBJECTS</span> <span class="o">=</span> <span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">routing_tsp_EXTERNAL_OBJECTS</span> <span class="o">=</span> <span class="se">\</span>
 </pre></div>
 </div>
 <p>Edit last line as follows</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> /E/Build/msys/1.0/local/src/pgrouting/pgrouting/extra/tsp/src <span class="o">&amp;&amp;</span> /e/Build/mingw/bin/g++.exe <span class="k">$(</span>routing_tsp_OBJECTS<span class="k">)</span> <span class="k">$(</span>routing_tsp_EXTERNAL_OBJECTS<span class="k">)</span> -LE:/Build/msys/1.0/local/lib -LC:/PROGRA~1/PostgreSQL/8.2/lib -lpostgres -lgaul -lgaul_util -lm -shared -o ../../../lib/librouting_tsp.dll -Wl,--out-implib,../../../lib/librouting_tsp.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--export-all-symbols
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /E/Build/msys/1.0/local/src/pgrouting/pgrouting/extra/tsp/src <span class="o">&amp;&amp;</span> /e/Build/mingw/bin/g++.exe <span class="k">$(</span>routing_tsp_OBJECTS<span class="k">)</span> <span class="k">$(</span>routing_tsp_EXTERNAL_OBJECTS<span class="k">)</span> -LE:/Build/msys/1.0/local/lib -LC:/PROGRA~1/PostgreSQL/8.2/lib -lpostgres -lgaul -lgaul_util -lm -shared -o ../../../lib/librouting_tsp.dll -Wl,--out-implib,../../../lib/librouting_tsp.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--export-all-symbols
 </pre></div>
 </div>
 <ul class="simple">
 <li><strong>Edit extradriving_distancesrcCMakeFilesrouting_dd.dirflags.make</strong></li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">C_FLAGS</span> <span class="o">=</span> -Drouting_dd_EXPORTS -g -O2 -IE:/Build/msys/1.0/local/include -I/E/Build/msys/1.0/local/src/pgrouting/pgrouting/core/src -I/E/Build/msys/1.0/local/cgal/include -IC:/PROGRA~1/PostgreSQL/8.2/include/server -IC:/PROGRA~1/PostgreSQL/8.2/include/server/port/win32
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">C_FLAGS</span> <span class="o">=</span> -Drouting_dd_EXPORTS -g -O2 -IE:/Build/msys/1.0/local/include -I/E/Build/msys/1.0/local/src/pgrouting/pgrouting/core/src -I/E/Build/msys/1.0/local/cgal/include -IC:/PROGRA~1/PostgreSQL/8.2/include/server -IC:/PROGRA~1/PostgreSQL/8.2/include/server/port/win32
 <span class="nv">CXX_FLAGS</span> <span class="o">=</span> -Drouting_dd_EXPORTS -g -O2 -IE:/Build/msys/1.0/local/include -I/E/Build/msys/1.0/local/src/pgrouting/pgrouting/core/src -I/E/Build/msys/1.0/local/cgal/include -IC:/PROGRA~1/PostgreSQL/8.2/include/server -IC:/PROGRA~1/PostgreSQL/8.2/include/server/port/win32
 </pre></div>
 </div>
 <ul class="simple">
 <li><strong>Edit extradriving_distancesrcCMakeFilesrouting_dd.dirbuild.make</strong></li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">routing_dd_EXTERNAL_OBJECTS</span> <span class="o">=</span> <span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">routing_dd_EXTERNAL_OBJECTS</span> <span class="o">=</span> <span class="se">\</span>
 </pre></div>
 </div>
 <p>Edit last line as follows</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> /E/Build/msys/1.0/local/src/pgrouting/pgrouting/extra/driving_distance/src <span class="o">&amp;&amp;</span> /e/Build/mingw/bin/g++.exe <span class="k">$(</span>routing_dd_OBJECTS<span class="k">)</span> <span class="k">$(</span>routing_dd_EXTERNAL_OBJECTS<span class="k">)</span> -LE:/Build/msys/1.0/local/lib -LE:/Build/msys/1.0/local/cgal/lib -LC:/PROGRA~1/PostgreSQL/8.2/lib -lCGAL -lpostgres -shared -o ../../../lib/librouting_dd.dll -Wl,--out-implib,../../../lib/librouting_dd.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /E/Build/msys/1.0/local/src/pgrouting/pgrouting/extra/driving_distance/src <span class="o">&amp;&amp;</span> /e/Build/mingw/bin/g++.exe <span class="k">$(</span>routing_dd_OBJECTS<span class="k">)</span> <span class="k">$(</span>routing_dd_EXTERNAL_OBJECTS<span class="k">)</span> -LE:/Build/msys/1.0/local/lib -LE:/Build/msys/1.0/local/cgal/lib -LC:/PROGRA~1/PostgreSQL/8.2/lib -lCGAL -lpostgres -shared -o ../../../lib/librouting_dd.dll -Wl,--out-implib,../../../lib/librouting_dd.dll.a -Wl,--major-image-version,0,--minor-image-version,0
 </pre></div>
 </div>
 <ul class="simple">
 <li><strong>Build pgRouting</strong></li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#make</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#make</span>
 </pre></div>
 </div>
 </div>

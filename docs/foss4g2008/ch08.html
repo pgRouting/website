@@ -4,29 +4,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>pgRouting with A-Star algorithm &#8212; Open Source Routing Library</title>
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
     
 
-  </head>
-  <body>
+  </head><body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -62,7 +54,7 @@
     	
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">pgRouting with A-Star algorithm</a><ul>
 <li><a class="reference internal" href="#prepare-routing-table-for-a-star">Prepare routing table for A-Star</a></li>
@@ -75,68 +67,18 @@
 </li>
 </ul>
 
-    
-    <h2>Make a Donation</h2>
-    <p>
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG">
-			<input type="hidden" name="business" value="donate@pgrouting.org">
-			<input type="hidden" name="notify_url" value="http://www.pgrouting.org">
-			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
-			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
-			<select name="currency_code" class="paypal_currency">
-				<option value="EUR" title="€" selected="">EUR</option>
-				<option value="AUD" title="$">AUD</option>
-				<option value="GBP" title="£">GBP</option>
-				<option value="JPY" title="¥">JPY</option>
-				<option value="CAD" title="$">CAD</option>
-				<option value="CHF" title="">CHF</option>
-				<option value="USD" title="$">USD</option>
-			</select>
-			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-      <ul style="list-style: square; margin-left: 20px;">
-        <li><a href="../../donate.html">Read more</a></li>
-        <li><a href="../../donate.html#sponsors">Our sponsors</a></li>
-      </ul>
-		</form>
-    </p>
-    <h2>Links</h2>
-    <ul style="list-style: square; margin-left: 20px;">
-      <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
-    	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="http://www.postgis.net/">PostGIS</a></li>
-    </ul>
-
-    <!-- Callout -->
-    <div class="callout-sidebar">
-
-        <a href="http://2018.foss4g.org">
-        <img src="../../_static/img/foss4g_2018.png"
-            alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
-        </a>
-
-        <a href="https://europe.foss4g.org/2018">
-          <img src="../../_static/img/foss4ge_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
-        </a>
-
-        <a href="http://www.foss4g-asia.org/2018">
-          <img src="../../_static/img/foss4gasia_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
-        </a>
-
-        <a href="http://locatepress.com/pgrouting">
-          <img src="../../_static/img/book_fullsize.png"
-              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
-        </a>
-
-        <a href="http://www.osgeo.org">
-          <img src="../../_static/img/OSGeo_logo.png"
-        	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
-        </a>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
     </div>
-
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -160,13 +102,13 @@ path search to prefer links which are closer to the target of the search.</p>
 <h2>Prepare routing table for A-Star<a class="headerlink" href="#prepare-routing-table-for-a-star" title="Permalink to this headline">¶</a></h2>
 <p>For A-Star you need to prepare your network table and add latitute/longitude
 columns (x1, y1 and x2, y2) and calculate their values.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">x1</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">x1</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">y1</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">x2</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">y2</span> <span class="n">double</span> <span class="k">precision</span><span class="p">;</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">startpoint</span><span class="p">(</span><span class="n">the_geom</span><span class="p">));</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">startpoint</span><span class="p">(</span><span class="n">the_geom</span><span class="p">));</span>
 <span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">startpoint</span><span class="p">(</span><span class="n">the_geom</span><span class="p">));</span>
 <span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">endpoint</span><span class="p">(</span><span class="n">the_geom</span><span class="p">));</span>
 <span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">endpoint</span><span class="p">(</span><span class="n">the_geom</span><span class="p">));</span>
@@ -176,7 +118,7 @@ columns (x1, y1 and x2, y2) and calculate their values.</p>
 <p class="first admonition-title">Note</p>
 <p>“endpoint()” function fails for some versions of PostgreSQL (ie. 8.2.5, 8.1.9).
 A workaround for that problem is using the “PointN()” function instead:</p>
-<div class="last highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">PointN</span><span class="p">(</span><span class="n">the_geom</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<div class="last highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">PointN</span><span class="p">(</span><span class="n">the_geom</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
 <span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">PointN</span><span class="p">(</span><span class="n">the_geom</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
 <span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">PointN</span><span class="p">(</span><span class="n">the_geom</span><span class="p">,</span> <span class="n">NumPoints</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)));</span>
 <span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">PointN</span><span class="p">(</span><span class="n">the_geom</span><span class="p">,</span> <span class="n">NumPoints</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)));</span>
@@ -190,7 +132,7 @@ A workaround for that problem is using the “PointN()” function instead:</p>
 it prefers links that are close to the target of the search. The heuristics of
 this search are predefined, so you need to recompile pgRouting if you want to
 make changes to the heuristic function itself.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">shortest_path_astar</span><span class="p">(</span> <span class="k">sql</span> <span class="nb">text</span><span class="p">,</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">shortest_path_astar</span><span class="p">(</span> <span class="k">sql</span> <span class="nb">text</span><span class="p">,</span>
                    <span class="n">source_id</span> <span class="nb">integer</span><span class="p">,</span>
                    <span class="n">target_id</span> <span class="nb">integer</span><span class="p">,</span>
                    <span class="n">directed</span> <span class="nb">boolean</span><span class="p">,</span>
@@ -204,7 +146,7 @@ make changes to the heuristic function itself.</p>
 </ul>
 <div class="section" id="example-of-a-star-core-function">
 <h3>Example of A-Star core function<a class="headerlink" href="#example-of-a-star-core-function" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shortest_path_astar</span><span class="p">(</span><span class="s1">&#39;</span>
 <span class="s1">                SELECT gid as id,</span>
 <span class="s1">                         source::integer,</span>
 <span class="s1">                         target::integer,</span>
@@ -214,7 +156,7 @@ make changes to the heuristic function itself.</p>
                 <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">vertex_id</span> <span class="o">|</span> <span class="n">edge_id</span> <span class="o">|</span>        <span class="n">cost</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">vertex_id</span> <span class="o">|</span> <span class="n">edge_id</span> <span class="o">|</span>        <span class="n">cost</span>
 <span class="c1">-----------+---------+---------------------</span>
             <span class="mi">10</span> <span class="o">|</span>     <span class="mi">293</span> <span class="o">|</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">0059596293824534</span>
              <span class="mi">9</span> <span class="o">|</span>    <span class="mi">4632</span> <span class="o">|</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">0846731039249787</span>
@@ -230,11 +172,11 @@ make changes to the heuristic function itself.</p>
 <h2>Wrapper function WITH bounding box<a class="headerlink" href="#wrapper-function-with-bounding-box" title="Permalink to this headline">¶</a></h2>
 <p>Wrapper functions extend the core functions with transformations, bounding box
 limitations, etc..</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">gid</span><span class="p">,</span> <span class="n">AsText</span><span class="p">(</span><span class="n">the_geom</span><span class="p">)</span> <span class="k">AS</span> <span class="n">the_geom</span>
         <span class="k">FROM</span> <span class="n">astar_sp_delta</span><span class="p">(</span><span class="s1">&#39;ways&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-sql"><div class="highlight"><pre><span></span>  <span class="n">gid</span>   <span class="o">|</span>                              <span class="n">the_geom</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>  <span class="n">gid</span>   <span class="o">|</span>                              <span class="n">the_geom</span>
 <span class="c1">--------+---------------------------------------------------------------</span>
         <span class="mi">293</span> <span class="o">|</span> <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">18</span><span class="p">.</span><span class="mi">4074149</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9443308</span><span class="p">,</span><span class="mi">18</span><span class="p">.</span><span class="mi">4074019</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9443833</span><span class="p">))</span>
    <span class="mi">4632</span> <span class="o">|</span> <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">18</span><span class="p">.</span><span class="mi">4074149</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9443308</span><span class="p">,</span><span class="mi">18</span><span class="p">.</span><span class="mi">4077388</span> <span class="o">-</span><span class="mi">33</span><span class="p">.</span><span class="mi">9436183</span><span class="p">))</span>

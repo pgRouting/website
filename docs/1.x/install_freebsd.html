@@ -4,31 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Installation on FreeBSD &#8212; Open Source Routing Library</title>
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="pgRouting Howto’s" href="../howto.html" />
     <link rel="prev" title="Installation on CentOS" href="install_centos.html" />
     
 
-  </head>
-  <body>
+  </head><body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -72,68 +64,18 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="../howto.html"
                         title="next chapter">pgRouting Howto’s</a></p>
-    
-    <h2>Make a Donation</h2>
-    <p>
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG">
-			<input type="hidden" name="business" value="donate@pgrouting.org">
-			<input type="hidden" name="notify_url" value="http://www.pgrouting.org">
-			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
-			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
-			<select name="currency_code" class="paypal_currency">
-				<option value="EUR" title="€" selected="">EUR</option>
-				<option value="AUD" title="$">AUD</option>
-				<option value="GBP" title="£">GBP</option>
-				<option value="JPY" title="¥">JPY</option>
-				<option value="CAD" title="$">CAD</option>
-				<option value="CHF" title="">CHF</option>
-				<option value="USD" title="$">USD</option>
-			</select>
-			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-      <ul style="list-style: square; margin-left: 20px;">
-        <li><a href="../../donate.html">Read more</a></li>
-        <li><a href="../../donate.html#sponsors">Our sponsors</a></li>
-      </ul>
-		</form>
-    </p>
-    <h2>Links</h2>
-    <ul style="list-style: square; margin-left: 20px;">
-      <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
-    	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="http://www.postgis.net/">PostGIS</a></li>
-    </ul>
-
-    <!-- Callout -->
-    <div class="callout-sidebar">
-
-        <a href="http://2018.foss4g.org">
-        <img src="../../_static/img/foss4g_2018.png"
-            alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
-        </a>
-
-        <a href="https://europe.foss4g.org/2018">
-          <img src="../../_static/img/foss4ge_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
-        </a>
-
-        <a href="http://www.foss4g-asia.org/2018">
-          <img src="../../_static/img/foss4gasia_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
-        </a>
-
-        <a href="http://locatepress.com/pgrouting">
-          <img src="../../_static/img/book_fullsize.png"
-              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
-        </a>
-
-        <a href="http://www.osgeo.org">
-          <img src="../../_static/img/OSGeo_logo.png"
-        	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
-        </a>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
     </div>
-
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -164,18 +106,18 @@
 <p>pgRouting docs suggest installing gaul without slang support. So before you
 install the port, change the port Makefile, commenting out the LIB_DEPENDS line
 which pulls in libslang, and add a line to disable slang support:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#LIB_DEPENDS=    slang.2:${PORTSDIR}/devel/libslang2</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#LIB_DEPENDS=    slang.2:${PORTSDIR}/devel/libslang2</span>
 <span class="nv">CONFIGURE_ARGS</span><span class="o">+=</span> --disable-slang
 </pre></div>
 </div>
 <p>After installing gaul you need to modify one header file, otherwise you can’t
 compile pgrouting later. In file /usr/local/include/gaul/gaul_util.h, add this
 line after line 177:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>typedef short _Bool<span class="p">;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>typedef short _Bool<span class="p">;</span>
 </pre></div>
 </div>
 <p>End result should look like:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="m">175</span>: <span class="c1">#if HAVE__BOOL != 1</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">175</span>: <span class="c1">#if HAVE__BOOL != 1</span>
 <span class="m">176</span>: typedef short _Bool<span class="p">;</span>
 <span class="m">177</span>: <span class="c1">#endif</span>
 <span class="m">178</span>: typedef short _Bool<span class="p">;</span>
@@ -194,7 +136,7 @@ can probably suggest a proper fix.</p>
 </div></blockquote>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>core/src/dijkstra.c
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>core/src/dijkstra.c
 core/src/astar.c
 core/src/shooting_star.c
 extra/driving_distance/src/alpha.c
@@ -206,26 +148,26 @@ extra/driving_distance/src/drivedist.c
 and newer.</p>
 <blockquote>
 <div>5.2. In following files:</div></blockquote>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>core/src/shooting_star_relax.hpp
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>core/src/shooting_star_relax.hpp
 core/src/edge_visitors.hpp
 </pre></div>
 </div>
 <p>you need to change the path to include file property_map.hpp so the line reads
 like this:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#include &lt;boost/property_map/property_map.hpp&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;boost/property_map/property_map.hpp&gt;</span>
 </pre></div>
 </div>
 <p>This is probably not necessary with older versions of boost-libs, but I’m not
 sure which version introduces the need for this change.</p>
 <blockquote>
 <div>5.3. In file core/src/shooting_star_boost_wrapper.cpp you need to change the path to include file vector_property_map.hpp in a way not unlike the previous change:</div></blockquote>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>#include &lt;boost/property_map/vector_property_map.hpp&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>#include &lt;boost/property_map/vector_property_map.hpp&gt;
 
 
 5.4. In file CMakeLists.txt, you need to add &quot;-frounding-math&quot; to variables CMAKE_C_FLAGS and CMAKE_CXX_FLAGS, otherwise you&#39;ll run into problems later when trying to add DD functions to the database. The end result should look like this:
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>SET<span class="o">(</span>CMAKE_C_FLAGS <span class="s2">&quot;-O2 -g -frounding-math&quot;</span><span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SET<span class="o">(</span>CMAKE_C_FLAGS <span class="s2">&quot;-O2 -g -frounding-math&quot;</span><span class="o">)</span>
 SET<span class="o">(</span>CMAKE_CXX_FLAGS <span class="s2">&quot;-O2 -g -frounding-math&quot;</span><span class="o">)</span>
 </pre></div>
 </div>

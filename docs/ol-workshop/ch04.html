@@ -4,29 +4,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Transforming, describing and testing the data &#8212; Open Source Routing Library</title>
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
     
 
-  </head>
-  <body>
+  </head><body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -62,68 +54,18 @@
     	
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-    
-    <h2>Make a Donation</h2>
-    <p>
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG">
-			<input type="hidden" name="business" value="donate@pgrouting.org">
-			<input type="hidden" name="notify_url" value="http://www.pgrouting.org">
-			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
-			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
-			<select name="currency_code" class="paypal_currency">
-				<option value="EUR" title="€" selected="">EUR</option>
-				<option value="AUD" title="$">AUD</option>
-				<option value="GBP" title="£">GBP</option>
-				<option value="JPY" title="¥">JPY</option>
-				<option value="CAD" title="$">CAD</option>
-				<option value="CHF" title="">CHF</option>
-				<option value="USD" title="$">USD</option>
-			</select>
-			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-      <ul style="list-style: square; margin-left: 20px;">
-        <li><a href="../../donate.html">Read more</a></li>
-        <li><a href="../../donate.html#sponsors">Our sponsors</a></li>
-      </ul>
-		</form>
-    </p>
-    <h2>Links</h2>
-    <ul style="list-style: square; margin-left: 20px;">
-      <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
-    	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="http://www.postgis.net/">PostGIS</a></li>
-    </ul>
-
-    <!-- Callout -->
-    <div class="callout-sidebar">
-
-        <a href="http://2018.foss4g.org">
-        <img src="../../_static/img/foss4g_2018.png"
-            alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
-        </a>
-
-        <a href="https://europe.foss4g.org/2018">
-          <img src="../../_static/img/foss4ge_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
-        </a>
-
-        <a href="http://www.foss4g-asia.org/2018">
-          <img src="../../_static/img/foss4gasia_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
-        </a>
-
-        <a href="http://locatepress.com/pgrouting">
-          <img src="../../_static/img/book_fullsize.png"
-              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
-        </a>
-
-        <a href="http://www.osgeo.org">
-          <img src="../../_static/img/OSGeo_logo.png"
-        	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
-        </a>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
     </div>
-
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -147,7 +89,7 @@ epsg-file of the proj-library.</p>
 understand that this was the reason, that my geodata were located 80 kilometers
 too much in the south), so, as an SQL-command use the following to bring 900913
 in the spatial_ref_sys-table:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">spatial_ref_sys</span> <span class="p">(</span><span class="n">srid</span><span class="p">,</span> <span class="n">auth_name</span><span class="p">,</span> <span class="n">auth_srid</span><span class="p">,</span> <span class="n">srtext</span><span class="p">,</span> <span class="n">proj4text</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">900913</span><span class="p">,</span> <span class="s1">&#39;EPSG&#39;</span><span class="p">,</span> <span class="mi">900913</span><span class="p">,</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">spatial_ref_sys</span> <span class="p">(</span><span class="n">srid</span><span class="p">,</span> <span class="n">auth_name</span><span class="p">,</span> <span class="n">auth_srid</span><span class="p">,</span> <span class="n">srtext</span><span class="p">,</span> <span class="n">proj4text</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">900913</span><span class="p">,</span> <span class="s1">&#39;EPSG&#39;</span><span class="p">,</span> <span class="mi">900913</span><span class="p">,</span>
 <span class="s1">&#39;PROJCS[&quot;unnamed&quot;,GEOGCS[&quot;unnamed ellipse&quot;,DATUM[&quot;unknown&quot;,SPHEROID[&quot;unnamed&quot;,6378137,0]],</span>
 <span class="s1">PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;degree&quot;,0.0174532925199433]],</span>
 <span class="s1">PROJECTION[&quot;Mercator_2SP&quot;],PARAMETER[&quot;standard_parallel_1&quot;,0],PARAMETER[&quot;central_meridian&quot;,0],PARAMETER[&quot;false_easting&quot;,0],</span>
@@ -157,7 +99,7 @@ in the spatial_ref_sys-table:</p>
 </pre></div>
 </div>
 <p>In the epsg-file (should be in /usr/local/share/proj/epsg) write at the end:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>&lt;<span class="m">900913</span>&gt; +proj<span class="o">=</span>merc +a<span class="o">=</span><span class="m">6378137</span> +b<span class="o">=</span><span class="m">6378137</span> +lat_ts<span class="o">=</span><span class="m">0</span>.0 +lon_0<span class="o">=</span><span class="m">0</span>.0 +x_0<span class="o">=</span><span class="m">0</span>.0 +y_0<span class="o">=</span><span class="m">0</span> +k<span class="o">=</span><span class="m">1</span>.0 +units<span class="o">=</span>m +nadgrids<span class="o">=</span>@null +no_defs
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;<span class="m">900913</span>&gt; +proj<span class="o">=</span>merc +a<span class="o">=</span><span class="m">6378137</span> +b<span class="o">=</span><span class="m">6378137</span> +lat_ts<span class="o">=</span><span class="m">0</span>.0 +lon_0<span class="o">=</span><span class="m">0</span>.0 +x_0<span class="o">=</span><span class="m">0</span>.0 +y_0<span class="o">=</span><span class="m">0</span> +k<span class="o">=</span><span class="m">1</span>.0 +units<span class="o">=</span>m +nadgrids<span class="o">=</span>@null +no_defs
 </pre></div>
 </div>
 <p>… so you have the possibility now to transform your geodata.</p>
@@ -167,13 +109,13 @@ and add a new column “the_geom” (as geometry).</p>
 <p>After that you need to change the table geometry_columns. You need to type that
 the srid for the_geom (table ways &amp; and vertices_tmp) is 900913 as well (!!!)</p>
 <p>Then do the SQL-command:.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">the_geom</span><span class="o">=</span><span class="k">transform</span><span class="p">(</span><span class="n">the_geom_4326</span><span class="p">,</span><span class="mi">900913</span><span class="p">)</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">the_geom</span><span class="o">=</span><span class="k">transform</span><span class="p">(</span><span class="n">the_geom_4326</span><span class="p">,</span><span class="mi">900913</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>…and your data in the_geom exist in the “Google Projection”.</p>
 <p>Furthermore you need to add a column “id” (integer) to the table “ways” to work with the routing-alorithm.</p>
 <p>If you have that column just do the command:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">id</span><span class="o">=</span><span class="n">gid</span><span class="p">;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">ways</span> <span class="k">SET</span> <span class="n">id</span><span class="o">=</span><span class="n">gid</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>After that the table-structure of “ways” should look like:</p>
@@ -189,7 +131,7 @@ vertices of “vertices_tmp”). This result comes from OSM-Shape-files …</p>
 <p><strong>How to test the geodata?</strong></p>
 <p>First of all many thank to Stephen WOODBRIDGE for that idea.</p>
 <p>You need to type the following commands on your vertices_tmp-table</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">alter</span> <span class="k">table</span> <span class="n">vertices_tmp</span> <span class="k">add</span> <span class="k">column</span> <span class="n">cnt</span> <span class="nb">integer</span><span class="p">;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">alter</span> <span class="k">table</span> <span class="n">vertices_tmp</span> <span class="k">add</span> <span class="k">column</span> <span class="n">cnt</span> <span class="nb">integer</span><span class="p">;</span>
 <span class="k">update</span> <span class="n">vertices_tmp</span> <span class="k">set</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 <span class="k">update</span> <span class="n">vertices_tmp</span> <span class="k">set</span> <span class="n">cnt</span><span class="o">=</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span> <span class="k">from</span> <span class="n">ways</span> <span class="k">where</span> <span class="n">ways</span><span class="p">.</span><span class="k">source</span><span class="o">=</span><span class="n">vertices_tmp</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
 <span class="k">update</span> <span class="n">vertices_tmp</span> <span class="k">set</span> <span class="n">cnt</span><span class="o">=</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span> <span class="k">from</span> <span class="n">ways</span> <span class="k">where</span> <span class="n">ways</span><span class="p">.</span><span class="n">target</span><span class="o">=</span><span class="n">vertices_tmp</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
@@ -198,7 +140,7 @@ vertices of “vertices_tmp”). This result comes from OSM-Shape-files …</p>
 <p>This will display red dots at dead ends and green dots as good
 connections be segments.</p>
 <p>You can visualize it with the UMN MapServer, just take a mapfile like:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MAP</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MAP</span>
         <span class="n">NAME</span> <span class="s1">&#39;mymap&#39;</span>
         <span class="n">STATUS</span> <span class="n">ON</span>
         <span class="n">EXTENT</span> <span class="mi">880000</span> <span class="mi">6840000</span> <span class="mi">915000</span> <span class="mi">6860000</span>
