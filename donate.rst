@@ -139,36 +139,21 @@ The following people or organizations have made donations or supplied financial 
 	 :target: https://mule.to/pgRouting
 	 :alt: Sticker Mule is the easiest way to buy custom stickers.
 
-
 **Bronze Sponsors**
-
-* `IT Security Jobs <https://www.cybersecurityjobs.net>`_
-* `Vein Disease Resource <https://varicoseveins.org>`_
-* `Online Educational Site <http://www.onlinedegree.com>`_
-* `Serenata Flowers <http://www.serenataflowers.com>`_
-	|sponsor_serenata|
-
-.. |sponsor_serenata| image:: _static/img/sponsor_serenata.jpg
-	 :width: 120
-	 :target: http://www.serenataflowers.com
-	 :alt:  SerenataFlowers.com
-
-* `Hipper.com <https://www.hipper.com/en/uk/flowers>`_
-	|sponsor_hipper|
-
-.. |sponsor_hipper| image:: _static/img/sponsor_hipper.png
-	 :width: 120
-	 :target: https://www.hipper.com/en/uk/flowers
-	 :alt:  Hipper.com
 
 * `Darafei Praliaskouski <http://komzpa.net/>`_
 	|sponsor_komzpa|
 
-.. |sponsor_komzpa| image:: https://s.gravatar.com/avatar/d9bf60a9d201fe514efa27ac865dc5f7?s=77
+.. |sponsor_komzpa| image:: https://s.gravatar.com/avatar/d9bf60a9d201fe514efa27ac865dc5f7?s=172
 	 :target: http://komzpa.net/
 	 :alt:  Darafei Praliaskouski
 
-* `3D Printing <https://www.allthat3d.com>`_
+**Bronze Sponsors**
+
+* `Vein Disease Resource <https://varicoseveins.org>`_
+* `Online Educational Site <http://www.onlinedegree.com>`_
+* `Serenata Flowers <http://www.serenataflowers.com>`_
+* `Hipper.com <https://www.hipper.com/>`_
 * `Comparing web hosts <https://www.websitehostingrating.com/siteground-vs-bluehost/>`_
 * `Scrum Master Zertifizierung <https://agile.coach/training/scrum-master-zertifizierung/>`_
 * `Teleph Product Reviews <https://www.teleph.com/>`_
