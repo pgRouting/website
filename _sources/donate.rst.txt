@@ -150,11 +150,9 @@ The following people or organizations have made donations or supplied financial 
 
 **Bronze Sponsors**
 
-* `Vein Disease Resource <https://varicoseveins.org>`_
 * `Online Educational Site <http://www.onlinedegree.com>`_
 * `Serenata Flowers <http://www.serenataflowers.com>`_
 * `Hipper.com <https://www.hipper.com/>`_
-* `Comparing web hosts <https://www.websitehostingrating.com/siteground-vs-bluehost/>`_
 * `Scrum Master Zertifizierung <https://agile.coach/training/scrum-master-zertifizierung/>`_
 * `Teleph Product Reviews <https://www.teleph.com/>`_
 
