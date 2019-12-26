@@ -27,7 +27,9 @@ Linux / OS X / BSD Packages
 
   * PostgreSQL Community packages: http://yum.postgresql.org
   * Enterprise Linux GIS: http://wiki.osgeo.org/wiki/Enterprise_Linux_GIS
-  * Fedora Project: http://fedoraproject.org/wiki/GIS (https://admin.fedoraproject.org/pkgdb/acls/name/pgRouting)
+  * Fedora Project:
+      * pgRouting: https://apps.fedoraproject.org/packages/pgRouting
+      * All GIS: http://fedoraproject.org/wiki/GIS
 
 * OS X packages: http://www.kyngchaos.com/software/postgres
 * FreeBSD packages: https://www.freshports.org/databases/pgrouting
