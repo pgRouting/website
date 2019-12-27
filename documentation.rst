@@ -16,7 +16,7 @@ Documentation
 	:maxdepth: 1
 
 	pgRouting versions 2.x (current) <http://docs.pgrouting.org>
-	pgRouting versions 1.x (deprecated) <http://docs.pgrouting.org>
+	pgRouting versions 1.x (deprecated) <http://docs.pgrouting.org/1.x/en/index.html>
 
 Workshops & Tutorials
 -------------------------------------------------------------------------------
