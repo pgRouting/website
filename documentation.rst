@@ -45,7 +45,7 @@ pgRouting Gallery
 	:maxdepth: 1
 
 	Examples and Demos <gallery>
-	OSGeo LiveDVD <http://live.osgeo.org>
+	OSGeoLive <https://live.osgeo.org/en/overview/pgrouting_overview.html>
 
 
 List of Contributors
