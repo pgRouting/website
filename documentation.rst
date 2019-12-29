@@ -38,12 +38,8 @@ Tools and HowTo's
 pgRouting Gallery
 -------------------------------------------------------------------------------
 
-.. toctree::
-	:maxdepth: 1
-
-	Examples and Demos <gallery>
-	OSGeo LiveDVD <http://live.osgeo.org>
-
+* Examples and Demos <gallery>
+* OSGeoLive <https://live.osgeo.org/en/overview/pgrouting_overview.html>
 
 List of Contributors
 -------------------------------------------------------------------------------
