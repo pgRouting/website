@@ -12,11 +12,8 @@
 Documentation
 ===============================================================================
 
-.. toctree::
-	:maxdepth: 1
-
-	pgRouting versions 2.x (current) <http://docs.pgrouting.org>
-	pgRouting versions 1.x (deprecated) <docs/1.x/index>
+* pgRouting documentation <http://docs.pgrouting.org>
+* pgRouting latest documentation <http://docs.pgrouting.org/latest>
 
 Workshops & Tutorials
 -------------------------------------------------------------------------------
