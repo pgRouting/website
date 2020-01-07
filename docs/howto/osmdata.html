@@ -1,37 +1,34 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Working with OpenStreetMap data &mdash; Open Source Routing Library</title>
-    
+    <title>Working with OpenStreetMap data &#8212; Open Source Routing Library</title>
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Open Source Routing Library" href="../../index.html" />
-    <link rel="up" title="pgRouting Howto’s" href="../howto.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Working with Shapefiles" href="shapefiles.html" />
     <link rel="prev" title="How to handle one-way streets" href="oneway.html" />
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -58,9 +55,9 @@
     <div class="related">
       <h3>Navigation</h3>
       <ul>
-        <li><a href="../../index.html">Home</a> &raquo;</li>
-          <li><a href="../../documentation.html" >Documentation</a> &raquo;</li>
-          <li><a href="../howto.html" accesskey="U">pgRouting Howto&#8217;s</a> &raquo;</li>
+        <li><a href="../../index.html">Home</a> &#187;</li>
+          <li><a href="../../documentation.html" >Documentation</a> &#187;</li>
+          <li><a href="../howto.html" accesskey="U">pgRouting Howto’s</a> &#187;</li>
         <li><a href="#">Working with OpenStreetMap data</a></li>
       </ul>
     </div>
@@ -95,45 +92,44 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/> <a href="../../donate.html">Read more</a>
-		</form>				
+      <ul style="list-style: square; margin-left: 20px;">
+        <li><a href="../../donate.html">Read more</a></li>
+        <li><a href="../../donate.html#sponsors">Our sponsors</a></li>
+      </ul>
+		</form>
     </p>
     <h2>Links</h2>
     <ul style="list-style: square; margin-left: 20px;">
-        <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
+      <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
     	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
     	<li><a href="http://www.postgis.net/">PostGIS</a></li>
     </ul>
-    
+
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <a href="http://2017.foss4g.org">
-        <img src="../../_static/img/foss4g_2017.png" 
-            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
-        </a>
-        
+        <!-- <a href="http://2018.foss4g.org">
+          <img src="../../_static/img/foss4g_2018.png"
+            alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
+        </a> -->
+
+        <!-- <a href="https://europe.foss4g.org/2018">
+          <img src="../../_static/img/foss4ge_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
+        </a> -->
+
+        <!-- <a href="http://www.foss4g-asia.org/2018">
+          <img src="../../_static/img/foss4gasia_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
+        </a> -->
+
         <a href="http://locatepress.com/pgrouting">
-        <img src="../../_static/img/book_fullsize.png" 
-            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+          <img src="../../_static/img/book_fullsize.png"
+              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
-        <!--a href="http://europe.foss4g.org">
-        <img src="../../_static/img/foss4ge_2015.png" 
-            alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
-        </a-->
-        
-        <!--a href="http://www.fossgis.de/konferenz/2015/">
-        <img src="../../_static/img/fossgis_2015.png" 
-            alt="FOSSGIS 2015, Münster" title="FOSSGIS 2015, Münster" style="height:130px;"/>
-        </a-->
-        
-        <!--a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2015">
-        <img src="../../_static/img/gsoc_2015.jpg" 
-            alt="Google Summer of Code 2015" title="Google Summer of Code 2015" style="height:130px;"/>
-        </a-->
-        
+
         <a href="http://www.osgeo.org">
-        <img src="../../_static/img/OSGeo_logo.png" 
+          <img src="../../_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
     </div>
@@ -150,7 +146,7 @@
             
   <div class="section" id="working-with-openstreetmap-data">
 <span id="osmdata"></span><h1>Working with OpenStreetMap data<a class="headerlink" href="#working-with-openstreetmap-data" title="Permalink to this headline">¶</a></h1>
-<p>In that case as an example from Osnabrück ... (in lower saxony(Germany))</p>
+<p>In that case as an example from Osnabrück … (in lower saxony(Germany))</p>
 <p>Getting your own OpenStreetMap-Routing-data is not the easiest step in the world.
 You know that you need data with a real topology?</p>
 <p>In generel Shapefiles should have one, but be very carefull with OSM-Shapefiles.
@@ -161,7 +157,7 @@ look at that discussion:</p>
 <p><a class="reference external" href="http://lists.postlbs.org/pipermail/pgrouting-users/2009-April/000096.html">http://lists.postlbs.org/pipermail/pgrouting-users/2009-April/000096.html</a></p>
 <p>Many thanks to Daniel KASTL who brought the needed information:</p>
 <blockquote>
-<div><p>... shp2pgsql imports the geometry correctly, but the topology function will
+<div><p>… shp2pgsql imports the geometry correctly, but the topology function will
 not work with how OSM represents their ways, because ways consist (can
 consist) of more than one edge often.</p>
 <p>osm2pgrouting cares about this and splits a way into more edges if they
@@ -180,8 +176,8 @@ The wiki-site for osmosis you find here:</p>
                                 <span class="nv">top</span><span class="o">=</span><span class="m">52</span>.3537 <span class="nv">bottom</span><span class="o">=</span><span class="m">52</span>.3537 --write-xml osnabrueck.osm
 </pre></div>
 </div>
-<p>Now, you have the &#8220;real&#8221;-OSM-XML-Data from Osnabrück but without a topology.</p>
-<p>For that you need the tool &#8220;osm2pgrouting&#8221;. After you have loaded the .osm-File
+<p>Now, you have the “real”-OSM-XML-Data from Osnabrück but without a topology.</p>
+<p>For that you need the tool “osm2pgrouting”. After you have loaded the .osm-File
 in the database via osm2pgrouting, the table-structure should look like:</p>
 <a class="reference internal image-reference" href="../../_images/database.png"><img alt="../../_images/database.png" class="align-center" src="../../_images/database.png" style="width: 835.0px; height: 410.0px;" /></a>
 </div>
@@ -201,21 +197,21 @@ in the database via osm2pgrouting, the table-structure should look like:</p>
             <li class="right" >
               <a href="oneway.html" title="How to handle one-way streets"
                  accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">Home</a> &raquo;</li>
-          <li><a href="../../documentation.html" >Documentation</a> &raquo;</li>
-          <li><a href="../howto.html" >pgRouting Howto&#8217;s</a> &raquo;</li>
+        <li><a href="../../index.html">Home</a> &#187;</li>
+          <li><a href="../../documentation.html" >Documentation</a> &#187;</li>
+          <li><a href="../howto.html" >pgRouting Howto’s</a> &#187;</li>
         <li><a href="#">Working with OpenStreetMap data</a></li>
       </ul>
     </div>
 
 	<div class="footer">
       	&copy; Copyright, pgRouting Community<br/>
-      	pgRouting website is hosted on <a href="https://github.com/pgRouting/website">Github</a> |       	
-      	<script type="text/javascript"> 
-      		document.write('<a href="mailto:' + new Array("project","pgrouting.org").join("@") + '">Contact administrators</a>'); 
+      	pgRouting website is hosted on <a href="https://github.com/pgRouting/website">Github</a> |
+      	<script type="text/javascript">
+      		document.write('<a href="mailto:' + new Array("project","pgrouting.org").join("@") + '">Contact administrators</a>');
       	</script>
     </div>
-    
+
 	<!-- Piwik -->
 	<script type="text/javascript">
 	var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.georepublic.net/" : "http://stats.georepublic.net/");

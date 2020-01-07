@@ -1,34 +1,32 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Explanation of the OpenLayers-Code step 2 &mdash; Open Source Routing Library</title>
-    
+    <title>Explanation of the OpenLayers-Code step 2 &#8212; Open Source Routing Library</title>
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Open Source Routing Library" href="../../index.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     
 
   </head>
-  <body role="document">
+  <body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -55,7 +53,7 @@
     <div class="related">
       <h3>Navigation</h3>
       <ul>
-        <li><a href="../../index.html">Home</a> &raquo;</li>
+        <li><a href="../../index.html">Home</a> &#187;</li>
         <li><a href="#">Explanation of the OpenLayers-Code step 2</a></li>
       </ul>
     </div>
@@ -84,45 +82,44 @@
 				<option value="USD" title="$">USD</option>
 			</select>
 			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<br/> <a href="../../donate.html">Read more</a>
-		</form>				
+      <ul style="list-style: square; margin-left: 20px;">
+        <li><a href="../../donate.html">Read more</a></li>
+        <li><a href="../../donate.html#sponsors">Our sponsors</a></li>
+      </ul>
+		</form>
     </p>
     <h2>Links</h2>
     <ul style="list-style: square; margin-left: 20px;">
-        <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
+      <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
     	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
     	<li><a href="http://www.postgis.net/">PostGIS</a></li>
     </ul>
-    
+
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <a href="http://2017.foss4g.org">
-        <img src="../../_static/img/foss4g_2017.png" 
-            alt="FOSS4G 2017, Boston" title="FOSS4G 2017, Boston" style="width:210px;"/>
-        </a>
-        
+        <!-- <a href="http://2018.foss4g.org">
+          <img src="../../_static/img/foss4g_2018.png"
+            alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
+        </a> -->
+
+        <!-- <a href="https://europe.foss4g.org/2018">
+          <img src="../../_static/img/foss4ge_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
+        </a> -->
+
+        <!-- <a href="http://www.foss4g-asia.org/2018">
+          <img src="../../_static/img/foss4gasia_2018.png"
+              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
+        </a> -->
+
         <a href="http://locatepress.com/pgrouting">
-        <img src="../../_static/img/book_fullsize.png" 
-            alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+          <img src="../../_static/img/book_fullsize.png"
+              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
-        <!--a href="http://europe.foss4g.org">
-        <img src="../../_static/img/foss4ge_2015.png" 
-            alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2015, Como" style="height:130px;"/>
-        </a-->
-        
-        <!--a href="http://www.fossgis.de/konferenz/2015/">
-        <img src="../../_static/img/fossgis_2015.png" 
-            alt="FOSSGIS 2015, Münster" title="FOSSGIS 2015, Münster" style="height:130px;"/>
-        </a-->
-        
-        <!--a href="http://wiki.osgeo.org/wiki/Google_Summer_of_Code_2015">
-        <img src="../../_static/img/gsoc_2015.jpg" 
-            alt="Google Summer of Code 2015" title="Google Summer of Code 2015" style="height:130px;"/>
-        </a-->
-        
+
         <a href="http://www.osgeo.org">
-        <img src="../../_static/img/OSGeo_logo.png" 
+          <img src="../../_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
     </div>
@@ -180,7 +177,7 @@ the map!! If you want you can turn off the WMS.</p>
 </div>
 <p>Projection and extend (of the Google-Mercator.projection) are set.
 Also a map-object is created and a Layerswitcher integrated.
-Coordinates are shown in WGS84 ( displayProjection: new OpenLayers.Projection(&#8220;EPSG:4326&#8221;),
+Coordinates are shown in WGS84 ( displayProjection: new OpenLayers.Projection(“EPSG:4326”),
 ).</p>
 <div class="highlight-js"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">osm_getTileURL</span><span class="p">(</span><span class="nx">bounds</span><span class="p">)</span> <span class="p">{</span>
 
@@ -288,13 +285,13 @@ Coordinates are shown in WGS84 ( displayProjection: new OpenLayers.Projection(&#
         <span class="p">}</span>
 </pre></div>
 </div>
-<p>If start- and endpoint are set and you click on &#8220;calculate route&#8221; via Ajax an
+<p>If start- and endpoint are set and you click on “calculate route” via Ajax an
 URL is called with the coordinates of start and end-points</p>
-<p>(OpenLayers.loadURL(&#8220;routing.php?startpoint=&#8221;+startPoint.geometry.x+&#8221; &#8220;+startPoint.geometry.y+&#8221;&amp;finalpoint=&#8221;+stopPoint.geometry.x+&#8221; )</p>
+<p>(OpenLayers.loadURL(“routing.php?startpoint=”+startPoint.geometry.x+” “+startPoint.geometry.y+”&amp;finalpoint=”+stopPoint.geometry.x+” )</p>
 <p>routing.php creates the geometry of the routing-ways
 (We will come to routing.php in the next step).</p>
-<p>If these ways are correctly given back to our OpenLayers-script &#8220;parseWKT&#8221; is called.
-This parses the given &#8220;Well Known text-geodata&#8221; from routing.php.</p>
+<p>If these ways are correctly given back to our OpenLayers-script “parseWKT” is called.
+This parses the given “Well Known text-geodata” from routing.php.</p>
 <p>In</p>
 <div class="highlight-js"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">edges</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
              <span class="kd">var</span> <span class="nx">g</span> <span class="o">=</span> <span class="nx">parseWKT</span><span class="p">(</span><span class="nx">edges</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;wkt&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">textContent</span><span class="p">);</span>
@@ -315,19 +312,19 @@ This parses the given &#8220;Well Known text-geodata&#8221; from routing.php.</p
     <div class="related">
       <h3>Navigation</h3>
       <ul>
-        <li><a href="../../index.html">Home</a> &raquo;</li>
+        <li><a href="../../index.html">Home</a> &#187;</li>
         <li><a href="#">Explanation of the OpenLayers-Code step 2</a></li>
       </ul>
     </div>
 
 	<div class="footer">
       	&copy; Copyright, pgRouting Community<br/>
-      	pgRouting website is hosted on <a href="https://github.com/pgRouting/website">Github</a> |       	
-      	<script type="text/javascript"> 
-      		document.write('<a href="mailto:' + new Array("project","pgrouting.org").join("@") + '">Contact administrators</a>'); 
+      	pgRouting website is hosted on <a href="https://github.com/pgRouting/website">Github</a> |
+      	<script type="text/javascript">
+      		document.write('<a href="mailto:' + new Array("project","pgrouting.org").join("@") + '">Contact administrators</a>');
       	</script>
     </div>
-    
+
 	<!-- Piwik -->
 	<script type="text/javascript">
 	var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.georepublic.net/" : "http://stats.georepublic.net/");
