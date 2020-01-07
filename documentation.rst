@@ -12,45 +12,36 @@
 Documentation
 ===============================================================================
 
-* pgRouting documentation <http://docs.pgrouting.org>
-* pgRouting latest documentation <http://docs.pgrouting.org/latest>
+* `pgRouting documentation <http://docs.pgrouting.org>`__
+* `pgRouting latest documentation <http://docs.pgrouting.org/latest>`__
 
 Workshops
 -------------------------------------------------------------------------------
 
-* pgRouting workshops: https://workshop.pgrouting.org
+* `pgRouting workshops <https://workshop.pgrouting.org>`__
 
 Tools and HowTo's
 -------------------------------------------------------------------------------
 
-.. toctree::
-	:maxdepth: 1
-
-	docs/howto
-	docs/tools
-
+* `How to <https://pgrouting.org/docs/howto.html>`__
+* `Tools <https://pgrouting.org/docs/tools.html>`__
 
 pgRouting Gallery
 -------------------------------------------------------------------------------
 
-* Examples and Demos <gallery>
-* OSGeoLive <https://live.osgeo.org/en/overview/pgrouting_overview.html>
+* `Examples and Demos <https://github.com/pgRouting/pgrouting/wiki/Gallery>`__
+* `OSGeoLive <https://live.osgeo.org/en/overview/pgrouting_overview.html>`__
 
 List of Contributors
 -------------------------------------------------------------------------------
 
 Thanks to everyone who contributed to pgRouting project over the past years! Thank you also to all corporate sponsors that have contributed developer time, hosting, or direct monetary funding to the pgRouting project:
 
+* `Individuals <https://docs.pgrouting.org/3.0/en/pgRouting-introduction.html#id1>`__
+* `Corporate Sponsors <https://docs.pgrouting.org/3.0/en/pgRouting-introduction.html#id2>`__
 
-.. rubric:: Individuals (in alphabetical order)
+Special thanks to:
 
-Akio Takubo, Anton Patrushev, Ashraf Hossain, Christian Gonzalez, Daniel Kastl, Dave Potts, David Techer, Ema Miyawaki, Florian Thurkow, Frederic Junod, Gerald Fenoy, Jay Mahadeokar, Jinfu Leng, Kai Behncke, Kishore Kumar, Ko Nagase, Manikanta Kondeti, Mario Basa, Martin Wiesenhaan, Razequl Islam, Sarthak Agarwal, Stephen Woodbridge, Sylvain Housseman, Sylvain Pasche, Vicky Vergara
-
-
-.. rubric:: Corporate Sponsors (in alphabetical order)
-
-Camptocamp, CSIS (University of Tokyo), Georepublic, Google Summer of Code, iMaptools, Orkney, Paragon Corporation
-
-
-	
-
+* `Georepublic <https://georepublic.info/en/>`__
+* iMaptools
+* `Paragon Corporation <https://www.paragoncorporation.com/>`__
