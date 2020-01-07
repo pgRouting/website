@@ -13,6 +13,7 @@ pgRouting Gallery
 ===============================================================================
 
 The gallery can be found here:
+
 * https://github.com/pgRouting/pgrouting/wiki/Using-pgRouting
 
 .. note::
