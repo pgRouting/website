@@ -20,12 +20,23 @@ Debian an Ubuntu
 
 * https://github.com/pgRouting/pgrouting/wiki/Download:-Debian-and-Ubuntu
 
-Linux / OS X / BSD Packages
+Download: FreeBSD OS X
 -------------------------------------------------------------------------------
 
-* DEB packages: 
+* https://github.com/pgRouting/pgrouting/wiki/Download:-FreeBSD-OS-X
 
-  * Launchpad PPA (v2.x): https://launchpad.net/~georepublic/+archive/pgrouting-unstable
+Fedora
+-------------------------------------------------------------------------------
+
+* https://github.com/pgRouting/pgrouting/wiki/Download:-RedHat-Fedora-Centos#fedora
+
+Windows Binaries
+-------------------------------------------------------------------------------
+
+* https://github.com/pgRouting/pgrouting/wiki/Download:-Windows
+
+OS X / BSD Packages
+-------------------------------------------------------------------------------
 
 * RPM packages: 
 
@@ -37,12 +48,6 @@ Linux / OS X / BSD Packages
 
 * OS X packages: http://www.kyngchaos.com/software/postgres
 * FreeBSD packages: https://www.freshports.org/databases/pgrouting
-
-
-Windows Binaries
--------------------------------------------------------------------------------
-
-* https://github.com/pgRouting/pgrouting/wiki/Download:-Windows
 
 OSGeo Live DVD
 -------------------------------------------------------------------------------
