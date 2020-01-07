@@ -15,6 +15,10 @@ Download
 pgRouting is available as source code as well as in binary formats (Linux, Windows, Mac OS X). 
 If you want to install the current development version, check out the source from pgRouting Git repository.
 
+Debian an Ubuntu
+-------------------------------------------------------------------------------
+
+* https://github.com/pgRouting/pgrouting/wiki/Download:-Debian-and-Ubuntu
 
 Linux / OS X / BSD Packages
 -------------------------------------------------------------------------------
