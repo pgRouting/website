@@ -15,15 +15,10 @@ Documentation
 * pgRouting documentation <http://docs.pgrouting.org>
 * pgRouting latest documentation <http://docs.pgrouting.org/latest>
 
-Workshops & Tutorials
+Workshops
 -------------------------------------------------------------------------------
 
-.. toctree::
-	:maxdepth: 1
-
-	pgRouting Workshop for v2.x (English) <http://workshop.pgrouting.org>
-	pgRouting Workshop for v1.05 (Français) <http://postgis.fr/chrome/site/docs/workshop-routing-foss4g/docs/_build/html/index.html>
-
+* pgRouting workshops: https://workshop.pgrouting.org
 
 Tools and HowTo's
 -------------------------------------------------------------------------------
