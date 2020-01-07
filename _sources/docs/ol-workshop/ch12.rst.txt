@@ -1,0 +1,584 @@
+:Author: Kai Behncke (edited Daniel Kastl)
+:License: Creative Commons
+
+.. _ol-workshop-ch12:
+
+================================================================
+ Source Code for Killing some bugs
+================================================================
+
+The souce-code for that is very,very "dirty" (sorry for that), but it works:
+
+.. code-block:: html
+
+	<?php
+	 	
+	 	  // Database connection settings
+	 	  define("PG_DB"  , "test");
+	 	  define("PG_HOST", "localhost");
+	 	  define("PG_USER", "postgres");
+	 	  define("PG_PORT", "5432");
+	 	  define("TABLE",   "ways");
+	 	
+	 	$counter = $pathlength = 1;
+	 	
+	 	  // Retrieve start point
+	 	 $start = split(' ',$_REQUEST['startpoint']);
+	 	
+	 	  $startPoint = array($start[0], $start[1]);
+	 	 
+	 /*	echo $startPoint[0];
+	 	echo "<br>";
+	 	  	echo $startPoint[1];
+	 	  	echo "<br>";*/
+	 	 
+	 	 
+	 	 
+	 	  // Retrieve end point
+	 	  $end = split(' ',$_REQUEST['finalpoint']);
+	 	
+	 	 $endPoint = array($end[0], $end[1]);
+	 	 
+	 	 
+	 	
+	 	  // Find the nearest edge
+	 	  $startEdge = findNearestEdge($startPoint);
+	 	 
+	 	
+	 	  $endEdge   = findNearestEdge($endPoint);
+	 	
+	 	  // FUNCTION findNearestEdge
+	 	  function findNearestEdge($lonlat) {
+	 	    
+	 	    // Connect to database
+	 	    $con = pg_connect("dbname=".PG_DB." host=".PG_HOST." password=".PG_PASS." user=".PG_USER);
+	 	    
+	 	    $sql = "SELECT gid, source, target, the_geom,astext(the_geom),
+	 	             distance(the_geom, GeometryFromText(
+	 	                  'POINT(".$lonlat[0]." ".$lonlat[1].")', 900913)) AS dist
+	 	            FROM ".TABLE." 
+	 	            WHERE the_geom && setsrid(
+	 	                  'BOX3D(".($lonlat[0]-200)."
+	 	                         ".($lonlat[1]-200).",
+	 	                         ".($lonlat[0]+200)."
+	 	                         ".($lonlat[1]+200).")'::box3d, 900913)
+	 	            ORDER BY dist LIMIT 1";
+
+
+	 	
+	 	    $query = pg_query($con,$sql); 
+	 	    
+	 	    $edge['gid']      = pg_fetch_result($query, 0, 0); 
+	 	    $edge['source']   = pg_fetch_result($query, 0, 1); 
+	 	    $edge['target']   = pg_fetch_result($query, 0, 2); 
+	 	    $edge['the_geom'] = pg_fetch_result($query, 0, 3); 
+		   $edge['the_geom_as_text'] = pg_fetch_result($query, 0, 4); 
+
+
+
+	 	    pg_close($con);
+	 	
+	 	    return $edge;
+	 	  }
+
+
+	 	 
+
+
+	$sql2="SELECT astext(multiline_locate_point(the_geom,PointFromText('POINT(".$startPoint[0]." ".$startPoint[1].")',900913))) from ways where gid=".$startEdge[gid];
+
+
+
+	$sql3="SELECT astext(multiline_locate_point(the_geom,PointFromText('POINT(".$endPoint[0]." ".$endPoint[1].")',900913))) from ways where gid=".$endEdge[gid];
+	  
+	   $con = pg_connect("dbname=".PG_DB." host=".PG_HOST." password=".PG_PASS." user=".PG_USER);
+	 
+
+	$query2 = pg_query($con,$sql2); 
+	$query3 = pg_query($con,$sql3); 
+	 	    
+	$point_on_line_begin= pg_fetch_result($query2, 0, 0); 
+	$point_on_line_ende= pg_fetch_result($query3, 0, 0); 
+
+
+	 	
+	   //  switch($_REQUEST['method']) {
+	 	    
+	 	    
+	 	    
+	 	    
+	 	    
+	 	       //  case 'SPD' : // Shortest Path Dijkstra
+	 	       /*   $sql = "SELECT rt.gid, AsText(rt.the_geom) AS wkt,
+	 	                        ST_Length(rt.the_geom) AS length, ".TABLE.".id
+	 	                     FROM ".TABLE.",
+	 	                         (SELECT gid, the_geom
+	 	                             FROM dijkstra_sp_delta(
+	 	                                 '".TABLE."',
+	 	                                 ".$startEdge['source'].",
+	 	                                 ".$endEdge['target'].",
+	 	                                 3000) WHERE gid!=".$startEdge['gid']." AND gid!=".$endEdge['gid']."
+	 	                          ) as rt
+	 	                     WHERE ".TABLE.".gid=rt.gid;";*/
+	 	                     
+	 	                     
+	 	      //in 2. Funktion  .$endEdge['source'].              
+	 	       //in 2. Funktion  .$startEdge['target'].                   
+	 	                    
+	 	           // echo $sql;
+	 	                    
+	 	          // break;
+	 	    
+	 	      /*   case 'SPA' : // Shortest Path A*
+	 	    
+	 	           $sql = "SELECT rt.gid, AsText(rt.the_geom) AS wkt,
+	 	                          length(rt.the_geom) AS length, ".TABLE.".id
+	 	                       FROM ".TABLE.",
+	 	                           (SELECT gid, the_geom
+	 	                               FROM astar_sp_delta(
+	 	                                   '".TABLE."',
+	 	                                   ".$startEdge['source'].",
+	 	                                   ".$endEdge['target'].",
+	 	                                   3000)
+	 	                            ) as rt
+	 	                       WHERE ".TABLE.".gid=rt.gid;";
+	 	          break;*/
+	 	    
+	 	       //  case 'SPS' : // Shortest Path Shooting*
+	 	    
+	 	   /*        $sql = "SELECT rt.gid, AsText(rt.the_geom) AS wkt,
+			                      length(rt.the_geom) AS length, ".TABLE.".id
+			                       	                       FROM ".TABLE.",
+	 	                           (SELECT gid, the_geom
+	 	                               FROM shootingstar_sp(
+	 	                                   '".TABLE."',
+	 	                                   ".$startEdge['gid'].",
+	 	                                   ".$endEdge['gid'].",
+	 	                                   3000, 'length', false, false)
+	 	                            ) as rt
+	 	                       WHERE ".TABLE.".gid=rt.gid;";
+	 	                      
+	 	                
+	 	           break;*/
+	 	    
+	 	     //  } // close switch
+
+	//echo $sql;
+	//*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+	// 	  $startEdge = findNearestEdge($startPoint);
+	 	 
+	 	
+	// 	  $endEdge   = findNearestEdge($endPoint);
+
+
+
+	//Getting length of the route A -> B  and "the other way round" to avoid errors in route-calculation
+	$length_1 = getting_pathlength($startEdge['source'],$endEdge['target'],$startEdge['gid'],$endEdge['gid'],$point_on_line_begin,$point_on_line_ende);
+
+
+	$length_2 = getting_pathlength($endEdge['source'],$startEdge['target'],$startEdge['gid'],$endEdge['gid'],$point_on_line_begin,$point_on_line_ende);
+
+
+
+	//Function Getting length of the route
+	function getting_pathlength($start,$ende,$start_gid,$end_gid,$point_on_line_begin,$point_on_line_ende){
+
+
+		  $sql = "SELECT rt.gid, AsText(rt.the_geom) AS wkt,
+	 	                        ST_Length(rt.the_geom) AS length, ".TABLE.".id
+	 	                     FROM ".TABLE.",
+	 	                         (SELECT gid, the_geom
+	 	                             FROM dijkstra_sp_delta(
+	 	                                 '".TABLE."',
+	 	                                 ".$start.",
+	 	                                 ".$ende.",
+	 	                                 3000) WHERE gid!=".$start_gid." AND gid!=".$end_gid."
+	 	                          ) as rt
+	 	                     WHERE ".TABLE.".gid=rt.gid;";
+
+		 /* $sql = "SELECT rt.gid, AsText(rt.the_geom) AS wkt,
+	 	                        ST_Length(rt.the_geom) AS length, ".TABLE.".id
+	 	                     FROM ".TABLE.",
+	 	                         (SELECT gid, the_geom
+	 	                             FROM dijkstra_sp_delta(
+	 	                                 '".TABLE."',
+	 	                                 ".$endEdge['source'].",
+	 	                                 ".$startEdge['target'].",
+	 	                                 3000) WHERE gid!=".$startEdge['gid']." AND gid!=".$endEdge['gid']."
+	 	                          ) as rt
+	 	                     WHERE ".TABLE.".gid=rt.gid;";*/
+
+
+
+	$geometrie_results=pg_query($sql);
+	$number_of_geometrien=pg_num_rows($geometrie_results);
+
+
+	$totallength=0;
+	for ($x=0;$x<$number_of_geometrien;$x++)
+	   {
+	   
+	   
+
+	$result_length[$x]=pg_result($geometrie_results,$x,length);
+	$totallength=$totallength+$result_length[$x];  
+
+
+
+
+	}
+
+
+
+	//result besidegeometrie begin
+	for ($x=0;$x<$number_of_geometrien;$x++)
+	   {
+	$result_geometrie_gid[$x]=pg_result($geometrie_results,$x,gid);
+
+
+
+
+	$matching_besidegeometrie_begin=pg_query("SELECT b.gid,astext(b.the_geom) from (select the_geom from ways where gid=".$start_gid.")a, (select gid,the_geom from ways WHERE gid=".$result_geometrie_gid[$x].") b WHERE touches (a.the_geom,b.the_geom)");
+
+	$result_besidegeometrie_begin_gid=@pg_result($matching_besidegeometrie_begin,0,gid);
+
+
+
+	IF ($result_besidegeometrie_begin_gid!=''){
+
+	Break;
+	}
+
+
+	}
+
+	if ($number_of_geometrien==0){
+
+	$result_besidegeometrie_begin_gid=$end_gid;
+	$result_besidegeometrie_ende_gid=$start_gid;
+	}
+
+
+	//echo "end_gid ".$end_gid;
+	//echo "<br>";
+	//echo "start gid ".$start_gid;
+
+	//result besidegeometrie Ende
+	for ($x=0;$x<$number_of_geometrien;$x++)
+	   {
+	$result_geometrie_gid[$x]=pg_result($geometrie_results,$x,gid);
+
+
+
+
+	$matching_besidegeometrie_ende=pg_query("SELECT d.gid,astext(d.the_geom) from (select the_geom from ways where gid=".$end_gid.")c, (select gid,the_geom from ways WHERE gid=".$result_geometrie_gid[$x].") d WHERE touches (c.the_geom,d.the_geom)");
+	$result_besidegeometrie_ende_gid=@pg_result($matching_besidegeometrie_ende,0,gid);
+	//echo "test2 ".$result_besidegeometrie_begin_gid;
+	IF ($result_besidegeometrie_ende_gid!=''){
+
+	Break;
+	}
+
+
+	} 
+
+
+
+	//echo "Also: ".$result_besidegeometrie_begin_gid;
+	//echo "<br>";
+	//echo "Also: ".$result_besidegeometrie_ende_gid;
+	   $con = pg_connect("dbname=".PG_DB." host=".PG_HOST." password=".PG_PASS." user=".PG_USER);
+
+
+
+
+
+	 	  $query = pg_query($con,$sql);
+	 	  
+
+	 	  
+	//Geometrie-begin 	  
+	$sql3="SELECT astext(schnittpunkt(".$start_gid.",".$result_besidegeometrie_begin_gid.",'".$point_on_line_begin."'))";
+
+
+
+	$query3 = pg_query($con,$sql3);
+	$searching_wkt_begin= pg_fetch_result($query3, 0, 0); 
+
+	$sql4="SELECT ST_Length('".$searching_wkt_begin."')";
+
+	$query4 = pg_query($con,$sql4);
+	$length_begin= pg_fetch_result($query4, 0, 0); 
+
+	$totallength=$totallength+$length_begin;
+	//----------------------------------------
+
+
+	//Geometrie-Ende	  
+	$sql5="SELECT astext(schnittpunkt(".$end_gid.",".$result_besidegeometrie_ende_gid.",'".$point_on_line_ende."'))";
+	$query5 = pg_query($con,$sql5);
+	$searching_wkt_ende= pg_fetch_result($query5, 0, 0); 
+
+
+	$sql6="SELECT ST_Length('".$searching_wkt_ende."')";
+
+	//echo $sql6;
+
+	$query6 = pg_query($con,$sql6);
+	$length_ende= pg_fetch_result($query6, 0, 0); 
+
+
+
+
+
+	$totallength=$totallength+$length_ende;
+
+
+
+	return $totallength;
+
+	}
+
+	/*echo "Die ultimative length1 ".$length_1;
+	echo "<br>";
+	echo "Die ultimative length2 ".$length_2;
+	*/
+
+
+	if ($length_1 < $length_2){
+
+
+
+	 $sql = "SELECT rt.gid, AsText(rt.the_geom) AS wkt,
+	 	                        ST_Length(rt.the_geom) AS length, ".TABLE.".id
+	 	                     FROM ".TABLE.",
+	 	                         (SELECT gid, the_geom
+	 	                             FROM dijkstra_sp_delta(
+	 	                                 '".TABLE."',
+	 	                                 ".$startEdge['source'].",
+	 	                                 ".$endEdge['target'].",
+	 	                                 3000) WHERE gid!=".$startEdge['gid']." AND gid!=".$endEdge['gid']."
+	 	                          ) as rt
+	 	                     WHERE ".TABLE.".gid=rt.gid;";
+	 	                     
+	 	  	
+	 } 
+	else 
+	{
+
+
+
+	 $sql = "SELECT rt.gid, AsText(rt.the_geom) AS wkt,
+	 	                        ST_Length(rt.the_geom) AS length, ".TABLE.".id
+	 	                     FROM ".TABLE.",
+	 	                         (SELECT gid, the_geom
+	 	                             FROM dijkstra_sp_delta(
+	 	                                 '".TABLE."',
+	 	                                 ".$endEdge['source'].",
+	 	                                 ".$startEdge['target'].",
+	 	                                 3000) WHERE gid!=".$startEdge['gid']." AND gid!=".$endEdge['gid']."
+	 	                          ) as rt
+	 	                     WHERE ".TABLE.".gid=rt.gid;";
+	 	                     
+		                 
+	 	                  
+	}
+
+
+
+	$geometrie_results=pg_query($sql);
+	$number_of_geometrien=pg_num_rows($geometrie_results);
+
+
+	$totallength=0;
+	for ($x=0;$x<$number_of_geometrien;$x++)
+	   {
+	   
+	   
+
+	$result_length[$x]=pg_result($geometrie_results,$x,length);
+	$totallength=$totallength+$result_length[$x];  
+
+
+
+
+	}
+
+
+
+	//result besidegeometrie begin
+	for ($x=0;$x<$number_of_geometrien;$x++)
+	   {
+	$result_geometrie_gid[$x]=pg_result($geometrie_results,$x,gid);
+
+
+
+
+	$matching_besidegeometrie_begin=pg_query("SELECT b.gid,astext(b.the_geom) from (select the_geom from ways where gid=".$startEdge['gid'].")a, (select gid,the_geom from ways WHERE gid=".$result_geometrie_gid[$x].") b WHERE touches (a.the_geom,b.the_geom)");
+
+	$result_besidegeometrie_begin_gid=@pg_result($matching_besidegeometrie_begin,0,gid);
+
+
+
+	IF ($result_besidegeometrie_begin_gid!=''){
+
+	Break;
+	}
+
+
+	}
+
+	//result besidegeometrie Ende
+	for ($x=0;$x<$number_of_geometrien;$x++)
+	   {
+	$result_geometrie_gid[$x]=pg_result($geometrie_results,$x,gid);
+
+
+
+
+	$matching_besidegeometrie_ende=pg_query("SELECT d.gid,astext(d.the_geom) from (select the_geom from ways where gid=".$endEdge['gid'].")c, (select gid,the_geom from ways WHERE gid=".$result_geometrie_gid[$x].") d WHERE touches (c.the_geom,d.the_geom)");
+	$result_besidegeometrie_ende_gid=@pg_result($matching_besidegeometrie_ende,0,gid);
+
+	IF ($result_besidegeometrie_ende_gid!=''){
+
+	Break;
+	}
+
+
+	} 
+
+	if ($number_of_geometrien==0){
+
+	$result_besidegeometrie_begin_gid=$endEdge['gid'];
+	$result_besidegeometrie_ende_gid=$startEdge['gid'];
+	}
+
+
+	   $con = pg_connect("dbname=".PG_DB." host=".PG_HOST." password=".PG_PASS." user=".PG_USER);
+
+
+
+
+
+	 	  $query = pg_query($con,$sql);
+	 	  
+
+	 	  
+	//Geometrie-begin 	  
+	$sql3="SELECT astext(schnittpunkt(".$startEdge['gid'].",".$result_besidegeometrie_begin_gid.",'".$point_on_line_begin."'))";
+
+
+
+	$query3 = pg_query($con,$sql3);
+	$searching_wkt_begin= pg_fetch_result($query3, 0, 0); 
+
+	$sql4="SELECT ST_Length('".$searching_wkt_begin."')";
+
+	$query4 = pg_query($con,$sql4);
+	$length_begin= pg_fetch_result($query4, 0, 0); 
+
+	$totallength=$totallength+$length_begin;
+	//----------------------------------------
+
+
+	//Geometrie-Ende	  
+	$sql5="SELECT astext(schnittpunkt(".$endEdge['gid'].",".$result_besidegeometrie_ende_gid.",'".$point_on_line_ende."'))";
+	$query5 = pg_query($con,$sql5);
+	$searching_wkt_ende= pg_fetch_result($query5, 0, 0); 
+
+
+	$sql6="SELECT ST_Length('".$searching_wkt_ende."')";
+
+	//echo $sql6;
+
+	$query6 = pg_query($con,$sql6);
+	$length_ende= pg_fetch_result($query6, 0, 0); 
+
+	//echo "test ".$result_besidegeometrie_begin_gid;
+	if ($startEdge['gid']==$endEdge['gid']){
+
+
+
+
+	$abfrage_path_between_two_points="SELECT astext(intersection_on_line($result_besidegeometrie_begin_gid,'$point_on_line_begin','$point_on_line_ende')) as wkt,ST_length(schnittpunkt_auf_linie($result_besidegeometrie_begin_gid,'$point_on_line_begin','$point_on_line_ende')) as length";
+
+	//echo $abfrage_path_between_two_points;
+	$query7 = pg_query($con,$abfrage_path_between_two_points);
+	$result_path_between_two_points= pg_fetch_result($query7, 0, wkt);
+	$result_length_between_two_points= pg_fetch_result($query7, 0, length);
+
+
+
+
+	 
+	 
+	 
+	  
+	$searching_wkt_begin=$result_path_between_two_points;
+	$searching_wkt_ende=$result_path_between_two_points;
+	$length_begin=$result_length_between_two_points;
+	$length_ende=$result_length_between_two_points;
+	//echo "Die Strecke ".$result_path_between_two_points;
+
+
+
+	}
+
+
+
+
+
+	//-------------------------------------------
+	 	  
+	 
+	 	 
+	 	  // Return route as XML
+		  $xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>'."\n";
+	 	  $xml .= "<route>\n";
+	 	    $xml .= "\t<edge id='1'>\n";
+	 	    $xml .= "\t\t<id>".$startEdge['gid']."</id>\n";
+	 	    $xml .= "\t\t<wkt>".$searching_wkt_begin."</wkt>\n";
+	 	    $xml .= "\t\t<length>".$length_begin."</length>\n";
+	 	    $xml .= "\t</edge>\n";
+	 	 
+	 	  // Add edges to XML file
+	 	  while($edge=pg_fetch_assoc($query)) { 
+	 	
+
+	 	
+	 	
+	 	    $pathlength += $edge['length'];
+	 	    
+	 	    
+	 	    
+	 	    $xml .= "\t<edge id='".++$counter."'>\n";
+	 	    $xml .= "\t\t<id>".$edge['id']."</id>\n";
+	 	    $xml .= "\t\t<wkt>".$edge['wkt']."</wkt>\n";
+	 	    $xml .= "\t\t<length>".$pathlength."</length>\n";
+	 	    $xml .= "\t</edge>\n";
+	 	  }
+	 	   $xml .= "\t<edge id='".++$counter."'>\n";
+	 	    $xml .= "\t\t<id>".$startEdge['gid']."</id>\n";
+	 	    $xml .= "\t\t<wkt>".$searching_wkt_ende."</wkt>\n";
+	 	    $xml .= "\t\t<length>".$length_ende."</length>\n";
+	 	    $xml .= "\t</edge>\n";
+	 	 
+	 	 
+	 	 
+	 	 
+	 	 
+	 	 
+	 	  $xml .= "</route>\n";
+	 	        
+	 	  // Close database connection
+	 	  pg_close($con);
+	 	  // Return routing result
+	 	  header('Content-type: text/xml',true);
+	 	  echo $xml; 
+	 	 
+	 	 
+		?>
+
+

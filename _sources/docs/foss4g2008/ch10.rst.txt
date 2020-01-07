@@ -1,0 +1,122 @@
+:Author: Daniel Kastl
+:License: Creative Commons
+
+.. _foss4g2008-ch10:
+
+================================================================
+ osm2pgrouting data converter
+================================================================
+
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
+This tool makes it easy to import OpenStreetMap data and use it with pgRouting.
+It creates topology automatically and creates tables for feature types and road
+classes.
+
+osm2pgrouting was primarily written by Daniel Wendt and is now hosted on the
+pgRouting project site.
+
+How to install (Ubuntu 8.04)
+----------------------------
+
+Check out the latest version from SVN repository:
+
+.. code-block:: bash
+
+	svn checkout http://pgrouting.postlbs.org/svn/pgrouting/tools/osm2pgrouting/trunk osm2pgrouting
+
+
+Required packages/libraries:
+
+#. PostgreSQL
+#. PostGIS
+#. pgRouting
+#. Boost library
+#. Expat library
+#. libpq library
+
+.. note::
+	if you already compiled pgRouting point 1. to 4. should already be installed.
+
+Then compile
+
+.. code-block:: bash
+
+	cd osm2pgrouting
+	make
+
+
+How to use
+----------
+
+* First you need to create a database and add PostGIS and pgRouting functions:
+
+.. code-block:: bash
+
+	createdb -U postgres osm
+	createlang -U postgres plpgsql osm
+
+	psql -U postgres -f /usr/share/postgresql-8.3-postgis/lwpostgis.sql osm
+	psql -U postgres -f /usr/share/postgresql-8.3-postgis/spatial_ref_sys.sql osm
+
+	psql -U postgres -f /usr/share/postlbs/routing_core.sql osm
+	psql -U postgres -f /usr/share/postlbs/routing_core_wrappers.sql osm
+	psql -U postgres -f /usr/share/postlbs/routing_topology.sql osm
+
+
+* You can define the features and attributes to be imported from the OpenStreetMap XML file in the configuration file (default: mapconfig.xml)
+* Open a terminal window and run osm2pgrouting with the following paramters
+
+.. code-block:: bash
+
+	./osm2pgrouting -file /home/foss4g/capetown_20080829.osm \
+					-conf mapconfig.xml \
+					-dbname osm \
+					-user postgres \
+					-clean
+
+
+Other available parameters are:
+
+.. code-block:: bash
+
+ * required:
+	-file 	<file>  	-- name of your osm xml file
+	-dbname <dbname> 	-- name of your database
+	-user 	<user> 		-- name of the user, which have write access to the database
+	-conf 	<file> 		-- name of your configuration xml file
+ * optional:
+	-host 	<host>  	-- host of your postgresql database (default: 127.0.0.1)
+	-port 	<port> 		-- port of your database (default: 5432)
+	-passwd <passwd> 	--  password for database access
+	-clean 				-- drop peviously created tables
+
+
+* Connect to your database and see the tables that have been created
+
+.. code-block:: sql
+
+	psql -U postgres osm
+	\d
+		             List of relations
+	 Schema |        Name         |   Type   |  Owner
+	--------+---------------------+----------+----------
+	 public | classes             | table    | postgres
+	 public | geometry_columns    | table    | postgres
+	 public | nodes               | table    | postgres
+	 public | spatial_ref_sys     | table    | postgres
+	 public | types               | table    | postgres
+	 public | vertices_tmp        | table    | postgres
+	 public | vertices_tmp_id_seq | sequence | postgres
+	 public | ways                | table    | postgres
+	(8 rows)
+
+
+.. note::
+
+	If tables are missing you might have forgotten to add PostGIS or pgRouting functions to your database.
+
+Let's do some more advanced routing with those extra information about road
+types and road classes.

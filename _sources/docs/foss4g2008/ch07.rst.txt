@@ -1,0 +1,121 @@
+:Author: Daniel Kastl
+:License: Creative Commons
+
+.. _foss4g2008-ch07:
+
+================================================================
+ pgRouting with Dijkstra algorithm
+================================================================
+
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
+Dijkstra algorithm was the first algorithm implemented in pgRouting.
+It doesn't require more attributes than source and target ID, and it can
+distinguish between directed and undirected graphs. You can specify if your
+network has "reverse cost" or not.
+
+.. code-block:: sql
+
+	shortest_path( sql text,
+			   source_id integer,
+			   target_id integer,
+			   directed boolean,
+			   has_reverse_cost boolean )
+
+
+**Note:**
+
+* Source and target IDs are vertex IDs.
+* Undirected graphs ("directed false") ignores "has_reverse_cost" setting
+
+Shortest Path Dijkstra core function
+------------------------------------
+
+Each algorithm has its core function (implementation), which is the base for its
+wrapper functions.
+
+.. code-block:: sql
+
+	SELECT * FROM shortest_path('
+			SELECT gid as id,
+				 source::integer,
+				 target::integer,
+				 length::double precision as cost
+				FROM ways',
+			10, 20, false, false);
+
+
+.. code-block:: sql
+
+	 vertex_id | edge_id |        cost
+	-----------+---------+---------------------
+		    10 |     293 |  0.0059596293824534
+		     9 |    4632 |  0.0846731039249787
+		  3974 |    4633 |  0.0765635090514303
+		  2107 |    4634 |  0.0763951531894937
+		   ... |     ... |  ...
+		    20 |      -1 |                   0
+	(63 rows)
+
+
+Dijkstra Wrapper functions
+--------------------------
+
+Wrapper functions extend the core functions with transformations, bounding box
+limitations, etc..
+
+Wrapper WITHOUT bounding box
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Wrappers can change the format and ordering of the result. They often set
+default function parameters and make the usage of pgRouting more simple.
+
+.. code-block:: sql
+
+	SELECT gid, AsText(the_geom) AS the_geom
+		FROM dijkstra_sp('ways', 10, 20);
+
+
+.. code-block:: sql
+
+	  gid   |                              the_geom
+	--------+---------------------------------------------------------------
+		293 | MULTILINESTRING((18.4074149 -33.9443308,18.4074019 -33.9443833))
+	   4632 | MULTILINESTRING((18.4074149 -33.9443308,18.4077388 -33.9436183))
+	   4633 | MULTILINESTRING((18.4077388 -33.9436183,18.4080293 -33.9429733))
+		... | ...
+		762 | MULTILINESTRING((18.4241422 -33.9179275,18.4237423 -33.9182966))
+		761 | MULTILINESTRING((18.4243523 -33.9177154,18.4241422 -33.9179275))
+	(62 rows)
+
+
+Wrapper WITH bounding box
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can limit your search area by adding a bounding box. This will improve
+performance especially for large networks.
+
+.. code-block:: sql
+
+	SELECT gid, AsText(the_geom) AS the_geom
+		FROM dijkstra_sp_delta('ways', 10, 20, 0.1);
+
+
+.. code-block:: sql
+
+	  gid   |                              the_geom
+	--------+---------------------------------------------------------------
+		293 | MULTILINESTRING((18.4074149 -33.9443308,18.4074019 -33.9443833))
+	   4632 | MULTILINESTRING((18.4074149 -33.9443308,18.4077388 -33.9436183))
+	   4633 | MULTILINESTRING((18.4077388 -33.9436183,18.4080293 -33.9429733))
+		... | ...
+		762 | MULTILINESTRING((18.4241422 -33.9179275,18.4237423 -33.9182966))
+		761 | MULTILINESTRING((18.4243523 -33.9177154,18.4241422 -33.9179275))
+	(62 rows)
+
+.. note::
+
+	The projection of OSM data is "degree", so we set a bounding box
+	containing start and end vertex plus a 0.1 degree buffer for example.

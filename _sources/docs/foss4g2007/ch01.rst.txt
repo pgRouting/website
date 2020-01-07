@@ -1,0 +1,68 @@
+:Author: Daniel Kastl
+:License: Creative Commons
+
+.. _foss4g2007-ch01:
+
+================================================================
+ Introduction
+================================================================
+
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
+pgRouting requirements
+----------------------
+
+To install/compile pgRouting the following applications/libraries are required:
+
+* pgRouting source code (http://pgrouting.postlbs.org)
+* C and C++ compilers
+* PostgreSQL version >= 8.0
+* PostGIS version >= 1.0
+* The Boost Graph Library (BGL). Version >= 1.33 which contains the astar.hpp (http://www.boost.org/libs/graph/doc/index.html)
+* The Genetic Algorithm Utility Library (GAUL) (http://gaul.sourceforge.net)
+* Computational Geometry Algorithms Library (CGAL) version >= 3.2 (http://www.cgal.org)
+
+For installation instructions have a look at the documentation pages.
+
+The FOSS4G2007 workshop installation has been done on
+`Xubuntu 7.04 <http://www.ubuntu.com>`_ and is provided as a
+`VMware <http://www.vmware.com>`_ image. You can download the virtual machine
+image from http://download.osgeo.org/pgrouting/foss4g2007/W-12/
+
+
+Workplace access
+----------------
+
+* Download the compressed VMware image and extract the file
+* Start VM Player and load the workshop virtual machine
+* If root access is required, use
+
+.. code-block:: bash
+
+	username: pgrouting
+	password: foss4g
+
+
+Get the source
+--------------
+
+* Download the latest scripts and templates
+* Save the tarball (ie. on your desktop)
+* Open a terminal window  and extract the files
+
+.. code-block:: bash
+
+	cd Desktop/
+	tar -xzf foss4g_w12.tar.gz
+
+
+* Copy the files into your web root directory and change ownershop
+
+.. code-block:: bash
+
+	sudo cp -R foss4g_w12 /var/www/
+	sudo chown -R pgrouting /var/www/foss4g_w12
+
+

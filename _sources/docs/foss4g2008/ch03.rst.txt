@@ -1,0 +1,227 @@
+:Author: Daniel Kastl
+:License: Creative Commons
+
+.. _foss4g2008-ch03:
+
+================================================================
+About Mapfish
+================================================================
+
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
+MapFish is an easy-to-use and extensible web 2.0 mapping application framework.
+
+MapFish is composed of two parts: MapFish Client and MapFish Server. MapFish
+Client is a JavaScript framework based on OpenLayers for the mapping part, and
+on ExtJS for the GUI (widgets) part. MapFish Server is responsible for server
+side treatments and composed from several modules which can be implemented in
+several languages such as Python, Java, PHP.
+
+MapFish is intended to be easy to use either as a standalone application or as
+an add on to an already existing web application. For example the printing
+server modules implements high ends functionnalities such as raster/vector multi
+sources combinations, integration of complex table.
+
+Some other OSGeo projects like Geoserver plan to integrate this function and are
+very pleased to use MapFish for that purpose.
+
+
+As a standalone application, MapFish offers ways to simply configure some
+parameters and quickly have a working web mapping application. As a framework,
+MapFish lets you develop advanced and customized webmapping applications.
+MapFish API also allows maps to be simply included in an already existing
+website such as CMS or Information System oriented applications.
+
+MapFish takes advantage of the Open Source philosophy by nicely aggregating
+several existing OS libraries such as SQLAlchemy, GeoJSON, Shapely and JTS.
+
+
+The strengths of MapFish reside in the integration of several components and the
+support of the latest Web 2.0 technology. This allows the creation of advanced
+Mapping solutions.
+
+There is plans to use MapFish modular architecture to use some component for
+standalone integration into other project or applications (MapFish core libs).
+
+
+An administration tool, named geoadminsuite, is under creation and will simplify the configuration
+work and will allow to create new MapFish applications.
+
+Detailed information about how to install and use MapFish is available at the
+following address:
+
+* https://www.mapfish.org
+* https://trac.mapfish.org/trac/mapfish/
+
+A working minimal MapFish instance is running on the workshop virtual server at
+the address
+
+	http://localhost/foss4g08_routing/
+
+You'll have to zoom in the Cape Town area and select the start and end point on
+the map, using the tool present on the Routing panel. It will only give result
+for the Cape Town area.
+
+Here is some detailed information about how to use the routing system
+specifically used in this workshop and installed on the workshop virtual
+machine.
+
+The Mapfish project can be found at:
+
+.. code-block:: bash
+
+	/var/www/foss4g08_routing
+
+
+From that directory, there are several levels of directories used by the deploy
+system.
+
+The interesting stuff about how routing part is working will be found in:
+
+.. code-block:: bash
+
+	/var/www/foss4g08_routing/foss4g08_routing/foss4g08_routing/foss4g08_routing/
+
+
+From that point, the file public/index.html contains the JavaScript code to
+handle the routing part on the client side, including the panel.
+
+.. code-block:: js
+
+	//////////////////////////////////// MapFish routing code
+		   var routing = new mapfish.Routing('routing', map, {
+		       fetchRoute: function(button, event) {
+		      var form = button.ownerCt.getForm();
+		      if (form.isValid()) {
+		          mapfish.Routing.prototype.fetchRoute.call(this,
+		                                                   form.getValues());
+		      }
+		      this.parser = new OpenLayers.Format.GeoJSON({
+		          internalProjection: this.map.projection,
+		          externalProjection: this.map.displayProjection
+		      });
+		  }
+	  });
+	  var selectPointLayer = new OpenLayers.Layer.Vector("point select", {
+		  displayInLayerSwitcher: false
+	  });
+	  map.addLayer(selectPointLayer);
+	  selectPointControl = new
+		                   OpenLayers.Control.DrawFeature(selectPointLayer,
+		                                      OpenLayers.Handler.Point, {
+		  featureAdded: pointSelected
+	  });
+	  map.addControl(selectPointControl);
+	  var dragFeature = new OpenLayers.Control.DragFeature(selectPointLayer,
+	{
+		  onComplete: pointSelected
+	  });
+	  map.addControl(dragFeature);
+	  dragFeature.activate();
+	  //////////////////////////////////// Ext Panel code
+	  var treePanel = {
+		  title: 'Layer Tree',
+		  xtype: 'layertree'
+	  };
+	  var routingPanel = {
+		  title: 'Routing',
+		  xtype: 'form',
+		  defaultType: 'combo',
+		  defaults: {
+		      width: 160,
+		      listWidth: 160,
+		      allowBlank: false,
+		      onTriggerClick: selectPoint,
+		      triggerClass: 'x-form-search-trigger'
+		  },
+		  items: [{
+		      fieldLabel: 'Departure',
+		      name: 'source'
+		  }, {
+		      fieldLabel: 'Arrival',
+		      name: 'target'
+		  }],
+		  buttons: [{
+		      text: 'Show Itinerary',
+		      handler: routing.fetchRoute,
+		      scope: routing
+		  }]
+	  };
+	  var panel = new Ext.Panel({
+		  el: 'panel',
+		  layout: 'accordion',
+		  frame: false,
+		  autoHeight: true,
+		  defaults: {
+		      border: false,
+		      frame: false,
+		      autoHeight: true,
+		      bodyStyle: 'padding: 5px',
+		      map: map
+		  },
+		  items: [treePanel, routingPanel]
+	  });
+	  panel.render();
+	}
+
+
+The file public/osm.js contains the JavaScript code to be able to use
+OpenStreetMap tile with MapFish/OpenLayers.
+
+
+On the server side, the file controllers/routing.py contains the code that
+handles the nearest edge calculation, the routing calculation with the route
+returns as a geojson object.
+
+.. code-block:: py
+
+	class RoutingController(BaseController):
+		 def index(self):
+		       # find the nearest node
+		       source = self._nearestEdge(request.params['source']).source
+		       target = self._nearestEdge(request.params['target']).target
+		       # defines the shortest path function result
+		       sp_result_type = [column('vertex_id'), column('edge_id'),
+		                                                               column('cost')]
+		       # the shortest path function
+		       sp_func = func.shortest_path("SELECT gid AS id, source, target, length
+		                                         AS cost FROM ways",
+		                                         source, target, False, False)
+		       # query the database
+		       route = g.routing_engine.execute(select(sp_result_type,
+		                                             from_obj=sp_func))
+		       ways = model.Session.query(osm.Way).filter(osm.Way.gid.in_([i.edge_id
+		                                                                  for i in route]))
+		       result = FeatureCollection([line.toFeature() for line in ways if line])
+		       return dumps(result)
+		 def _nearestEdge(self, wkt):
+		       distance = func.distance(osm.ways_table.c.the_geom,
+		                                     func.GeometryFromText(wkt,
+		                                                               4326)).label('dist')
+		       # find the nearest way
+		       return model.Session.query(osm.ways_table, distance).order_by('dist')[0]
+
+
+You can modify the routing function by modifying func.shortest_path.
+
+The file model/osm.py contains the definition for the routing table used by the
+ORM, which is in this case composed one single table:
+
+.. code-block:: py
+
+	from foss4g08_routing.lib.base import *
+	from sqlalchemy import Table, Column, MetaData, types
+	from sqlalchemy.orm import mapper
+	from mapfish.sqlalchemygeom import Geometry, GeometryTableMixIn
+	ways_table = Table('ways', MetaData(g.routing_engine),
+		                      Column('gid', types.Integer, primary_key=True),
+		                      Column('the_geom', Geometry()),
+		                      Column('source', types.Integer),
+		                      Column('target', types.Integer))
+	class Way(GeometryTableMixIn):
+		 __table__ = ways_table
+	mapper = mapper(Way, ways_table)
+
+

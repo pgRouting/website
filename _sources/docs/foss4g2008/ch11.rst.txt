@@ -1,0 +1,156 @@
+:Author: Daniel Kastl
+:License: Creative Commons
+
+.. _foss4g2008-ch11:
+
+================================================================
+ Advanced usage of pgRouting shortest path search
+================================================================
+
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
+An ordinary shortest path query with result usualy looks like this:
+
+.. code-block:: sql
+
+	SELECT * FROM shortest_path_shooting_star(
+		'SELECT gid as id, source, target, length as cost, x1, y1, x2, y2, rule,
+		to_cost, reverse_cost FROM ways', 1955, 5787, true, true);
+
+	 vertex_id | edge_id |        cost
+	-----------+---------+---------------------
+		  8134 |    1955 | 0.00952475464810279
+		  5459 |    1956 |  0.0628075563112871
+		  8137 |    1976 |  0.0812786367080268
+		  5453 |     758 |  0.0421747270358272
+		  5456 |    3366 |  0.0104935732514831
+		 11086 |    3367 |   0.113400030221047
+		  4416 |     306 |   0.111600379959229
+		  4419 |     307 |  0.0880411972519595
+		  4422 |    4880 |  0.0208599114366633
+		  5101 |     612 |  0.0906859882381495
+		  5102 |    5787 |    80089.8820919459
+	(11 rows)
+
+
+That is usually called SHORTEST path, which means that a length of an edge is
+its cost.
+
+**Costs can be anything ("Weighted costs")**
+
+But in real networks we have different limitations or preferences for different
+road types for example. In other words, we want to calculate CHEAPEST path - a
+path with a minimal cost. There is no limitation in what we take as costs.
+
+When we convert data from OSM format using the osm2pgrouting tool, we get these
+two additional tables for road types and classes:
+
+.. code-block:: sql
+
+	\d classes
+
+	  id |   name
+	-----+------------
+	   2 | cycleway
+	   1 | highway
+	   4 | junction
+	   3 | tracktype
+
+
+.. code-block:: sql
+
+	\d types
+
+	 id  | type_id |        name        |  cost
+	-----+---------+--------------------+--------
+	 201 |       2 | lane               |   1
+	 204 |       2 | opposite           |   1
+	 203 |       2 | opposite_lane      |   1
+	 202 |       2 | track              |   1
+	 117 |       1 | bridleway          |   1
+	 113 |       1 | bus_guideway       |   1
+	 118 |       1 | byway              |   1
+	 115 |       1 | cicleway           |   1
+	 116 |       1 | footway            |   1
+	 108 |       1 | living_street      |   1
+	 101 |       1 | motorway           |   0.2
+	 103 |       1 | motorway_junction  |   0.2
+	 102 |       1 | motorway_link      |   0.2
+	 114 |       1 | path               |   100
+	 111 |       1 | pedestrian         |   100
+	 106 |       1 | primary            |   100
+	 107 |       1 | primary_link       |   100
+	 107 |       1 | residential        |   100
+	 100 |       1 | road               |   0.7
+	 100 |       1 | unclassified       |   0.7
+	 106 |       1 | secondary          |   10
+	 109 |       1 | service            |   10
+	 112 |       1 | services           |   10
+	 119 |       1 | steps              |   10
+	 107 |       1 | tertiary           |   10
+	 110 |       1 | track              |   10
+	 104 |       1 | trunk              |   10
+	 105 |       1 | trunk_link         |   10
+	 401 |       4 | roundabout         |   10
+	 301 |       3 | grade1             |   15
+	 302 |       3 | grade2             |   15
+	 303 |       3 | grade3             |   15
+	 304 |       3 | grade4             |   15
+	 305 |       3 | grade5             |   15
+
+
+Road class is linked with the ways table by class_id field. Cost values for
+classes table are assigned arbitrary.
+
+.. code-block:: sql
+
+	UPDATE classes SET cost=15 WHERE id>300;
+
+
+For better performance it is worth to create an index on id field of classes table.
+
+.. code-block:: sql
+
+	CREATE INDEX class_idx ON ways (id);
+
+
+The idea behind these two tables is to specify a factor to be multiplied with
+the cost of each link (usually length):
+
+.. code-block:: sql
+
+	SELECT * FROM shortest_path_shooting_star(
+		'SELECT gid as id, class_id, source, target, length*c.cost as cost,
+			x1, y1, x2, y2, rule, to_cost, reverse_cost*c.cost as reverse_cost
+		FROM ways w, classes c
+		WHERE class_id=c.id', 1955, 5787, true, true);
+
+	 vertex_id | edge_id |        cost
+	-----------+---------+---------------------
+		  8134 |    1955 | 0.00666732825367195
+		  5459 |    1956 |   0.043965289417901
+		  8137 |    1992 |   0.126646230936747
+		  5464 |     762 |   0.827868704808978
+		  5467 |     763 |    0.16765902528648
+		   ... |     ... |                 ...
+		  9790 |    5785 | 0.00142107468268373
+		  8548 |    5786 | 0.00066608685984761
+		 16214 |    5787 |  0.0160179764183892
+	(69 rows)
+
+
+We can see that the shortest path result is completely different from the
+example before. We call this "weighted costs".
+
+Another example is to restrict access to roads of a certain type:
+
+.. code-block:: sql
+
+	UPDATE classes SET cost=100000 WHERE name LIKE 'motorway%';
+
+
+Through subqueries you can "mix" your costs as you like and this will change
+the results of your routing request immediately. Cost changes will affect the
+next shortest path search, and there is no need to rebuild your network.

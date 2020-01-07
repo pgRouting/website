@@ -1,0 +1,230 @@
+:Author: Daniel Kastl
+:License: Creative Commons
+
+.. _foss4g2007-ch04:
+
+================================================================
+ Routing PHP script with XML output
+================================================================
+
+.. important::
+
+	The content of this page is outdated and is for archiving purposes only.
+
+PHP page template (basics)
+--------------------------
+
+We will use a PHP script to make the routing query and send the result back to the web client.
+
+The following steps are necessary:
+
+* Retrieve the start and end point coordinates.
+* Find the closest edge to start/end point.
+* Take either the start or end vertex of this edge (for Dijkstra/ A-Star) or the complete edge (Shooting-Star) as start of the route and end respectively.
+* Make the Shortest Path database query.
+* Transform the query result to XML and send it back to the web client.
+
+.. code-block:: php
+
+	<?php
+
+	  // Database connection settings
+	  define("PG_DB"  , "routing");
+	  define("PG_HOST", "localhost");
+	  define("PG_USER", "postgres");
+	  define("PG_PORT", "5432");
+	  define("TABLE",   "victoria");
+
+	  $counter = $pathlength = 0;
+
+	  // Retrieve start point
+	  $start = split(' ',$_REQUEST['startpoint']);
+	  $startPoint = array($start[0], $start[1]);
+
+	  // Retrieve end point
+	  $end = split(' ',$_REQUEST['finalpoint']);
+	  $endPoint = array($end[0], $end[1]);
+
+	  /* ... */
+	?>
+
+
+Select closest edge
+-------------------
+
+Usually the start and end point, which we retrieved from the client, is not the
+start or end vertex of an edge. It is more convenient to look for the closest
+edge than for the closest vertex, because Shooting Star algorithm is “edge-based”.
+For “vertex-based” algorithms (Dijkstra, A-Star) we can choose arbitrary start
+or end of the selected edge.
+
+.. code-block:: php
+
+	<?php
+	  // Find the nearest edge
+	  $startEdge = findNearestEdge($startPoint);
+	  $endEdge   = findNearestEdge($endPoint);
+
+	  // FUNCTION findNearestEdge
+	  function findNearestEdge($lonlat) {
+
+		// Connect to database
+		$con = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);
+
+		$sql = "SELECT gid, source, target, the_geom,
+				 distance(the_geom, GeometryFromText(
+		              'POINT(".$lonlat[0]." ".$lonlat[1].")', 54004)) AS dist
+		        FROM ".TABLE."
+		        WHERE the_geom && setsrid(
+		              'BOX3D(".($lonlat[0]-200)."
+		                     ".($lonlat[1]-200).",
+		                     ".($lonlat[0]+200)."
+		                     ".($lonlat[1]+200).")'::box3d, 54004)
+		        ORDER BY dist LIMIT 1";
+
+		$query = pg_query($con,$sql);
+
+		$edge['gid']      = pg_fetch_result($query, 0, 0);
+		$edge['source']   = pg_fetch_result($query, 0, 1);
+		$edge['target']   = pg_fetch_result($query, 0, 2);
+		$edge['the_geom'] = pg_fetch_result($query, 0, 3);
+
+		// Close database connection
+		pg_close($con);
+
+		return $edge;
+	  }
+	?>
+
+
+Routing Query
+-------------
+
+.. code-block:: php
+
+	<?php
+	  // Select the routing algorithm
+	  switch($_REQUEST['method']) {
+	?>
+
+
+For Shortest Path Dijkstra
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: php
+
+	<?php
+		case 'SPD' : // Shortest Path Dijkstra
+
+		  $sql = "SELECT rt.gid, AsText(rt.the_geom) AS wkt,
+		               length(rt.the_geom) AS length, ".TABLE.".id
+		            FROM ".TABLE.",
+		                (SELECT gid, the_geom
+		                    FROM dijkstra_sp_delta(
+		                        '".TABLE."',
+		                        ".$startEdge['source'].",
+		                        ".$endEdge['target'].",
+		                        3000)
+		                 ) as rt
+		            WHERE ".TABLE.".gid=rt.gid;";
+		  break;
+	?>
+
+
+For Shortest Path A-Star
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: php
+
+	<?php
+		case 'SPA' : // Shortest Path A*
+
+		  $sql = "SELECT rt.gid, AsText(rt.the_geom) AS wkt,
+		                 length(rt.the_geom) AS length, ".TABLE.".id
+		              FROM ".TABLE.",
+		                  (SELECT gid, the_geom
+		                      FROM astar_sp_delta(
+		                          '".TABLE."',
+		                          ".$startEdge['source'].",
+		                          ".$endEdge['target'].",
+		                          3000)
+		                   ) as rt
+		              WHERE ".TABLE.".gid=rt.gid;";
+		  break;
+	?>
+
+
+For Shortest Path Shooting-Star
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: php
+
+	<?php
+		case 'SPS' : // Shortest Path Shooting*
+
+		  $sql = "SELECT rt.gid, AsText(rt.the_geom) AS wkt,
+		                 length(rt.the_geom) AS length, ".TABLE.".id
+		              FROM ".TABLE.",
+		                  (SELECT gid, the_geom
+		                      FROM shootingstar_sp(
+		                          '".TABLE."',
+		                          ".$startEdge['gid'].",
+		                          ".$endEdge['gid'].",
+		                          5000, 'length', true, true)
+		                   ) as rt
+		              WHERE ".TABLE.".gid=rt.gid;";
+		  break;
+	?>
+
+
+Query database
+^^^^^^^^^^^^^^
+
+.. code-block:: php
+
+	<?php
+	  } // close switch
+
+	  // Connect to database
+	  $dbcon = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);
+
+	  // Perform database query
+	  $query = pg_query($dbcon,$sql);
+	?>
+
+
+XML output
+----------
+
+OpenLayers allows to draw lines directly using WKT (Well-Known Text) format.
+This makes the XML output short and simple:
+
+.. code-block:: php
+
+	<?php
+	  // Return route as XML
+	  $xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>'."\n";
+	  $xml .= "<route>\n";
+
+	  // Add edges to XML file
+	  while($edge=pg_fetch_assoc($query)) {
+
+		$pathlength += $edge['length'];
+
+		$xml .= "\t<edge id='".++$counter."'>\n";
+		$xml .= "\t\t<id>".$edge['id']."</id>\n";
+		$xml .= "\t\t<wkt>".$edge['wkt']."</wkt>\n";
+		$xml .= "\t\t<length>".round(($pathlength/1000),3)."</length>\n";
+		$xml .= "\t</edge>\n";
+	  }
+
+	  $xml .= "</route>\n";
+
+	  // Close database connection
+	  pg_close($dbcon);
+
+	  // Return routing result
+	  header('Content-type: text/xml',true);
+	  echo $xml;
+	?>
+
