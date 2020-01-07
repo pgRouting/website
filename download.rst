@@ -42,27 +42,7 @@ Linux / OS X / BSD Packages
 Windows Binaries
 -------------------------------------------------------------------------------
 
-.. rubric:: PostGIS, pgRouting, and osm2pgRouting Builds (pgRouting v2.x / osm2pgRouting v2.x)
-
-Winnie Bot Builds:
-
-* `Winnie 32-bit/64-bit <http://postgis.net/windows_downloads>`_
-
-Production Builds:
-
-* Production builds are part of the Spatial Extensions/PostGIS Bundle available via Application StackBuilder
-* `You can also get PostGIS Bundle from <http://download.osgeo.org/postgis/windows/>`_
-
-.. rubric:: pgRouting v1.x
-
-* [2010/01/30] `pgRouting-1.03_pg-8.4.2.zip <http://www.wiesenhaan.com/pgrouting/pgRouting-1.03_pg-8.4.2.zip>`_ Thanks again Martin :-)
-* [2009/10/07] `pgRouting-1.03_pg-8.3.7.zip <http://www.wiesenhaan.com/pgrouting/pgRouting-1.03_pg-8.3.7.zip>`_ Thanks Martin
-* [2008/07/03] `pgRouting-1.02_pg-8.2.9.zip <http://www.davidgis.fr/download/pgRouting-1.02_pg-8.2.9.zip>`_ (Thanks  David!)
-* [2008/07/11] `pgRouting-1.02_pg-8.3.3.zip <http://www.davidgis.fr/download/pgRouting-1.02_pg-8.3.3.zip>`_ (Thanks  David!)
-* [2007/10/15] `pgRouting-1.0_win32.zip <http://files.postlbs.org/pgrouting/binaries/pgRouting-1.0_win32.zip>`_
-
-You can find previous versions in http://download.osgeo.org/pgrouting/binaries/
-
+* https://github.com/pgRouting/pgrouting/wiki/Download:-Windows
 
 OSGeo Live DVD
 -------------------------------------------------------------------------------
