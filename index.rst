@@ -64,10 +64,12 @@ pgRouting is Open Source
 pgRouting is available under the GPLv2 license and is supported by a growing community of individuals, businesses and organizations.
 
 .. toctree::
-	:hidden:
+    :hidden:
 
-	documentation
-	download
-	support
-	development
-
+    documentation
+    download
+    support
+    development
+    gallery
+    docs/tutorials
+    404

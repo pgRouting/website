@@ -23,8 +23,13 @@ Workshops
 Tools and HowTo's
 -------------------------------------------------------------------------------
 
-* `How to <https://pgrouting.org/docs/howto.html>`__
-* `Tools <https://pgrouting.org/docs/tools.html>`__
+* :doc:`docs/howto`
+* :doc:`docs/tools`
+
+.. toctree::
+
+   docs/howto
+   docs/tools
 
 pgRouting Gallery
 -------------------------------------------------------------------------------
