@@ -27,16 +27,29 @@ There are two kinds of financial contributions, we accept:
 * **Sponsorships**: a sponsorship is an annual commitment of funds to the project.
 * **Donations**: a donation is a once off financial contribution to the project.
 
+.. raw:: html
+
+	<div style="text-align:center;margin-top:2em;">
+    <p>CommunityBridge (preferred)</p>
+    <a href="https://funding.communitybridge.org/projects/pgrouting" target="_blank"><img src="_static/img/donate-cb.png" width="300"></a>
+	</div>
+
+	<div style="text-align:center;margin-bottom:3em;">
+    <p>Open Collective</p>
+    <a href="https://opencollective.com/pgrouting/donate" target="_blank"><img src="https://opencollective.com/manjaro-us/donate/button@2x.png?color=blue" width="300"></a>
+	</div>
+
+If possible payments through `CommunityBridge <https://funding.communitybridge.org/projects/pgrouting>`_ are preferred because the Linux Foundation as the fiscal host does not charge us platform or processing fees.
 
 Sponsorship
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Sponsors can sponsor pgRouting for any amount of money of at least 150 EUR / 200 USD. Sponsorships last one year, after which they may be continued with a new payment, or allowed to lapse. At or above the following levels a sponsor will be designated as being one of the following class:
+Sponsors can sponsor pgRouting for any amount of money of at least 200 USD per year. Sponsorships last one year, after which they may be continued with a new payment, or allowed to lapse. At or above the following levels a sponsor will be designated as being one of the following class:
 
-* 1.700+ EUR / 2.000+ USD: Platinum Sponsor
-* 850+ EUR / 1.000+ USD: Gold Sponsor
-* 510+ EUR / 600+ USD: Silver Sponsor
-* 170+ EUR / 200+ USD: Bronze Sponsor
+* Platinum Sponsor: 3.000+ USD (yearly) or 250+ USD (monthly)
+* Gold Sponsor: 1.200+ USD (yearly) or 100+ USD (monthly)
+* Silver Sponsor: 600+ USD (yearly) or 50+ USD (monthly)
+* Bronze Sponsor: 240+ USD (yearly) or 20+ USD (monthly)
 
 .. raw:: html
 
@@ -48,36 +61,12 @@ Sponsors can sponsor pgRouting for any amount of money of at least 150 EUR / 200
   with questions, or to make arrangements.</p>
 
 
-Donation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sponsorships and donations can be of any amount through `CommunityBridge <https://funding.communitybridge.org/projects/pgrouting>`_ (preferred) or `Open Collective <https://opencollective.com/pgrouting/donate>`_. Visit the info pages of our fiscal hosts to get more details on their fees:
 
-Donations can be of any amount through PayPal.
-
-.. raw:: html
-
-	<div style="text-align:center;">
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-			<input type="hidden" name="cmd" value="_donations">
-			<!--input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG"-->
-			<input type="hidden" name="business" value="donate@pgrouting.org">
-			<input type="hidden" name="notify_url" value="https://www.pgrouting.org">
-			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
-			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
-			<select name="currency_code" class="paypal_currency">
-				<option value="EUR" title="€" selected="">EUR</option>
-				<option value="AUD" title="$">AUD</option>
-				<option value="GBP" title="£">GBP</option>
-				<option value="JPY" title="¥">JPY</option>
-				<option value="CAD" title="$">CAD</option>
-				<option value="CHF" title="">CHF</option>
-				<option value="USD" title="$">USD</option>
-			</select>
-			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-		</form>
-	</div>
+* `Linux Foundation 501©(6) <https://docs.linuxfoundation.org/display/DOCS/CommunityBridge+FAQs>`_
+* `Open Source Collective 501©(6) <https://opencollective.com/opensource>`_
 
 Even a small donation can make a big difference and help to reach important project goals!
-
 
 What is your benefit sponsoring the pgRouting Development
 -------------------------------------------------------------------------------
@@ -107,12 +96,6 @@ As an example, we would like to fund the following project activities:
 * improvement of documentation, workshop materials and tutorials
 * scholarship for students, who applied for Google Summer of Code with a great pgRouting proposal, but were unable to receive one of the limited Google stipends
 * implementation of a particular feature (if sponsorship is sufficient)
-
-
-.. note::
-
-	For the beginning (to keep it simple) we're using a private PayPal account 	registered by `Georepublic <https://georepublic.info>`_ (Germany). In case the amount of donations will increase by a significant amount we might 	consider to setup some non-profit organization. Georepublic will report donations to the pgRouting PSC.
-
 
 .. _sponsors:
 
