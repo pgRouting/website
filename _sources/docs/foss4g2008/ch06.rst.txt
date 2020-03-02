@@ -41,7 +41,7 @@ already exist. You can ignore these errors.
 
 Let's see witch tables have been created:
 
-.. code-block:: sql
+.. code-block::
 
 	\d
 
@@ -120,7 +120,7 @@ target and geometry column.
 
 After these steps our routing database look like this:
 
-.. code-block:: sql
+.. code-block::
 
 	\d
 

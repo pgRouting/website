@@ -1,10 +1,10 @@
-.. 
+..
    ****************************************************************************
     pgRouting Website
     Copyright(c) pgRouting Contributors
 
-    This documentation is licensed under a Creative Commons Attribution-Share  
-    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+    This documentation is licensed under a Creative Commons Attribution-Share
+    Alike 3.0 License: https://creativecommons.org/licenses/by-sa/3.0/
    ****************************************************************************
 
 .. _rfc-XX:
@@ -23,13 +23,13 @@ RFC XX: [done] RFC template
      - daniel at georepublic.de
    * - Last Edited:
      - 2010/11/22
-   * - Status: 
+   * - Status:
      - Adopted (2013/06/09)
 
 Overview
 ********************************************************************************
 
-This is an example template for new RFC's. Headlines and paragraphs that don't 
+This is an example template for new RFC's. Headlines and paragraphs that don't
 make sense for some particular can be removed, new ones may be added.
 
 [...]

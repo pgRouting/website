@@ -4,29 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Load your network data and create a network topology &#8212; Open Source Routing Library</title>
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pgRouting with Dijkstra algorithm" href="ch07.html" />
+    <link rel="prev" title="Installation of pgRouting" href="ch05.html" />
     
 
-  </head>
-  <body>
+  </head><body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -54,6 +48,8 @@
       <h3>Navigation</h3>
       <ul>
         <li><a href="../../index.html">Home</a> &#187;</li>
+          <li><a href="../tutorials.html" >Workshops &amp; Tutorials</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">FOSS4G routing with pgRouting tools and OpenStreetMap road data</a> &#187;</li>
         <li><a href="#">Load your network data and create a network topology</a></li>
       </ul>
     </div>
@@ -62,7 +58,7 @@
     	
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Load your network data and create a network topology</a><ul>
 <li><a class="reference internal" href="#load-the-network-data">Load the network data</a></li>
@@ -72,68 +68,24 @@
 </li>
 </ul>
 
-    
-    <h2>Make a Donation</h2>
-    <p>
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG">
-			<input type="hidden" name="business" value="donate@pgrouting.org">
-			<input type="hidden" name="notify_url" value="http://www.pgrouting.org">
-			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
-			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
-			<select name="currency_code" class="paypal_currency">
-				<option value="EUR" title="€" selected="">EUR</option>
-				<option value="AUD" title="$">AUD</option>
-				<option value="GBP" title="£">GBP</option>
-				<option value="JPY" title="¥">JPY</option>
-				<option value="CAD" title="$">CAD</option>
-				<option value="CHF" title="">CHF</option>
-				<option value="USD" title="$">USD</option>
-			</select>
-			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-      <ul style="list-style: square; margin-left: 20px;">
-        <li><a href="../../donate.html">Read more</a></li>
-        <li><a href="../../donate.html#sponsors">Our sponsors</a></li>
-      </ul>
-		</form>
-    </p>
-    <h2>Links</h2>
-    <ul style="list-style: square; margin-left: 20px;">
-      <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
-    	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="http://www.postgis.net/">PostGIS</a></li>
-    </ul>
-
-    <!-- Callout -->
-    <div class="callout-sidebar">
-
-        <!-- <a href="http://2018.foss4g.org">
-          <img src="../../_static/img/foss4g_2018.png"
-            alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
-        </a> -->
-
-        <!-- <a href="https://europe.foss4g.org/2018">
-          <img src="../../_static/img/foss4ge_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
-        </a> -->
-
-        <!-- <a href="http://www.foss4g-asia.org/2018">
-          <img src="../../_static/img/foss4gasia_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
-        </a> -->
-
-        <a href="http://locatepress.com/pgrouting">
-          <img src="../../_static/img/book_fullsize.png"
-              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
-        </a>
-
-        <a href="http://www.osgeo.org">
-          <img src="../../_static/img/OSGeo_logo.png"
-        	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
-        </a>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ch05.html"
+                        title="previous chapter">Installation of pgRouting</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ch07.html"
+                        title="next chapter">pgRouting with Dijkstra algorithm</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
     </div>
-
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -164,7 +116,7 @@ required attributes.</p>
 <p>After creating the workshop database and adding the PostGIS and pgRouting
 functions to this database (see previous chapter), we load the sample data to
 our database:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>psql -U postgres routing
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>psql -U postgres routing
 <span class="se">\i</span> /home/foss4g/ways_without_topology.sql
 </pre></div>
 </div>
@@ -172,33 +124,6 @@ our database:</p>
 functions loaded, so it will report errors during import that these functions
 already exist. You can ignore these errors.</p>
 <p>Let’s see witch tables have been created:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span>\d
-
-                  List of relations
- Schema |       Name       | Type  |  Owner
---------+------------------+-------+----------
- public | geometry_columns | table | postgres
- public | spatial_ref_sys  | table | postgres
- public | ways             | table | postgres
-(3 rows)
-
-\d ways
-
-               Table &quot;public.ways&quot;
-  Column  |       Type       | Modifiers
-----------+------------------+-----------
- gid      | integer          | not null
- length   | double precision |
- name     | character(200)   |
- the_geom | geometry         |
-Indexes:
-        &quot;ways_pkey&quot; PRIMARY KEY, btree (gid)
-Check constraints:
-        &quot;enforce_dims_the_geom&quot; CHECK (ndims(the_geom) = 2)
-        &quot;enforce_geotype_the_geom&quot; CHECK (geometrytype(the_geom) = &#39;MULTILINESTRING&#39;::text OR the_geom IS NULL)
-        &quot;enforce_srid_the_geom&quot; CHECK (srid(the_geom) = 4326)
-</pre></div>
-</div>
 </div>
 <div class="section" id="create-network-topology">
 <h2>Create network topology<a class="headerlink" href="#create-network-topology" title="Permalink to this headline">¶</a></h2>
@@ -209,12 +134,12 @@ network topology, which consists of links with source and target ID each.</p>
 you need to run the “assign_vertex_id” function. This function assigns a source
 and a target ID to each link and it can “snap” nearby vertices within a
 certain tolerance.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">assign_vertex_id</span><span class="p">(</span><span class="s1">&#39;&lt;table&gt;&#39;</span><span class="p">,</span> <span class="nb">float</span> <span class="n">tolerance</span><span class="p">,</span> <span class="s1">&#39;&lt;geometry column&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;gid&gt;&#39;</span><span class="p">)</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">assign_vertex_id</span><span class="p">(</span><span class="s1">&#39;&lt;table&gt;&#39;</span><span class="p">,</span> <span class="nb">float</span> <span class="n">tolerance</span><span class="p">,</span> <span class="s1">&#39;&lt;geometry column&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;gid&gt;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>First we have to add source and target column, then we run the assign_vertex_id
 function … and wait.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="k">source</span> <span class="nb">integer</span><span class="p">;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="k">source</span> <span class="nb">integer</span><span class="p">;</span>
 <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">ways</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">target</span> <span class="nb">integer</span><span class="p">;</span>
 <span class="k">SELECT</span> <span class="n">assign_vertex_id</span><span class="p">(</span><span class="s1">&#39;ways&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00001</span><span class="p">,</span> <span class="s1">&#39;the_geom&#39;</span><span class="p">,</span> <span class="s1">&#39;gid&#39;</span><span class="p">);</span>
 </pre></div>
@@ -232,43 +157,12 @@ quality for Cape town we can choose a very small “snapping” tolerance:
 <p>Fortunately we didn’t need to wait too long because the data is small. But your
 network data might be very large, so it’s a good idea to add an index on source,
 target and geometry column.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">source_idx</span> <span class="k">ON</span> <span class="n">ways</span><span class="p">(</span><span class="k">source</span><span class="p">);</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">source_idx</span> <span class="k">ON</span> <span class="n">ways</span><span class="p">(</span><span class="k">source</span><span class="p">);</span>
 <span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">target_idx</span> <span class="k">ON</span> <span class="n">ways</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
 <span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">geom_idx</span> <span class="k">ON</span> <span class="n">ways</span> <span class="k">USING</span> <span class="n">GIST</span><span class="p">(</span><span class="n">the_geom</span> <span class="n">GIST_GEOMETRY_OPS</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>After these steps our routing database look like this:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span>\d
-
-                     List of relations
- Schema |        Name         |   Type   |  Owner
---------+---------------------+----------+----------
- public | geometry_columns    | table    | postgres
- public | spatial_ref_sys     | table    | postgres
- public | vertices_tmp        | table    | postgres
- public | vertices_tmp_id_seq | sequence | postgres
- public | ways                | table    | postgres
-(5 rows)
-
-\d ways
-
-               Table &quot;public.ways&quot;
-  Column  |       Type       | Modifiers
-----------+------------------+-----------
- gid      | integer          | not null
- length   | double precision |
- name     | character(200)   |
- the_geom | geometry         |
- source   | integer          |
- target   | integer          |
-Indexes:
-        &quot;ways_pkey&quot; PRIMARY KEY, btree (gid)
-Check constraints:
-        &quot;enforce_dims_the_geom&quot; CHECK (ndims(the_geom) = 2)
-        &quot;enforce_geotype_the_geom&quot; CHECK (geometrytype(the_geom) = &#39;MULTILINESTRING&#39;::text OR the_geom IS NULL)
-        &quot;enforce_srid_the_geom&quot; CHECK (srid(the_geom) = 4326)
-</pre></div>
-</div>
 <p>Now we are ready for routing with Dijkstra algorithm!</p>
 </div>
 </div>
@@ -282,7 +176,15 @@ Check constraints:
     <div class="related">
       <h3>Navigation</h3>
       <ul>
+            <li class="right" style="margin-right: 10px">
+              <a href="ch07.html" title="pgRouting with Dijkstra algorithm"
+                 accesskey="N">next</a></li>
+            <li class="right" >
+              <a href="ch05.html" title="Installation of pgRouting"
+                 accesskey="P">previous</a> |</li>
         <li><a href="../../index.html">Home</a> &#187;</li>
+          <li><a href="../tutorials.html" >Workshops &amp; Tutorials</a> &#187;</li>
+          <li><a href="index.html" >FOSS4G routing with pgRouting tools and OpenStreetMap road data</a> &#187;</li>
         <li><a href="#">Load your network data and create a network topology</a></li>
       </ul>
     </div>
@@ -295,18 +197,6 @@ Check constraints:
       	</script>
     </div>
 
-	<!-- Piwik -->
-	<script type="text/javascript">
-	var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.georepublic.net/" : "http://stats.georepublic.net/");
-	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-	</script><script type="text/javascript">
-	try {
-	var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
-	piwikTracker.trackPageView();
-	piwikTracker.enableLinkTracking();
-	} catch( err ) {}
-	</script><noscript><p><img src="http://stats.georepublic.net/piwik.php?idsite=3" style="border:0" alt="" /></p></noscript>
-	<!-- End Piwik Tag -->
 
   </body>
 </html>

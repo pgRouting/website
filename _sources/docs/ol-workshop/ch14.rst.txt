@@ -16,7 +16,7 @@ To get a path on one line like that:
 
 Please use the following function
 
-.. code-block:: sql
+.. code-block
 
 	CREATE OR REPLACE FUNCTION intersection_on_line(gid_a integer,start geometry,ende geometry)
 	  RETURNS geometry AS
@@ -50,7 +50,7 @@ Please use the following function
 
 
 
-	-- Give me the number of points  of the geometry 
+	-- Give me the number of points  of the geometry
 	number_of_points:=ST_NumPoints(the_geom) from ways where gid=$1;
 
 	mywkt:='';
@@ -92,7 +92,7 @@ Please use the following function
 	SELECT INTO p ST_intersects(line,buffer($2,1));
 	SELECT INTO q ST_intersects(line,buffer($3,1));
 
-	--If clickpoint intersects 
+	--If clickpoint intersects
 	IF p='t' OR q='t' AND zaehler!='2' THEN
 
 	zaehler:=zaehler+1;
@@ -124,7 +124,7 @@ Please use the following function
 
 
 	--Endpoint is clickpoint end
-	ELSE 
+	ELSE
 	mywkt:= mywkt || X($3)||' '||Y($3);
 	END IF;
 
@@ -140,7 +140,7 @@ Please use the following function
 	END;
 
 	$BODY$
-	  LANGUAGE 'plpgsql' IMMUTABLE STRICT;
+	LANGUAGE 'plpgsql' IMMUTABLE STRICT;
 
 
 It is called in routing3.php if startedge-gid and end-edge-gid are equal.

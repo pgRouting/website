@@ -4,29 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Explanation of the php-code step 1 &#8212; Open Source Routing Library</title>
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Function for Filling the gaps (green markers to the vertices)" href="ch09.html" />
+    <link rel="prev" title="Explanation of the OpenLayers-Code step 2" href="ch07.html" />
     
 
-  </head>
-  <body>
+  </head><body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -54,6 +48,8 @@
       <h3>Navigation</h3>
       <ul>
         <li><a href="../../index.html">Home</a> &#187;</li>
+          <li><a href="../tutorials.html" >Workshops &amp; Tutorials</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">Workshop OpenLayers, pgRouting and OSM-data</a> &#187;</li>
         <li><a href="#">Explanation of the php-code step 1</a></li>
       </ul>
     </div>
@@ -62,68 +58,24 @@
     	
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-    
-    <h2>Make a Donation</h2>
-    <p>
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG">
-			<input type="hidden" name="business" value="donate@pgrouting.org">
-			<input type="hidden" name="notify_url" value="http://www.pgrouting.org">
-			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
-			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
-			<select name="currency_code" class="paypal_currency">
-				<option value="EUR" title="€" selected="">EUR</option>
-				<option value="AUD" title="$">AUD</option>
-				<option value="GBP" title="£">GBP</option>
-				<option value="JPY" title="¥">JPY</option>
-				<option value="CAD" title="$">CAD</option>
-				<option value="CHF" title="">CHF</option>
-				<option value="USD" title="$">USD</option>
-			</select>
-			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-      <ul style="list-style: square; margin-left: 20px;">
-        <li><a href="../../donate.html">Read more</a></li>
-        <li><a href="../../donate.html#sponsors">Our sponsors</a></li>
-      </ul>
-		</form>
-    </p>
-    <h2>Links</h2>
-    <ul style="list-style: square; margin-left: 20px;">
-      <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
-    	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="http://www.postgis.net/">PostGIS</a></li>
-    </ul>
-
-    <!-- Callout -->
-    <div class="callout-sidebar">
-
-        <!-- <a href="http://2018.foss4g.org">
-          <img src="../../_static/img/foss4g_2018.png"
-            alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
-        </a> -->
-
-        <!-- <a href="https://europe.foss4g.org/2018">
-          <img src="../../_static/img/foss4ge_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
-        </a> -->
-
-        <!-- <a href="http://www.foss4g-asia.org/2018">
-          <img src="../../_static/img/foss4gasia_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
-        </a> -->
-
-        <a href="http://locatepress.com/pgrouting">
-          <img src="../../_static/img/book_fullsize.png"
-              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
-        </a>
-
-        <a href="http://www.osgeo.org">
-          <img src="../../_static/img/OSGeo_logo.png"
-        	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
-        </a>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ch07.html"
+                        title="previous chapter">Explanation of the OpenLayers-Code step 2</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ch09.html"
+                        title="next chapter">Function for Filling the gaps (green markers to the vertices)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
     </div>
-
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -137,7 +89,7 @@
   <div class="section" id="explanation-of-the-php-code-step-1">
 <span id="ol-workshop-ch08"></span><h1>Explanation of the php-code step 1<a class="headerlink" href="#explanation-of-the-php-code-step-1" title="Permalink to this headline">¶</a></h1>
 <p>First of all a database-connection is set</p>
-<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
   <span class="c1">// Database connection settings</span>
   <span class="nb">define</span><span class="p">(</span><span class="s2">&quot;PG_DB&quot;</span>  <span class="p">,</span> <span class="s2">&quot;routing&quot;</span><span class="p">);</span>
   <span class="nb">define</span><span class="p">(</span><span class="s2">&quot;PG_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">);</span>
@@ -154,7 +106,7 @@ If you use a database-connection with password of course you need to define a pa
 <dd>$con = pg_connect(“dbname=”.PG_DB.” host=”.PG_HOST.” password=”.PG_PASS.” user=”.PG_USER);</dd>
 </dl>
 <p>At the next step, the start- and endpoint are set.</p>
-<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">$counter = $pathlength = 0;</span>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$counter = $pathlength = 0;</span>
 <span class="x">// Retrieve start point</span>
 <span class="x">$start = split(&#39; &#39;,$_REQUEST[&#39;startpoint&#39;]);</span>
 
@@ -173,7 +125,7 @@ it`s looked for the_geom. Because of ORDER BY dist LIMIT 1 the nearest one will
 be taken.</p>
 <p>That screenshot visualises the bounding-box:</p>
 <a class="reference internal image-reference" href="../../_images/routingfrage_1.png"><img alt="../../_images/routingfrage_1.png" class="align-center" src="../../_images/routingfrage_1.png" style="width: 832.0px; height: 665.6px;" /></a>
-<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">// Find the nearest edge</span>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">// Find the nearest edge</span>
 <span class="x">$startEdge = findNearestEdge($startPoint);</span>
 
 
@@ -211,7 +163,7 @@ be taken.</p>
 </pre></div>
 </div>
 <p>After that, the routing-algorithm is taken.</p>
-<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">// Select the routing algorithm</span>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">// Select the routing algorithm</span>
 <span class="x">switch($_REQUEST[&#39;method&#39;]) {</span>
 
 <span class="x">case &#39;SPD&#39; : // Shortest Path Dijkstra</span>
@@ -303,7 +255,7 @@ and the endpoint is 900912.1967151827  6852354.021605052</p>
 <p>The result of the first SQL-Requests for the StartPoint will be the geom with the 7289 and the source-value 486, target-value: 43
 For the endPoint: Gid:8298, Source: 4490, Target: 449</p>
 <p>Then The SQL-Command tor e.g. Shortest Path Dijkstra starts. The result in this case is:</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">gid</span>                           <span class="n">wkt</span>                                                                                                            <span class="k">length</span>             <span class="n">id</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">gid</span>                           <span class="n">wkt</span>                                                                                                            <span class="k">length</span>             <span class="n">id</span>
 <span class="c1">----        ----------------------------------------------------------------------------------------------------------------------         ---------------- -------</span>
 <span class="mi">738</span>         <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">900623</span><span class="p">.</span><span class="mi">048836333</span> <span class="mi">6852579</span><span class="p">.</span><span class="mi">25744262</span><span class="p">,</span><span class="mi">900636</span><span class="p">.</span><span class="mi">485098872</span> <span class="mi">6852566</span><span class="p">.</span><span class="mi">95487873</span><span class="p">,</span><span class="mi">900770</span><span class="p">.</span><span class="mi">11301562</span> <span class="mi">6852342</span><span class="p">.</span><span class="mi">72756191</span><span class="p">))</span>        <span class="mi">279</span><span class="p">.</span><span class="mi">243241240336</span>     <span class="mi">738</span>
 <span class="mi">8298</span>        <span class="n">MULTILINESTRING</span><span class="p">((</span><span class="mi">900883</span><span class="p">.</span><span class="mi">369465553</span> <span class="mi">6852397</span><span class="p">.</span><span class="mi">46895301</span><span class="p">,</span><span class="mi">900923</span><span class="p">.</span><span class="mi">778440711</span> <span class="mi">6852337</span><span class="p">.</span><span class="mi">886752</span><span class="p">,</span><span class="mi">900926</span><span class="p">.</span><span class="mi">539164082</span> <span class="mi">685231</span> <span class="n">etc</span><span class="p">......)</span>              <span class="mi">102</span><span class="p">.</span><span class="mi">503920838894</span> <span class="mi">8298</span>
@@ -326,7 +278,15 @@ For the endPoint: Gid:8298, Source: 4490, Target: 449</p>
     <div class="related">
       <h3>Navigation</h3>
       <ul>
+            <li class="right" style="margin-right: 10px">
+              <a href="ch09.html" title="Function for Filling the gaps (green markers to the vertices)"
+                 accesskey="N">next</a></li>
+            <li class="right" >
+              <a href="ch07.html" title="Explanation of the OpenLayers-Code step 2"
+                 accesskey="P">previous</a> |</li>
         <li><a href="../../index.html">Home</a> &#187;</li>
+          <li><a href="../tutorials.html" >Workshops &amp; Tutorials</a> &#187;</li>
+          <li><a href="index.html" >Workshop OpenLayers, pgRouting and OSM-data</a> &#187;</li>
         <li><a href="#">Explanation of the php-code step 1</a></li>
       </ul>
     </div>
@@ -339,18 +299,6 @@ For the endPoint: Gid:8298, Source: 4490, Target: 449</p>
       	</script>
     </div>
 
-	<!-- Piwik -->
-	<script type="text/javascript">
-	var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.georepublic.net/" : "http://stats.georepublic.net/");
-	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-	</script><script type="text/javascript">
-	try {
-	var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
-	piwikTracker.trackPageView();
-	piwikTracker.enableLinkTracking();
-	} catch( err ) {}
-	</script><noscript><p><img src="http://stats.georepublic.net/piwik.php?idsite=3" style="border:0" alt="" /></p></noscript>
-	<!-- End Piwik Tag -->
 
   </body>
 </html>

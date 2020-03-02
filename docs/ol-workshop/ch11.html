@@ -4,29 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Killing some bugs (wrong path calculation) &#8212; Open Source Routing Library</title>
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Source Code for Killing some bugs" href="ch12.html" />
+    <link rel="prev" title="Adapting the code so that the gaps are filled" href="ch10.html" />
     
 
-  </head>
-  <body>
+  </head><body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -54,6 +48,8 @@
       <h3>Navigation</h3>
       <ul>
         <li><a href="../../index.html">Home</a> &#187;</li>
+          <li><a href="../tutorials.html" >Workshops &amp; Tutorials</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">Workshop OpenLayers, pgRouting and OSM-data</a> &#187;</li>
         <li><a href="#">Killing some bugs (wrong path calculation)</a></li>
       </ul>
     </div>
@@ -62,68 +58,24 @@
     	
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-    
-    <h2>Make a Donation</h2>
-    <p>
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG">
-			<input type="hidden" name="business" value="donate@pgrouting.org">
-			<input type="hidden" name="notify_url" value="http://www.pgrouting.org">
-			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
-			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
-			<select name="currency_code" class="paypal_currency">
-				<option value="EUR" title="€" selected="">EUR</option>
-				<option value="AUD" title="$">AUD</option>
-				<option value="GBP" title="£">GBP</option>
-				<option value="JPY" title="¥">JPY</option>
-				<option value="CAD" title="$">CAD</option>
-				<option value="CHF" title="">CHF</option>
-				<option value="USD" title="$">USD</option>
-			</select>
-			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-      <ul style="list-style: square; margin-left: 20px;">
-        <li><a href="../../donate.html">Read more</a></li>
-        <li><a href="../../donate.html#sponsors">Our sponsors</a></li>
-      </ul>
-		</form>
-    </p>
-    <h2>Links</h2>
-    <ul style="list-style: square; margin-left: 20px;">
-      <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
-    	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="http://www.postgis.net/">PostGIS</a></li>
-    </ul>
-
-    <!-- Callout -->
-    <div class="callout-sidebar">
-
-        <!-- <a href="http://2018.foss4g.org">
-          <img src="../../_static/img/foss4g_2018.png"
-            alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
-        </a> -->
-
-        <!-- <a href="https://europe.foss4g.org/2018">
-          <img src="../../_static/img/foss4ge_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
-        </a> -->
-
-        <!-- <a href="http://www.foss4g-asia.org/2018">
-          <img src="../../_static/img/foss4gasia_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
-        </a> -->
-
-        <a href="http://locatepress.com/pgrouting">
-          <img src="../../_static/img/book_fullsize.png"
-              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
-        </a>
-
-        <a href="http://www.osgeo.org">
-          <img src="../../_static/img/OSGeo_logo.png"
-        	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
-        </a>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ch10.html"
+                        title="previous chapter">Adapting the code so that the gaps are filled</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ch12.html"
+                        title="next chapter">Source Code for Killing some bugs</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
     </div>
-
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -138,7 +90,7 @@
 <span id="ol-workshop-ch11"></span><h1>Killing some bugs (wrong path calculation)<a class="headerlink" href="#killing-some-bugs-wrong-path-calculation" title="Permalink to this headline">¶</a></h1>
 <p>At this point you will find out that some routes are not correct.</p>
 <p>Please use the following extent in Openlayers</p>
-<div class="highlight-js"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">zoomToExtent</span><span class="p">(</span><span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Bounds</span><span class="p">(</span><span class="mi">894000</span><span class="p">,</span>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">zoomToExtent</span><span class="p">(</span><span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Bounds</span><span class="p">(</span><span class="mi">894000</span><span class="p">,</span>
                                             <span class="mi">6850300</span><span class="p">,</span>
                                             <span class="mi">894500</span><span class="p">,</span>
                                             <span class="mi">6850600</span><span class="p">));</span>
@@ -155,7 +107,7 @@ why is the route so, let`s say “weird”?</p>
 The end point is at the Multilinestring with the gid 4220, the target_id is 2446.</p>
 <p>Iy you the vertives 1363 and 2446 you understand why it goes that path, remember:
 The function for this is:</p>
-<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">SELECT gid, the_geom</span>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">SELECT gid, the_geom</span>
 <span class="x">     FROM dijkstra_sp_delta(</span>
 <span class="x">         &#39;&quot;.TABLE.&quot;&#39;,</span>
 <span class="x">         &quot;.$startEdge[&#39;source&#39;].&quot;,</span>
@@ -164,7 +116,7 @@ The function for this is:</p>
 </pre></div>
 </div>
 <p>One solution is to do the calculation “twice”, one as seen, and one more the other way round</p>
-<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">SELECT gid, the_geom</span>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">SELECT gid, the_geom</span>
 <span class="x">     FROM dijkstra_sp_delta(</span>
 <span class="x">         &#39;&quot;.TABLE.&quot;&#39;,</span>
 <span class="x">         &quot;.$endEdge[&#39;source&#39;].&quot;,</span>
@@ -184,7 +136,15 @@ The function for this is:</p>
     <div class="related">
       <h3>Navigation</h3>
       <ul>
+            <li class="right" style="margin-right: 10px">
+              <a href="ch12.html" title="Source Code for Killing some bugs"
+                 accesskey="N">next</a></li>
+            <li class="right" >
+              <a href="ch10.html" title="Adapting the code so that the gaps are filled"
+                 accesskey="P">previous</a> |</li>
         <li><a href="../../index.html">Home</a> &#187;</li>
+          <li><a href="../tutorials.html" >Workshops &amp; Tutorials</a> &#187;</li>
+          <li><a href="index.html" >Workshop OpenLayers, pgRouting and OSM-data</a> &#187;</li>
         <li><a href="#">Killing some bugs (wrong path calculation)</a></li>
       </ul>
     </div>
@@ -197,18 +157,6 @@ The function for this is:</p>
       	</script>
     </div>
 
-	<!-- Piwik -->
-	<script type="text/javascript">
-	var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.georepublic.net/" : "http://stats.georepublic.net/");
-	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-	</script><script type="text/javascript">
-	try {
-	var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
-	piwikTracker.trackPageView();
-	piwikTracker.enableLinkTracking();
-	} catch( err ) {}
-	</script><noscript><p><img src="http://stats.georepublic.net/piwik.php?idsite=3" style="border:0" alt="" /></p></noscript>
-	<!-- End Piwik Tag -->
 
   </body>
 </html>

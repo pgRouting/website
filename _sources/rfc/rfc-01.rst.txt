@@ -1,10 +1,10 @@
-.. 
+..
    ****************************************************************************
     pgRouting Website
     Copyright(c) pgRouting Contributors
 
-    This documentation is licensed under a Creative Commons Attribution-Share  
-    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+    This documentation is licensed under a Creative Commons Attribution-Share
+    Alike 3.0 License: https://creativecommons.org/licenses/by-sa/3.0/
    ****************************************************************************
 
 .. _rfc-01:
@@ -18,12 +18,12 @@ RFC 01: [done] Technical Steering Committee Guidelines
    * - Date:
      - 2010/03/06
    * - Author:
-     - Daniel Kastl (based on Mapserver RFC 23: http://mapserver.org/development/rfc/ms-rfc-23)
+     - Daniel Kastl (based on Mapserver RFC 23: https://mapserver.org/development/rfc/ms-rfc-23)
    * - Contact:
      - daniel at georepublic.de
    * - Last Edited:
      - 2010/11/20
-   * - Status: 
+   * - Status:
      - Adopted (2010/04/18)
 
 Summary
@@ -43,12 +43,12 @@ Examples of PSC management responsibilities:
 * setting project priorities, especially with respect to project sponsorship
 * creation and oversight of specialized sub-committees (e.g. project infrastructure, training)
 
-In brief the project team votes on proposals on `pgRouting mailing list <http://lists.osgeo.org/mailman/listinfo/pgrouting-dev>`_. Proposals are available for review for at least four days, and a single veto is sufficient delay progress though ultimately a majority of members can pass a proposal.
+In brief the project team votes on proposals on `pgRouting mailing list <https://lists.osgeo.org/mailman/listinfo/pgrouting-dev>`_. Proposals are available for review for at least four days, and a single veto is sufficient delay progress though ultimately a majority of members can pass a proposal.
 
 Detailed Process
 ********************************************************************************
 
-* Proposals such as RFC's are written up and submitted on the `pgRouting mailing list <http://lists.osgeo.org/mailman/listinfo/pgrouting-dev>`_ for discussion and voting, by any interested party, not just committee members.
+* Proposals such as RFC's are written up and submitted on the `pgRouting mailing list <https://lists.osgeo.org/mailman/listinfo/pgrouting-dev>`_ for discussion and voting, by any interested party, not just committee members.
 * Proposals need to be available for review for at least four business days before a final decision can be made.
 * Respondents may vote “+1” to indicate support for the proposal and a willingness to support implementation.
 * Respondents may vote “-1” to veto a proposal, but must provide clear reasoning and alternate approaches to resolving the problem within the two days.
@@ -90,7 +90,7 @@ The PSC is made up of individuals consisting of technical contributors (e.g. dev
 Adding Members
 ^^^^^^^^^^^^^^
 
-Any member of the `pgRouting mailing list <http://lists.osgeo.org/mailman/listinfo/pgrouting-dev>`_ may nominate someone for committee membership at any time. Only existing PSC committee members may vote on new members. Nominees must receive a majority vote from existing members to be added to the PSC.
+Any member of the `pgRouting mailing list <https://lists.osgeo.org/mailman/listinfo/pgrouting-dev>`_ may nominate someone for committee membership at any time. Only existing PSC committee members may vote on new members. Nominees must receive a majority vote from existing members to be added to the PSC.
 
 Stepping Down
 ^^^^^^^^^^^^^
@@ -108,7 +108,7 @@ Members should take an active role guiding the development of new features they 
 Mailing List/Forum Participation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PSC members are expected to be active on pgRouting mailing lists (`pgrouting-dev <http://lists.osgeo.org/mailman/listinfo/pgrouting-dev>`_, `pgrouting-users <http://lists.osgeo.org/mailman/listinfo/pgrouting-users>`_), subject to open source mailing list etiquette. Non-developer members of the PSC are not expected to respond to coding level questions on the developer mailing list, however they are expected to provide their thoughts and opinions on user level requirements and compatibility issues when RFC discussions take place.
+PSC members are expected to be active on pgRouting mailing lists (`pgrouting-dev <https://lists.osgeo.org/mailman/listinfo/pgrouting-dev>`_, `pgrouting-users <https://lists.osgeo.org/mailman/listinfo/pgrouting-users>`_), subject to open source mailing list etiquette. Non-developer members of the PSC are not expected to respond to coding level questions on the developer mailing list, however they are expected to provide their thoughts and opinions on user level requirements and compatibility issues when RFC discussions take place.
 
 Bootstrapping
 ********************************************************************************

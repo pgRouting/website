@@ -47,7 +47,7 @@ path with a minimal cost. There is no limitation in what we take as costs.
 When we convert data from OSM format using the osm2pgrouting tool, we get these
 two additional tables for road types and classes:
 
-.. code-block:: sql
+.. code-block::
 
 	\d classes
 
@@ -59,7 +59,7 @@ two additional tables for road types and classes:
 	   3 | tracktype
 
 
-.. code-block:: sql
+.. code-block::
 
 	\d types
 

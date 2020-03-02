@@ -1,10 +1,10 @@
-.. 
+..
    ****************************************************************************
     pgRouting Website
     Copyright(c) pgRouting Contributors
 
-    This documentation is licensed under a Creative Commons Attribution-Share  
-    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+    This documentation is licensed under a Creative Commons Attribution-Share
+    Alike 3.0 License: https://creativecommons.org/licenses/by-sa/3.0/
    ****************************************************************************
 
 .. _error:
@@ -18,17 +18,17 @@ To find the page you were looking for you might want to ...
 
 * :ref:`search this website <search>`
 * start with :ref:`pgRouting Home <home>`
-* visit the `pgRouting Manual <http://docs.pgrouting.org>`_
-* go to the `pgRouting Workshop <http://workshop.pgrouting.org>`_
+* visit the `pgRouting Manual <https://docs.pgrouting.org>`_
+* go to the `pgRouting Workshop <https://workshop.pgrouting.org>`_
 
 .. note::
 
 	It has been a long way but finally we made it: **pgRouting got on a new version!**
 	For more details see:
 
-	* New documentation: http://docs.pgrouting.org
-	* New workshop: http://workshop.pgrouting.org
+	* New documentation: https://docs.pgrouting.org
+	* New workshop: https://workshop.pgrouting.org
 
-	Thanks to everyone who makes the new release possible!	
-	If you want to contribute to the project financially, any :doc:`sponsorship or donation <donate>` is of great help. 
+	Thanks to everyone who makes the new release possible!
+	If you want to contribute to the project financially, any :doc:`sponsorship or donation <donate>` is of great help.
 

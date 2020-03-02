@@ -4,31 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>RFC 05: [open] Implementation of “Chinese postman problem (CPP)” algorithm &#8212; Open Source Routing Library</title>
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="RFC 04: [done] Implementation of “k-shortest path” algorithm" href="rfc-04.html" />
     <link rel="prev" title="RFC 06: [done] Implementation of “Bidirectional search” algorithm" href="rfc-06.html" />
     
 
-  </head>
-  <body>
+  </head><body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../index.html">pgRouting</a></h1>
@@ -66,7 +58,7 @@
     	
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">RFC 05: [open] Implementation of “Chinese postman problem (CPP)” algorithm</a><ul>
 <li><a class="reference internal" href="#overview">Overview</a></li>
@@ -85,68 +77,18 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="rfc-04.html"
                         title="next chapter">RFC 04: [done] Implementation of “k-shortest path” algorithm</a></p>
-    
-    <h2>Make a Donation</h2>
-    <p>
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG">
-			<input type="hidden" name="business" value="donate@pgrouting.org">
-			<input type="hidden" name="notify_url" value="http://www.pgrouting.org">
-			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
-			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
-			<select name="currency_code" class="paypal_currency">
-				<option value="EUR" title="€" selected="">EUR</option>
-				<option value="AUD" title="$">AUD</option>
-				<option value="GBP" title="£">GBP</option>
-				<option value="JPY" title="¥">JPY</option>
-				<option value="CAD" title="$">CAD</option>
-				<option value="CHF" title="">CHF</option>
-				<option value="USD" title="$">USD</option>
-			</select>
-			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-      <ul style="list-style: square; margin-left: 20px;">
-        <li><a href="../donate.html">Read more</a></li>
-        <li><a href="../donate.html#sponsors">Our sponsors</a></li>
-      </ul>
-		</form>
-    </p>
-    <h2>Links</h2>
-    <ul style="list-style: square; margin-left: 20px;">
-      <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
-    	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="http://www.postgis.net/">PostGIS</a></li>
-    </ul>
-
-    <!-- Callout -->
-    <div class="callout-sidebar">
-
-        <!-- <a href="http://2018.foss4g.org">
-          <img src="../_static/img/foss4g_2018.png"
-            alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
-        </a> -->
-
-        <!-- <a href="https://europe.foss4g.org/2018">
-          <img src="../_static/img/foss4ge_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
-        </a> -->
-
-        <!-- <a href="http://www.foss4g-asia.org/2018">
-          <img src="../_static/img/foss4gasia_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
-        </a> -->
-
-        <a href="http://locatepress.com/pgrouting">
-          <img src="../_static/img/book_fullsize.png"
-              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
-        </a>
-
-        <a href="http://www.osgeo.org">
-          <img src="../_static/img/OSGeo_logo.png"
-        	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
-        </a>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
     </div>
-
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -192,15 +134,15 @@ circuit is an optimal solution.</p>
 <p>Alan Goldman of the U.S. National Bureau of Standards first coined the name
 ‘Chinese Postman Problem’ for this problem, as it was originally studied by the
 Chinese mathematician Mei-Ku Kuan in 1962.</p>
-<p>[Source: <a class="reference external" href="http://en.wikipedia.org/wiki/Route_inspection_problem">http://en.wikipedia.org/wiki/Route_inspection_problem</a>]</p>
+<p>[Source: <a class="reference external" href="https://en.wikipedia.org/wiki/Route_inspection_problem">https://en.wikipedia.org/wiki/Route_inspection_problem</a>]</p>
 </div>
 <div class="section" id="implementation-details">
 <h2>Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h2>
 <p>List of online resources:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://users.csc.tntech.edu/~algviz/euler/algorithms.php">http://users.csc.tntech.edu/~algviz/euler/algorithms.php</a></li>
-<li><a class="reference external" href="http://www.wikihow.com/Use-the-Chinese-Postman-Algorithm">http://www.wikihow.com/Use-the-Chinese-Postman-Algorithm</a></li>
-<li><a class="reference external" href="http://www.uclic.ucl.ac.uk/harold/cpp/">http://www.uclic.ucl.ac.uk/harold/cpp/</a></li>
+<li><a class="reference external" href="https://users.csc.tntech.edu/~algviz/euler/algorithms.php">https://users.csc.tntech.edu/~algviz/euler/algorithms.php</a></li>
+<li><a class="reference external" href="https://www.wikihow.com/Use-the-Chinese-Postman-Algorithm">https://www.wikihow.com/Use-the-Chinese-Postman-Algorithm</a></li>
+<li><a class="reference external" href="https://www.uclic.ucl.ac.uk/harold/cpp/">https://www.uclic.ucl.ac.uk/harold/cpp/</a></li>
 </ul>
 </div>
 <div class="section" id="backwards-compatibilty-issues">
@@ -251,18 +193,6 @@ Chinese mathematician Mei-Ku Kuan in 1962.</p>
       	</script>
     </div>
 
-	<!-- Piwik -->
-	<script type="text/javascript">
-	var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.georepublic.net/" : "http://stats.georepublic.net/");
-	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-	</script><script type="text/javascript">
-	try {
-	var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
-	piwikTracker.trackPageView();
-	piwikTracker.enableLinkTracking();
-	} catch( err ) {}
-	</script><noscript><p><img src="http://stats.georepublic.net/piwik.php?idsite=3" style="border:0" alt="" /></p></noscript>
-	<!-- End Piwik Tag -->
 
   </body>
 </html>

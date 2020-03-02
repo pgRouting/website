@@ -4,23 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>pgRouting Project &#8212; Open Source Routing Library</title>
     <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Documentation" href="documentation.html" />
@@ -28,8 +21,7 @@
     <!-- Incude extra JS files -->
     
 
-  </head>
-  <body>
+  </head><body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="#">pgRouting</a></h1>
@@ -68,7 +60,7 @@
 			<input type="hidden" name="cmd" value="_s-xclick">
 			<input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG">
 			<input type="hidden" name="business" value="donate@pgrouting.org">
-			<input type="hidden" name="notify_url" value="http://www.pgrouting.org">
+			<input type="hidden" name="notify_url" value="https://www.pgrouting.org">
 			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
 			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
 			<select name="currency_code" class="paypal_currency">
@@ -89,15 +81,15 @@
     </p>
     <h2>Links</h2>
     <ul style="list-style: square; margin-left: 20px;">
-      <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
-    	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="http://www.postgis.net/">PostGIS</a></li>
+      <li><a href="https://workshop.pgrouting.org/">pgRouting Workshop</a></li>
+    	<li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    	<li><a href="https://www.postgis.net/">PostGIS</a></li>
     </ul>
 
     <!-- Callout -->
     <div class="callout-sidebar">
 
-        <!-- <a href="http://2018.foss4g.org">
+        <!-- <a href="https://2018.foss4g.org">
           <img src="_static/img/foss4g_2018.png"
             alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
         </a> -->
@@ -107,17 +99,12 @@
               alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
         </a> -->
 
-        <!-- <a href="http://www.foss4g-asia.org/2018">
-          <img src="_static/img/foss4gasia_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
-        </a> -->
-
-        <a href="http://locatepress.com/pgrouting">
+        <a href="https://locatepress.com/pgrouting">
           <img src="_static/img/book_fullsize.png"
               alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
         </a>
 
-        <a href="http://www.osgeo.org">
+        <a href="https://www.osgeo.org">
           <img src="_static/img/OSGeo_logo.png"
         	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
         </a>
@@ -135,10 +122,10 @@
   <div class="section" id="pgrouting-project">
 <span id="home"></span><h1>pgRouting Project<a class="headerlink" href="#pgrouting-project" title="Permalink to this headline">¶</a></h1>
 <img alt="pgRouting Project" class="align-right" src="_images/pgrouting.png" />
-<p>pgRouting extends the <a class="reference external" href="http://www.postgis.net">PostGIS</a> / <a class="reference external" href="http://www.postgresql.org">PostgreSQL</a> geospatial database to provide geospatial routing functionality.</p>
+<p>pgRouting extends the <a class="reference external" href="https://www.postgis.net">PostGIS</a> / <a class="reference external" href="https://www.postgresql.org">PostgreSQL</a> geospatial database to provide geospatial routing functionality.</p>
 <p>Advantages of the database routing approach are:</p>
 <ul class="simple">
-<li>Data and attributes can be modified by many clients, like <a class="reference external" href="http://www.qgis.org">QGIS</a> and <a class="reference external" href="http://udig.refractions.net">uDig</a> through JDBC, ODBC, or directly using Pl/pgSQL. The clients can either be PCs or mobile devices.</li>
+<li>Data and attributes can be modified by many clients, like <a class="reference external" href="https://www.qgis.org">QGIS</a> through JDBC, ODBC, or directly using Pl/pgSQL. The clients can either be PCs or mobile devices.</li>
 <li>Data changes can be reflected instantaneously through the routing engine. There is no need for precalculation.</li>
 <li>The “cost” parameter can be dynamically calculated through SQL and its value can come from multiple fields or tables.</li>
 </ul>
@@ -183,18 +170,6 @@
       	</script>
     </div>
 
-	<!-- Piwik -->
-	<script type="text/javascript">
-	var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.georepublic.net/" : "http://stats.georepublic.net/");
-	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-	</script><script type="text/javascript">
-	try {
-	var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
-	piwikTracker.trackPageView();
-	piwikTracker.enableLinkTracking();
-	} catch( err ) {}
-	</script><noscript><p><img src="http://stats.georepublic.net/piwik.php?idsite=3" style="border:0" alt="" /></p></noscript>
-	<!-- End Piwik Tag -->
 
   </body>
 </html>

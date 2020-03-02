@@ -4,29 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Explanation of the OpenLayers-Code step 2 &#8212; Open Source Routing Library</title>
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Explanation of the php-code step 1" href="ch08.html" />
+    <link rel="prev" title="Explanation of the OpenLayers-Code step 1" href="ch06.html" />
     
 
-  </head>
-  <body>
+  </head><body>
     <div class="header">
         <div class="wrap">
             <h1 id="logo"><a href="../../index.html">pgRouting</a></h1>
@@ -54,6 +48,8 @@
       <h3>Navigation</h3>
       <ul>
         <li><a href="../../index.html">Home</a> &#187;</li>
+          <li><a href="../tutorials.html" >Workshops &amp; Tutorials</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">Workshop OpenLayers, pgRouting and OSM-data</a> &#187;</li>
         <li><a href="#">Explanation of the OpenLayers-Code step 2</a></li>
       </ul>
     </div>
@@ -62,68 +58,24 @@
     	
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-    
-    <h2>Make a Donation</h2>
-    <p>
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG">
-			<input type="hidden" name="business" value="donate@pgrouting.org">
-			<input type="hidden" name="notify_url" value="http://www.pgrouting.org">
-			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
-			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
-			<select name="currency_code" class="paypal_currency">
-				<option value="EUR" title="€" selected="">EUR</option>
-				<option value="AUD" title="$">AUD</option>
-				<option value="GBP" title="£">GBP</option>
-				<option value="JPY" title="¥">JPY</option>
-				<option value="CAD" title="$">CAD</option>
-				<option value="CHF" title="">CHF</option>
-				<option value="USD" title="$">USD</option>
-			</select>
-			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-      <ul style="list-style: square; margin-left: 20px;">
-        <li><a href="../../donate.html">Read more</a></li>
-        <li><a href="../../donate.html#sponsors">Our sponsors</a></li>
-      </ul>
-		</form>
-    </p>
-    <h2>Links</h2>
-    <ul style="list-style: square; margin-left: 20px;">
-      <li><a href="http://workshop.pgrouting.org/">pgRouting Workshop</a></li>
-    	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="http://www.postgis.net/">PostGIS</a></li>
-    </ul>
-
-    <!-- Callout -->
-    <div class="callout-sidebar">
-
-        <!-- <a href="http://2018.foss4g.org">
-          <img src="../../_static/img/foss4g_2018.png"
-            alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
-        </a> -->
-
-        <!-- <a href="https://europe.foss4g.org/2018">
-          <img src="../../_static/img/foss4ge_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
-        </a> -->
-
-        <!-- <a href="http://www.foss4g-asia.org/2018">
-          <img src="../../_static/img/foss4gasia_2018.png"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Asia 2018" style="width:120px;"/>
-        </a> -->
-
-        <a href="http://locatepress.com/pgrouting">
-          <img src="../../_static/img/book_fullsize.png"
-              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
-        </a>
-
-        <a href="http://www.osgeo.org">
-          <img src="../../_static/img/OSGeo_logo.png"
-        	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
-        </a>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ch06.html"
+                        title="previous chapter">Explanation of the OpenLayers-Code step 1</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ch08.html"
+                        title="next chapter">Explanation of the php-code step 1</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
     </div>
-
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -138,7 +90,7 @@
 <span id="ol-workshop-ch07"></span><h1>Explanation of the OpenLayers-Code step 2<a class="headerlink" href="#explanation-of-the-openlayers-code-step-2" title="Permalink to this headline">¶</a></h1>
 <p>You might want to test if you routing-data are located correctly above the
 OpenLayers-OSM-Application, just take away the // at</p>
-<div class="highlight-js"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">wms</span><span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">WMS</span><span class="p">.</span><span class="nx">Untiled</span><span class="p">(</span> <span class="s2">&quot;strassen&quot;</span><span class="p">,</span>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">wms</span><span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">WMS</span><span class="p">.</span><span class="nx">Untiled</span><span class="p">(</span> <span class="s2">&quot;strassen&quot;</span><span class="p">,</span>
 
      <span class="s2">&quot;http://localhost/cgi-bin/mapserv?map=/your_path/routing.map&quot;</span><span class="p">,</span>
 
@@ -149,11 +101,11 @@ OpenLayers-OSM-Application, just take away the // at</p>
 </pre></div>
 </div>
 <p>and write also:</p>
-<div class="highlight-js"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">addLayers</span><span class="p">([</span><span class="nx">mapnik</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">stop</span><span class="p">,</span><span class="nx">result</span><span class="p">,</span><span class="nx">wms</span><span class="p">]);</span>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">addLayers</span><span class="p">([</span><span class="nx">mapnik</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">stop</span><span class="p">,</span><span class="nx">result</span><span class="p">,</span><span class="nx">wms</span><span class="p">]);</span>
 </pre></div>
 </div>
 <p>In the mapfile you should comment out</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#TEXT ([gid],[source],[target])</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#TEXT ([gid],[source],[target])</span>
 </pre></div>
 </div>
 <p>and you will get a screen like:</p>
@@ -161,7 +113,7 @@ OpenLayers-OSM-Application, just take away the // at</p>
 <p>[[Great!!!!!]], so you know that the routing-data are on the right position in
 the map!! If you want you can turn off the WMS.</p>
 <p>Some more explanations of the OpenLayers-Code:</p>
-<div class="highlight-js"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
      <span class="nx">projection</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:900913&quot;</span><span class="p">),</span>
      <span class="nx">displayProjection</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">),</span>
      <span class="nx">units</span><span class="o">:</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span>
@@ -179,7 +131,7 @@ the map!! If you want you can turn off the WMS.</p>
 Also a map-object is created and a Layerswitcher integrated.
 Coordinates are shown in WGS84 ( displayProjection: new OpenLayers.Projection(“EPSG:4326”),
 ).</p>
-<div class="highlight-js"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">osm_getTileURL</span><span class="p">(</span><span class="nx">bounds</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">osm_getTileURL</span><span class="p">(</span><span class="nx">bounds</span><span class="p">)</span> <span class="p">{</span>
 
      <span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">getResolution</span><span class="p">();</span>
 
@@ -209,7 +161,7 @@ Coordinates are shown in WGS84 ( displayProjection: new OpenLayers.Projection(�
 </pre></div>
 </div>
 <p>With that function you get OSM-Tiles for the layer mapnik:</p>
-<div class="highlight-js"><div class="highlight"><pre><span></span>        <span class="c1">// create OSM layer</span>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span>        <span class="c1">// create OSM layer</span>
 
 <span class="kd">var</span> <span class="nx">mapnik</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">TMS</span><span class="p">(</span>
 
@@ -232,7 +184,7 @@ Coordinates are shown in WGS84 ( displayProjection: new OpenLayers.Projection(�
 </div>
 <p><strong>And very important!</strong></p>
 <p>Very important is the following code-snippet:</p>
-<div class="highlight-js"><div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">startPoint</span> <span class="o">&amp;&amp;</span> <span class="nx">stopPoint</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">startPoint</span> <span class="o">&amp;&amp;</span> <span class="nx">stopPoint</span><span class="p">)</span> <span class="p">{</span>
 
             <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">loadURL</span><span class="p">(</span><span class="s2">&quot;routing.php?startpoint=&quot;</span><span class="o">+</span><span class="nx">startPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nx">startPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">y</span><span class="o">+</span><span class="s2">&quot;&amp;finalpoint=&quot;</span><span class="o">+</span><span class="nx">stopPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nx">stopPoint</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">y</span><span class="o">+</span><span class="s2">&quot;&amp;method=SPD&amp;srid=900913&quot;</span><span class="p">,</span>
                                <span class="kc">null</span><span class="p">,</span>
@@ -293,7 +245,7 @@ URL is called with the coordinates of start and end-points</p>
 <p>If these ways are correctly given back to our OpenLayers-script “parseWKT” is called.
 This parses the given “Well Known text-geodata” from routing.php.</p>
 <p>In</p>
-<div class="highlight-js"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">edges</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">edges</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
              <span class="kd">var</span> <span class="nx">g</span> <span class="o">=</span> <span class="nx">parseWKT</span><span class="p">(</span><span class="nx">edges</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;wkt&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">textContent</span><span class="p">);</span>
              <span class="nx">features</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Feature</span><span class="p">.</span><span class="nx">Vector</span><span class="p">(</span><span class="nx">g</span><span class="p">));</span>
          <span class="p">}</span>
@@ -312,7 +264,15 @@ This parses the given “Well Known text-geodata” from routing.php.</p>
     <div class="related">
       <h3>Navigation</h3>
       <ul>
+            <li class="right" style="margin-right: 10px">
+              <a href="ch08.html" title="Explanation of the php-code step 1"
+                 accesskey="N">next</a></li>
+            <li class="right" >
+              <a href="ch06.html" title="Explanation of the OpenLayers-Code step 1"
+                 accesskey="P">previous</a> |</li>
         <li><a href="../../index.html">Home</a> &#187;</li>
+          <li><a href="../tutorials.html" >Workshops &amp; Tutorials</a> &#187;</li>
+          <li><a href="index.html" >Workshop OpenLayers, pgRouting and OSM-data</a> &#187;</li>
         <li><a href="#">Explanation of the OpenLayers-Code step 2</a></li>
       </ul>
     </div>
@@ -325,18 +285,6 @@ This parses the given “Well Known text-geodata” from routing.php.</p>
       	</script>
     </div>
 
-	<!-- Piwik -->
-	<script type="text/javascript">
-	var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.georepublic.net/" : "http://stats.georepublic.net/");
-	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-	</script><script type="text/javascript">
-	try {
-	var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
-	piwikTracker.trackPageView();
-	piwikTracker.enableLinkTracking();
-	} catch( err ) {}
-	</script><noscript><p><img src="http://stats.georepublic.net/piwik.php?idsite=3" style="border:0" alt="" /></p></noscript>
-	<!-- End Piwik Tag -->
 
   </body>
 </html>

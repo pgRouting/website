@@ -96,7 +96,7 @@ Other available parameters are:
 
 * Connect to your database and see the tables that have been created
 
-.. code-block:: sql
+.. code-block::
 
 	psql -U postgres osm
 	\d

@@ -4,7 +4,7 @@
     Copyright(c) pgRouting Contributors
 
     This documentation is licensed under a Creative Commons Attribution-Share
-    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+    Alike 3.0 License: https://creativecommons.org/licenses/by-sa/3.0/
    ****************************************************************************
 
 .. _sponsorship:
@@ -60,7 +60,7 @@ Donations can be of any amount through PayPal.
 			<input type="hidden" name="cmd" value="_donations">
 			<!--input type="hidden" name="hosted_button_id" value="K6GT9CC2ZPTDG"-->
 			<input type="hidden" name="business" value="donate@pgrouting.org">
-			<input type="hidden" name="notify_url" value="http://www.pgrouting.org">
+			<input type="hidden" name="notify_url" value="https://www.pgrouting.org">
 			<input type="hidden" name="item_name" value="Donation for pgRouting Project">
 			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:none;">
 			<select name="currency_code" class="paypal_currency">
@@ -111,7 +111,7 @@ As an example, we would like to fund the following project activities:
 
 .. note::
 
-	For the beginning (to keep it simple) we're using a private PayPal account 	registered by `Georepublic <http://georepublic.info>`_ (Germany). In case the amount of donations will increase by a significant amount we might 	consider to setup some non-profit organization. Georepublic will report donations to the pgRouting PSC.
+	For the beginning (to keep it simple) we're using a private PayPal account 	registered by `Georepublic <https://georepublic.info>`_ (Germany). In case the amount of donations will increase by a significant amount we might 	consider to setup some non-profit organization. Georepublic will report donations to the pgRouting PSC.
 
 
 .. _sponsors:
@@ -150,8 +150,8 @@ The following people or organizations have made donations or supplied financial 
 
 **Bronze Sponsors**
 
-* `Online Educational Site <http://www.onlinedegree.com>`_
-* `Serenata Flowers <http://www.serenataflowers.com>`_
+* `Online Educational Site <https://www.onlinedegree.com>`_
+* `Serenata Flowers <https://www.serenataflowers.com>`_
 * `Hipper.com <https://www.hipper.com/>`_
 
 Many thanks to the listed and non-listed supporters have provided support or made donations. Names listed here are by specific request (and will be removed after about 12 months). If you have made a donation or provided financial support and wish to appear in this list (no links!), please send an email to project at pgrouting dot org.
