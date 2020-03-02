@@ -24,7 +24,7 @@ b) Calculates then the geometry from the first points pgRouting draws (also with
 For a) use the following SQL in the database:
 
 
-.. code-block:: sql
+.. code-block::
 
 	CREATE OR REPLACE FUNCTION multiline_locate_point(amultils geometry,apoint geometry)
 
