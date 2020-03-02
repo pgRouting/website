@@ -1,10 +1,10 @@
-.. 
+..
    ****************************************************************************
     pgRouting Website
     Copyright(c) pgRouting Contributors
 
-    This documentation is licensed under a Creative Commons Attribution-Share  
-    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
+    This documentation is licensed under a Creative Commons Attribution-Share
+    Alike 3.0 License: https://creativecommons.org/licenses/by-sa/3.0/
    ****************************************************************************
 
 .. _tutorials:
@@ -30,5 +30,5 @@ Previous Workshops
 	FOSS4G 2008: FOSS4G routing with pgRouting tools and OpenStreetMap road data <foss4g2008/index>
 	FOSS4G 2007: Web-based Routing: An Introduction to pgRouting with OpenLayers <foss4g2007/index>
 	FOSS4G 2007 (with OL-2.8): Workshop OpenLayers, pgRouting and OSM-data <ol-workshop/index>
-	
+
 
