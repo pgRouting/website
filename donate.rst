@@ -134,7 +134,5 @@ The following people or organizations have made donations or supplied financial 
 **Bronze Sponsors**
 
 * `Online Educational Site <https://www.onlinedegree.com>`_
-* `Serenata Flowers <https://www.serenataflowers.com>`_
-* `Hipper.com <https://www.hipper.com/>`_
 
 Many thanks to the listed and non-listed supporters have provided support or made donations. Names listed here are by specific request (and will be removed after about 12 months). If you have made a donation or provided financial support and wish to appear in this list (no links!), please send an email to project at pgrouting dot org.

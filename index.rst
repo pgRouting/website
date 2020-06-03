@@ -71,5 +71,4 @@ pgRouting is available under the GPLv2 license and is supported by a growing com
     support
     development
     gallery
-    docs/tutorials
     404
