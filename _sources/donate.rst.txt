@@ -122,15 +122,6 @@ The following people or organizations have made donations or supplied financial 
 	 :target: https://mule.to/pgRouting
 	 :alt: Sticker Mule is the easiest way to buy custom stickers.
 
-**Silver Sponsors**
-
-* `Darafei Praliaskouski <http://komzpa.net/>`_
-	|sponsor_komzpa|
-
-.. |sponsor_komzpa| image:: https://s.gravatar.com/avatar/d9bf60a9d201fe514efa27ac865dc5f7?s=172
-	 :target: http://komzpa.net/
-	 :alt:  Darafei Praliaskouski
-
 **Bronze Sponsors**
 
 * `Online Educational Site <https://www.onlinedegree.com>`_
