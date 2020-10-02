@@ -1,6 +1,6 @@
 # pgRouting - Website
 
-This readme describes how to setup the [pgRouting website](https://pgrouting.org) on Debian/Ubuntu server.
+This README describes how to setup the [pgRouting website](https://pgrouting.org) on Debian/Ubuntu server.
 
 ## Installation
 
