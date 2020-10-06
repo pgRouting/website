@@ -44,7 +44,7 @@ If possible payments through `CommunityBridge <https://funding.communitybridge.o
 Sponsorship
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Sponsors can sponsor pgRouting for any amount of money of at least 200 USD per year. Sponsorships last one year, after which they may be continued with a new payment, or allowed to lapse. At or above the following levels a sponsor will be designated as being one of the following class:
+Sponsors can sponsor pgRouting for any amount of money. Sponsorships last one year, after which they may be continued with a new payment, or allowed to lapse. At or above the following levels a sponsor will be designated as being one of the following class:
 
 * Platinum Sponsor: 3.000+ USD (yearly) or 250+ USD (monthly)
 * Gold Sponsor: 1.200+ USD (yearly) or 100+ USD (monthly)
