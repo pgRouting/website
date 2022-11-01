@@ -122,18 +122,40 @@ pgRouting :doc:`RFC's <rfc/index>` describes a major change in the technological
 Project Steering Committee
 -------------------------------------------------------------------------------
 
-..
-	Current members of the the Project Steering Committee are:
 
-	* Anton Patrushev (chair)
-	* Christian Gonzalez
-	* Ema Miyawaki
-	* Frédéric Junod
-	* Stephen Woodbridge
-	* Venkatesh Raghavan
+Current members of the the Project Steering Committee are:
 
-Due to members inactivity the project steering committee is currently not operating.
+	* Ashish Kumar
+		* OSGeo Charter member since 2021
+    	* Ex-Google summer of code student
+    	* Google summer of code mentor and administrator
+    	* Leader of vrpRouting (vrp = vehicle routing problems)
+	* Cayetano Benavent
+		* OSGeo Charter member since 2018
+    	* Google summer of code mentor
+    	* Leader of pgRouting Docker
+    	* Leader of pgRoutingLayer
+    	* Co-leader of osm2pgRouting
+	* Daniel Kastl
+    	* OSGeo Charter member since 2013
+    	* Google summer of code mentor
+    	* Founder of pgRouting organization
+    	* In charge of financial affairs
+	* Rajat Shinde	
+    	* OSGeo Charter member since 2018
+    	* Ex-Google summer of code student
+    	* Google summer of code mentor and administrator
+    	* Leader of pgRouting's workshop
+	* Regina Obe
+    	* OSGeo Charter member since 2009
+    	* Google summer of code mentor
+    	* Windows expert on pgRouting's products
+	* Vicky Vergara
+		* OSGeo Charter member since 2015
+    	* Google summer of code mentor
+    	* Leader of pgRouting
+    	* Co-leader of osm2pgRouting
 
-For Project Steering Committee guideline see :doc:`RFC 01 <rfc/rfc-01>`.
+For the Project Steering Committee guideline, see :doc:`RFC 01 <rfc/rfc-01>`.
 
 
