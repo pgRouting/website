@@ -124,4 +124,14 @@ Initial members of the the Project Steering Committee are:
 
 Anton Patrushev is declared initial Chair of the Project Steering Committee.
 
+Current members of the Project Steering Committee:
+
+* Ashish Kumar
+* Cayetano Benavent
+* Daniel Kastl
+* Rajat Shinde	
+* Regina Obe
+* Vicky Vergara
+
+
 For an updated committee membership list, see :ref:`PSC <development-psc>`.

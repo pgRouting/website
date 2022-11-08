@@ -12,7 +12,7 @@
 Support
 ===============================================================================
 
-pgRouting community support is available through `website <https://www.pgrouting.org>`_, `documentation <https://docs.pgrouting.org>`_, tutorials, mailing lists and others. If you’re looking for :ref:`commercial support <support_commercial>`, find below a list of companies providing pgRouting development and consulting services.
+pgRouting community support is available through `website <https://www.pgrouting.org>`_, `documentation <https://docs.pgrouting.org>`_, `workshops <https://workshop.pgrouting.org>`_ , `mailing lists https://pgrouting.org/development.html#mailing-lists`_ and others. If you’re looking for :ref:`commercial support <support_commercial>`, find below a list of companies providing pgRouting development and consulting services.
 
 
 Reporting Problems
@@ -32,8 +32,8 @@ Mailing List and GIS StackExchange
 
 There are two mailing lists for pgRouting hosted on OSGeo mailing list server:
 
-* User mailing list: https://lists.osgeo.org/mailman/listinfo/pgrouting-users
-* Developer mailing list: https://lists.osgeo.org/mailman/listinfo/pgrouting-dev
+* **User** mailing list: https://lists.osgeo.org/mailman/listinfo/pgrouting-users
+* **Developer** mailing list: https://lists.osgeo.org/mailman/listinfo/pgrouting-dev
 
 For general questions and topics about how to use pgRouting, please write to the user mailing list.
 
