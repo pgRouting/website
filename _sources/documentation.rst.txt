@@ -12,19 +12,16 @@
 Documentation
 ===============================================================================
 
-* `pgRouting documentation <https://docs.pgrouting.org>`__
-* `pgRouting latest documentation <https://docs.pgrouting.org/latest>`__
+* `pgRouting Documentation <https://docs.pgrouting.org>`__
+* `pgRouting Latest Documentation <https://docs.pgrouting.org/latest>`__
 
 Workshops
 -------------------------------------------------------------------------------
 
 * `pgRouting workshops <https://workshop.pgrouting.org>`__
 
-Tools and HowTo's
+Tools and How To's
 -------------------------------------------------------------------------------
-
-* :doc:`docs/howto`
-* :doc:`docs/tools`
 
 .. toctree::
 

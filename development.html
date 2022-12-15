@@ -1,19 +1,20 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
     <title>Development &#8212; Open Source Routing Library</title>
-    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Request for Comments (RFC)" href="rfc/index.html" />
@@ -53,47 +54,7 @@
     </div>
     
 
-    	
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Development</a><ul>
-<li><a class="reference internal" href="#mailing-lists">Mailing Lists</a></li>
-<li><a class="reference internal" href="#issue-tracker">Issue Tracker</a></li>
-<li><a class="reference internal" href="#git-repository">Git Repository</a><ul>
-<li><a class="reference internal" href="#pgrouting-library">pgRouting Library</a></li>
-<li><a class="reference internal" href="#pgrouting-website">pgRouting Website</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#translations">Translations</a></li>
-<li><a class="reference internal" href="#how-to-contribute">How to contribute</a></li>
-<li><a class="reference internal" href="#request-for-comments-rfc">Request for Comments (RFC)</a></li>
-<li><a class="reference internal" href="#project-steering-committee">Project Steering Committee</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="support.html"
-                        title="previous chapter">Support</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="rfc/index.html"
-                        title="next chapter">Request for Comments (RFC)</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    	  
     
 
 
@@ -102,69 +63,69 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="development">
-<span id="id1"></span><h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+  <section id="development">
+<span id="id1"></span><h1>Development<a class="headerlink" href="#development" title="Permalink to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="mailing-lists">
-<h2>Mailing Lists<a class="headerlink" href="#mailing-lists" title="Permalink to this headline">¶</a></h2>
+<section id="mailing-lists">
+<h2>Mailing Lists<a class="headerlink" href="#mailing-lists" title="Permalink to this heading">¶</a></h2>
 <p>There are two mailing lists for pgRouting hosted on <a class="reference external" href="https://www.osgeo.org">OSGeo</a> mailing list server:</p>
 <ul class="simple">
-<li><strong>User</strong> mailing list: <a class="reference external" href="https://lists.osgeo.org/mailman/listinfo/pgrouting-users">https://lists.osgeo.org/mailman/listinfo/pgrouting-users</a></li>
-<li><strong>Developer</strong> mailing list: <a class="reference external" href="https://lists.osgeo.org/mailman/listinfo/pgrouting-dev">https://lists.osgeo.org/mailman/listinfo/pgrouting-dev</a></li>
+<li><p><strong>User</strong> mailing list: <a class="reference external" href="https://lists.osgeo.org/mailman/listinfo/pgrouting-users">https://lists.osgeo.org/mailman/listinfo/pgrouting-users</a></p></li>
+<li><p><strong>Developer</strong> mailing list: <a class="reference external" href="https://lists.osgeo.org/mailman/listinfo/pgrouting-dev">https://lists.osgeo.org/mailman/listinfo/pgrouting-dev</a></p></li>
 </ul>
 <p>For development and PSC related topics, please write to the developer mailing list.</p>
-</div>
-<div class="section" id="issue-tracker">
-<h2>Issue Tracker<a class="headerlink" href="#issue-tracker" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="issue-tracker">
+<h2>Issue Tracker<a class="headerlink" href="#issue-tracker" title="Permalink to this heading">¶</a></h2>
 <p>Each repository has its own issue tracker provided by GitHub:</p>
 <ul class="simple">
-<li><strong>pgRouting</strong>: <a class="reference external" href="https://github.com/pgRouting/pgrouting/issues">https://github.com/pgRouting/pgrouting/issues</a></li>
-<li><strong>Website</strong>: <a class="reference external" href="https://github.com/pgRouting/website/issues">https://github.com/pgRouting/website/issues</a></li>
+<li><p><strong>pgRouting</strong>: <a class="reference external" href="https://github.com/pgRouting/pgrouting/issues">https://github.com/pgRouting/pgrouting/issues</a></p></li>
+<li><p><strong>Website</strong>: <a class="reference external" href="https://github.com/pgRouting/website/issues">https://github.com/pgRouting/website/issues</a></p></li>
 </ul>
 <p>Please, use these issue trackers for bug reports, feature requests or similar issues.</p>
-</div>
-<div class="section" id="git-repository">
-<h2>Git Repository<a class="headerlink" href="#git-repository" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="git-repository">
+<h2>Git Repository<a class="headerlink" href="#git-repository" title="Permalink to this heading">¶</a></h2>
 <p>pgRouting hosts its source code on Github: <a class="reference external" href="https://github.com/pgRouting">https://github.com/pgRouting</a></p>
 <p>There you can find repositories for pgRouting library itself as well as source code of the project website, osm2pgrouting, the workshop and others.
 pgRouting repositories are public, but write access is limited. Send an email to <a class="reference external" href="mailto:project&#37;&#52;&#48;pgrouting&#46;org">project<span>&#64;</span>pgrouting<span>&#46;</span>org</a> if you want to make changes to the website our if you want to contribute to the project.
 If you’re new to Git, find more information here:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://help.github.com/">https://help.github.com/</a></li>
+<li><p><a class="reference external" href="https://help.github.com/">https://help.github.com/</a></p></li>
 </ul>
-<div class="section" id="pgrouting-library">
-<h3>pgRouting Library<a class="headerlink" href="#pgrouting-library" title="Permalink to this headline">¶</a></h3>
+<section id="pgrouting-library">
+<h3>pgRouting Library<a class="headerlink" href="#pgrouting-library" title="Permalink to this heading">¶</a></h3>
 <p>To checkout the latest <a class="reference external" href="https://github.com/pgRouting/pgrouting">pgRouting Library</a> code base:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git://github.com/pgRouting/pgrouting.git pgrouting
 </pre></div>
 </div>
 <p>If you plan to submit patches or changes, make a <strong>fork</strong> of the repository:</p>
 <ol class="arabic simple">
-<li>Make sure you’ve got a GitHub account and that you’re logged in.</li>
-<li>Go to: <a class="reference external" href="https://github.com/pgRouting/pgrouting">https://github.com/pgRouting/pgrouting</a>,  click the “fork” button. Now you should have your own version of the repository.</li>
-<li>Use the same commands as above, but you’ll substitute your username like this:</li>
+<li><p>Make sure you’ve got a GitHub account and that you’re logged in.</p></li>
+<li><p>Go to: <a class="reference external" href="https://github.com/pgRouting/pgrouting">https://github.com/pgRouting/pgrouting</a>,  click the “fork” button. Now you should have your own version of the repository.</p></li>
+<li><p>Use the same commands as above, but you’ll substitute your username like this:</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git://github.com/&lt;username&gt;/pgrouting.git pgrouting
 </pre></div>
 </div>
-</div>
-<div class="section" id="pgrouting-website">
-<h3>pgRouting Website<a class="headerlink" href="#pgrouting-website" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pgrouting-website">
+<h3>pgRouting Website<a class="headerlink" href="#pgrouting-website" title="Permalink to this heading">¶</a></h3>
 <p>To checkout the latest <a class="reference external" href="https://github.com/pgRouting/pgrouting">pgRouting Website</a> code base:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git://github.com/pgRouting/website.git website
 </pre></div>
 </div>
 <p>The pgRouting website is built with <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a>. If you want to make changes to the website, contribute content or make corrections, feel free to fork the repository and submit pull requests. Or send an email to <a class="reference external" href="mailto:project&#37;&#52;&#48;pgrouting&#46;org">project<span>&#64;</span>pgrouting<span>&#46;</span>org</a> and we will give you commit rights to the repository.</p>
-</div>
-</div>
-<div class="section" id="translations">
-<h2>Translations<a class="headerlink" href="#translations" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="translations">
+<h2>Translations<a class="headerlink" href="#translations" title="Permalink to this heading">¶</a></h2>
 <p>Translations of documentation and workshop are managed with Transifex: <a class="reference external" href="https://www.transifex.com/organization/pgrouting">https://www.transifex.com/organization/pgrouting</a></p>
 <p>If you want to help with translations, <a class="reference external" href="https://www.transifex.com/signup/">create an account</a> and make a request to join the project on Transifex.</p>
-</div>
-<div class="section" id="how-to-contribute">
-<h2>How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="how-to-contribute">
+<h2>How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this heading">¶</a></h2>
 <p>Find out more about how to contribute:</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -172,21 +133,71 @@ If you’re new to Git, find more information here:</p>
 <li class="toctree-l1"><a class="reference internal" href="donate.html">Sponsorship and Donation</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="request-for-comments-rfc">
-<h2>Request for Comments (RFC)<a class="headerlink" href="#request-for-comments-rfc" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="request-for-comments-rfc">
+<h2>Request for Comments (RFC)<a class="headerlink" href="#request-for-comments-rfc" title="Permalink to this heading">¶</a></h2>
 <p>pgRouting <a class="reference internal" href="rfc/index.html"><span class="doc">RFC’s</span></a> describes a major change in the technological underpinnings of pgRouting, major additions to functionality, or changes in the direction of the project.</p>
 <div class="toctree-wrapper compound">
 </div>
-</div>
-<div class="section" id="project-steering-committee">
-<span id="development-psc"></span><h2>Project Steering Committee<a class="headerlink" href="#project-steering-committee" title="Permalink to this headline">¶</a></h2>
-<p>Due to members inactivity the project steering committee is currently not operating.</p>
-<p>For Project Steering Committee guideline see <a class="reference internal" href="rfc/rfc-01.html"><span class="doc">RFC 01</span></a>.</p>
-</div>
-</div>
+</section>
+<section id="project-steering-committee">
+<span id="development-psc"></span><h2>Project Steering Committee<a class="headerlink" href="#project-steering-committee" title="Permalink to this heading">¶</a></h2>
+<p>Current members of the the Project Steering Committee are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Ashish Kumar</dt><dd><ul>
+<li><p>OSGeo Charter member since 2021</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Ex-Google summer of code student</p></li>
+<li><p>Google summer of code mentor and administrator</p></li>
+<li><p>Leader of vrpRouting (vrp = vehicle routing problems)</p></li>
+<li><dl class="simple">
+<dt>Cayetano Benavent</dt><dd><ul>
+<li><p>OSGeo Charter member since 2018</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Google summer of code mentor</p></li>
+<li><p>Leader of pgRouting Docker</p></li>
+<li><p>Leader of pgRoutingLayer</p></li>
+<li><p>Co-leader of osm2pgRouting</p></li>
+<li><p>Daniel Kastl</p></li>
+<li><p>OSGeo Charter member since 2013</p></li>
+<li><p>Google summer of code mentor</p></li>
+<li><p>Founder of pgRouting organization</p></li>
+<li><p>In charge of financial affairs</p></li>
+<li><p>Rajat Shinde</p></li>
+<li><p>OSGeo Charter member since 2018</p></li>
+<li><p>Ex-Google summer of code student</p></li>
+<li><p>Google summer of code mentor and administrator</p></li>
+<li><p>Leader of pgRouting’s workshop</p></li>
+<li><p>Regina Obe</p></li>
+<li><p>OSGeo Charter member since 2009</p></li>
+<li><p>Google summer of code mentor</p></li>
+<li><p>Windows expert on pgRouting’s products</p></li>
+<li><dl class="simple">
+<dt>Vicky Vergara</dt><dd><ul>
+<li><p>OSGeo Charter member since 2015</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Google summer of code mentor</p></li>
+<li><p>Leader of pgRouting</p></li>
+<li><p>Co-leader of osm2pgRouting</p></li>
+</ul>
+</div></blockquote>
+<p>For the Project Steering Committee guideline, see <a class="reference internal" href="rfc/rfc-01.html"><span class="doc">RFC 01</span></a>.</p>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>

@@ -1,19 +1,20 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
     <title>RFC 01: [done] Technical Steering Committee Guidelines &#8212; Open Source Routing Library</title>
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="RFC XX: [done] RFC template" href="rfc-XX.html" />
@@ -55,54 +56,7 @@
     </div>
     
 
-    	
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">RFC 01: [done] Technical Steering Committee Guidelines</a><ul>
-<li><a class="reference internal" href="#summary">Summary</a><ul>
-<li><a class="reference internal" href="#examples-of-psc-management-responsibilities">Examples of PSC management responsibilities:</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#detailed-process">Detailed Process</a></li>
-<li><a class="reference internal" href="#when-is-vote-required">When is Vote Required?</a></li>
-<li><a class="reference internal" href="#observations">Observations</a></li>
-<li><a class="reference internal" href="#committee-membership">Committee Membership</a><ul>
-<li><a class="reference internal" href="#adding-members">Adding Members</a></li>
-<li><a class="reference internal" href="#stepping-down">Stepping Down</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#membership-responsibilities">Membership Responsibilities</a><ul>
-<li><a class="reference internal" href="#guiding-development">Guiding Development</a></li>
-<li><a class="reference internal" href="#mailing-list-forum-participation">Mailing List/Forum Participation</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#bootstrapping">Bootstrapping</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="rfc-02.html"
-                        title="previous chapter">RFC 02: [done] Migrate pgRouting to OSGeo Infrastructure</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="rfc-XX.html"
-                        title="next chapter">RFC XX: [done] RFC template</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    	  
     
 
 
@@ -111,129 +65,139 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="rfc-01-done-technical-steering-committee-guidelines">
-<span id="rfc-01"></span><h1>RFC 01: [done] Technical Steering Committee Guidelines<a class="headerlink" href="#rfc-01-done-technical-steering-committee-guidelines" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="colwidths-given docutils">
+  <section id="rfc-01-done-technical-steering-committee-guidelines">
+<span id="rfc-01"></span><h1>RFC 01: [done] Technical Steering Committee Guidelines<a class="headerlink" href="#rfc-01-done-technical-steering-committee-guidelines" title="Permalink to this heading">¶</a></h1>
+<table class="docutils align-default">
 <colgroup>
-<col width="15%" />
-<col width="85%" />
+<col style="width: 15.0%" />
+<col style="width: 85.0%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>Date:</td>
-<td>2010/03/06</td>
+<tbody>
+<tr class="row-odd"><td><p>Date:</p></td>
+<td><p>2010/03/06</p></td>
 </tr>
-<tr class="row-even"><td>Author:</td>
-<td>Daniel Kastl (based on Mapserver RFC 23: <a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-23">https://mapserver.org/development/rfc/ms-rfc-23</a>)</td>
+<tr class="row-even"><td><p>Author:</p></td>
+<td><p>Daniel Kastl (based on Mapserver RFC 23: <a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-23">https://mapserver.org/development/rfc/ms-rfc-23</a>)</p></td>
 </tr>
-<tr class="row-odd"><td>Contact:</td>
-<td>daniel at georepublic.de</td>
+<tr class="row-odd"><td><p>Contact:</p></td>
+<td><p>daniel at georepublic.de</p></td>
 </tr>
-<tr class="row-even"><td>Last Edited:</td>
-<td>2010/11/20</td>
+<tr class="row-even"><td><p>Last Edited:</p></td>
+<td><p>2010/11/20</p></td>
 </tr>
-<tr class="row-odd"><td>Status:</td>
-<td>Adopted (2010/04/18)</td>
+<tr class="row-odd"><td><p>Status:</p></td>
+<td><p>Adopted (2010/04/18)</p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>This document describes how the pgRouting Project Steering Committee determines membership, and makes decisions on all aspects of the pgRouting project - both technical and non-technical.</p>
-<div class="section" id="examples-of-psc-management-responsibilities">
-<h3>Examples of PSC management responsibilities:<a class="headerlink" href="#examples-of-psc-management-responsibilities" title="Permalink to this headline">¶</a></h3>
+<section id="examples-of-psc-management-responsibilities">
+<h3>Examples of PSC management responsibilities:<a class="headerlink" href="#examples-of-psc-management-responsibilities" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
-<li>setting the overall development road map</li>
-<li>developing technical standards and policies (e.g. coding standards, file naming conventions, etc…)</li>
-<li>ensuring regular releases (major and maintenance) of pgRouting software</li>
-<li>reviewing RFC for technical enhancements to the software</li>
-<li>project infrastructure (e.g. code repository, bug tracker, hosting options, etc…)</li>
-<li>formalization of affiliation with external entities such as OSGeo</li>
-<li>setting project priorities, especially with respect to project sponsorship</li>
-<li>creation and oversight of specialized sub-committees (e.g. project infrastructure, training)</li>
+<li><p>setting the overall development road map</p></li>
+<li><p>developing technical standards and policies (e.g. coding standards, file naming conventions, etc…)</p></li>
+<li><p>ensuring regular releases (major and maintenance) of pgRouting software</p></li>
+<li><p>reviewing RFC for technical enhancements to the software</p></li>
+<li><p>project infrastructure (e.g. code repository, bug tracker, hosting options, etc…)</p></li>
+<li><p>formalization of affiliation with external entities such as OSGeo</p></li>
+<li><p>setting project priorities, especially with respect to project sponsorship</p></li>
+<li><p>creation and oversight of specialized sub-committees (e.g. project infrastructure, training)</p></li>
 </ul>
 <p>In brief the project team votes on proposals on <a class="reference external" href="https://lists.osgeo.org/mailman/listinfo/pgrouting-dev">pgRouting mailing list</a>. Proposals are available for review for at least four days, and a single veto is sufficient delay progress though ultimately a majority of members can pass a proposal.</p>
-</div>
-</div>
-<div class="section" id="detailed-process">
-<h2>Detailed Process<a class="headerlink" href="#detailed-process" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="detailed-process">
+<h2>Detailed Process<a class="headerlink" href="#detailed-process" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li>Proposals such as RFC’s are written up and submitted on the <a class="reference external" href="https://lists.osgeo.org/mailman/listinfo/pgrouting-dev">pgRouting mailing list</a> for discussion and voting, by any interested party, not just committee members.</li>
-<li>Proposals need to be available for review for at least four business days before a final decision can be made.</li>
-<li>Respondents may vote “+1” to indicate support for the proposal and a willingness to support implementation.</li>
-<li>Respondents may vote “-1” to veto a proposal, but must provide clear reasoning and alternate approaches to resolving the problem within the two days.</li>
-<li>A vote of -0 indicates mild disagreement, but has no effect. A 0 indicates no opinion. A +0 indicate mild support, but has no effect.</li>
-<li>Anyone may comment on proposals on the list, but only members of the Project Steering Committee’s votes will be counted.</li>
-<li>A proposal will be accepted if it receives +2 (including the author) and no vetoes (-1).</li>
-<li>If a proposal is vetoed, and it cannot be revised to satisfy all parties, then it can be resubmitted for an override vote in which a majority of all eligible voters indicating +1 is sufficient to pass it. Note that this is a majority of all committee members, not just those who actively vote.</li>
-<li>Upon completion of discussion and voting the author should announce whether they are proceeding (proposal accepted) or are withdrawing their proposal (vetoed).</li>
-<li>The Chair gets a vote.</li>
-<li>The Chair is responsible for keeping track of who is a member of the Project Steering Committee.</li>
-<li>Addition and removal of members from the committee, as well as selection of a Chair should be handled as a proposal to the committee.</li>
-<li>The Chair adjudicates in cases of disputes about voting.</li>
+<li><p>Proposals such as RFC’s are written up and submitted on the <a class="reference external" href="https://lists.osgeo.org/mailman/listinfo/pgrouting-dev">pgRouting mailing list</a> for discussion and voting, by any interested party, not just committee members.</p></li>
+<li><p>Proposals need to be available for review for at least four business days before a final decision can be made.</p></li>
+<li><p>Respondents may vote “+1” to indicate support for the proposal and a willingness to support implementation.</p></li>
+<li><p>Respondents may vote “-1” to veto a proposal, but must provide clear reasoning and alternate approaches to resolving the problem within the two days.</p></li>
+<li><p>A vote of -0 indicates mild disagreement, but has no effect. A 0 indicates no opinion. A +0 indicate mild support, but has no effect.</p></li>
+<li><p>Anyone may comment on proposals on the list, but only members of the Project Steering Committee’s votes will be counted.</p></li>
+<li><p>A proposal will be accepted if it receives +2 (including the author) and no vetoes (-1).</p></li>
+<li><p>If a proposal is vetoed, and it cannot be revised to satisfy all parties, then it can be resubmitted for an override vote in which a majority of all eligible voters indicating +1 is sufficient to pass it. Note that this is a majority of all committee members, not just those who actively vote.</p></li>
+<li><p>Upon completion of discussion and voting the author should announce whether they are proceeding (proposal accepted) or are withdrawing their proposal (vetoed).</p></li>
+<li><p>The Chair gets a vote.</p></li>
+<li><p>The Chair is responsible for keeping track of who is a member of the Project Steering Committee.</p></li>
+<li><p>Addition and removal of members from the committee, as well as selection of a Chair should be handled as a proposal to the committee.</p></li>
+<li><p>The Chair adjudicates in cases of disputes about voting.</p></li>
 </ul>
-</div>
-<div class="section" id="when-is-vote-required">
-<h2>When is Vote Required?<a class="headerlink" href="#when-is-vote-required" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="when-is-vote-required">
+<h2>When is Vote Required?<a class="headerlink" href="#when-is-vote-required" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li>Any change to committee membership (new members, removing inactive members)</li>
-<li>Changes to project infrastructure (e.g. tool, location or substantive configuration)</li>
-<li>Anything that could cause backward compatibility issues.</li>
-<li>Adding substantial amounts of new code.</li>
-<li>Changing inter-subsystem APIs, or objects.</li>
-<li>Issues of procedure.</li>
-<li>When releases should take place.</li>
-<li>Anything dealing with relationships with external entities such as OSGeo</li>
-<li>Anything that might be controversial.</li>
+<li><p>Any change to committee membership (new members, removing inactive members)</p></li>
+<li><p>Changes to project infrastructure (e.g. tool, location or substantive configuration)</p></li>
+<li><p>Anything that could cause backward compatibility issues.</p></li>
+<li><p>Adding substantial amounts of new code.</p></li>
+<li><p>Changing inter-subsystem APIs, or objects.</p></li>
+<li><p>Issues of procedure.</p></li>
+<li><p>When releases should take place.</p></li>
+<li><p>Anything dealing with relationships with external entities such as OSGeo</p></li>
+<li><p>Anything that might be controversial.</p></li>
 </ul>
-</div>
-<div class="section" id="observations">
-<h2>Observations<a class="headerlink" href="#observations" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="observations">
+<h2>Observations<a class="headerlink" href="#observations" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li>The Chair is the ultimate adjudicator if things break down.</li>
-<li>The absolute majority rule can be used to override an obstructionist veto, but it is intended that in normal circumstances vetoers need to be convinced to withdraw their veto. We are trying to reach consensus.</li>
-<li>It is anticipated that separate “committees” will exist to manage conferences, documentation and web sites. That said, it is expected that the PSC will be the entity largely responsible for creating any such committees.</li>
+<li><p>The Chair is the ultimate adjudicator if things break down.</p></li>
+<li><p>The absolute majority rule can be used to override an obstructionist veto, but it is intended that in normal circumstances vetoers need to be convinced to withdraw their veto. We are trying to reach consensus.</p></li>
+<li><p>It is anticipated that separate “committees” will exist to manage conferences, documentation and web sites. That said, it is expected that the PSC will be the entity largely responsible for creating any such committees.</p></li>
 </ul>
-</div>
-<div class="section" id="committee-membership">
-<h2>Committee Membership<a class="headerlink" href="#committee-membership" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="committee-membership">
+<h2>Committee Membership<a class="headerlink" href="#committee-membership" title="Permalink to this heading">¶</a></h2>
 <p>The PSC is made up of individuals consisting of technical contributors (e.g. developers) and prominent members of the pgRouting user community. There is no set number of members for the PSC although the initial desire to have members from all previously main contributing parties.</p>
-<div class="section" id="adding-members">
-<h3>Adding Members<a class="headerlink" href="#adding-members" title="Permalink to this headline">¶</a></h3>
+<section id="adding-members">
+<h3>Adding Members<a class="headerlink" href="#adding-members" title="Permalink to this heading">¶</a></h3>
 <p>Any member of the <a class="reference external" href="https://lists.osgeo.org/mailman/listinfo/pgrouting-dev">pgRouting mailing list</a> may nominate someone for committee membership at any time. Only existing PSC committee members may vote on new members. Nominees must receive a majority vote from existing members to be added to the PSC.</p>
-</div>
-<div class="section" id="stepping-down">
-<h3>Stepping Down<a class="headerlink" href="#stepping-down" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="stepping-down">
+<h3>Stepping Down<a class="headerlink" href="#stepping-down" title="Permalink to this heading">¶</a></h3>
 <p>If for any reason a PSC member is not able to fully participate then they certainly are free to step down. If a member is not active (e.g. no voting, no IRC, forum or email participation) for a period of six months then the committee reserves the right to seek nominations to fill that position. Should that person become active again then they would certainly be welcome, but would require a nomination.</p>
-</div>
-</div>
-<div class="section" id="membership-responsibilities">
-<h2>Membership Responsibilities<a class="headerlink" href="#membership-responsibilities" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="guiding-development">
-<h3>Guiding Development<a class="headerlink" href="#guiding-development" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="membership-responsibilities">
+<h2>Membership Responsibilities<a class="headerlink" href="#membership-responsibilities" title="Permalink to this heading">¶</a></h2>
+<section id="guiding-development">
+<h3>Guiding Development<a class="headerlink" href="#guiding-development" title="Permalink to this heading">¶</a></h3>
 <p>Members should take an active role guiding the development of new features they feel passionate about. Once a change request has been accepted and given a green light to proceed does not mean the members are free of their obligation. PSC members voting “+1” for a change request are expected to stay engaged and ensure the change is implemented and documented in a way that is most beneficial to users. Note that this applies not only to change requests that affect code, but also those that affect the web site, technical infrastructure, policies and standards.</p>
-</div>
-<div class="section" id="mailing-list-forum-participation">
-<h3>Mailing List/Forum Participation<a class="headerlink" href="#mailing-list-forum-participation" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mailing-list-forum-participation">
+<h3>Mailing List/Forum Participation<a class="headerlink" href="#mailing-list-forum-participation" title="Permalink to this heading">¶</a></h3>
 <p>PSC members are expected to be active on pgRouting mailing lists (<a class="reference external" href="https://lists.osgeo.org/mailman/listinfo/pgrouting-dev">pgrouting-dev</a>, <a class="reference external" href="https://lists.osgeo.org/mailman/listinfo/pgrouting-users">pgrouting-users</a>), subject to open source mailing list etiquette. Non-developer members of the PSC are not expected to respond to coding level questions on the developer mailing list, however they are expected to provide their thoughts and opinions on user level requirements and compatibility issues when RFC discussions take place.</p>
-</div>
-</div>
-<div class="section" id="bootstrapping">
-<h2>Bootstrapping<a class="headerlink" href="#bootstrapping" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="bootstrapping">
+<h2>Bootstrapping<a class="headerlink" href="#bootstrapping" title="Permalink to this heading">¶</a></h2>
 <p>Initial members of the the Project Steering Committee are:</p>
 <ul class="simple">
-<li>Anton Patrushev</li>
-<li>Christian Gonzalez</li>
-<li>Ema Miyawaki</li>
-<li>Frédéric Junod</li>
-<li>Stephen Woodbridge</li>
-<li>Venkatesh Raghavan</li>
+<li><p>Anton Patrushev</p></li>
+<li><p>Christian Gonzalez</p></li>
+<li><p>Ema Miyawaki</p></li>
+<li><p>Frédéric Junod</p></li>
+<li><p>Stephen Woodbridge</p></li>
+<li><p>Venkatesh Raghavan</p></li>
 </ul>
 <p>Anton Patrushev is declared initial Chair of the Project Steering Committee.</p>
+<p>Current members of the Project Steering Committee:</p>
+<ul class="simple">
+<li><p>Ashish Kumar</p></li>
+<li><p>Cayetano Benavent</p></li>
+<li><p>Daniel Kastl</p></li>
+<li><p>Rajat Shinde</p></li>
+<li><p>Regina Obe</p></li>
+<li><p>Vicky Vergara</p></li>
+</ul>
 <p>For an updated committee membership list, see <a class="reference internal" href="../development.html#development-psc"><span class="std std-ref">PSC</span></a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>

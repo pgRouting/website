@@ -1,19 +1,20 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
     <title>RFC 02: [done] Migrate pgRouting to OSGeo Infrastructure &#8212; Open Source Routing Library</title>
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="RFC 01: [done] Technical Steering Committee Guidelines" href="rfc-01.html" />
@@ -55,50 +56,7 @@
     </div>
     
 
-    	
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">RFC 02: [done] Migrate pgRouting to OSGeo Infrastructure</a><ul>
-<li><a class="reference internal" href="#motivation-to-migrate-pgrouting-infrastructure">Motivation to migrate pgRouting infrastructure</a><ul>
-<li><a class="reference internal" href="#what-is-affected-by-the-migration">What is affected by the migration?</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#migration-steps">Migration steps</a><ul>
-<li><a class="reference internal" href="#mailing-lists">Mailing lists</a></li>
-<li><a class="reference internal" href="#svn-repository">SVN repository</a></li>
-<li><a class="reference internal" href="#trac-website">TRAC website</a></li>
-<li><a class="reference internal" href="#download-server">Download server</a></li>
-<li><a class="reference internal" href="#dns-settings">DNS settings</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#possible-issues">Possible issues</a></li>
-<li><a class="reference internal" href="#remarks-links">Remarks, Links</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="rfc-03.html"
-                        title="previous chapter">RFC 03: [done] Implementation of “All-pairs shortest path” algorithm</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="rfc-01.html"
-                        title="next chapter">RFC 01: [done] Technical Steering Committee Guidelines</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    	  
     
 
 
@@ -107,97 +65,98 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="rfc-02-done-migrate-pgrouting-to-osgeo-infrastructure">
-<span id="rfc-02"></span><h1>RFC 02: [done] Migrate pgRouting to OSGeo Infrastructure<a class="headerlink" href="#rfc-02-done-migrate-pgrouting-to-osgeo-infrastructure" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="colwidths-given docutils">
+  <section id="rfc-02-done-migrate-pgrouting-to-osgeo-infrastructure">
+<span id="rfc-02"></span><h1>RFC 02: [done] Migrate pgRouting to OSGeo Infrastructure<a class="headerlink" href="#rfc-02-done-migrate-pgrouting-to-osgeo-infrastructure" title="Permalink to this heading">¶</a></h1>
+<table class="docutils align-default">
 <colgroup>
-<col width="15%" />
-<col width="85%" />
+<col style="width: 15.0%" />
+<col style="width: 85.0%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>Date:</td>
-<td>2010/04/01</td>
+<tbody>
+<tr class="row-odd"><td><p>Date:</p></td>
+<td><p>2010/04/01</p></td>
 </tr>
-<tr class="row-even"><td>Author:</td>
-<td>Daniel Kastl</td>
+<tr class="row-even"><td><p>Author:</p></td>
+<td><p>Daniel Kastl</p></td>
 </tr>
-<tr class="row-odd"><td>Contact:</td>
-<td>daniel at georepublic.de</td>
+<tr class="row-odd"><td><p>Contact:</p></td>
+<td><p>daniel at georepublic.de</p></td>
 </tr>
-<tr class="row-even"><td>Last Edited:</td>
-<td>2010/11/20</td>
+<tr class="row-even"><td><p>Last Edited:</p></td>
+<td><p>2010/11/20</p></td>
 </tr>
-<tr class="row-odd"><td>Status:</td>
-<td>Adopted (2010/04/18)</td>
+<tr class="row-odd"><td><p>Status:</p></td>
+<td><p>Adopted (2010/04/18)</p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="motivation-to-migrate-pgrouting-infrastructure">
-<h2>Motivation to migrate pgRouting infrastructure<a class="headerlink" href="#motivation-to-migrate-pgrouting-infrastructure" title="Permalink to this headline">¶</a></h2>
+<section id="motivation-to-migrate-pgrouting-infrastructure">
+<h2>Motivation to migrate pgRouting infrastructure<a class="headerlink" href="#motivation-to-migrate-pgrouting-infrastructure" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li>All maintenance work for mailing list, SVN repository, TRAC website is under the responsibility of Orkney at the moment.</li>
-<li>pgRouting would like to establish a new mailing list “pgrouting-dev” without the hassle of maintaining a mail server.</li>
-<li>TRAC website faces SPAM problems from time to time and there is a large number of invalid users that have been subscribed by spam bots.</li>
-<li>pgRouting has close relation to OSGeo and other OSGeo projects. It’s part of OSGeo LiveDVD and OSGeo Labs and might aim for incubation someday.</li>
-<li>OSGeo infrastructure provides backups and file downloads (ie. for releases)</li>
-<li>Project team is small and wants to minimize work for administration and maintenance to have more time for the project</li>
+<li><p>All maintenance work for mailing list, SVN repository, TRAC website is under the responsibility of Orkney at the moment.</p></li>
+<li><p>pgRouting would like to establish a new mailing list “pgrouting-dev” without the hassle of maintaining a mail server.</p></li>
+<li><p>TRAC website faces SPAM problems from time to time and there is a large number of invalid users that have been subscribed by spam bots.</p></li>
+<li><p>pgRouting has close relation to OSGeo and other OSGeo projects. It’s part of OSGeo LiveDVD and OSGeo Labs and might aim for incubation someday.</p></li>
+<li><p>OSGeo infrastructure provides backups and file downloads (ie. for releases)</p></li>
+<li><p>Project team is small and wants to minimize work for administration and maintenance to have more time for the project</p></li>
 </ul>
-<div class="section" id="what-is-affected-by-the-migration">
-<h3>What is affected by the migration?<a class="headerlink" href="#what-is-affected-by-the-migration" title="Permalink to this headline">¶</a></h3>
+<section id="what-is-affected-by-the-migration">
+<h3>What is affected by the migration?<a class="headerlink" href="#what-is-affected-by-the-migration" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
-<li>Mailing lists ( <a class="reference external" href="https://lists.postlbs.org/mailman/listinfo/pgrouting-users">https://lists.postlbs.org/mailman/listinfo/pgrouting-users</a>)</li>
-<li>SVN repository (<a class="reference external" href="https://pgrouting.postlbs.org/svn/pgrouting">https://pgrouting.postlbs.org/svn/pgrouting</a>)</li>
-<li>TRAC website ( <a class="reference external" href="https://pgrouting.postlbs.org">https://pgrouting.postlbs.org</a>)</li>
-<li>File downloads ( <a class="reference external" href="https://files.postlbs.org/pgrouting">https://files.postlbs.org/pgrouting</a>)</li>
-<li>DNS settings ( <a class="reference external" href="https://[xyz].postlbs.org">https://[xyz].postlbs.org</a>)</li>
+<li><p>Mailing lists ( <a class="reference external" href="https://lists.postlbs.org/mailman/listinfo/pgrouting-users">https://lists.postlbs.org/mailman/listinfo/pgrouting-users</a>)</p></li>
+<li><p>SVN repository (<a class="reference external" href="https://pgrouting.postlbs.org/svn/pgrouting">https://pgrouting.postlbs.org/svn/pgrouting</a>)</p></li>
+<li><p>TRAC website ( <a class="reference external" href="https://pgrouting.postlbs.org">https://pgrouting.postlbs.org</a>)</p></li>
+<li><p>File downloads ( <a class="reference external" href="https://files.postlbs.org/pgrouting">https://files.postlbs.org/pgrouting</a>)</p></li>
+<li><p>DNS settings ( <a class="reference external" href="https://[xyz].postlbs.org">https://[xyz].postlbs.org</a>)</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="migration-steps">
-<h2>Migration steps<a class="headerlink" href="#migration-steps" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="mailing-lists">
-<h3>Mailing lists<a class="headerlink" href="#mailing-lists" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="migration-steps">
+<h2>Migration steps<a class="headerlink" href="#migration-steps" title="Permalink to this heading">¶</a></h2>
+<section id="mailing-lists">
+<h3>Mailing lists<a class="headerlink" href="#mailing-lists" title="Permalink to this heading">¶</a></h3>
 <p>Create a new mailing list “pgrouting-dev” and migrate existing list “pgrouting-users” to OSGeo mailing lists. Import existing mail archive and add current subscribers. Remove mailing list “announcements”.</p>
 <p><a class="reference external" href="https://wiki.osgeo.org/wiki/SAC:Mailing_Lists">https://wiki.osgeo.org/wiki/SAC:Mailing_Lists</a></p>
-</div>
-<div class="section" id="svn-repository">
-<h3>SVN repository<a class="headerlink" href="#svn-repository" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="svn-repository">
+<h3>SVN repository<a class="headerlink" href="#svn-repository" title="Permalink to this heading">¶</a></h3>
 <p>Migrate current pgRouting SVN repository to OSGeo infrastructure and keep Subversion history. Clearify committer list and discuss current repository structure (maybe other RFC?)</p>
 <p><a class="reference external" href="https://wiki.osgeo.org/wiki/Subversion">https://wiki.osgeo.org/wiki/Subversion</a></p>
-</div>
-<div class="section" id="trac-website">
-<h3>TRAC website<a class="headerlink" href="#trac-website" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="trac-website">
+<h3>TRAC website<a class="headerlink" href="#trac-website" title="Permalink to this heading">¶</a></h3>
 <p>For now it should be enough to have TRAC as the main website, providing bug tracker, repository browser and wiki. Someday, if we see the need for more “advanced” solutions, we can build another project site.
 Create a new TRAC instance for pgRouting on OSGeo server and try to import as much content as possible. Create static pages of the current forum and keep them somewhere (where?)</p>
 <p><a class="reference external" href="https://wiki.osgeo.org/wiki/Trac_Instances">https://wiki.osgeo.org/wiki/Trac_Instances</a></p>
-</div>
-<div class="section" id="download-server">
-<h3>Download server<a class="headerlink" href="#download-server" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="download-server">
+<h3>Download server<a class="headerlink" href="#download-server" title="Permalink to this heading">¶</a></h3>
 <p>Setup a directory for pgRouting related file downloads to provide source files and binaries, etc.. Copy current files there and adjust links.</p>
 <p><a class="reference external" href="https://wiki.osgeo.org/wiki/Download_Server">https://wiki.osgeo.org/wiki/Download_Server</a></p>
-</div>
-<div class="section" id="dns-settings">
-<h3>DNS settings<a class="headerlink" href="#dns-settings" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="dns-settings">
+<h3>DNS settings<a class="headerlink" href="#dns-settings" title="Permalink to this heading">¶</a></h3>
 <p>Update DNS settings to comply with the new URL’s, create redirects to avoid dead links. (Keep pgrouting.postlbs.org or take “pgrouting.org” domain?)</p>
-</div>
-</div>
-<div class="section" id="possible-issues">
-<h2>Possible issues<a class="headerlink" href="#possible-issues" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="possible-issues">
+<h2>Possible issues<a class="headerlink" href="#possible-issues" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li>OSGeo domain will be used for SVN, mailing lists, download server. How about TRAC?</li>
-<li>URL’s might change and links might not be accessible anymore.</li>
-<li>Discussion forum will be closed (keep current forum as static HTML and reference?). Can we expect all users to use the mailing list for questions?</li>
+<li><p>OSGeo domain will be used for SVN, mailing lists, download server. How about TRAC?</p></li>
+<li><p>URL’s might change and links might not be accessible anymore.</p></li>
+<li><p>Discussion forum will be closed (keep current forum as static HTML and reference?). Can we expect all users to use the mailing list for questions?</p></li>
 </ul>
-</div>
-<div class="section" id="remarks-links">
-<h2>Remarks, Links<a class="headerlink" href="#remarks-links" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="remarks-links">
+<h2>Remarks, Links<a class="headerlink" href="#remarks-links" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://lists.postlbs.org/pipermail/pgrouting-users/2010-March/000268.html">https://lists.postlbs.org/pipermail/pgrouting-users/2010-March/000268.html</a></li>
+<li><p><a class="reference external" href="https://lists.postlbs.org/pipermail/pgrouting-users/2010-March/000268.html">https://lists.postlbs.org/pipermail/pgrouting-users/2010-March/000268.html</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
