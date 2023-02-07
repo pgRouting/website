@@ -60,7 +60,7 @@ OSGeo-Live is a self-contained bootable DVD, USB thumb drive or Virtual Machine 
 Source Packages
 -------------------------------------------------------------------------------
 
-.. rubric:: pgRouting v2.x
+.. rubric:: pgRouting v2 and above
 
 You can find all the pgRouting Releases:
 
