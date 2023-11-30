@@ -15,6 +15,8 @@
 {% endmacro %}
 
 {%- macro callout_sidebar() %}
+<!-- Callout -->
+<div class="callout-sidebar">
     <h2>Make a Donation</h2>
     <p>
     <a href="https://opencollective.com/pgrouting/donate" target="_blank">
@@ -22,10 +24,27 @@
     <a href="https://funding.communitybridge.org/projects/pgrouting" target="_blank">
       <img src="_static/img/donate-cb.png" width="300"></a>
     <ul style="list-style: square; margin-left: 20px;">
-      <li><a href="{{ pathto('donate') }}">Read more</a></li>
+      <li><a href="{{ pathto('donate') }}">How to sponsor</a></li>
       <li><a href="{{ pathto('index') }}sponsors">Our sponsors</a></li>
     </ul>
     </p>
+
+    <!-- TODO Update link to website -->
+    <a href="https://foss4g.org" target="_blank">
+      <img src="https://foss4g.org/logos/2024-coming-soon.png"
+           alt="FOSS4G 2024, Belem" title="FOSS4G 2024, Belem" style="width:300;"/>
+    </a>
+
+    <a href="https://www.osgeo.org" _target="_blank">
+      <img src="{{ pathto('_static/img/OSGeo_logo.png', 1)}}"
+           alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
+    </a>
+
+    <a href="https://locatepress.com/pgrouting" _target="_blank">
+      <img src="{{ pathto('_static/img/book_fullsize.png', 1)}}"
+           alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
+    </a>
+
     <h2>Links</h2>
     <ul style="list-style: square; margin-left: 20px;">
       <li><b><a href="{{ pathto('download') }}">Download</a></b></li>
@@ -35,29 +54,8 @@
       <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
     </ul>
 
-    <!-- Callout -->
-    <div class="callout-sidebar">
 
-        <!-- <a href="https://2018.foss4g.org">
-          <img src="{{ pathto('_static/img/foss4g_2018.png', 1)}}"
-            alt="FOSS4G 2018, Dar es Salaam" title="FOSS4G 2018, Dar es Salaam" style="width:120px;"/>
-        </a> -->
-
-        <!-- <a href="https://europe.foss4g.org/2018">
-          <img src="{{ pathto('_static/img/foss4ge_2018.png', 1)}}"
-              alt="FOSS4G Europe 2015, Como" title="FOSS4G Europe 2018" style="width:120px;"/>
-        </a> -->
-
-        <a href="https://locatepress.com/pgrouting">
-          <img src="{{ pathto('_static/img/book_fullsize.png', 1)}}"
-              alt="pgROUTING a practical guide" title="pgROUTING a practical guide" style="height:100px;"/>
-        </a>
-
-        <a href="https://www.osgeo.org">
-          <img src="{{ pathto('_static/img/OSGeo_logo.png', 1)}}"
-        	alt="OSGeo Foundation" title="OSGeo Foundation" style="width:210px;"/>
-        </a>
-    </div>
+</div>
 {%- endmacro %}
 
 {%- macro index_sidebar() %}
@@ -102,13 +100,7 @@
   {{ nav() }}
 {% endblock %}
 
-{%- block sidebar1 %}
-    {%- if pagename == 'index' %}
-    	{{ index_sidebar() }}
-    {% else %}
-    	{{ super() }}
-    {% endif %}
-{% endblock %}
+{%- block sidebar1 %} {{ index_sidebar() }} {% endblock %}
 
 {%- block sidebar2 %}{% endblock %}
 
