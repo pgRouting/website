@@ -94,35 +94,3 @@ As an example, we would like to fund the following project activities:
 * improvement of documentation, workshop materials and tutorials
 * scholarship for students, who applied for Google Summer of Code with a great pgRouting proposal, but were unable to receive one of the limited Google stipends
 * implementation of a particular feature (if sponsorship is sufficient)
-
-.. _sponsors:
-
-Donations and Sponsorship received in the past 12 months
--------------------------------------------------------------------------------
-
-The following people or organizations have made donations or supplied financial development support to the pgRouting project and have specifically requested that their names appear here:
-
-**In-kind Sponsors**
-
-* `Georepublic <https://georepublic.info>`_ (Development, GSoC mentors)
-	|sponsor_georepublic|
-
-.. |sponsor_georepublic| image:: _static/img/sponsor_georepublic.png
-	 :width: 240
-	 :target: https://georepublic.info
-	 :alt: Georepublic - A Geolocation Technology Company
-
-* `StickerMule <https://mule.to/pgRouting>`_ (Open source stickers)
-	|sponsor_stickermule|
-
-.. |sponsor_stickermule| image:: _static/img/02-sticker-mule-logo-light.png
-	 :width: 240
-	 :target: https://mule.to/pgRouting
-	 :alt: Sticker Mule is the easiest way to buy custom stickers.
-
-**Bronze Sponsors**
-
-* `Online Educational Site <https://www.onlinedegree.com>`_
-* `Scrum Master Zertifizierung <https://agile.coach/training/scrum-master-zertifizierung/“>`_
-
-Many thanks to the listed and non-listed supporters have provided support or made donations. Names listed here are by specific request (and will be removed after about 12 months). If you have made a donation or provided financial support and wish to appear in this list (no links!), please send an email to project at pgrouting dot org.
