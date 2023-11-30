@@ -17,21 +17,22 @@
 {%- macro callout_sidebar() %}
     <h2>Make a Donation</h2>
     <p>
-      <a href="https://funding.communitybridge.org/projects/pgrouting" target="_blank"><img
-        src="_static/img/donate-cb.png" width="300"></a>
-      <ul style="list-style: square; margin-left: 20px;">
-        <li><a href="{{ pathto('donate') }}">Read more</a></li>
-        <li><a href="{{ pathto('donate') }}#sponsors">Our sponsors</a></li>
-      </ul>
-		</form>
+    <a href="https://opencollective.com/pgrouting/donate" target="_blank">
+      <img src="https://opencollective.com/manjaro-us/donate/button@2x.png?color=blue" width="300"></a>
+    <a href="https://funding.communitybridge.org/projects/pgrouting" target="_blank">
+      <img src="_static/img/donate-cb.png" width="300"></a>
+    <ul style="list-style: square; margin-left: 20px;">
+      <li><a href="{{ pathto('donate') }}">Read more</a></li>
+      <li><a href="{{ pathto('donate') }}#sponsors">Our sponsors</a></li>
+    </ul>
     </p>
     <h2>Links</h2>
     <ul style="list-style: square; margin-left: 20px;">
       <li><b><a href="{{ pathto('download') }}">Download</a></b></li>
-      <li><a href="https://workshop.pgrouting.org/">pgRouting Workshop</a></li>
-      <li><a href="{{ pathto('development') }}">Development</a></li>
-    	<li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-    	<li><a href="https://postgis.net/">PostGIS</a></li>
+      <li><a href="https://workshop.pgrouting.org/">Workshop</a></li>
+      <li><a href="https://github.com/pgRouting/pgrouting">GitHub</a></li>
+      <li><a href="https://postgis.net/">PostGIS</a></li>
+      <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
     </ul>
 
     <!-- Callout -->
