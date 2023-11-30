@@ -17,7 +17,7 @@ Page not found
 To find the page you were looking for you might want to ...
 
 * :ref:`search this website <search>`
-* start with :ref:`pgRouting Home <home>`
+* start with :doc:`pgRouting Home <index>`
 * visit the `pgRouting Manual <https://docs.pgrouting.org>`_
 * go to the `pgRouting Workshop <https://workshop.pgrouting.org>`_
 

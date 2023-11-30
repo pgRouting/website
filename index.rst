@@ -7,14 +7,11 @@
     Alike 3.0 License: https://creativecommons.org/licenses/by-sa/3.0/
    ****************************************************************************
 
-.. _home:
-
 pgRouting Project
 ===============================================================================
 
 .. image:: _themes/pgrouting/static/img/pgrouting.png
 	:alt: pgRouting Project
-	:align: right
 
 
 pgRouting extends the `PostGIS <https://postgis.net>`_ / `PostgreSQL <https://www.postgresql.org>`_ geospatial database to provide geospatial routing functionality.
@@ -25,17 +22,16 @@ Advantages of the database routing approach are:
 * Data changes can be reflected instantaneously through the routing engine. There is no need for precalculation.
 * The "cost" parameter can be dynamically calculated through SQL and its value can come from multiple fields or tables.
 
-..
-	.. note::
 
-		It has been a long way but finally we made it: **pgRouting got on a new version!**
-		For more details see:
+Sponsors
+-------------------------------------------------------------------------------
 
-		* New documentation: https://docs.pgrouting.org
-		* New workshop: https://workshop.pgrouting.org
+**Silver Sponsor**
 
-		Thanks to everyone who makes the new release possible!
-		If you want to contribute to the project financially, any :doc:`sponsorship or donation <donate>` is of great help.
+.. image:: _static/img/OSGeoUK2.png
+   :target: https://uk.osgeo.org/
+   :alt: OSGeo UK
+   :width: 200
 
 
 Core Features
@@ -71,4 +67,8 @@ pgRouting is available under the GPLv2 license and is supported by a growing com
     support
     development
     gallery
+    donate
+    docs/howto
+    docs/howto/contribute
+    docs/tools
     404

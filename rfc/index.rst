@@ -7,8 +7,6 @@
     Alike 3.0 License: https://creativecommons.org/licenses/by-sa/3.0/
    ****************************************************************************
 
-.. _rfc:
-
 Request for Comments (RFC)
 ===============================================================================
 
@@ -32,5 +30,3 @@ Template:
 	:maxdepth: 1
 
 	rfc-XX
-
-
