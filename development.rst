@@ -10,28 +10,6 @@
 Development
 ===============================================================================
 
-Mailing Lists
--------------------------------------------------------------------------------
-
-There are two mailing lists for pgRouting hosted on `OSGeo <https://www.osgeo.org>`_ mailing list server:
-
-* **User** mailing list: https://lists.osgeo.org/mailman/listinfo/pgrouting-users
-* **Developer** mailing list: https://lists.osgeo.org/mailman/listinfo/pgrouting-dev
-
-For development and PSC related topics, please write to the developer mailing list.
-
-
-Issue Tracker
--------------------------------------------------------------------------------
-
-Each repository has its own issue tracker provided by GitHub:
-
-* **pgRouting**: https://github.com/pgRouting/pgrouting/issues
-* **Website**: https://github.com/pgRouting/website/issues
-
-Please, use these issue trackers for bug reports, feature requests or similar issues.
-
-
 Git Repository
 -------------------------------------------------------------------------------
 
@@ -155,3 +133,37 @@ Current members of the the Project Steering Committee are:
   * Co-leader of osm2pgRouting
 
 For the Project Steering Committee guideline, see :doc:`RFC 01 <rfc/rfc-01>`.
+
+
+Feedback
+===============================================================================
+
+Mailing Lists
+-------------------------------------------------------------------------------
+
+There are two mailing lists for pgRouting hosted on `OSGeo <https://www.osgeo.org>`_ mailing list server:
+
+* **User** mailing list: https://lists.osgeo.org/mailman/listinfo/pgrouting-users
+* **Developer** mailing list: https://lists.osgeo.org/mailman/listinfo/pgrouting-dev
+
+For development and PSC related topics, please write to the developer mailing list.
+
+
+Issue Tracker
+-------------------------------------------------------------------------------
+
+Each repository has its own issue tracker provided by GitHub:
+
+* **pgRouting**: https://github.com/pgRouting/pgrouting/issues
+* **Website**: https://github.com/pgRouting/website/issues
+
+Please, use these issue trackers for bug reports, feature requests or similar issues.
+
+Discussions
+-------------------------------------------------------------------------------
+
+Discussions take place at
+
+* Live at **gittter** https://app.gitter.im/#/room/#pgrouting:osgeo.org
+* **github** https://github.com/pgRouting/pgrouting/discussions
+* Meetings at **OSGeo** https://meet.osgeo.org/pgrouting
