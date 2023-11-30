@@ -30,12 +30,12 @@ There are two kinds of financial contributions, we accept:
 .. raw:: html
 
 	<div style="text-align:center;margin-top:2em;">
-    <p>CommunityBridge (preferred)</p>
+    <p>CommunityBridge</p>
     <a href="https://funding.communitybridge.org/projects/pgrouting" target="_blank"><img src="_static/img/donate-cb.png" width="300"></a>
 	</div>
 
 	<div style="text-align:center;margin-bottom:3em;">
-    <p>Open Collective</p>
+    <p>Open Collective (preferred)</p>
     <a href="https://opencollective.com/pgrouting/donate" target="_blank"><img src="https://opencollective.com/manjaro-us/donate/button@2x.png?color=blue" width="300"></a>
 	</div>
 
