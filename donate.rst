@@ -35,8 +35,8 @@ How can you support the pgRouting Development
 
 There are two kinds of financial contributions, we accept:
 
-* **Sponsorships**: A sponsorship is an commitment for several years to
-  financialy contribute to the project
+* **Sponsorships**: A sponsorship is a commitment of one or more years to
+  financialy contribute to the project.
 
 * **Donations**: a donation is an occacional financial contribution to the
   project.
