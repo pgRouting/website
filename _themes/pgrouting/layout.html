@@ -1,5 +1,22 @@
 {% extends "basic/layout.html" %}
 
+{% macro nav() %}
+        <p>
+        {%- block haikurel1 %}
+        {%- endblock %}
+        {%- if prev %}
+        «&#160;&#160;<a href="{{ prev.link|e }}">Prev</a>
+        &#160;&#160;::&#160;&#160;
+        {%- endif %}
+        <a class="uplink" href="{{ pathto(root_doc)|e }}">{{ _('Home') }}</a>
+        {%- if next %}
+        &#160;&#160;::&#160;&#160;
+        <a href="{{ next.link|e }}">next</a>&#160;&#160;»
+        {%- endif %}
+        {%- block haikurel2 %}
+        {%- endblock %}
+        </p>
+{% endmacro %}
 {%- macro customrelbar(showrel=True) %}
     <div class="related">
       <h3>{{ _('Navigation') }}</h3>
@@ -106,9 +123,7 @@
 {% endblock %}
 
 {% block relbar1 %}
-    {%- if pagename != 'index' %}
-    	{{ customrelbar(False) }}
-    {% endif %}
+  {{ nav() }}
 {% endblock %}
 
 {%- block sidebar1 %}
