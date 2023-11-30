@@ -7,12 +7,15 @@
     Alike 3.0 License: https://creativecommons.org/licenses/by-sa/3.0/
    ****************************************************************************
 
-.. _support:
-
 Support
 ===============================================================================
 
-pgRouting community support is available through `website <https://www.pgrouting.org>`_, `documentation <https://docs.pgrouting.org>`_, `workshops <https://workshop.pgrouting.org>`_ , `mailing lists <https://pgrouting.org/development.html#mailing-lists>`_ and others. If you’re looking for :ref:`commercial support <support_commercial>`, find below a list of companies providing pgRouting development and consulting services.
+pgRouting community support is available through `website
+<https://www.pgrouting.org>`_, `documentation <https://docs.pgrouting.org>`_,
+`workshops <https://workshop.pgrouting.org>`_ , `mailing lists
+<https://pgrouting.org/development.html#mailing-lists>`_ and others. If you’re
+looking for `Commercial Support`_ , find below a list of
+companies providing pgRouting development and consulting services.
 
 
 Reporting Problems
@@ -54,8 +57,6 @@ GIS StackExchange
 ------------------
 You can also ask at `GIS StackExchange <https://gis.stackexchange.com/>`_ and tag the question with ``pgrouting``. Find all questions tagged with ``pgrouting`` under https://gis.stackexchange.com/questions/tagged/pgrouting or subscribe to the `pgRouting questions feed <https://gis.stackexchange.com/feeds/tag?tagnames=pgrouting&sort=newest>`_.
 
-
-.. _support_commercial:
 
 Commercial Support
 -------------------------------------------------------------------------------

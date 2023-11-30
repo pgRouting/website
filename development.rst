@@ -7,16 +7,8 @@
     Alike 3.0 License: https://creativecommons.org/licenses/by-sa/3.0/
    ****************************************************************************
 
-.. _development:
-
 Development
 ===============================================================================
-
-.. toctree::
-	:hidden:
-
-	rfc/index
-
 
 Mailing Lists
 -------------------------------------------------------------------------------
@@ -59,7 +51,7 @@ To checkout the latest `pgRouting Library <https://github.com/pgRouting/pgroutin
 
 .. code-block:: bash
 
-	git clone git://github.com/pgRouting/pgrouting.git pgrouting
+  git clone git://github.com/pgRouting/pgrouting.git pgrouting
 
 
 If you plan to submit patches or changes, make a **fork** of the repository:
@@ -70,7 +62,7 @@ If you plan to submit patches or changes, make a **fork** of the repository:
 
 .. code-block:: bash
 
-	git clone git://github.com/<username>/pgrouting.git pgrouting
+  git clone git://github.com/<username>/pgrouting.git pgrouting
 
 
 pgRouting Website
@@ -80,11 +72,10 @@ To checkout the latest `pgRouting Website <https://github.com/pgRouting/pgroutin
 
 .. code-block:: bash
 
-	git clone git://github.com/pgRouting/website.git website
+  git clone git://github.com/pgRouting/website.git website
 
 
 The pgRouting website is built with `Sphinx <https://www.sphinx-doc.org/>`_. If you want to make changes to the website, contribute content or make corrections, feel free to fork the repository and submit pull requests. Or send an email to project@pgrouting.org and we will give you commit rights to the repository.
-
 
 Translations
 -------------------------------------------------------------------------------
@@ -99,11 +90,8 @@ How to contribute
 
 Find out more about how to contribute:
 
-.. toctree::
-	:maxdepth: 1
-
-	docs/howto/contribute
-	donate
+:doc:`docs/howto/contribute`
+:doc:`donate`
 
 
 Request for Comments (RFC)
@@ -112,12 +100,9 @@ Request for Comments (RFC)
 pgRouting :doc:`RFC's <rfc/index>` describes a major change in the technological underpinnings of pgRouting, major additions to functionality, or changes in the direction of the project.
 
 .. toctree::
-	:hidden:
 
-	rfc/index
+   rfc/index
 
-
-.. _development-psc:
 
 Project Steering Committee
 -------------------------------------------------------------------------------
@@ -125,37 +110,48 @@ Project Steering Committee
 
 Current members of the the Project Steering Committee are:
 
-	* Ashish Kumar
-		* OSGeo Charter member since 2021
-    	* Ex-Google summer of code student
-    	* Google summer of code mentor and administrator
-    	* Leader of vrpRouting (vrp = vehicle routing problems)
-	* Cayetano Benavent
-		* OSGeo Charter member since 2018
-    	* Google summer of code mentor
-    	* Leader of pgRouting Docker
-    	* Leader of pgRoutingLayer
-    	* Co-leader of osm2pgRouting
-	* Daniel Kastl
-    	* OSGeo Charter member since 2013
-    	* Google summer of code mentor
-    	* Founder of pgRouting organization
-    	* In charge of financial affairs
-	* Rajat Shinde	
-    	* OSGeo Charter member since 2018
-    	* Ex-Google summer of code student
-    	* Google summer of code mentor and administrator
-    	* Leader of pgRouting's workshop
-	* Regina Obe
-    	* OSGeo Charter member since 2009
-    	* Google summer of code mentor
-    	* Windows expert on pgRouting's products
-	* Vicky Vergara
-		* OSGeo Charter member since 2015
-    	* Google summer of code mentor
-    	* Leader of pgRouting
-    	* Co-leader of osm2pgRouting
+* Ashish Kumar
+
+  * OSGeo Charter member since 2021
+
+    * Ex-Google summer of code student
+    * Google summer of code mentor and administrator
+    * Leader of vrpRouting (vrp = vehicle routing problems)
+
+* Cayetano Benavent
+
+  * OSGeo Charter member since 2018
+
+    * Google summer of code mentor
+    * Leader of pgRouting Docker
+    * Leader of pgRoutingLayer
+    * Co-leader of osm2pgRouting
+
+* Daniel Kastl
+
+  * OSGeo Charter member since 2013
+  * Google summer of code mentor
+  * Founder of pgRouting organization
+  * In charge of financial affairs
+
+* Rajat Shinde
+
+  * OSGeo Charter member since 2018
+  * Ex-Google summer of code student
+  * Google summer of code mentor and administrator
+  * Leader of pgRouting's workshop
+
+* Regina Obe
+
+  * OSGeo Charter member since 2009
+  * Google summer of code mentor
+  * Windows expert on pgRouting's products
+
+* Vicky Vergara
+
+  * OSGeo Charter member since 2015
+  * Google summer of code mentor
+  * Leader of pgRouting
+  * Co-leader of osm2pgRouting
 
 For the Project Steering Committee guideline, see :doc:`RFC 01 <rfc/rfc-01>`.
-
-

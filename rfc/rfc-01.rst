@@ -129,9 +129,9 @@ Current members of the Project Steering Committee:
 * Ashish Kumar
 * Cayetano Benavent
 * Daniel Kastl
-* Rajat Shinde	
+* Rajat Shinde
 * Regina Obe
 * Vicky Vergara
 
 
-For an updated committee membership list, see :ref:`PSC <development-psc>`.
+For an updated committee membership list, see :ref:`development:project steering committee`.

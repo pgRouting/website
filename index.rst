@@ -7,8 +7,6 @@
     Alike 3.0 License: https://creativecommons.org/licenses/by-sa/3.0/
    ****************************************************************************
 
-.. _home:
-
 pgRouting Project
 ===============================================================================
 
@@ -71,4 +69,8 @@ pgRouting is available under the GPLv2 license and is supported by a growing com
     support
     development
     gallery
+    donate
+    docs/howto
+    docs/howto/contribute
+    docs/tools
     404
