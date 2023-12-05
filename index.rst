@@ -26,12 +26,12 @@ Advantages of the database routing approach are:
 Sponsors
 -------------------------------------------------------------------------------
 
-**Silver Sponsor**
+**Gold Sponsor**
 
 .. image:: _static/img/OSGeoUK2.png
    :target: https://uk.osgeo.org/
    :alt: OSGeo UK
-   :width: 200
+   :width: 300
 
 
 Core Features
