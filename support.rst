@@ -33,9 +33,9 @@ Bugs are reported and managed in an `issue tracker <https://github.com/pgrouting
 Mailing Lists and Discussions
 ----------------------------------------------
 
-There are two mailing lists for pgRouting hosted on OSGeo mailing list server:
+There are two mailing lists (discourse forums) for pgRouting hosted on OSGeo mailing list server:
 
-* **User** mailing list: https://lists.osgeo.org/mailman/listinfo/pgrouting-users
+* **User** mailing list: https://discourse.osgeo.org/c/pgrouting/pgrouting-users/18
 * **Developer** mailing list: https://lists.osgeo.org/mailman/listinfo/pgrouting-dev
 
 For general questions and topics about how to use pgRouting, please write to the user mailing list.
