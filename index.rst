@@ -33,6 +33,13 @@ Sponsors
    :alt: OSGeo UK
    :width: 300
 
+**Sponsor**
+
+.. image:: _static/img/sponsor_route4me.png
+   :target: https://route4me.com/
+   :alt: Route4Me Route Planner
+   :width: 150
+
 
 Core Features
 -------------------------------------------------------------------------------
