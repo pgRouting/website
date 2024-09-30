@@ -30,13 +30,13 @@ Bugs are reported and managed in an `issue tracker <https://github.com/pgrouting
 5. For the versions where you can replicate the problem, note the operating system and version of pgRouting, PostGIS and PostgreSQL.
 
 
-Mailing Lists and Discussions
+Mailing Lists and Discussions (Asynchronous)
 ----------------------------------------------
 
 There are two mailing lists (discourse forums) for pgRouting hosted on OSGeo mailing list server:
 
 * **User** mailing list: https://discourse.osgeo.org/c/pgrouting/pgrouting-users/18
-* **Developer** mailing list: https://lists.osgeo.org/mailman/listinfo/pgrouting-dev
+* **Developer** mailing list: https://discourse.osgeo.org/c/pgrouting/pgrouting-dev/17
 
 For general questions and topics about how to use pgRouting, please write to the user mailing list.
 
@@ -45,12 +45,13 @@ pgRouting also utilizes `Github Discussions <https://github.com/pgRouting/pgrout
 Gitter (Synchronous)
 -----------------------
 pgRouting uses Gitter for synchronous discussions.
-You can access the pgRouting Gitter channel direct via the url:
+
+You can access using a `Matrix client <https://matrix.org/clients/>`_ on OSGeo Matrix: `#pgrouting:osgeo.org <https://matrix.to/#/#pgrouting:osgeo.org>`_
+or the pgRouting Gitter channel direct via the url:
 
 https://gitter.im/pgRouting/pgrouting
 
-or using a `Matrix client <https://matrix.org/clients/>`_ on Matrix bridge:
-Matrix: `#pgRouting_pgrouting:gitter.im <https://matrix.to/#/#pgRouting_pgrouting:gitter.im>`_
+or 
 
 
 GIS StackExchange
