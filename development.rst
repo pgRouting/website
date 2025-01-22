@@ -38,7 +38,7 @@ Current members of the the Project Steering Committee are:
 
   * OSGeo Charter member since 2015
   * Co-leader of pgRouting Docker
-  * Co-leader of osm2pgRouting
+  * Co-leader of pgRoutingLayer
 
 * Rajat Shinde
 
