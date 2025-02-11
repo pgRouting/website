@@ -19,15 +19,7 @@ Current members of the the Project Steering Committee are:
   * OSGeo Charter member since 2021
   * Ex-Google summer of code student
   * Google summer of code mentor and administrator
-  * Leader of vrpRouting (vrp = vehicle routing problems)
-
-* Cayetano Benavent
-
-  * OSGeo Charter member since 2018
-  * Google summer of code mentor
-  * Leader of pgRouting Docker
-  * Leader of pgRoutingLayer
-  * Co-leader of osm2pgRouting
+  * Co-leader of vrpRouting (vrp = vehicle routing problems)
 
 * Daniel Kastl
 
@@ -35,6 +27,18 @@ Current members of the the Project Steering Committee are:
   * Google summer of code mentor
   * Founder of pgRouting organization
   * In charge of financial affairs
+
+* Iosefa Percival
+
+  * Google summer of code mentor
+  * Co-leader of pgRouting Docker
+  * Co-leader of vrpRouting
+
+* Ko Nagase
+
+  * OSGeo Charter member since 2015
+  * Co-leader of pgRouting Docker
+  * Co-leader of pgRoutingLayer
 
 * Rajat Shinde
 
